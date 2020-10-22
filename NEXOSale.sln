@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NEXOSale", "NEXOSale\NEXOSale.vbproj", "{03C2B68F-C658-43EE-83F7-6A86F2C62AE3}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NexoSaleTest", "NexoSaleTest\NexoSaleTest.vbproj", "{C1D85EE6-5BA5-499C-90DF-4EF147877164}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03C2B68F-C658-43EE-83F7-6A86F2C62AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C2B68F-C658-43EE-83F7-6A86F2C62AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C2B68F-C658-43EE-83F7-6A86F2C62AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C2B68F-C658-43EE-83F7-6A86F2C62AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1D85EE6-5BA5-499C-90DF-4EF147877164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1D85EE6-5BA5-499C-90DF-4EF147877164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1D85EE6-5BA5-499C-90DF-4EF147877164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1D85EE6-5BA5-499C-90DF-4EF147877164}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB1BBCC9-7DAA-4139-A3E6-B921B6C1AA95}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{FEB754CC-ADD4-4CA0-9539-3658E9BEB2A5}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="NEXOSaleDriver.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="NEXOSaleDriver">
+        <MSBuild Projects="NEXOSaleDriver.dproj"/>
+    </Target>
+    <Target Name="NEXOSaleDriver:Clean">
+        <MSBuild Projects="NEXOSaleDriver.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NEXOSaleDriver:Make">
+        <MSBuild Projects="NEXOSaleDriver.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="NEXOSaleDriver"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="NEXOSaleDriver:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="NEXOSaleDriver:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

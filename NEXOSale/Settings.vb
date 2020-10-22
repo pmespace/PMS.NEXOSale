@@ -1,0 +1,416 @@
+﻿Imports System.Runtime.InteropServices
+Imports COMMON
+Imports Microsoft.Win32
+
+<ComClass(POISettings.ClassId, POISettings.InterfaceId, POISettings.EventsId)>
+Public Class POISettings
+#Region "GUID"
+	Public Shadows Const ClassId As String = "0ACB497E-FD2B-48D5-A602-EDEC63137A2C"
+	Public Shadows Const InterfaceId As String = "78192CA7-AD36-408B-B822-A2FDAA6FA65C"
+	Public Shadows Const EventsId As String = "4F36AD5A-FA73-4910-8B2C-8F6A92910052"
+#End Region
+
+#Region "properties"
+	Private Const DEFAULT_PORT = 2018
+	<DispId(1)>
+	Public Property ServerIP As String
+		Get
+			Return _serverip
+		End Get
+		Set(value As String)
+			_serverip = value
+		End Set
+	End Property
+	Private _serverip As String
+
+	<DispId(2)>
+	Public Property ServerPort As Decimal
+		Get
+			Return _serverport
+		End Get
+		Set(value As Decimal)
+			_serverport = value
+		End Set
+	End Property
+	Private _serverport As Decimal = DEFAULT_PORT
+
+	<DispId(10)>
+	Public Property PrintReceipt As Boolean
+		Get
+			Return _printreceipt
+		End Get
+		Set(value As Boolean)
+			_printreceipt = value
+		End Set
+	End Property
+	Private _printreceipt As Boolean = True
+
+	<DispId(20)>
+	Public Property Synchronous As Boolean
+		Get
+			Return _synchronous
+		End Get
+		Set(value As Boolean)
+			_synchronous = value
+		End Set
+	End Property
+	Private _synchronous As Boolean = False
+
+	<DispId(30)>
+	Public Property SupportsCancel As Boolean
+		Get
+			Return _supportscancel
+		End Get
+		Set(value As Boolean)
+			_supportscancel = value
+		End Set
+	End Property
+	Private _supportscancel As Boolean = False
+
+	<DispId(31)>
+	Public Property SupportsAbort As Boolean
+		Get
+			Return _supportsabort
+		End Get
+		Set(value As Boolean)
+			_supportsabort = value
+		End Set
+	End Property
+	Private _supportsabort As Boolean = False
+
+	<DispId(32)>
+	Public Property SupportsRefund As Boolean
+		Get
+			Return _supportsrefund
+		End Get
+		Set(value As Boolean)
+			_supportsrefund = value
+		End Set
+	End Property
+	Private _supportsrefund As Boolean = False
+
+	<DispId(33)>
+	Public Property SupportsReconciliation As Boolean
+		Get
+			Return _supportsreconciliation
+		End Get
+		Set(value As Boolean)
+			_supportsreconciliation = value
+		End Set
+	End Property
+	Private _supportsreconciliation As Boolean = False
+
+	<DispId(34)>
+	Public Property SupportsCheck As Boolean
+		Get
+			Return _supportscheck
+		End Get
+		Set(value As Boolean)
+			_supportscheck = value
+		End Set
+	End Property
+	Private _supportscheck As Boolean = False
+
+	<DispId(35)>
+	Public Property SupportsReversal As Boolean
+		Get
+			Return _supportsreversal
+		End Get
+		Set(value As Boolean)
+			_supportsreversal = value
+		End Set
+	End Property
+	Private _supportsreversal As Boolean = False
+
+	<DispId(50)>
+	Public Property GeneralTimer As Integer
+		Get
+			Return _generaltimer
+		End Get
+		Set(value As Integer)
+			_generaltimer = value
+		End Set
+	End Property
+	Private _generaltimer As Integer = DEFAULT_GENERAL_TIMER
+	Private Const DEFAULT_GENERAL_TIMER As UInteger = 15
+
+	<DispId(51)>
+	Public Property PaymentTimer As Integer
+		Get
+			Return _maxtimer
+		End Get
+		Set(value As Integer)
+			_maxtimer = value
+		End Set
+	End Property
+	Private _maxtimer As Integer = CStreamClientSettings.NO_TIMEOUT
+
+	<DispId(52)>
+	Public Property CheckTimer As Integer
+		Get
+			Return _checktimer
+		End Get
+		Set(value As Integer)
+			_checktimer = value
+		End Set
+	End Property
+	Private _checktimer As Integer = DEFAULT_CHECK_TIMER
+	Private Const DEFAULT_CHECK_TIMER As UInteger = 30
+#End Region
+
+#Region "methods"
+#End Region
+
+End Class
+
+<ComClass(Settings.ClassId, Settings.InterfaceId, Settings.EventsId)>
+Public Class Settings
+#Region "GUID"
+	Public Shadows Const ClassId As String = "CA6F62F3-0D1D-49C0-A8C4-BB46E5390931"
+	Public Shadows Const InterfaceId As String = "56D0D286-89A1-403D-A3CD-F73F2173D7AB"
+	Public Shadows Const EventsId As String = "57A50012-17B6-42CE-87AF-424ED3049E53"
+#End Region
+
+#Region "constructor"
+	Public Sub New()
+		Primary = New POISettings
+		Backup = New POISettings
+	End Sub
+#End Region
+
+#Region "properties"
+	<DispId(1)>
+	Public Property SaleID As String
+		Get
+			Return _saleid
+		End Get
+		Set(value As String)
+			_saleid = value
+		End Set
+	End Property
+	Private _saleid As String
+
+	<DispId(2)>
+	Public Property SaleIDUseIP As Boolean
+		Get
+			Return _saleiduseip
+		End Get
+		Set(value As Boolean)
+			_saleiduseip = value
+		End Set
+	End Property
+	Private _saleiduseip As Boolean
+
+	<DispId(3)>
+	Public Property POIID As String
+		Get
+			Return _poiid
+		End Get
+		Set(value As String)
+			_poiid = value
+		End Set
+	End Property
+	Private _poiid As String
+
+	<DispId(4)>
+	Public Property POIIDUseIP As Boolean
+		Get
+			Return _poiiduseip
+		End Get
+		Set(value As Boolean)
+			_poiiduseip = value
+		End Set
+	End Property
+	Private _poiiduseip As Boolean
+
+	<DispId(10)>
+	Public Property ApplicationName As String
+		Get
+			Return _applicationname
+		End Get
+		Set(value As String)
+			_applicationname = value
+		End Set
+	End Property
+	Private _applicationname As String
+
+	<DispId(11)>
+	Public Property ManufacturerName As String
+		Get
+			Return _manufacturername
+		End Get
+		Set(value As String)
+			_manufacturername = value
+		End Set
+	End Property
+	Private _manufacturername As String
+
+	<DispId(12)>
+	Public Property SoftwareVersion As String
+		Get
+			Return _softwareversion
+		End Get
+		Set(value As String)
+			_softwareversion = value
+		End Set
+	End Property
+	Private _softwareversion As String
+
+	<DispId(13)>
+	Public Property CertificationCode As String
+		Get
+			Return _certificationcode
+		End Get
+		Set(value As String)
+			_certificationcode = value
+		End Set
+	End Property
+	Private _certificationcode As String
+
+	<DispId(20)>
+	Public Property Currency As String
+		Get
+			Return _currency
+		End Get
+		Set(value As String)
+			_currency = value
+		End Set
+	End Property
+	Private _currency As String
+
+	<DispId(21)>
+	Public Property Decimals As UInteger
+		Get
+			Return _decimals
+		End Get
+		Set(value As UInteger)
+			_decimals = value
+		End Set
+	End Property
+	Private _decimals As UInteger
+
+	<DispId(30)>
+	Public Property SettingsFileName As String
+		Get
+			Return _settingsfilename
+		End Get
+		Set(value As String)
+			_settingsfilename = value
+			Dim key As RegistryKey
+			Try
+				key = Registry.CurrentUser.CreateSubKey(REGISTRY_SECTION)
+				If Not IsNothing(key) Then
+					key.SetValue(REGISTRY_KEY_SETTINGS_FILE_NAME, _settingsfilename)
+				End If
+			Catch ex As Exception
+			End Try
+		End Set
+	End Property
+	Private _settingsfilename As String = "nexosale.settings.json"
+
+	<DispId(31)>
+	Public Property LogFileName As String
+		Get
+			Return _logfilename
+		End Get
+		Set(value As String)
+			_logfilename = value
+		End Set
+	End Property
+	Private _logfilename As String
+
+	<DispId(50)>
+	Public Property Autoclose As Boolean
+		Get
+			Return _autoclose
+		End Get
+		Set(value As Boolean)
+			_autoclose = value
+		End Set
+	End Property
+	Private _autoclose As Boolean = True
+
+	<DispId(51)>
+	Public Property AutocloseDelay As UInteger
+		Get
+			Return _autoclosedelay
+		End Get
+		Set(value As UInteger)
+			_autoclosedelay = value
+		End Set
+	End Property
+	Private _autoclosedelay As UInteger = 2
+
+	<DispId(60)>
+	Public Property Primary As POISettings
+		Get
+			Return _primary
+		End Get
+		Set(value As POISettings)
+			_primary = value
+		End Set
+	End Property
+	Private _primary As POISettings = Nothing
+
+	<DispId(61)>
+	Public Property Backup As POISettings
+		Get
+			Return _backup
+		End Get
+		Set(value As POISettings)
+			_backup = value
+		End Set
+	End Property
+	Private _backup As POISettings = Nothing
+
+	<DispId(65)>
+	Public Property AdminCode As String
+		Get
+			Return _admincode
+		End Get
+		Set(value As String)
+			_admincode = value
+		End Set
+	End Property
+	Private _admincode As String
+
+	<DispId(66)>
+	Public Property UseDate As Boolean
+		Get
+			Return _usedate
+		End Get
+		Set(value As Boolean)
+			_usedate = value
+		End Set
+	End Property
+	Private _usedate As Boolean
+
+#End Region
+
+#Region "methods"
+	Public Const REGISTRY_SECTION As String = "Software\PMS\NexoSale\"
+	<DispId(500)>
+	Public Function RegistryEntry() As String
+		Return REGISTRY_SECTION
+	End Function
+
+	Public Const REGISTRY_KEY_SETTINGS_FILE_NAME As String = "SettingsFileName"
+	<DispId(501)>
+	Public Function RegistryKeySettingsFileName() As String
+		Return REGISTRY_KEY_SETTINGS_FILE_NAME
+	End Function
+
+	Public Const DEFAULT_SETTINGS_FILE_NAME As String = "nexosale.settings.json"
+	<DispId(502)>
+	Public Function DefaultSettingsFileName() As String
+		Return DEFAULT_SETTINGS_FILE_NAME
+	End Function
+
+	Public Const DEFAULT_SETTINGS_FILE_NAME_FOLDER As String = ".\"
+	<DispId(503)>
+	Public Function DefaultSettingsFolder() As String
+		Return DEFAULT_SETTINGS_FILE_NAME_FOLDER
+	End Function
+#End Region
+
+End Class
