@@ -22,6 +22,6 @@ Public Class Main
 			TextBox1.Text = 100
 			Nxo.Amount = 100
 		End Try
-		Nxo.DisplayProcessing(ComboBox1.SelectedItem)
+		lblResult.Text = Nxo.DisplayProcessing(ComboBox1.SelectedItem).ToString
 	End Sub
 End Class

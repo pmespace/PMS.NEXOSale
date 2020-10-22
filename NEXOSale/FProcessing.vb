@@ -256,8 +256,10 @@ Public Class FProcessing
 		requestedOperation = ope
 	End Sub
 
-	Private Sub PostMessage(msg As UInteger, Optional wparam As Integer = 0, Optional lparam As Integer = 0)
-		Win32.PostMessage(Me.Handle, msg, wparam, lparam)
+	Private Sub PostMessage(msg As UInteger, Optional wparam As Integer = 0, Optional lparam As Integer = 0, Optional wnd As Form = Nothing)
+		Dim hwnd As IntPtr = Me.Handle
+		If Not IsNothing(wnd) Then hwnd = wnd.Handle
+		Win32.PostMessage(hwnd, msg, wparam, lparam)
 	End Sub
 
 	Private Sub SendMessage(msg As UInteger, Optional wparam As Integer = 0, Optional lparam As Integer = 0)
@@ -548,6 +550,7 @@ Public Class FProcessing
 				End If
 
 			Case WM_AUTOCLOSE_START
+				PostMessage(ConfirmCancel.WM_CANCEL_CANCEL, wnd:=f)
 				SetMessageColors()
 				pbCancel.Enabled = True
 				pbCancel.Focus()
@@ -865,12 +868,17 @@ Public Class FProcessing
 			Else
 				f.Code = nexoSale.Settings.AdminCode
 			End If
-			Select Case f.ShowDialog()
-				Case DialogResult.OK
-					PostMessage(WM_CANCEL)
-			End Select
+			Dim DialogResult As DialogResult = f.ShowDialog()
 			f.Dispose()
+			f = Nothing
+			If DialogResult.OK = DialogResult Then
+				PostMessage(WM_CANCEL)
+			End If
+			If TypeOf sender Is TextBox Then
+				DirectCast(sender, TextBox).SelectionLength = 0
+			End If
 		End If
+		pbCancel.Focus()
 	End Sub
 
 	Private Sub FProcessing_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed

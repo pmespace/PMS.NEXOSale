@@ -66,10 +66,9 @@ Public Class FSettings
 
 	Private Sub FSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		If useAdvancedSettings Then
-			advancedSettingsPage.Visible = useAdvancedSettings
-			advancedSettingsPage.BringToFront()
+			TabControl1.SelectedTab = TabControl1.TabPages(1)
 		Else
-			settingsPage.BringToFront()
+			TabControl1.SelectedTab = TabControl1.TabPages(0)
 			TabControl1.TabPages.RemoveByKey(advancedSettingsPage.Name)
 		End If
 		'do not touch this, it makes room for the icon

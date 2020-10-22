@@ -2,7 +2,7 @@
 Imports COMMON
 Public Class ConfirmCancel
 
-	Public WM_CANCEL_CANCEL As UInteger = Win32.WM_USER + 1
+	Public Shared WM_CANCEL_CANCEL As UInteger = Win32.WM_USER + 1
 	Public Code As String
 
 	Protected Overrides Sub WndProc(ByRef m As Message)

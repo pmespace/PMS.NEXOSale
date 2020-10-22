@@ -33,6 +33,7 @@ Partial Class Main
 		Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+		Me.lblResult = New System.Windows.Forms.Label()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		Me.TableLayoutPanel3.SuspendLayout()
@@ -57,7 +58,7 @@ Partial Class Main
 		Me.TableLayoutPanel1.RowCount = 2
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(506, 162)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(545, 162)
 		Me.TableLayoutPanel1.TabIndex = 0
 		'
 		'TableLayoutPanel2
@@ -105,18 +106,20 @@ Partial Class Main
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.TableLayoutPanel3.AutoSize = True
 		Me.TableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.TableLayoutPanel3.ColumnCount = 3
+		Me.TableLayoutPanel3.ColumnCount = 4
 		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
 		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
 		Me.TableLayoutPanel3.Controls.Add(Me.Label2, 0, 0)
 		Me.TableLayoutPanel3.Controls.Add(Me.ComboBox1, 1, 0)
 		Me.TableLayoutPanel3.Controls.Add(Me.Button2, 2, 0)
+		Me.TableLayoutPanel3.Controls.Add(Me.lblResult, 3, 0)
 		Me.TableLayoutPanel3.Location = New System.Drawing.Point(213, 84)
 		Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
 		Me.TableLayoutPanel3.RowCount = 1
 		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel3.Size = New System.Drawing.Size(290, 75)
+		Me.TableLayoutPanel3.Size = New System.Drawing.Size(329, 75)
 		Me.TableLayoutPanel3.TabIndex = 2
 		'
 		'Label2
@@ -136,15 +139,17 @@ Partial Class Main
 		Me.ComboBox1.FormattingEnabled = True
 		Me.ComboBox1.Location = New System.Drawing.Point(75, 27)
 		Me.ComboBox1.Name = "ComboBox1"
-		Me.ComboBox1.Size = New System.Drawing.Size(131, 21)
+		Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
 		Me.ComboBox1.TabIndex = 0
 		'
 		'Button2
 		'
 		Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Right
-		Me.Button2.Location = New System.Drawing.Point(212, 26)
+		Me.Button2.AutoSize = True
+		Me.Button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.Button2.Location = New System.Drawing.Point(181, 26)
 		Me.Button2.Name = "Button2"
-		Me.Button2.Size = New System.Drawing.Size(75, 23)
+		Me.Button2.Size = New System.Drawing.Size(39, 23)
 		Me.Button2.TabIndex = 1
 		Me.Button2.Text = "Start"
 		Me.Button2.UseVisualStyleBackColor = True
@@ -171,9 +176,11 @@ Partial Class Main
 		'Button1
 		'
 		Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.None
+		Me.Button1.AutoSize = True
+		Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
 		Me.Button1.Location = New System.Drawing.Point(3, 26)
 		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(75, 23)
+		Me.Button1.Size = New System.Drawing.Size(55, 23)
 		Me.Button1.TabIndex = 0
 		Me.Button1.Text = "Settings"
 		Me.Button1.UseVisualStyleBackColor = True
@@ -182,18 +189,27 @@ Partial Class Main
 		'
 		Me.CheckBox1.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.CheckBox1.AutoSize = True
-		Me.CheckBox1.Location = New System.Drawing.Point(84, 29)
+		Me.CheckBox1.Location = New System.Drawing.Point(64, 29)
 		Me.CheckBox1.Name = "CheckBox1"
 		Me.CheckBox1.Size = New System.Drawing.Size(114, 17)
 		Me.CheckBox1.TabIndex = 1
 		Me.CheckBox1.Text = "Advanced settings"
 		Me.CheckBox1.UseVisualStyleBackColor = True
 		'
+		'lblResult
+		'
+		Me.lblResult.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.lblResult.AutoSize = True
+		Me.lblResult.Location = New System.Drawing.Point(326, 31)
+		Me.lblResult.Name = "lblResult"
+		Me.lblResult.Size = New System.Drawing.Size(0, 13)
+		Me.lblResult.TabIndex = 3
+		'
 		'Main
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(530, 186)
+		Me.ClientSize = New System.Drawing.Size(569, 186)
 		Me.Controls.Add(Me.TableLayoutPanel1)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
 		Me.MaximizeBox = False
@@ -224,4 +240,5 @@ Partial Class Main
 	Friend WithEvents Button2 As Windows.Forms.Button
 	Friend WithEvents TableLayoutPanel4 As Windows.Forms.TableLayoutPanel
 	Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
+	Friend WithEvents lblResult As Label
 End Class

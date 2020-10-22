@@ -95,9 +95,9 @@ Partial Class FProcessing
 		Me.information.Location = New System.Drawing.Point(3, 128)
 		Me.information.Multiline = True
 		Me.information.Name = "information"
+		Me.information.ReadOnly = True
 		Me.information.Size = New System.Drawing.Size(859, 110)
 		Me.information.TabIndex = 7
-		Me.information.TabStop = False
 		Me.information.Text = "information"
 		Me.information.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
@@ -111,9 +111,9 @@ Partial Class FProcessing
 		Me.message.Location = New System.Drawing.Point(3, 249)
 		Me.message.Multiline = True
 		Me.message.Name = "message"
+		Me.message.ReadOnly = True
 		Me.message.Size = New System.Drawing.Size(859, 110)
 		Me.message.TabIndex = 8
-		Me.message.TabStop = False
 		Me.message.Text = "message" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "message" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "message" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "message"
 		Me.message.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
