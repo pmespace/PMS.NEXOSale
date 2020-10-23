@@ -385,6 +385,7 @@ Public Class NEXOSALE
 	Public Function SettingsFileName() As String
 		Return SettingsFileNameEx()
 	End Function
+
 #End Region
 
 #Region "private properties"

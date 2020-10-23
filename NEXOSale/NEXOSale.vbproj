@@ -62,8 +62,8 @@
     <Reference Include="PMS.COMMON, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PMS.COMMON.2.0.1\lib\net47\PMS.COMMON.dll</HintPath>
     </Reference>
-    <Reference Include="PMS.NEXO, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.NEXO.2.0.1\lib\net47\PMS.NEXO.dll</HintPath>
+    <Reference Include="PMS.NEXO, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PMS.NEXO.2.0.2\lib\net47\PMS.NEXO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
