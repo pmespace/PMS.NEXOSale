@@ -262,6 +262,102 @@ Public Class NEXOSALE
 	End Property
 	Private _logoutonterminate As Boolean = False
 
+	<DispId(23)>
+	Public ReadOnly Property Reversal As NexoReversal
+		Get
+			Return _reversal
+		End Get
+	End Property
+	Private _reversal As NexoReversal
+
+	<DispId(24)>
+	Public ReadOnly Property Reconciliation As NexoReconciliation
+		Get
+			Return _reconciliation
+		End Get
+	End Property
+	Private _reconciliation As NexoReconciliation
+
+	<DispId(25)>
+	Public ReadOnly Property Abort As NexoAbort
+		Get
+			Return _abort
+		End Get
+	End Property
+	Private _abort As NexoAbort
+
+	<DispId(26)>
+	Public Property ReconciliationID As String
+		Get
+			Return _reconciliationid
+		End Get
+		Set(value As String)
+			_reconciliationid = value
+		End Set
+	End Property
+	Private _reconciliationid As String
+
+	''' <summary>
+	''' So far only 1 acquirer supported at a time
+	''' </summary>
+	''' <returns></returns>
+	<DispId(27)>
+	Public Property ReconciliationAcquirerID As String
+		Get
+			Return _acquirerid
+		End Get
+		Set(value As String)
+			_acquirerid = value
+		End Set
+	End Property
+	Private _acquirerid As String
+
+	<DispId(28)>
+	Public Property ReconciliationType As ReconciliationTypeEnumeration
+		Get
+			Return _acquirertype
+		End Get
+		Set(value As ReconciliationTypeEnumeration)
+			_acquirertype = value
+		End Set
+	End Property
+	Private _acquirertype As ReconciliationTypeEnumeration = ReconciliationTypeEnumeration.SaleReconciliation
+
+	<DispId(29)>
+	Public Property AbortReason As String
+		Get
+			Return _abortreason
+		End Get
+		Set(value As String)
+			_abortreason = value
+		End Set
+	End Property
+	Private _abortreason As String
+
+	<DispId(30)>
+	Public Property AbortMessageCategory As MessageCategoryEnumeration
+		Get
+			Return _abortmessagecategory
+		End Get
+		Set(value As MessageCategoryEnumeration)
+			_abortmessagecategory = value
+		End Set
+	End Property
+	Private _abortmessagecategory As MessageCategoryEnumeration
+
+	<DispId(31)>
+	Public Property AbortServiceID As String
+		Get
+			Return _abortserviceid
+		End Get
+		Set(value As String)
+			_abortserviceid = value
+		End Set
+	End Property
+	Private _abortserviceid As String
+
+
+
 #End Region
 
 #Region "public methods"
@@ -320,7 +416,13 @@ Public Class NEXOSALE
 						.TransactionID = OriginalPOITransactionID,
 						.TimeStamp = OriginalPOITransactionTimestamp
 						},
-					.POI = poi
+					.POI = poi,
+					.reconciliationType = ReconciliationType,
+					.reconciliationID = ReconciliationID,
+					.reconciliationAcquirerID = ReconciliationAcquirerID,
+					.abortReason = AbortReason,
+					.abortMessageCategory = AbortMessageCategory,
+					.abortServiceID = AbortServiceID
 					}
 				Dim fp As New FProcessing(Me, operation)
 				Select Case fp.ShowDialog()

@@ -142,6 +142,8 @@ Public Class FProcessing
 	Private Const WM_DISCONNECT As UInteger = WM_ACTION + 8
 	Private Const WM_CHECK_READ As UInteger = WM_ACTION + 9
 	Private Const WM_CHECK_PRINT As UInteger = WM_ACTION + 10
+	Private Const WM_ABORT As UInteger = WM_ACTION + 11
+	Private Const WM_RECONCILIATION As UInteger = WM_ACTION + 12
 
 	Private Const WM_RECEIVED As UInteger = WM_START + 200
 	Private Const WM_RECEIVED_REPLY As UInteger = WM_RECEIVED + 1
@@ -164,6 +166,12 @@ Public Class FProcessing
 		Public originalPOITransactionID As TransactionIdentificationType = Nothing
 		Public CMC7 As String
 		Public CheckToPrint As String
+		Public reconciliationType As ReconciliationTypeEnumeration
+		Public reconciliationID As String
+		Public reconciliationAcquirerID As String
+		Public abortReason As String
+		Public abortServiceID As String
+		Public abortMessageCategory As MessageCategoryEnumeration
 	End Class
 #End Region
 
@@ -296,6 +304,10 @@ Public Class FProcessing
 		End If
 	End Sub
 
+	Private Function RealPaymentTimer() As Integer
+		If requestedOperation.POI.SupportsCancel Then Return requestedOperation.POI.PaymentTimer Else Return 0
+	End Function
+
 	Protected Overrides Sub WndProc(ByRef m As Message)
 		Select Case (m.Msg)
 			Case WM_START
@@ -376,14 +388,20 @@ Public Class FProcessing
 							t = requestedOperation.POI.GeneralTimer
 							ms = WM_LOGOUT
 						Case Action.payment
-							t = requestedOperation.POI.PaymentTimer
+							t = RealPaymentTimer()
 							ms = WM_PAYMENT
 						Case Action.refund
-							t = requestedOperation.POI.PaymentTimer
+							t = RealPaymentTimer()
 							ms = WM_REFUND
 						Case Action.reversal
-							t = requestedOperation.POI.PaymentTimer
+							t = requestedOperation.POI.GeneralTimer
 							ms = WM_REVERSAL
+						Case Action.reconciliation
+							t = requestedOperation.POI.GeneralTimer
+							ms = WM_RECONCILIATION
+						Case Action.abort
+							t = requestedOperation.POI.GeneralTimer
+							ms = WM_ABORT
 						Case Action.readcheck
 							t = requestedOperation.POI.CheckTimer
 							ms = WM_CHECK_READ
@@ -447,7 +465,7 @@ Public Class FProcessing
 					End If
 					o.RequestCurrency = requestedOperation.currency.Value
 					o.RequestRequestedAmount = requestedOperation.amount.AsDecimal
-					timerBeforeTimeout.Tag = requestedOperation.POI.PaymentTimer
+					timerBeforeTimeout.Tag = RealPaymentTimer()
 					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 					'retrieve real IDs used when sending the message
 					If IsNothing(requestedOperation.saleTransactionID) Then requestedOperation.saleTransactionID = New TransactionIdentificationType
@@ -478,7 +496,7 @@ Public Class FProcessing
 					End If
 					o.RequestCurrency = requestedOperation.currency.Value
 					o.RequestRequestedAmount = requestedOperation.amount.AsDecimal
-					timerBeforeTimeout.Tag = requestedOperation.POI.PaymentTimer
+					timerBeforeTimeout.Tag = RealPaymentTimer()
 					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 					'retrieve real IDs used when sending the message
 					If IsNothing(requestedOperation.saleTransactionID) Then requestedOperation.saleTransactionID = New TransactionIdentificationType
@@ -496,7 +514,7 @@ Public Class FProcessing
 				'#If Not RETAILER30 Then
 				'				If Not IsNothing(requestedOperation.saleTransactionID) Then
 				'					o.RequestData.SaleDa RequestSaleTransactionID = requestedOperation.saleTransactionID.TransactionID
-				'						o.RequestSaleTransactionTimestamp = requestedOperation.saleTransactionID.TimeStamp
+				'										o.RequestSaleTransactionTimestamp = requestedOperation.saleTransactionID.TimeStamp
 				'				End If
 				'#End If
 				If Not IsNothing(requestedOperation.originalPOITransactionID) Then
@@ -506,6 +524,34 @@ Public Class FProcessing
 				timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 				TestSendResult(result, o.MessageCategory.ToString, "Cancelling transaction" & vbCrLf & "Please wait")
+
+			Case WM_RECONCILIATION
+				Me.Text = Caption = "RECONCILIATION REQUEST [" & requestedOperation.reconciliationType.ToString & "] FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
+				pbCancel.Enabled = canBeCancelled
+				Dim o As New NexoReconciliation()
+				o.SaleID = GetSaleID()
+				o.POIID = GetPOIID()
+				o.RequestReconciliationType = requestedOperation.reconciliationType
+				o.RequestData.POIReconciliationID = New NexoDigitString(requestedOperation.reconciliationID).Value
+				If Not String.IsNullOrEmpty(requestedOperation.reconciliationAcquirerID) Then
+					o.RequestData.AcquirerIDAddItem(New NexoDigitString(requestedOperation.reconciliationAcquirerID).Value)
+				End If
+				timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				TestSendResult(result, o.MessageCategory.ToString, "Reconciliating transaction [" & requestedOperation.reconciliationType.ToString & "]" & vbCrLf & "Please wait")
+
+			Case WM_ABORT
+				Me.Text = Caption = "ABORT REQUEST [" & requestedOperation.abortReason & "] FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
+				pbCancel.Enabled = canBeCancelled
+				Dim o As New NexoAbort()
+				o.SaleID = o.AbortSaleID = GetSaleID()
+				o.POIID = o.AbortPOIID = GetPOIID()
+				o.AbortReason = requestedOperation.abortReason
+				o.AbortServiceID = requestedOperation.abortServiceID
+				o.AbortMessageCategory = requestedOperation.abortMessageCategory
+				timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				TestSendResult(result, o.MessageCategory.ToString, "Aborting transaction [" & requestedOperation.abortReason & "]" & vbCrLf & "Please wait")
 
 			Case WM_CHECK_READ
 				Me.Text = Caption = "READING CHECK REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
@@ -744,6 +790,14 @@ Public Class FProcessing
 				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has not been printed" & vbCrLf & DescribeError(nxo.Response)})
 			End If
 
+		ElseIf MessageCategoryEnumeration.Reconciliation = obj.Category Then
+			Dim nxo As NexoReconciliation = obj.CurrentObject
+			If res Then
+				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = obj.Category.ToString & " was processed successfully"})
+			Else
+				stackOfActions.Clear()
+				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = obj.Category.ToString & " was not processed successfully" & vbCrLf & DescribeError(nxo.Response)})
+			End If
 		End If
 
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_REPLY, .wParam = res})
