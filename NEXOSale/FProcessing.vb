@@ -140,8 +140,8 @@ Public Class FProcessing
 	Private Const WM_REVERSAL As UInteger = WM_ACTION + 5
 	Private Const WM_CONNECT As UInteger = WM_ACTION + 6
 	Private Const WM_DISCONNECT As UInteger = WM_ACTION + 8
-	Private Const WM_CHECK_READ As UInteger = WM_ACTION + 9
-	Private Const WM_CHECK_PRINT As UInteger = WM_ACTION + 10
+	'Private Const WM_CHECK_READ As UInteger = WM_ACTION + 9
+	'Private Const WM_CHECK_PRINT As UInteger = WM_ACTION + 10
 	Private Const WM_ABORT As UInteger = WM_ACTION + 11
 	Private Const WM_RECONCILIATION As UInteger = WM_ACTION + 12
 
@@ -246,9 +246,9 @@ Public Class FProcessing
 			(Action.refund <> ope.action OrElse ope.POI.SupportsRefund) AndAlso
 			(Action.reversal <> ope.action OrElse ope.POI.SupportsReversal) AndAlso
 			(Action.reconciliation <> ope.action OrElse ope.POI.SupportsReconciliation) AndAlso
-			(Action.abort <> ope.action OrElse ope.POI.SupportsAbort) AndAlso
-			(Action.readcheck <> ope.action OrElse ope.POI.SupportsCheck) AndAlso
-			(Action.printcheck <> ope.action OrElse ope.POI.SupportsCheck) Then
+			(Action.abort <> ope.action OrElse ope.POI.SupportsAbort) Then 'AndAlso
+			'(Action.readcheck <> ope.action OrElse ope.POI.SupportsCheck) AndAlso
+			'(Action.printcheck <> ope.action OrElse ope.POI.SupportsCheck) Then
 			'the action is known and can be processed
 			stackOfActions.Push(ope.action)
 			If Action.login = ope.action Then
@@ -402,12 +402,12 @@ Public Class FProcessing
 						Case Action.abort
 							t = requestedOperation.POI.GeneralTimer
 							ms = WM_ABORT
-						Case Action.readcheck
-							t = requestedOperation.POI.CheckTimer
-							ms = WM_CHECK_READ
-						Case Action.printcheck
-							t = requestedOperation.POI.CheckTimer
-							ms = WM_CHECK_PRINT
+							'Case Action.readcheck
+							'	t = requestedOperation.POI.CheckTimer
+							'	ms = WM_CHECK_READ
+							'Case Action.printcheck
+							'	t = requestedOperation.POI.CheckTimer
+							'	ms = WM_CHECK_PRINT
 					End Select
 					'if the action can be processed
 					If 0 <> ms Then
@@ -456,7 +456,7 @@ Public Class FProcessing
 					CLog.Add("Missing mandatory amount", TLog.ERROR)
 					PostMessage(WM_ERROR)
 				Else
-					Dim o As New NexoPayment()
+					Dim o = nexoSale.Payment 'New NexoPayment()
 					o.SaleID = GetSaleID()
 					o.POIID = GetPOIID()
 					If Not IsNothing(requestedOperation.saleTransactionID) Then
@@ -483,7 +483,7 @@ Public Class FProcessing
 					CLog.Add("Missing mandatory amount", TLog.ERROR)
 					PostMessage(WM_ERROR)
 				Else
-					Dim o As New NexoRefund()
+					Dim o = nexoSale.Refund 'As New NexoRefund()
 					o.SaleID = GetSaleID()
 					o.POIID = GetPOIID()
 					If Not IsNothing(requestedOperation.saleTransactionID) Then
@@ -508,7 +508,7 @@ Public Class FProcessing
 			Case WM_REVERSAL
 				Me.Text = Caption = "REVERSAL REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				pbCancel.Enabled = canBeCancelled
-				Dim o As New NexoReversal()
+				Dim o = nexoSale.Reversal 'As New NexoReversal()
 				o.SaleID = GetSaleID()
 				o.POIID = GetPOIID()
 				'#If Not RETAILER30 Then
@@ -528,7 +528,7 @@ Public Class FProcessing
 			Case WM_RECONCILIATION
 				Me.Text = Caption = "RECONCILIATION REQUEST [" & requestedOperation.reconciliationType.ToString & "] FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				pbCancel.Enabled = canBeCancelled
-				Dim o As New NexoReconciliation()
+				Dim o = nexoSale.Reconciliation 'As New NexoReconciliation()
 				o.SaleID = GetSaleID()
 				o.POIID = GetPOIID()
 				o.RequestReconciliationType = requestedOperation.reconciliationType
@@ -543,7 +543,7 @@ Public Class FProcessing
 			Case WM_ABORT
 				Me.Text = Caption = "ABORT REQUEST [" & requestedOperation.abortReason & "] FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				pbCancel.Enabled = canBeCancelled
-				Dim o As New NexoAbort()
+				Dim o = nexoSale.Abort 'As New NexoAbort()
 				o.SaleID = o.AbortSaleID = GetSaleID()
 				o.POIID = o.AbortPOIID = GetPOIID()
 				o.AbortReason = requestedOperation.abortReason
@@ -553,34 +553,34 @@ Public Class FProcessing
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 				TestSendResult(result, o.MessageCategory.ToString, "Aborting transaction [" & requestedOperation.abortReason & "]" & vbCrLf & "Please wait")
 
-			Case WM_CHECK_READ
-				Me.Text = Caption = "READING CHECK REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
-				pbCancel.Enabled = canBeCancelled
-				Dim o As New NexoDeviceInput()
-				o.SaleID = GetSaleID()
-				o.POIID = GetPOIID()
-				o.RequestDevice = DeviceEnumeration.CashierInput
-				o.RequestInfoQualify = InfoQualifyEnumeration.Document
-				o.RequestInputCommand = InputCommandEnumeration.TextString
-				timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, "Reading check" & vbCrLf & "Please wait")
+			'Case WM_CHECK_READ
+			'	Me.Text = Caption = "READING CHECK REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
+			'	pbCancel.Enabled = canBeCancelled
+			'	Dim o = nexoSale.input 'As New NexoDeviceInput()
+			'	o.SaleID = GetSaleID()
+			'	o.POIID = GetPOIID()
+			'	o.RequestDevice = DeviceEnumeration.CashierInput
+			'	o.RequestInfoQualify = InfoQualifyEnumeration.Document
+			'	o.RequestInputCommand = InputCommandEnumeration.TextString
+			'	timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
+			'	Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+			'	TestSendResult(result, o.MessageCategory.ToString, "Reading check" & vbCrLf & "Please wait")
 
-			Case WM_CHECK_PRINT
-				Me.Text = Caption = "PRINT CHECK REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
-				pbCancel.Enabled = canBeCancelled
-				Dim o As New NexoDevicePrint()
-				o.SaleID = GetSaleID()
-				o.POIID = GetPOIID()
-				o.RequestDocumentQualifier = DocumentQualifierEnumeration.Document
-				o.RequestResponseMode = ResponseModeEnumeration.PrintEnd
-				o.RequestOutputFormat = OutputFormatEnumeration.Text
-				'set text to print
-				Dim texttoprint As New OutputTextType() With {.Value = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(requestedOperation.CheckToPrint.ToUpper()))}
-				o.RequestData.PrintOutput.OutputContent.OutputTextAddItem(texttoprint)
-				timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, "Printing check" & vbCrLf & "Please wait")
+			'Case WM_CHECK_PRINT
+			'	Me.Text = Caption = "PRINT CHECK REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
+			'	pbCancel.Enabled = canBeCancelled
+			'	Dim o = nexoSale.Print 'As New NexoDevicePrint()
+			'	o.SaleID = GetSaleID()
+			'	o.POIID = GetPOIID()
+			'	o.RequestDocumentQualifier = DocumentQualifierEnumeration.Document
+			'	o.RequestResponseMode = ResponseModeEnumeration.PrintEnd
+			'	o.RequestOutputFormat = OutputFormatEnumeration.Text
+			'	'set text to print
+			'	Dim texttoprint As New OutputTextType() With {.Value = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(requestedOperation.CheckToPrint.ToUpper()))}
+			'	o.RequestData.PrintOutput.OutputContent.OutputTextAddItem(texttoprint)
+			'	timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
+			'	Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+			'	TestSendResult(result, o.MessageCategory.ToString, "Printing check" & vbCrLf & "Please wait")
 
 			Case WM_RECEIVED_NOTIFICATION
 
@@ -767,28 +767,28 @@ Public Class FProcessing
 				End If
 			End If
 
-		ElseIf MessageCategoryEnumeration.Input = obj.Category Then
-			Dim nxo As NexoDeviceInput = obj.CurrentObject
-			If res Then
-				Dim cmc7 As String = nxo.ReplyData.InputResult.Input.TextInput
-				cmc7 = cmc7.Replace("&lt;", "D") 'S3
-				cmc7 = cmc7.Replace("<", "D") 'S3
-				cmc7 = cmc7.Replace(">", "F") 'S5
-				cmc7 = cmc7.Replace(":", "B") 'S1
-				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has been successfully read" & vbCrLf & "CheckID: " & cmc7})
-			Else
-				stackOfActions.Clear()
-				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has not been read" & vbCrLf & DescribeError(nxo.Response)})
-			End If
+			'ElseIf MessageCategoryEnumeration.Input = obj.Category Then
+			'	Dim nxo As NexoDeviceInput = obj.CurrentObject
+			'	If res Then
+			'		Dim cmc7 As String = nxo.ReplyData.InputResult.Input.TextInput
+			'		cmc7 = cmc7.Replace("&lt;", "D") 'S3
+			'		cmc7 = cmc7.Replace("<", "D") 'S3
+			'		cmc7 = cmc7.Replace(">", "F") 'S5
+			'		cmc7 = cmc7.Replace(":", "B") 'S1
+			'		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has been successfully read" & vbCrLf & "CheckID: " & cmc7})
+			'	Else
+			'		stackOfActions.Clear()
+			'		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has not been read" & vbCrLf & DescribeError(nxo.Response)})
+			'	End If
 
-		ElseIf MessageCategoryEnumeration.Print = obj.Category Then
-			Dim nxo As NexoDevicePrint = obj.CurrentObject
-			If res Then
-				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has been successfully printed"})
-			Else
-				stackOfActions.Clear()
-				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has not been printed" & vbCrLf & DescribeError(nxo.Response)})
-			End If
+			'ElseIf MessageCategoryEnumeration.Print = obj.Category Then
+			'	Dim nxo As NexoDevicePrint = obj.CurrentObject
+			'	If res Then
+			'		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has been successfully printed"})
+			'	Else
+			'		stackOfActions.Clear()
+			'		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "The check has not been printed" & vbCrLf & DescribeError(nxo.Response)})
+			'	End If
 
 		ElseIf MessageCategoryEnumeration.Reconciliation = obj.Category Then
 			Dim nxo As NexoReconciliation = obj.CurrentObject

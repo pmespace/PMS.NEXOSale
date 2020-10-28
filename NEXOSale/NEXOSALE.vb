@@ -13,13 +13,13 @@ Public Enum Action
 	logout
 	payment
 	_base
-	readcheck
-	printcheck
-	_check
 	refund
 	reversal
 	reconciliation
 	abort
+	'_check
+	'readcheck
+	'printcheck
 	_end
 End Enum
 
@@ -57,10 +57,10 @@ Public Class NEXOSALE
 		_logout = New NexoLogout
 		LoadSettings()
 		UseBackup = False
-		If Not Connect() Then
-			UseBackup = True
-			UseBackup = Connect()
-		End If
+		'If Not Connect() Then
+		'	UseBackup = True
+		'	UseBackup = Connect()
+		'End If
 	End Sub
 #End Region
 
@@ -355,8 +355,6 @@ Public Class NEXOSALE
 		End Set
 	End Property
 	Private _abortserviceid As String
-
-
 
 #End Region
 
