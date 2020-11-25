@@ -144,6 +144,9 @@ Public Class FProcessing
 	'Private Const WM_CHECK_PRINT As UInteger = WM_ACTION + 10
 	Private Const WM_ABORT As UInteger = WM_ACTION + 11
 	Private Const WM_RECONCILIATION As UInteger = WM_ACTION + 12
+	Private Const WM_CONNECT_SUCCESS As UInteger = WM_ACTION + 13
+	Private Const WM_CONNECT_ERROR As UInteger = WM_ACTION + 14
+	Private Const WM_CONNECT_END As UInteger = WM_ACTION + 15
 
 	Private Const WM_RECEIVED As UInteger = WM_START + 200
 	Private Const WM_RECEIVED_REPLY As UInteger = WM_RECEIVED + 1
@@ -159,7 +162,7 @@ Public Class FProcessing
 	Public Class NexoOperation
 		Public action As Action = Action._none
 		Public POI As POISettings = Nothing
-		Public amount As NexoSimpleAmount = Nothing
+		Public amount As Double
 		Public currency As NexoCurrency = Nothing
 		Public saleTransactionID As TransactionIdentificationType = Nothing
 		Public poiTransactionID As TransactionIdentificationType = New TransactionIdentificationType()
@@ -289,10 +292,8 @@ Public Class FProcessing
 		End If
 		pbCancel.Enabled = canBeCancelled
 		'display transaction amount if necessary
-		If Not IsNothing(requestedOperation.amount) Then
-			If 0 <> requestedOperation.amount.AsInteger Then
-				price.Text = requestedOperation.amount.AsDecimal.ToString & " " & requestedOperation.currency.ToString
-			End If
+		If 0 <> requestedOperation.amount AndAlso Not IsNothing(requestedOperation.currency) Then
+			price.Text = requestedOperation.amount.ToString("N" & requestedOperation.currency.DecimalPlaces) & " " & requestedOperation.currency.ToString
 		Else
 			price.Text = requestedOperation.action.ToString
 		End If
@@ -311,6 +312,7 @@ Public Class FProcessing
 	Protected Overrides Sub WndProc(ByRef m As Message)
 		Select Case (m.Msg)
 			Case WM_START
+				CLog.Add("WM_START")
 				timerGlobal = New Windows.Forms.Timer
 				timerGlobal.Interval = ONE_SECOND
 				timerGlobal.Start()
@@ -321,6 +323,7 @@ Public Class FProcessing
 				End If
 
 			Case WM_STOP
+				CLog.Add("WM_STOP")
 				isInError = True
 				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "No transaction to process"})
 				Caption = "NO TRANSACTION TO PROCESS"
@@ -328,35 +331,51 @@ Public Class FProcessing
 				PostMessage(WM_AUTOCLOSE_START)
 
 			Case WM_ERROR
+				CLog.Add("WM_ERROR")
 				isInError = True
 				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "An error has occurred, transaction processing could not complete"})
 				PostMessage(WM_AUTOCLOSE_START)
 
 			Case WM_CONNECT
-				If nexoSale.UseBackup Then
-					Caption = "CONNECTING TO POI (USING BACKUP)"
-				Else
-					Caption = "CONNECTING TO POI"
-				End If
-				If Not nexoSale.Connect() Then
-					isInError = True
-					message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "Failed to connect to POI"})
-					PostMessage(WM_AUTOCLOSE_START)
-				Else
-					PostMessage(WM_ACTION)
-				End If
+				CLog.Add("WM_CONNECT")
+				'If nexoSale.UseBackup Then
+				'	Caption = "CONNECTING TO POI (USING BACKUP)"
+				'Else
+				'	Caption = "CONNECTING TO POI"
+				'End If
+				'If Not nexoSale.Connect() Then
+				'	isInError = True
+				'	message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "Failed to connect to POI"})
+				'	PostMessage(WM_AUTOCLOSE_START)
+				'Else
+				'	PostMessage(WM_ACTION)
+				'End If
+
+				Dim frm As New FWait(nexoSale)
+				Select Case frm.ShowDialog()
+					Case DialogResult.Yes
+						PostMessage(WM_ACTION)
+
+					Case Else
+						isInError = True
+						message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "Failed to connect to POI"})
+						PostMessage(WM_AUTOCLOSE_START)
+				End Select
 
 			Case WM_DISCONNECT
+				CLog.Add("WM_DISCONNECT")
 				nexoSale.Disconnect()
 				PostMessage(WM_END)
 
 			Case WM_TIMEOUT_START
+				CLog.Add("WM_TIMEOUT_START")
 				If canBeCancelled Then
 					timerBeforeTimeout.Interval = ONE_SECOND
 					timerBeforeTimeout.Start()
 				End If
 
 			Case WM_TIMEOUT
+				CLog.Add("WM_TIMEOUT")
 				isInError = True
 				stackOfActions.Clear()
 				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "TIMEOUT" & vbCrLf & "Operation has been cancelled"})
@@ -364,6 +383,7 @@ Public Class FProcessing
 				SendMessage(WM_AUTOCLOSE_START)
 
 			Case WM_CANCEL
+				CLog.Add("WM_CANCEL")
 				isInError = True
 				hasBeenCancelled = True
 				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "CANCELLED BY USER" & vbCrLf & "The operation will not complete"})
@@ -376,6 +396,7 @@ Public Class FProcessing
 				Catch ex As Exception
 					currentAction = Action._none
 				End Try
+				CLog.Add("WM_ACTION: " & currentAction.ToString)
 				'will be false only if the action can't be processed
 				Dim t As UInteger
 				Dim ms As UInteger = 0
@@ -438,6 +459,7 @@ Public Class FProcessing
 				TestSendResult(result, o.MessageCategory.ToString, "Logging in to POI")
 
 			Case WM_LOGOUT
+				CLog.Add("WM_LOGOUT")
 				Caption = "LOGGING OUT SALE " & nexoSale.Settings.SaleID & " FROM " & nexoSale.Settings.POIID
 				pbCancel.Enabled = canBeCancelled
 				Dim o As New NexoLogout()
@@ -448,6 +470,7 @@ Public Class FProcessing
 				TestSendResult(result, o.MessageCategory.ToString, "Logging out from POI")
 
 			Case WM_PAYMENT
+				CLog.Add("WM_PAYMENT")
 				Caption = "PAYMENT REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				If IsNothing(requestedOperation.currency) Then
 					CLog.Add("Missing mandatory currency", TLog.ERROR)
@@ -464,7 +487,7 @@ Public Class FProcessing
 						o.RequestSaleTransactionTimestamp = requestedOperation.saleTransactionID.TimeStamp
 					End If
 					o.RequestCurrency = requestedOperation.currency.Value
-					o.RequestRequestedAmount = requestedOperation.amount.AsDecimal
+					o.RequestRequestedAmount = requestedOperation.amount
 					timerBeforeTimeout.Tag = RealPaymentTimer()
 					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 					'retrieve real IDs used when sending the message
@@ -475,6 +498,7 @@ Public Class FProcessing
 				End If
 
 			Case WM_REFUND
+				CLog.Add("WM_REFUND")
 				Me.Text = Caption = "REFUND REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				If IsNothing(requestedOperation.currency) Then
 					CLog.Add("Missing mandatory currency", TLog.ERROR)
@@ -495,7 +519,7 @@ Public Class FProcessing
 						o.RequestOriginalPOITransactionTimestamp = requestedOperation.originalPOITransactionID.TimeStamp
 					End If
 					o.RequestCurrency = requestedOperation.currency.Value
-					o.RequestRequestedAmount = requestedOperation.amount.AsDecimal
+					o.RequestRequestedAmount = requestedOperation.amount
 					timerBeforeTimeout.Tag = RealPaymentTimer()
 					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 					'retrieve real IDs used when sending the message
@@ -506,6 +530,7 @@ Public Class FProcessing
 				End If
 
 			Case WM_REVERSAL
+				CLog.Add("WM_REFUND")
 				Me.Text = Caption = "REVERSAL REQUEST FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				pbCancel.Enabled = canBeCancelled
 				Dim o = nexoSale.Reversal 'As New NexoReversal()
@@ -526,6 +551,7 @@ Public Class FProcessing
 				TestSendResult(result, o.MessageCategory.ToString, "Cancelling transaction" & vbCrLf & "Please wait")
 
 			Case WM_RECONCILIATION
+				CLog.Add("WM_RECONCILIATION")
 				Me.Text = Caption = "RECONCILIATION REQUEST [" & requestedOperation.reconciliationType.ToString & "] FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				pbCancel.Enabled = canBeCancelled
 				Dim o = nexoSale.Reconciliation 'As New NexoReconciliation()
@@ -541,6 +567,7 @@ Public Class FProcessing
 				TestSendResult(result, o.MessageCategory.ToString, "Reconciliating transaction [" & requestedOperation.reconciliationType.ToString & "]" & vbCrLf & "Please wait")
 
 			Case WM_ABORT
+				CLog.Add("WM_ABORT")
 				Me.Text = Caption = "ABORT REQUEST [" & requestedOperation.abortReason & "] FROM SALE " & nexoSale.Settings.SaleID & " TO " & nexoSale.Settings.POIID
 				pbCancel.Enabled = canBeCancelled
 				Dim o = nexoSale.Abort 'As New NexoAbort()
@@ -583,10 +610,12 @@ Public Class FProcessing
 			'	TestSendResult(result, o.MessageCategory.ToString, "Printing check" & vbCrLf & "Please wait")
 
 			Case WM_RECEIVED_NOTIFICATION
+				CLog.Add("WM_RECEIVED_NOTIFICATION")
 
 			Case WM_RECEIVED_REQUEST
 
 			Case WM_RECEIVED_REPLY
+				CLog.Add("WM_RECEIVED_REPLY")
 				If 0 < stackOfActions.Count Then
 					'run the next action
 					PostMessage(WM_ACTION)
@@ -596,6 +625,7 @@ Public Class FProcessing
 				End If
 
 			Case WM_AUTOCLOSE_START
+				CLog.Add("WM_AUTOCLOSE_START")
 				PostMessage(ConfirmCancel.WM_CANCEL_CANCEL, wnd:=f)
 				SetMessageColors()
 				pbCancel.Enabled = True
@@ -611,9 +641,11 @@ Public Class FProcessing
 				End If
 
 			Case WM_AUTOCLOSE
+				CLog.Add("WM_AUTOCLOSE")
 				PostMessage(WM_END)
 
 			Case WM_END
+				CLog.Add("WM_END")
 				Close()
 
 		End Select

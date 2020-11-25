@@ -65,6 +65,10 @@ Public Class NEXOSALE
 #End Region
 
 #Region "public properties"
+	''' <summary>
+	''' Indicates if the client is logged to the server (nexo login successfull)
+	''' </summary>
+	''' <returns></returns>
 	<DispId(1)>
 	Public ReadOnly Property IsLogged As Boolean
 		Get
@@ -73,6 +77,10 @@ Public Class NEXOSALE
 	End Property
 	Friend _islogged As Boolean = False
 
+	''' <summary>
+	''' Amount in smallest decimal part of the currency (in cents)
+	''' </summary>
+	''' <returns></returns>
 	<DispId(2)>
 	Public Property Amount As UInteger
 		Get
@@ -84,6 +92,10 @@ Public Class NEXOSALE
 	End Property
 	Private _amount As UInteger = 0
 
+	''' <summary>
+	''' Transaction ID given by the merchant
+	''' </summary>
+	''' <returns></returns>
 	<DispId(3)>
 	Public Property TransactionID As String
 		Get
@@ -95,6 +107,10 @@ Public Class NEXOSALE
 	End Property
 	Private _transactionid As String = Nothing
 
+	''' <summary>
+	''' Transaction timestamp given by the merchant
+	''' </summary>
+	''' <returns></returns>
 	<DispId(4)>
 	Public Property TransactionTimestamp As String
 		Get
@@ -106,6 +122,12 @@ Public Class NEXOSALE
 	End Property
 	Private _transactiontimestamp As String = Nothing
 
+	''' <summary>
+	''' Main amerchant application window handle which will receive notifications during processing
+	''' If the calling application wishes to receive notification it must set that window handle
+	''' Setting that handle will also ensure the processing window will be modal over the application
+	''' </summary>
+	''' <returns></returns>
 	<DispId(6)>
 	Public Property MainWindow As IntPtr
 		Get
@@ -117,6 +139,10 @@ Public Class NEXOSALE
 	End Property
 	Private _mainwindow As IntPtr = IntPtr.Zero
 
+	''' <summary>
+	''' Settings used during processing <seealso cref="Settings"/>
+	''' </summary>
+	''' <returns></returns>
 	<DispId(7)>
 	Public Property Settings As Settings
 		Get
@@ -131,6 +157,10 @@ Public Class NEXOSALE
 	End Property
 	Private _settings As Settings = Nothing
 
+	''' <summary>
+	''' Nexo SaleID of the sale
+	''' </summary>
+	''' <returns></returns>
 	<DispId(8)>
 	Public Property SaleID As String
 		Get
@@ -142,6 +172,10 @@ Public Class NEXOSALE
 	End Property
 	Private _saleid As String = String.Empty
 
+	''' <summary>
+	''' Nexo POIID of the POI to communicate with
+	''' </summary>
+	''' <returns></returns>
 	<DispId(9)>
 	Public Property POIID As String
 		Get
@@ -153,6 +187,10 @@ Public Class NEXOSALE
 	End Property
 	Private _poiid As String = String.Empty
 
+	''' <summary>
+	''' Nexo login command
+	''' </summary>
+	''' <returns></returns>
 	<DispId(10)>
 	Public ReadOnly Property Login As NexoLogin
 		Get
@@ -161,6 +199,10 @@ Public Class NEXOSALE
 	End Property
 	Private _login As NexoLogin
 
+	''' <summary>
+	''' Nexo payment command
+	''' </summary>
+	''' <returns></returns>
 	<DispId(11)>
 	Public ReadOnly Property Payment As NexoPayment
 		Get
@@ -169,6 +211,10 @@ Public Class NEXOSALE
 	End Property
 	Private _payment As NexoPayment
 
+	''' <summary>
+	''' Nexo refund command
+	''' </summary>
+	''' <returns></returns>
 	<DispId(12)>
 	Public ReadOnly Property Refund As NexoRefund
 		Get
@@ -177,6 +223,10 @@ Public Class NEXOSALE
 	End Property
 	Private _refund As NexoRefund
 
+	''' <summary>
+	''' Nexo logout command
+	''' </summary>
+	''' <returns></returns>
 	<DispId(13)>
 	Public ReadOnly Property Logout As NexoLogout
 		Get
@@ -185,6 +235,10 @@ Public Class NEXOSALE
 	End Property
 	Private _logout As NexoLogout
 
+	''' <summary>
+	''' NexoClient instance <see cref="NexoRetailerClient"/>
+	''' </summary>
+	''' <returns></returns>
 	<DispId(14)>
 	Public ReadOnly Property NexoClient As NexoRetailerClient
 		Get
@@ -193,6 +247,10 @@ Public Class NEXOSALE
 	End Property
 	Private _nexoclient As NexoRetailerClient
 
+	''' <summary>
+	''' Indicate whether connected to the POI of not
+	''' </summary>
+	''' <returns></returns>
 	<DispId(15)>
 	Public ReadOnly Property Connected() As Boolean
 		Get
@@ -200,6 +258,10 @@ Public Class NEXOSALE
 		End Get
 	End Property
 
+	''' <summary>
+	''' True if last nexo command was successfull
+	''' </summary>
+	''' <returns></returns>
 	<DispId(16)>
 	Public ReadOnly Property Success As Boolean
 		Get
@@ -208,6 +270,10 @@ Public Class NEXOSALE
 	End Property
 	Private _success As Boolean = False
 
+	''' <summary>
+	''' POI assigned transaction ID
+	''' </summary>
+	''' <returns></returns>
 	<DispId(17)>
 	Public ReadOnly Property POITransactionID As String
 		Get
@@ -216,6 +282,10 @@ Public Class NEXOSALE
 	End Property
 	Private _poitransactionid As String = Nothing
 
+	''' <summary>
+	''' POI assigned transaction timestamp
+	''' </summary>
+	''' <returns></returns>
 	<DispId(18)>
 	Public ReadOnly Property POITransactionTimestamp As String
 		Get
@@ -224,6 +294,10 @@ Public Class NEXOSALE
 	End Property
 	Private _poitransactiontimestamp As String = Nothing
 
+	''' <summary>
+	''' Origininally POI assigned transaction ID (for refund)
+	''' </summary>
+	''' <returns></returns>
 	<DispId(19)>
 	Public ReadOnly Property OriginalPOITransactionID As String
 		Get
@@ -232,6 +306,10 @@ Public Class NEXOSALE
 	End Property
 	Private _originalpoitransactionid As String = Nothing
 
+	''' <summary>
+	''' Origininally POI assigned transaction timestamp (for refund)
+	''' </summary>
+	''' <returns></returns>
 	<DispId(20)>
 	Public ReadOnly Property OriginalPOITransactionTimestamp As String
 		Get
@@ -240,6 +318,10 @@ Public Class NEXOSALE
 	End Property
 	Private _originalpoitransactiontimestamp As String = Nothing
 
+	''' <summary>
+	''' True if connecting to the POI must be done using backup <see cref="Settings"/>
+	''' </summary>
+	''' <returns></returns>
 	<DispId(21)>
 	Public Property UseBackup As Boolean
 		Get
@@ -251,6 +333,10 @@ Public Class NEXOSALE
 	End Property
 	Private _usebackup As Boolean = False
 
+	''' <summary>
+	''' True if logout is desired after every nexo command, meaning a login must be done each time as well
+	''' </summary>
+	''' <returns></returns>
 	<DispId(22)>
 	Public Property LogoutOnTerminate As Boolean
 		Get
@@ -262,6 +348,10 @@ Public Class NEXOSALE
 	End Property
 	Private _logoutonterminate As Boolean = False
 
+	''' <summary>
+	''' Nexo reversal command
+	''' </summary>
+	''' <returns></returns>
 	<DispId(23)>
 	Public ReadOnly Property Reversal As NexoReversal
 		Get
@@ -270,6 +360,10 @@ Public Class NEXOSALE
 	End Property
 	Private _reversal As NexoReversal
 
+	''' <summary>
+	''' Nexo reconciliation command
+	''' </summary>
+	''' <returns></returns>
 	<DispId(24)>
 	Public ReadOnly Property Reconciliation As NexoReconciliation
 		Get
@@ -278,6 +372,10 @@ Public Class NEXOSALE
 	End Property
 	Private _reconciliation As NexoReconciliation
 
+	''' <summary>
+	''' Nexo abort command
+	''' </summary>
+	''' <returns></returns>
 	<DispId(25)>
 	Public ReadOnly Property Abort As NexoAbort
 		Get
@@ -286,6 +384,10 @@ Public Class NEXOSALE
 	End Property
 	Private _abort As NexoAbort
 
+	''' <summary>
+	''' Recociliation ID (for reconciliation command)
+	''' </summary>
+	''' <returns></returns>
 	<DispId(26)>
 	Public Property ReconciliationID As String
 		Get
@@ -312,6 +414,10 @@ Public Class NEXOSALE
 	End Property
 	Private _acquirerid As String
 
+	''' <summary>
+	''' Type of reconciliation requested
+	''' </summary>
+	''' <returns></returns>
 	<DispId(28)>
 	Public Property ReconciliationType As ReconciliationTypeEnumeration
 		Get
@@ -323,6 +429,10 @@ Public Class NEXOSALE
 	End Property
 	Private _acquirertype As ReconciliationTypeEnumeration = ReconciliationTypeEnumeration.SaleReconciliation
 
+	''' <summary>
+	''' Abort reason to send to the POI
+	''' </summary>
+	''' <returns></returns>
 	<DispId(29)>
 	Public Property AbortReason As String
 		Get
@@ -334,6 +444,10 @@ Public Class NEXOSALE
 	End Property
 	Private _abortreason As String
 
+	''' <summary>
+	''' Message category of the message to abort
+	''' </summary>
+	''' <returns></returns>
 	<DispId(30)>
 	Public Property AbortMessageCategory As MessageCategoryEnumeration
 		Get
@@ -345,6 +459,10 @@ Public Class NEXOSALE
 	End Property
 	Private _abortmessagecategory As MessageCategoryEnumeration
 
+	''' <summary>
+	''' Service ID of the message to abort
+	''' </summary>
+	''' <returns></returns>
 	<DispId(31)>
 	Public Property AbortServiceID As String
 		Get
@@ -368,6 +486,7 @@ Public Class NEXOSALE
 		f.UseBackup = UseBackup
 		Select Case f.ShowDialog()
 			Case DialogResult.OK
+				Disconnect()
 				Settings = f.Settings
 				CLog.LogFileName = Settings.LogFileName
 				UseBackup = f.UseBackup
@@ -386,12 +505,12 @@ Public Class NEXOSALE
 			(Action.payment <> theAction AndAlso Action.refund <> theAction AndAlso Action.reversal <> theAction) Then
 			Dim f As Boolean = True
 			Dim localCurrency As NexoCurrency = Nothing
-			Dim localAmount As NexoSimpleAmount = Nothing
+			Dim localAmount As Double
 			Select Case theAction
 				Case Action.login, Action.logout
 				Case Action.payment, Action.refund, Action.reversal
 					localCurrency = New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
-					localAmount = New NexoSimpleAmount With {.DecimalPlaces = localCurrency.DecimalPlaces, .AsDecimal = Amount / 10 ^ localCurrency.DecimalPlaces}
+					localAmount = Amount / 10 ^ localCurrency.DecimalPlaces
 				Case Else
 					f = False
 			End Select

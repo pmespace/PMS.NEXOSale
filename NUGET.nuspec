@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>PMS.NEXOSALE</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>PMS.NEXOSALE</title>
     <authors>philippemp31</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,6 +14,11 @@
       Nexo Retailer specs can be found at https://www.nexo-standards.org/standards/nexo-retailer-protocol, subscription is free of charges.
     </description>
     <releaseNotes>
+      1.0.2
+      - Added a window when the cashier connects to the POI, not blocking the application
+      - Fixed a bug with the Amount which was sometimes badly rounded
+      - Updated all libraries
+      
       1.0.1
       - Updated PMS.NEXO to 2.0.2
       
@@ -25,9 +30,7 @@
     <tags>NEXO</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.7">
-        <dependency id="PMS.COMMON" version="2.0.1" />
-        <dependency id="PMS.NEXO" version="2.0.2" />
-        <dependency id="Newtonsoft.Json" version="12.0.3" />
+        <dependency id="PMS.NEXO" version="2.0.9" />
       </group>
     </dependencies>
   </metadata>

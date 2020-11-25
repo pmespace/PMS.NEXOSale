@@ -23,6 +23,10 @@ Partial Class FSettings
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.panelMain = New System.Windows.Forms.TableLayoutPanel()
+		Me.panelButtons = New System.Windows.Forms.TableLayoutPanel()
+		Me.pbSaveSettings = New System.Windows.Forms.Button()
+		Me.pbSave = New System.Windows.Forms.Button()
+		Me.pbCancel = New System.Windows.Forms.Button()
 		Me.TabControl1 = New System.Windows.Forms.TabControl()
 		Me.settingsPage = New System.Windows.Forms.TabPage()
 		Me.panelSettingsPage = New System.Windows.Forms.TableLayoutPanel()
@@ -107,12 +111,9 @@ Partial Class FSettings
 		Me.cbSynchronous = New System.Windows.Forms.CheckBox()
 		Me.cbPrintReceiptBackup = New System.Windows.Forms.CheckBox()
 		Me.cbSynchronousBackup = New System.Windows.Forms.CheckBox()
-		Me.panelButtons = New System.Windows.Forms.TableLayoutPanel()
-		Me.pbSaveSettings = New System.Windows.Forms.Button()
-		Me.pbSave = New System.Windows.Forms.Button()
-		Me.pbCancel = New System.Windows.Forms.Button()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.panelMain.SuspendLayout()
+		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
 		Me.settingsPage.SuspendLayout()
 		Me.panelSettingsPage.SuspendLayout()
@@ -145,7 +146,6 @@ Partial Class FSettings
 		CType(Me.udGeneralTimerBackup, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.panelPaymentTimer.SuspendLayout()
 		CType(Me.udPaymentTimer, System.ComponentModel.ISupportInitialize).BeginInit()
-		Me.panelButtons.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'panelMain
@@ -167,6 +167,64 @@ Partial Class FSettings
 		Me.panelMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
 		Me.panelMain.Size = New System.Drawing.Size(730, 471)
 		Me.panelMain.TabIndex = 0
+		'
+		'panelButtons
+		'
+		Me.panelButtons.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.panelButtons.AutoSize = True
+		Me.panelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.panelButtons.ColumnCount = 4
+		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.panelButtons.Controls.Add(Me.pbSaveSettings, 0, 0)
+		Me.panelButtons.Controls.Add(Me.pbSave, 2, 0)
+		Me.panelButtons.Controls.Add(Me.pbCancel, 3, 0)
+		Me.panelButtons.Location = New System.Drawing.Point(3, 439)
+		Me.panelButtons.Name = "panelButtons"
+		Me.panelButtons.RowCount = 1
+		Me.panelButtons.RowStyles.Add(New System.Windows.Forms.RowStyle())
+		Me.panelButtons.Size = New System.Drawing.Size(724, 29)
+		Me.panelButtons.TabIndex = 1
+		'
+		'pbSaveSettings
+		'
+		Me.pbSaveSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.pbSaveSettings.AutoSize = True
+		Me.pbSaveSettings.Location = New System.Drawing.Point(3, 3)
+		Me.pbSaveSettings.Name = "pbSaveSettings"
+		Me.pbSaveSettings.Size = New System.Drawing.Size(81, 23)
+		Me.pbSaveSettings.TabIndex = 0
+		Me.pbSaveSettings.Text = "Save settings"
+		Me.pbSaveSettings.UseVisualStyleBackColor = True
+		'
+		'pbSave
+		'
+		Me.pbSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.pbSave.AutoSize = True
+		Me.pbSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.pbSave.DialogResult = System.Windows.Forms.DialogResult.OK
+		Me.pbSave.Location = New System.Drawing.Point(614, 3)
+		Me.pbSave.Name = "pbSave"
+		Me.pbSave.Size = New System.Drawing.Size(51, 23)
+		Me.pbSave.TabIndex = 1
+		Me.pbSave.Text = "&Accept"
+		Me.pbSave.UseVisualStyleBackColor = True
+		'
+		'pbCancel
+		'
+		Me.pbCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.pbCancel.AutoSize = True
+		Me.pbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+		Me.pbCancel.Location = New System.Drawing.Point(671, 3)
+		Me.pbCancel.Name = "pbCancel"
+		Me.pbCancel.Size = New System.Drawing.Size(50, 23)
+		Me.pbCancel.TabIndex = 2
+		Me.pbCancel.Text = "&Cancel"
+		Me.pbCancel.UseVisualStyleBackColor = True
 		'
 		'TabControl1
 		'
@@ -1285,64 +1343,6 @@ Partial Class FSettings
 		Me.cbSynchronousBackup.Text = "Synchronous"
 		Me.cbSynchronousBackup.UseVisualStyleBackColor = True
 		'
-		'panelButtons
-		'
-		Me.panelButtons.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-			Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.panelButtons.AutoSize = True
-		Me.panelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.panelButtons.ColumnCount = 4
-		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-		Me.panelButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-		Me.panelButtons.Controls.Add(Me.pbSaveSettings, 0, 0)
-		Me.panelButtons.Controls.Add(Me.pbSave, 2, 0)
-		Me.panelButtons.Controls.Add(Me.pbCancel, 3, 0)
-		Me.panelButtons.Location = New System.Drawing.Point(3, 439)
-		Me.panelButtons.Name = "panelButtons"
-		Me.panelButtons.RowCount = 1
-		Me.panelButtons.RowStyles.Add(New System.Windows.Forms.RowStyle())
-		Me.panelButtons.Size = New System.Drawing.Size(724, 29)
-		Me.panelButtons.TabIndex = 1
-		'
-		'pbSaveSettings
-		'
-		Me.pbSaveSettings.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.pbSaveSettings.AutoSize = True
-		Me.pbSaveSettings.Location = New System.Drawing.Point(3, 3)
-		Me.pbSaveSettings.Name = "pbSaveSettings"
-		Me.pbSaveSettings.Size = New System.Drawing.Size(81, 23)
-		Me.pbSaveSettings.TabIndex = 0
-		Me.pbSaveSettings.Text = "Save settings"
-		Me.pbSaveSettings.UseVisualStyleBackColor = True
-		'
-		'pbSave
-		'
-		Me.pbSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.pbSave.AutoSize = True
-		Me.pbSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.pbSave.DialogResult = System.Windows.Forms.DialogResult.OK
-		Me.pbSave.Location = New System.Drawing.Point(614, 3)
-		Me.pbSave.Name = "pbSave"
-		Me.pbSave.Size = New System.Drawing.Size(51, 23)
-		Me.pbSave.TabIndex = 1
-		Me.pbSave.Text = "&Accept"
-		Me.pbSave.UseVisualStyleBackColor = True
-		'
-		'pbCancel
-		'
-		Me.pbCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.pbCancel.AutoSize = True
-		Me.pbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-		Me.pbCancel.Location = New System.Drawing.Point(671, 3)
-		Me.pbCancel.Name = "pbCancel"
-		Me.pbCancel.Size = New System.Drawing.Size(50, 23)
-		Me.pbCancel.TabIndex = 2
-		Me.pbCancel.Text = "&Cancel"
-		Me.pbCancel.UseVisualStyleBackColor = True
-		'
 		'OpenFileDialog1
 		'
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -1364,6 +1364,8 @@ Partial Class FSettings
 		Me.Text = "Nexo Retailer Settings"
 		Me.panelMain.ResumeLayout(False)
 		Me.panelMain.PerformLayout()
+		Me.panelButtons.ResumeLayout(False)
+		Me.panelButtons.PerformLayout()
 		Me.TabControl1.ResumeLayout(False)
 		Me.settingsPage.ResumeLayout(False)
 		Me.settingsPage.PerformLayout()
@@ -1418,8 +1420,6 @@ Partial Class FSettings
 		Me.panelPaymentTimer.ResumeLayout(False)
 		Me.panelPaymentTimer.PerformLayout()
 		CType(Me.udPaymentTimer, System.ComponentModel.ISupportInitialize).EndInit()
-		Me.panelButtons.ResumeLayout(False)
-		Me.panelButtons.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 

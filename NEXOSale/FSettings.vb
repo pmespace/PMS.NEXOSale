@@ -37,7 +37,7 @@ Public Class FSettings
 		SetButtons()
 	End Sub
 
-	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsCancel.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSynchronousBackup.CheckedChanged, cbSupportsCheckBackup.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsCancelBackup.CheckedChanged, cbPrintReceiptBackup.CheckedChanged, cbSupportsRefundBackup.CheckedChanged, cbSupportsRefund.CheckedChanged
+	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsCancel.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSynchronousBackup.CheckedChanged, cbSupportsCheckBackup.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsCancelBackup.CheckedChanged, cbPrintReceiptBackup.CheckedChanged, cbSupportsRefundBackup.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged
 		Modified = True
 		SetButtons()
 	End Sub
