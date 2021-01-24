@@ -4,24 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{03C2B68F-C658-43EE-83F7-6A86F2C62AE3}</ProjectGuid>
+    <ProjectGuid>{303A0841-5197-493C-A7FC-DE870F8CB7C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>NEXOSALE</RootNamespace>
-    <AssemblyName>PMS.NEXOSALE</AssemblyName>
+    <AssemblyName>PMS.NEXOSALE31</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
-    <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <AssemblyVersionSettings>None.None.None.None</AssemblyVersionSettings>
-    <UpdatePackageVersion>False</UpdatePackageVersion>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <AssemblyFileVersionSettings>None.None.None.None</AssemblyFileVersionSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,7 +19,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\Debug\</OutputPath>
-    <DocumentationFile>PMS.NEXOSALE.xml</DocumentationFile>
+    <DocumentationFile>PMS.NEXOSALE31.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
@@ -39,7 +29,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>..\Release\</OutputPath>
-    <DocumentationFile>PMS.NEXOSALE.xml</DocumentationFile>
+    <DocumentationFile>PMS.NEXOSALE31.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
@@ -59,14 +49,11 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NexoSimulator, Version=2.0.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.NEXO.2.0.9\lib\net47\NexoSimulator.exe</HintPath>
+    <Reference Include="PMS.COMMON, Version=3.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PMS.COMMON.3.0.9\lib\net47\PMS.COMMON.dll</HintPath>
     </Reference>
-    <Reference Include="PMS.COMMON, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.COMMON.3.0.0\lib\net47\PMS.COMMON.dll</HintPath>
-    </Reference>
-    <Reference Include="PMS.NEXO, Version=2.0.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.NEXO.2.0.9\lib\net47\PMS.NEXO.dll</HintPath>
+    <Reference Include="PMS.NEXO31, Version=2.0.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PMS.NEXO.2.0.14\lib\net47\PMS.NEXO31.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -90,30 +77,42 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmCancel.Designer.vb">
-      <DependentUpon>ConfirmCancel.vb</DependentUpon>
+    <Compile Include="..\NEXOSale\ConfirmCancel.Designer.vb">
+      <Link>ConfirmCancel.Designer.vb</Link>
     </Compile>
-    <Compile Include="ConfirmCancel.vb">
+    <Compile Include="..\NEXOSale\ConfirmCancel.vb">
+      <Link>ConfirmCancel.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Currencies.vb" />
-    <Compile Include="FProcessing.designer.vb">
-      <DependentUpon>FProcessing.vb</DependentUpon>
+    <Compile Include="..\NEXOSale\Currencies.vb">
+      <Link>Currencies.vb</Link>
     </Compile>
-    <Compile Include="FProcessing.vb">
+    <Compile Include="..\NEXOSale\FProcessing.designer.vb">
+      <Link>FProcessing.designer.vb</Link>
+    </Compile>
+    <Compile Include="..\NEXOSale\FProcessing.vb">
+      <Link>FProcessing.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FSettings.Designer.vb">
-      <DependentUpon>FSettings.vb</DependentUpon>
+    <Compile Include="..\NEXOSale\FSettings.Designer.vb">
+      <Link>FSettings.Designer.vb</Link>
     </Compile>
-    <Compile Include="FSettings.vb">
+    <Compile Include="..\NEXOSale\FSettings.vb">
+      <Link>FSettings.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FWait.Designer.vb">
-      <DependentUpon>FWait.vb</DependentUpon>
+    <Compile Include="..\NEXOSale\FWait.Designer.vb">
+      <Link>FWait.Designer.vb</Link>
     </Compile>
-    <Compile Include="FWait.vb">
+    <Compile Include="..\NEXOSale\FWait.vb">
+      <Link>FWait.vb</Link>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\NEXOSale\NEXOSALE.vb">
+      <Link>NEXOSALE.vb</Link>
+    </Compile>
+    <Compile Include="..\NEXOSale\Settings.vb">
+      <Link>Settings.vb</Link>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -131,22 +130,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="NEXOSALE.vb" />
-    <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ConfirmCancel.resx">
-      <DependentUpon>ConfirmCancel.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FProcessing.resx">
-      <DependentUpon>FProcessing.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FSettings.resx">
-      <DependentUpon>FSettings.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FWait.resx">
-      <DependentUpon>FWait.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -167,9 +152,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="button green.png" />
-    <None Include="button red.png" />
-    <Content Include="Open.png" />
+    <None Include="Resources\button green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("PMS.NEXOSALE30")>
-<Assembly: AssemblyDescription("NEXO Retailer 3.0 client interface [COM compatible]")>
+<Assembly: AssemblyTitle("PMS.NEXOSALE31")>
+<Assembly: AssemblyDescription("Nexo Retailer 3.1 client interface [COM compatible]")>
 <Assembly: AssemblyCompany("PMS")>
-<Assembly: AssemblyProduct("PMS.NEXOSALE30")>
+<Assembly: AssemblyProduct("PMS.NEXOSALE31")>
 <Assembly: AssemblyCopyright("Copyright ©  2021")>
 <Assembly: AssemblyTrademark("PMS")>
 
 <Assembly: ComVisible(True)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("b82c79b0-4829-4e9b-bbd8-993b1d2240dc")>
+<Assembly: Guid("11210e8d-e4d3-48cb-97bf-6c1b340e9d73")>
 
 ' Version information for an assembly consists of the following four values:
 '

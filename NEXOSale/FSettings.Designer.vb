@@ -101,17 +101,44 @@ Partial Class FSettings
 		Me.panelPaymentTimer = New System.Windows.Forms.TableLayoutPanel()
 		Me.udPaymentTimer = New System.Windows.Forms.NumericUpDown()
 		Me.Label11 = New System.Windows.Forms.Label()
-		Me.cbSupportsRefund = New System.Windows.Forms.CheckBox()
-		Me.cbSupportsRefundBackup = New System.Windows.Forms.CheckBox()
 		Me.cbSupportsCheckBackup = New System.Windows.Forms.CheckBox()
-		Me.cbSupportsCancelBackup = New System.Windows.Forms.CheckBox()
-		Me.cbSupportsCancel = New System.Windows.Forms.CheckBox()
 		Me.cbSupportsCheck = New System.Windows.Forms.CheckBox()
-		Me.cbPrintReceipt = New System.Windows.Forms.CheckBox()
 		Me.cbSynchronous = New System.Windows.Forms.CheckBox()
-		Me.cbPrintReceiptBackup = New System.Windows.Forms.CheckBox()
 		Me.cbSynchronousBackup = New System.Windows.Forms.CheckBox()
+		Me.cbPrintReceiptBackup = New System.Windows.Forms.CheckBox()
+		Me.cbSupportsCancelBackup = New System.Windows.Forms.CheckBox()
+		Me.cbSupportsRefundBackup = New System.Windows.Forms.CheckBox()
+		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+		Me.cbSupportsCancel = New System.Windows.Forms.CheckBox()
+		Me.cbSupportsRefund = New System.Windows.Forms.CheckBox()
+		Me.cbPrintReceipt = New System.Windows.Forms.CheckBox()
+		Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+		Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+		Me.GPRS = New System.Windows.Forms.TabPage()
+		Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+		Me.efGatewayIP = New System.Windows.Forms.TextBox()
+		Me.Label19 = New System.Windows.Forms.Label()
+		Me.Label21 = New System.Windows.Forms.Label()
+		Me.efICCD = New System.Windows.Forms.TextBox()
+		Me.Label23 = New System.Windows.Forms.Label()
+		Me.udICCDPort = New System.Windows.Forms.NumericUpDown()
+		Me.efUser = New System.Windows.Forms.TextBox()
+		Me.Label24 = New System.Windows.Forms.Label()
+		Me.efPWD = New System.Windows.Forms.TextBox()
+		Me.Label22 = New System.Windows.Forms.Label()
+		Me.TextBox5 = New System.Windows.Forms.TextBox()
+		Me.Button1 = New System.Windows.Forms.Button()
+		Me.Label20 = New System.Windows.Forms.Label()
+		Me.udGatewayPort = New System.Windows.Forms.NumericUpDown()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+		Me.PrintSettings = New System.Windows.Forms.TabPage()
+		Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+		Me.Label28 = New System.Windows.Forms.Label()
+		Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+		Me.efPicture = New System.Windows.Forms.TextBox()
+		Me.pbChoosePicture = New System.Windows.Forms.Button()
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -146,6 +173,14 @@ Partial Class FSettings
 		CType(Me.udGeneralTimerBackup, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.panelPaymentTimer.SuspendLayout()
 		CType(Me.udPaymentTimer, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.GPRS.SuspendLayout()
+		Me.TableLayoutPanel3.SuspendLayout()
+		CType(Me.udICCDPort, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.udGatewayPort, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.PrintSettings.SuspendLayout()
+		Me.TableLayoutPanel4.SuspendLayout()
+		Me.TableLayoutPanel5.SuspendLayout()
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'panelMain
@@ -233,6 +268,8 @@ Partial Class FSettings
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.TabControl1.Controls.Add(Me.settingsPage)
 		Me.TabControl1.Controls.Add(Me.advancedSettingsPage)
+		Me.TabControl1.Controls.Add(Me.GPRS)
+		Me.TabControl1.Controls.Add(Me.PrintSettings)
 		Me.TabControl1.Location = New System.Drawing.Point(3, 3)
 		Me.TabControl1.Name = "TabControl1"
 		Me.TabControl1.SelectedIndex = 0
@@ -866,16 +903,20 @@ Partial Class FSettings
 		Me.panelServerSettings.Controls.Add(Me.panelPaymentTimerBackup, 5, 5)
 		Me.panelServerSettings.Controls.Add(Me.TableLayoutPanel7, 5, 4)
 		Me.panelServerSettings.Controls.Add(Me.panelPaymentTimer, 5, 1)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsRefund, 1, 1)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsRefundBackup, 1, 5)
 		Me.panelServerSettings.Controls.Add(Me.cbSupportsCheckBackup, 4, 6)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsCancelBackup, 4, 5)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsCancel, 4, 1)
 		Me.panelServerSettings.Controls.Add(Me.cbSupportsCheck, 4, 2)
-		Me.panelServerSettings.Controls.Add(Me.cbPrintReceipt, 0, 1)
-		Me.panelServerSettings.Controls.Add(Me.cbSynchronous, 0, 2)
+		Me.panelServerSettings.Controls.Add(Me.cbSynchronous, 4, 1)
+		Me.panelServerSettings.Controls.Add(Me.cbSynchronousBackup, 4, 5)
 		Me.panelServerSettings.Controls.Add(Me.cbPrintReceiptBackup, 0, 5)
-		Me.panelServerSettings.Controls.Add(Me.cbSynchronousBackup, 0, 6)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsCancelBackup, 2, 5)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsRefundBackup, 1, 5)
+		Me.panelServerSettings.Controls.Add(Me.CheckBox1, 1, 6)
+		Me.panelServerSettings.Controls.Add(Me.CheckBox2, 0, 6)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsCancel, 2, 1)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsRefund, 1, 1)
+		Me.panelServerSettings.Controls.Add(Me.cbPrintReceipt, 0, 1)
+		Me.panelServerSettings.Controls.Add(Me.CheckBox3, 0, 2)
+		Me.panelServerSettings.Controls.Add(Me.CheckBox4, 1, 2)
 		Me.panelServerSettings.Location = New System.Drawing.Point(3, 116)
 		Me.panelServerSettings.Name = "panelServerSettings"
 		Me.panelServerSettings.RowCount = 7
@@ -902,12 +943,12 @@ Partial Class FSettings
 		Me.panelChecksBackup.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
 		Me.panelChecksBackup.Controls.Add(Me.udCheckTimerBackup, 1, 0)
 		Me.panelChecksBackup.Controls.Add(Me.Label26, 0, 0)
-		Me.panelChecksBackup.Location = New System.Drawing.Point(460, 168)
+		Me.panelChecksBackup.Location = New System.Drawing.Point(527, 168)
 		Me.panelChecksBackup.Name = "panelChecksBackup"
 		Me.panelChecksBackup.RowCount = 1
 		Me.panelChecksBackup.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.panelChecksBackup.Size = New System.Drawing.Size(249, 26)
-		Me.panelChecksBackup.TabIndex = 21
+		Me.panelChecksBackup.Size = New System.Drawing.Size(182, 26)
+		Me.panelChecksBackup.TabIndex = 25
 		'
 		'udCheckTimerBackup
 		'
@@ -932,16 +973,16 @@ Partial Class FSettings
 		'efServerIP
 		'
 		Me.efServerIP.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.efServerIP.Location = New System.Drawing.Point(97, 6)
+		Me.efServerIP.Location = New System.Drawing.Point(104, 6)
 		Me.efServerIP.Name = "efServerIP"
-		Me.efServerIP.Size = New System.Drawing.Size(105, 20)
+		Me.efServerIP.Size = New System.Drawing.Size(133, 20)
 		Me.efServerIP.TabIndex = 0
 		'
 		'Label3
 		'
 		Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
 		Me.Label3.AutoSize = True
-		Me.Label3.Location = New System.Drawing.Point(28, 9)
+		Me.Label3.Location = New System.Drawing.Point(35, 9)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(63, 13)
 		Me.Label3.TabIndex = 1
@@ -951,7 +992,7 @@ Partial Class FSettings
 		'
 		Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Right
 		Me.Label5.AutoSize = True
-		Me.Label5.Location = New System.Drawing.Point(208, 9)
+		Me.Label5.Location = New System.Drawing.Point(275, 9)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(71, 13)
 		Me.Label5.TabIndex = 2
@@ -960,7 +1001,7 @@ Partial Class FSettings
 		'udServerPort
 		'
 		Me.udServerPort.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.udServerPort.Location = New System.Drawing.Point(285, 6)
+		Me.udServerPort.Location = New System.Drawing.Point(352, 6)
 		Me.udServerPort.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
 		Me.udServerPort.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
 		Me.udServerPort.Name = "udServerPort"
@@ -973,7 +1014,7 @@ Partial Class FSettings
 		Me.pbTestConnection.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.pbTestConnection.AutoSize = True
 		Me.pbTestConnection.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.pbTestConnection.Location = New System.Drawing.Point(348, 4)
+		Me.pbTestConnection.Location = New System.Drawing.Point(415, 4)
 		Me.pbTestConnection.Name = "pbTestConnection"
 		Me.pbTestConnection.Size = New System.Drawing.Size(106, 23)
 		Me.pbTestConnection.TabIndex = 2
@@ -984,7 +1025,7 @@ Partial Class FSettings
 		'
 		Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.Right
 		Me.Label15.AutoSize = True
-		Me.Label15.Location = New System.Drawing.Point(31, 110)
+		Me.Label15.Location = New System.Drawing.Point(38, 110)
 		Me.Label15.Name = "Label15"
 		Me.Label15.Size = New System.Drawing.Size(60, 13)
 		Me.Label15.TabIndex = 7
@@ -993,16 +1034,16 @@ Partial Class FSettings
 		'efServerIPBackup
 		'
 		Me.efServerIPBackup.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.efServerIPBackup.Location = New System.Drawing.Point(97, 107)
+		Me.efServerIPBackup.Location = New System.Drawing.Point(104, 107)
 		Me.efServerIPBackup.Name = "efServerIPBackup"
-		Me.efServerIPBackup.Size = New System.Drawing.Size(105, 20)
-		Me.efServerIPBackup.TabIndex = 11
+		Me.efServerIPBackup.Size = New System.Drawing.Size(133, 20)
+		Me.efServerIPBackup.TabIndex = 13
 		'
 		'Label16
 		'
 		Me.Label16.Anchor = System.Windows.Forms.AnchorStyles.Right
 		Me.Label16.AutoSize = True
-		Me.Label16.Location = New System.Drawing.Point(211, 110)
+		Me.Label16.Location = New System.Drawing.Point(278, 110)
 		Me.Label16.Name = "Label16"
 		Me.Label16.Size = New System.Drawing.Size(68, 13)
 		Me.Label16.TabIndex = 8
@@ -1011,12 +1052,12 @@ Partial Class FSettings
 		'udServerPortBackup
 		'
 		Me.udServerPortBackup.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.udServerPortBackup.Location = New System.Drawing.Point(285, 107)
+		Me.udServerPortBackup.Location = New System.Drawing.Point(352, 107)
 		Me.udServerPortBackup.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
 		Me.udServerPortBackup.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
 		Me.udServerPortBackup.Name = "udServerPortBackup"
 		Me.udServerPortBackup.Size = New System.Drawing.Size(57, 20)
-		Me.udServerPortBackup.TabIndex = 12
+		Me.udServerPortBackup.TabIndex = 14
 		Me.udServerPortBackup.Value = New Decimal(New Integer() {2018, 0, 0, 0})
 		'
 		'pbTestConnectionBackup
@@ -1024,10 +1065,10 @@ Partial Class FSettings
 		Me.pbTestConnectionBackup.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.pbTestConnectionBackup.AutoSize = True
 		Me.pbTestConnectionBackup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.pbTestConnectionBackup.Location = New System.Drawing.Point(348, 105)
+		Me.pbTestConnectionBackup.Location = New System.Drawing.Point(415, 105)
 		Me.pbTestConnectionBackup.Name = "pbTestConnectionBackup"
 		Me.pbTestConnectionBackup.Size = New System.Drawing.Size(106, 23)
-		Me.pbTestConnectionBackup.TabIndex = 13
+		Me.pbTestConnectionBackup.TabIndex = 15
 		Me.pbTestConnectionBackup.Text = "&Test connection"
 		Me.pbTestConnectionBackup.UseVisualStyleBackColor = True
 		'
@@ -1044,12 +1085,12 @@ Partial Class FSettings
 		Me.panelChecks.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
 		Me.panelChecks.Controls.Add(Me.udCheckTimer, 1, 0)
 		Me.panelChecks.Controls.Add(Me.Label17, 0, 0)
-		Me.panelChecks.Location = New System.Drawing.Point(460, 67)
+		Me.panelChecks.Location = New System.Drawing.Point(527, 67)
 		Me.panelChecks.Name = "panelChecks"
 		Me.panelChecks.RowCount = 1
 		Me.panelChecks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.panelChecks.Size = New System.Drawing.Size(249, 26)
-		Me.panelChecks.TabIndex = 10
+		Me.panelChecks.Size = New System.Drawing.Size(182, 26)
+		Me.panelChecks.TabIndex = 12
 		'
 		'udCheckTimer
 		'
@@ -1084,11 +1125,11 @@ Partial Class FSettings
 		Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
 		Me.TableLayoutPanel1.Controls.Add(Me.udGeneralTimer, 1, 0)
 		Me.TableLayoutPanel1.Controls.Add(Me.Label9, 0, 0)
-		Me.TableLayoutPanel1.Location = New System.Drawing.Point(460, 3)
+		Me.TableLayoutPanel1.Location = New System.Drawing.Point(527, 3)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 1
 		Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel1.Size = New System.Drawing.Size(249, 26)
+		Me.TableLayoutPanel1.Size = New System.Drawing.Size(182, 26)
 		Me.TableLayoutPanel1.TabIndex = 3
 		'
 		'udGeneralTimer
@@ -1124,12 +1165,12 @@ Partial Class FSettings
 		Me.panelPaymentTimerBackup.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
 		Me.panelPaymentTimerBackup.Controls.Add(Me.udPaymentTimerBackup, 1, 0)
 		Me.panelPaymentTimerBackup.Controls.Add(Me.Label27, 0, 0)
-		Me.panelPaymentTimerBackup.Location = New System.Drawing.Point(460, 136)
+		Me.panelPaymentTimerBackup.Location = New System.Drawing.Point(527, 136)
 		Me.panelPaymentTimerBackup.Name = "panelPaymentTimerBackup"
 		Me.panelPaymentTimerBackup.RowCount = 1
 		Me.panelPaymentTimerBackup.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.panelPaymentTimerBackup.Size = New System.Drawing.Size(249, 26)
-		Me.panelPaymentTimerBackup.TabIndex = 18
+		Me.panelPaymentTimerBackup.Size = New System.Drawing.Size(182, 26)
+		Me.panelPaymentTimerBackup.TabIndex = 21
 		'
 		'udPaymentTimerBackup
 		'
@@ -1164,12 +1205,12 @@ Partial Class FSettings
 		Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
 		Me.TableLayoutPanel7.Controls.Add(Me.udGeneralTimerBackup, 1, 0)
 		Me.TableLayoutPanel7.Controls.Add(Me.Label25, 0, 0)
-		Me.TableLayoutPanel7.Location = New System.Drawing.Point(460, 104)
+		Me.TableLayoutPanel7.Location = New System.Drawing.Point(527, 104)
 		Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
 		Me.TableLayoutPanel7.RowCount = 1
 		Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.TableLayoutPanel7.Size = New System.Drawing.Size(249, 26)
-		Me.TableLayoutPanel7.TabIndex = 14
+		Me.TableLayoutPanel7.Size = New System.Drawing.Size(182, 26)
+		Me.TableLayoutPanel7.TabIndex = 16
 		'
 		'udGeneralTimerBackup
 		'
@@ -1204,12 +1245,12 @@ Partial Class FSettings
 		Me.panelPaymentTimer.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
 		Me.panelPaymentTimer.Controls.Add(Me.udPaymentTimer, 1, 0)
 		Me.panelPaymentTimer.Controls.Add(Me.Label11, 0, 0)
-		Me.panelPaymentTimer.Location = New System.Drawing.Point(460, 35)
+		Me.panelPaymentTimer.Location = New System.Drawing.Point(527, 35)
 		Me.panelPaymentTimer.Name = "panelPaymentTimer"
 		Me.panelPaymentTimer.RowCount = 1
 		Me.panelPaymentTimer.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-		Me.panelPaymentTimer.Size = New System.Drawing.Size(249, 26)
-		Me.panelPaymentTimer.TabIndex = 7
+		Me.panelPaymentTimer.Size = New System.Drawing.Size(182, 26)
+		Me.panelPaymentTimer.TabIndex = 8
 		'
 		'udPaymentTimer
 		'
@@ -1231,76 +1272,135 @@ Partial Class FSettings
 		Me.Label11.TabIndex = 4
 		Me.Label11.Text = "Payment timer:"
 		'
-		'cbSupportsRefund
-		'
-		Me.cbSupportsRefund.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.cbSupportsRefund.AutoSize = True
-		Me.cbSupportsRefund.Location = New System.Drawing.Point(97, 39)
-		Me.cbSupportsRefund.Name = "cbSupportsRefund"
-		Me.cbSupportsRefund.Size = New System.Drawing.Size(101, 17)
-		Me.cbSupportsRefund.TabIndex = 5
-		Me.cbSupportsRefund.Text = "Supports refund"
-		Me.cbSupportsRefund.UseVisualStyleBackColor = True
-		'
-		'cbSupportsRefundBackup
-		'
-		Me.cbSupportsRefundBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.cbSupportsRefundBackup.AutoSize = True
-		Me.cbSupportsRefundBackup.Location = New System.Drawing.Point(97, 140)
-		Me.cbSupportsRefundBackup.Name = "cbSupportsRefundBackup"
-		Me.cbSupportsRefundBackup.Size = New System.Drawing.Size(101, 17)
-		Me.cbSupportsRefundBackup.TabIndex = 16
-		Me.cbSupportsRefundBackup.Text = "Supports refund"
-		Me.cbSupportsRefundBackup.UseVisualStyleBackColor = True
-		'
 		'cbSupportsCheckBackup
 		'
 		Me.cbSupportsCheckBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.cbSupportsCheckBackup.AutoSize = True
-		Me.cbSupportsCheckBackup.Location = New System.Drawing.Point(348, 172)
+		Me.cbSupportsCheckBackup.Location = New System.Drawing.Point(415, 172)
 		Me.cbSupportsCheckBackup.Name = "cbSupportsCheckBackup"
 		Me.cbSupportsCheckBackup.Size = New System.Drawing.Size(106, 17)
-		Me.cbSupportsCheckBackup.TabIndex = 20
+		Me.cbSupportsCheckBackup.TabIndex = 24
 		Me.cbSupportsCheckBackup.Text = "Supports checks"
 		Me.cbSupportsCheckBackup.UseVisualStyleBackColor = True
+		'
+		'cbSupportsCheck
+		'
+		Me.cbSupportsCheck.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.cbSupportsCheck.AutoSize = True
+		Me.cbSupportsCheck.Location = New System.Drawing.Point(415, 71)
+		Me.cbSupportsCheck.Name = "cbSupportsCheck"
+		Me.cbSupportsCheck.Size = New System.Drawing.Size(106, 17)
+		Me.cbSupportsCheck.TabIndex = 11
+		Me.cbSupportsCheck.Text = "Supports checks"
+		Me.cbSupportsCheck.UseVisualStyleBackColor = True
+		'
+		'cbSynchronous
+		'
+		Me.cbSynchronous.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.cbSynchronous.AutoSize = True
+		Me.cbSynchronous.Enabled = False
+		Me.cbSynchronous.Location = New System.Drawing.Point(415, 39)
+		Me.cbSynchronous.Name = "cbSynchronous"
+		Me.cbSynchronous.Size = New System.Drawing.Size(88, 17)
+		Me.cbSynchronous.TabIndex = 7
+		Me.cbSynchronous.Text = "Synchronous"
+		Me.cbSynchronous.UseVisualStyleBackColor = True
+		'
+		'cbSynchronousBackup
+		'
+		Me.cbSynchronousBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.cbSynchronousBackup.AutoSize = True
+		Me.cbSynchronousBackup.Enabled = False
+		Me.cbSynchronousBackup.Location = New System.Drawing.Point(415, 140)
+		Me.cbSynchronousBackup.Name = "cbSynchronousBackup"
+		Me.cbSynchronousBackup.Size = New System.Drawing.Size(88, 17)
+		Me.cbSynchronousBackup.TabIndex = 20
+		Me.cbSynchronousBackup.Text = "Synchronous"
+		Me.cbSynchronousBackup.UseVisualStyleBackColor = True
+		'
+		'cbPrintReceiptBackup
+		'
+		Me.cbPrintReceiptBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.cbPrintReceiptBackup.AutoSize = True
+		Me.cbPrintReceiptBackup.Enabled = False
+		Me.cbPrintReceiptBackup.Location = New System.Drawing.Point(3, 140)
+		Me.cbPrintReceiptBackup.Name = "cbPrintReceiptBackup"
+		Me.cbPrintReceiptBackup.Size = New System.Drawing.Size(82, 17)
+		Me.cbPrintReceiptBackup.TabIndex = 17
+		Me.cbPrintReceiptBackup.Text = "Print receipt"
+		Me.cbPrintReceiptBackup.UseVisualStyleBackColor = True
 		'
 		'cbSupportsCancelBackup
 		'
 		Me.cbSupportsCancelBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.cbSupportsCancelBackup.AutoSize = True
-		Me.cbSupportsCancelBackup.Location = New System.Drawing.Point(348, 140)
+		Me.cbSupportsCancelBackup.Location = New System.Drawing.Point(243, 140)
 		Me.cbSupportsCancelBackup.Name = "cbSupportsCancelBackup"
 		Me.cbSupportsCancelBackup.Size = New System.Drawing.Size(103, 17)
-		Me.cbSupportsCancelBackup.TabIndex = 17
+		Me.cbSupportsCancelBackup.TabIndex = 19
 		Me.cbSupportsCancelBackup.Text = "Supports cancel"
 		Me.cbSupportsCancelBackup.UseVisualStyleBackColor = True
+		'
+		'cbSupportsRefundBackup
+		'
+		Me.cbSupportsRefundBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.cbSupportsRefundBackup.AutoSize = True
+		Me.cbSupportsRefundBackup.Location = New System.Drawing.Point(104, 140)
+		Me.cbSupportsRefundBackup.Name = "cbSupportsRefundBackup"
+		Me.cbSupportsRefundBackup.Size = New System.Drawing.Size(101, 17)
+		Me.cbSupportsRefundBackup.TabIndex = 18
+		Me.cbSupportsRefundBackup.Text = "Supports refund"
+		Me.cbSupportsRefundBackup.UseVisualStyleBackColor = True
+		'
+		'CheckBox1
+		'
+		Me.CheckBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.CheckBox1.AutoSize = True
+		Me.CheckBox1.Location = New System.Drawing.Point(104, 172)
+		Me.CheckBox1.Name = "CheckBox1"
+		Me.CheckBox1.Size = New System.Drawing.Size(133, 17)
+		Me.CheckBox1.TabIndex = 23
+		Me.CheckBox1.Text = "Supports reconciliation"
+		Me.CheckBox1.UseVisualStyleBackColor = True
+		'
+		'CheckBox2
+		'
+		Me.CheckBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.CheckBox2.AutoSize = True
+		Me.CheckBox2.Location = New System.Drawing.Point(3, 172)
+		Me.CheckBox2.Name = "CheckBox2"
+		Me.CheckBox2.Size = New System.Drawing.Size(95, 17)
+		Me.CheckBox2.TabIndex = 22
+		Me.CheckBox2.Text = "Supports abort"
+		Me.CheckBox2.UseVisualStyleBackColor = True
 		'
 		'cbSupportsCancel
 		'
 		Me.cbSupportsCancel.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.cbSupportsCancel.AutoSize = True
-		Me.cbSupportsCancel.Location = New System.Drawing.Point(348, 39)
+		Me.cbSupportsCancel.Location = New System.Drawing.Point(243, 39)
 		Me.cbSupportsCancel.Name = "cbSupportsCancel"
 		Me.cbSupportsCancel.Size = New System.Drawing.Size(103, 17)
 		Me.cbSupportsCancel.TabIndex = 6
 		Me.cbSupportsCancel.Text = "Supports cancel"
 		Me.cbSupportsCancel.UseVisualStyleBackColor = True
 		'
-		'cbSupportsCheck
+		'cbSupportsRefund
 		'
-		Me.cbSupportsCheck.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.cbSupportsCheck.AutoSize = True
-		Me.cbSupportsCheck.Location = New System.Drawing.Point(348, 71)
-		Me.cbSupportsCheck.Name = "cbSupportsCheck"
-		Me.cbSupportsCheck.Size = New System.Drawing.Size(106, 17)
-		Me.cbSupportsCheck.TabIndex = 9
-		Me.cbSupportsCheck.Text = "Supports checks"
-		Me.cbSupportsCheck.UseVisualStyleBackColor = True
+		Me.cbSupportsRefund.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.cbSupportsRefund.AutoSize = True
+		Me.cbSupportsRefund.Location = New System.Drawing.Point(104, 39)
+		Me.cbSupportsRefund.Name = "cbSupportsRefund"
+		Me.cbSupportsRefund.Size = New System.Drawing.Size(101, 17)
+		Me.cbSupportsRefund.TabIndex = 5
+		Me.cbSupportsRefund.Text = "Supports refund"
+		Me.cbSupportsRefund.UseVisualStyleBackColor = True
 		'
 		'cbPrintReceipt
 		'
 		Me.cbPrintReceipt.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.cbPrintReceipt.AutoSize = True
+		Me.cbPrintReceipt.Enabled = False
 		Me.cbPrintReceipt.Location = New System.Drawing.Point(3, 39)
 		Me.cbPrintReceipt.Name = "cbPrintReceipt"
 		Me.cbPrintReceipt.Size = New System.Drawing.Size(82, 17)
@@ -1308,44 +1408,312 @@ Partial Class FSettings
 		Me.cbPrintReceipt.Text = "Print receipt"
 		Me.cbPrintReceipt.UseVisualStyleBackColor = True
 		'
-		'cbSynchronous
+		'CheckBox3
 		'
-		Me.cbSynchronous.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.cbSynchronous.AutoSize = True
-		Me.cbSynchronous.Enabled = False
-		Me.cbSynchronous.Location = New System.Drawing.Point(3, 71)
-		Me.cbSynchronous.Name = "cbSynchronous"
-		Me.cbSynchronous.Size = New System.Drawing.Size(88, 17)
-		Me.cbSynchronous.TabIndex = 8
-		Me.cbSynchronous.Text = "Synchronous"
-		Me.cbSynchronous.UseVisualStyleBackColor = True
+		Me.CheckBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.CheckBox3.AutoSize = True
+		Me.CheckBox3.Location = New System.Drawing.Point(3, 71)
+		Me.CheckBox3.Name = "CheckBox3"
+		Me.CheckBox3.Size = New System.Drawing.Size(95, 17)
+		Me.CheckBox3.TabIndex = 9
+		Me.CheckBox3.Text = "Supports abort"
+		Me.CheckBox3.UseVisualStyleBackColor = True
 		'
-		'cbPrintReceiptBackup
+		'CheckBox4
 		'
-		Me.cbPrintReceiptBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.cbPrintReceiptBackup.AutoSize = True
-		Me.cbPrintReceiptBackup.Location = New System.Drawing.Point(3, 140)
-		Me.cbPrintReceiptBackup.Name = "cbPrintReceiptBackup"
-		Me.cbPrintReceiptBackup.Size = New System.Drawing.Size(82, 17)
-		Me.cbPrintReceiptBackup.TabIndex = 15
-		Me.cbPrintReceiptBackup.Text = "Print receipt"
-		Me.cbPrintReceiptBackup.UseVisualStyleBackColor = True
+		Me.CheckBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.CheckBox4.AutoSize = True
+		Me.CheckBox4.Location = New System.Drawing.Point(104, 71)
+		Me.CheckBox4.Name = "CheckBox4"
+		Me.CheckBox4.Size = New System.Drawing.Size(133, 17)
+		Me.CheckBox4.TabIndex = 10
+		Me.CheckBox4.Text = "Supports reconciliation"
+		Me.CheckBox4.UseVisualStyleBackColor = True
 		'
-		'cbSynchronousBackup
+		'GPRS
 		'
-		Me.cbSynchronousBackup.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.cbSynchronousBackup.AutoSize = True
-		Me.cbSynchronousBackup.Enabled = False
-		Me.cbSynchronousBackup.Location = New System.Drawing.Point(3, 172)
-		Me.cbSynchronousBackup.Name = "cbSynchronousBackup"
-		Me.cbSynchronousBackup.Size = New System.Drawing.Size(88, 17)
-		Me.cbSynchronousBackup.TabIndex = 19
-		Me.cbSynchronousBackup.Text = "Synchronous"
-		Me.cbSynchronousBackup.UseVisualStyleBackColor = True
+		Me.GPRS.Controls.Add(Me.TableLayoutPanel3)
+		Me.GPRS.Location = New System.Drawing.Point(4, 22)
+		Me.GPRS.Name = "GPRS"
+		Me.GPRS.Padding = New System.Windows.Forms.Padding(3)
+		Me.GPRS.Size = New System.Drawing.Size(716, 404)
+		Me.GPRS.TabIndex = 2
+		Me.GPRS.Text = "GPRS backup"
+		Me.GPRS.UseVisualStyleBackColor = True
+		'
+		'TableLayoutPanel3
+		'
+		Me.TableLayoutPanel3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.TableLayoutPanel3.AutoSize = True
+		Me.TableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.TableLayoutPanel3.ColumnCount = 5
+		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		Me.TableLayoutPanel3.Controls.Add(Me.efGatewayIP, 1, 0)
+		Me.TableLayoutPanel3.Controls.Add(Me.Label19, 0, 0)
+		Me.TableLayoutPanel3.Controls.Add(Me.Label21, 0, 1)
+		Me.TableLayoutPanel3.Controls.Add(Me.efICCD, 1, 1)
+		Me.TableLayoutPanel3.Controls.Add(Me.Label23, 2, 1)
+		Me.TableLayoutPanel3.Controls.Add(Me.udICCDPort, 3, 1)
+		Me.TableLayoutPanel3.Controls.Add(Me.efUser, 1, 2)
+		Me.TableLayoutPanel3.Controls.Add(Me.Label24, 2, 2)
+		Me.TableLayoutPanel3.Controls.Add(Me.efPWD, 3, 2)
+		Me.TableLayoutPanel3.Controls.Add(Me.Label22, 0, 2)
+		Me.TableLayoutPanel3.Controls.Add(Me.TextBox5, 4, 0)
+		Me.TableLayoutPanel3.Controls.Add(Me.Button1, 3, 3)
+		Me.TableLayoutPanel3.Controls.Add(Me.Label20, 2, 0)
+		Me.TableLayoutPanel3.Controls.Add(Me.udGatewayPort, 3, 0)
+		Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
+		Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+		Me.TableLayoutPanel3.RowCount = 5
+		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
+		Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		Me.TableLayoutPanel3.Size = New System.Drawing.Size(710, 398)
+		Me.TableLayoutPanel3.TabIndex = 0
+		'
+		'efGatewayIP
+		'
+		Me.efGatewayIP.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.efGatewayIP.Location = New System.Drawing.Point(74, 3)
+		Me.efGatewayIP.Name = "efGatewayIP"
+		Me.efGatewayIP.Size = New System.Drawing.Size(133, 20)
+		Me.efGatewayIP.TabIndex = 0
+		'
+		'Label19
+		'
+		Me.Label19.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.Label19.AutoSize = True
+		Me.Label19.Location = New System.Drawing.Point(3, 6)
+		Me.Label19.Name = "Label19"
+		Me.Label19.Size = New System.Drawing.Size(65, 13)
+		Me.Label19.TabIndex = 4
+		Me.Label19.Text = "Gateway IP:"
+		'
+		'Label21
+		'
+		Me.Label21.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.Label21.AutoSize = True
+		Me.Label21.Location = New System.Drawing.Point(33, 32)
+		Me.Label21.Name = "Label21"
+		Me.Label21.Size = New System.Drawing.Size(35, 13)
+		Me.Label21.TabIndex = 8
+		Me.Label21.Text = "ICCD:"
+		'
+		'efICCD
+		'
+		Me.efICCD.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.efICCD.Location = New System.Drawing.Point(74, 29)
+		Me.efICCD.Name = "efICCD"
+		Me.efICCD.Size = New System.Drawing.Size(133, 20)
+		Me.efICCD.TabIndex = 2
+		'
+		'Label23
+		'
+		Me.Label23.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.Label23.AutoSize = True
+		Me.Label23.Location = New System.Drawing.Point(257, 32)
+		Me.Label23.Name = "Label23"
+		Me.Label23.Size = New System.Drawing.Size(29, 13)
+		Me.Label23.TabIndex = 11
+		Me.Label23.Text = "Port:"
+		'
+		'udICCDPort
+		'
+		Me.udICCDPort.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.udICCDPort.Location = New System.Drawing.Point(292, 29)
+		Me.udICCDPort.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
+		Me.udICCDPort.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.udICCDPort.Name = "udICCDPort"
+		Me.udICCDPort.Size = New System.Drawing.Size(133, 20)
+		Me.udICCDPort.TabIndex = 3
+		Me.udICCDPort.Value = New Decimal(New Integer() {2018, 0, 0, 0})
+		'
+		'efUser
+		'
+		Me.efUser.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.efUser.Location = New System.Drawing.Point(74, 55)
+		Me.efUser.Name = "efUser"
+		Me.efUser.Size = New System.Drawing.Size(133, 20)
+		Me.efUser.TabIndex = 4
+		'
+		'Label24
+		'
+		Me.Label24.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.Label24.AutoSize = True
+		Me.Label24.Location = New System.Drawing.Point(230, 58)
+		Me.Label24.Name = "Label24"
+		Me.Label24.Size = New System.Drawing.Size(56, 13)
+		Me.Label24.TabIndex = 14
+		Me.Label24.Text = "Password:"
+		'
+		'efPWD
+		'
+		Me.efPWD.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.efPWD.Location = New System.Drawing.Point(292, 55)
+		Me.efPWD.Name = "efPWD"
+		Me.efPWD.Size = New System.Drawing.Size(133, 20)
+		Me.efPWD.TabIndex = 5
+		'
+		'Label22
+		'
+		Me.Label22.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.Label22.AutoSize = True
+		Me.Label22.Location = New System.Drawing.Point(36, 58)
+		Me.Label22.Name = "Label22"
+		Me.Label22.Size = New System.Drawing.Size(32, 13)
+		Me.Label22.TabIndex = 10
+		Me.Label22.Text = "User:"
+		'
+		'TextBox5
+		'
+		Me.TextBox5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.TextBox5.Enabled = False
+		Me.TextBox5.Location = New System.Drawing.Point(431, 3)
+		Me.TextBox5.Multiline = True
+		Me.TextBox5.Name = "TextBox5"
+		Me.TableLayoutPanel3.SetRowSpan(Me.TextBox5, 3)
+		Me.TextBox5.Size = New System.Drawing.Size(276, 72)
+		Me.TextBox5.TabIndex = 7
+		'
+		'Button1
+		'
+		Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.Button1.AutoSize = True
+		Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.Button1.Enabled = False
+		Me.Button1.Location = New System.Drawing.Point(292, 81)
+		Me.Button1.Name = "Button1"
+		Me.Button1.Size = New System.Drawing.Size(133, 23)
+		Me.Button1.TabIndex = 6
+		Me.Button1.Text = "&Test connection"
+		Me.Button1.UseVisualStyleBackColor = True
+		'
+		'Label20
+		'
+		Me.Label20.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.Label20.AutoSize = True
+		Me.Label20.Location = New System.Drawing.Point(213, 6)
+		Me.Label20.Name = "Label20"
+		Me.Label20.Size = New System.Drawing.Size(73, 13)
+		Me.Label20.TabIndex = 15
+		Me.Label20.Text = "Gateway port:"
+		'
+		'udGatewayPort
+		'
+		Me.udGatewayPort.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.udGatewayPort.Location = New System.Drawing.Point(292, 3)
+		Me.udGatewayPort.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
+		Me.udGatewayPort.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+		Me.udGatewayPort.Name = "udGatewayPort"
+		Me.udGatewayPort.Size = New System.Drawing.Size(133, 20)
+		Me.udGatewayPort.TabIndex = 1
+		Me.udGatewayPort.Value = New Decimal(New Integer() {2018, 0, 0, 0})
 		'
 		'OpenFileDialog1
 		'
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+		'
+		'PrintSettings
+		'
+		Me.PrintSettings.Controls.Add(Me.TableLayoutPanel4)
+		Me.PrintSettings.Location = New System.Drawing.Point(4, 22)
+		Me.PrintSettings.Name = "PrintSettings"
+		Me.PrintSettings.Padding = New System.Windows.Forms.Padding(3)
+		Me.PrintSettings.Size = New System.Drawing.Size(716, 404)
+		Me.PrintSettings.TabIndex = 3
+		Me.PrintSettings.Text = "Print settings"
+		Me.PrintSettings.UseVisualStyleBackColor = True
+		'
+		'TableLayoutPanel4
+		'
+		Me.TableLayoutPanel4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.TableLayoutPanel4.AutoSize = True
+		Me.TableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.TableLayoutPanel4.ColumnCount = 1
+		Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel5, 0, 0)
+		Me.TableLayoutPanel4.Controls.Add(Me.PictureBox1, 0, 1)
+		Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 3)
+		Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+		Me.TableLayoutPanel4.RowCount = 2
+		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
+		Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		Me.TableLayoutPanel4.Size = New System.Drawing.Size(710, 398)
+		Me.TableLayoutPanel4.TabIndex = 0
+		'
+		'Label28
+		'
+		Me.Label28.Anchor = System.Windows.Forms.AnchorStyles.Right
+		Me.Label28.AutoSize = True
+		Me.Label28.Location = New System.Drawing.Point(3, 8)
+		Me.Label28.Name = "Label28"
+		Me.Label28.Size = New System.Drawing.Size(69, 13)
+		Me.Label28.TabIndex = 0
+		Me.Label28.Text = "Logo to print:"
+		'
+		'TableLayoutPanel5
+		'
+		Me.TableLayoutPanel5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.TableLayoutPanel5.AutoSize = True
+		Me.TableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.TableLayoutPanel5.ColumnCount = 3
+		Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+		Me.TableLayoutPanel5.Controls.Add(Me.Label28, 0, 0)
+		Me.TableLayoutPanel5.Controls.Add(Me.efPicture, 1, 0)
+		Me.TableLayoutPanel5.Controls.Add(Me.pbChoosePicture, 2, 0)
+		Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 3)
+		Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+		Me.TableLayoutPanel5.RowCount = 1
+		Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+		Me.TableLayoutPanel5.Size = New System.Drawing.Size(704, 29)
+		Me.TableLayoutPanel5.TabIndex = 1
+		'
+		'PictureBox1
+		'
+		Me.PictureBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+			Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.PictureBox1.Location = New System.Drawing.Point(3, 38)
+		Me.PictureBox1.Name = "PictureBox1"
+		Me.PictureBox1.Size = New System.Drawing.Size(704, 357)
+		Me.PictureBox1.TabIndex = 2
+		Me.PictureBox1.TabStop = False
+		'
+		'efPicture
+		'
+		Me.efPicture.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.efPicture.Location = New System.Drawing.Point(78, 4)
+		Me.efPicture.Name = "efPicture"
+		Me.efPicture.Size = New System.Drawing.Size(561, 20)
+		Me.efPicture.TabIndex = 1
+		'
+		'pbChoosePicture
+		'
+		Me.pbChoosePicture.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.pbChoosePicture.AutoSize = True
+		Me.pbChoosePicture.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.pbChoosePicture.Location = New System.Drawing.Point(645, 3)
+		Me.pbChoosePicture.Name = "pbChoosePicture"
+		Me.pbChoosePicture.Size = New System.Drawing.Size(56, 23)
+		Me.pbChoosePicture.TabIndex = 2
+		Me.pbChoosePicture.Text = "Select..."
+		Me.pbChoosePicture.UseVisualStyleBackColor = True
 		'
 		'FSettings
 		'
@@ -1420,6 +1788,19 @@ Partial Class FSettings
 		Me.panelPaymentTimer.ResumeLayout(False)
 		Me.panelPaymentTimer.PerformLayout()
 		CType(Me.udPaymentTimer, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.GPRS.ResumeLayout(False)
+		Me.GPRS.PerformLayout()
+		Me.TableLayoutPanel3.ResumeLayout(False)
+		Me.TableLayoutPanel3.PerformLayout()
+		CType(Me.udICCDPort, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.udGatewayPort, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.PrintSettings.ResumeLayout(False)
+		Me.PrintSettings.PerformLayout()
+		Me.TableLayoutPanel4.ResumeLayout(False)
+		Me.TableLayoutPanel4.PerformLayout()
+		Me.TableLayoutPanel5.ResumeLayout(False)
+		Me.TableLayoutPanel5.PerformLayout()
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -1515,4 +1896,31 @@ Partial Class FSettings
 	Friend WithEvents Label18 As Windows.Forms.Label
 	Friend WithEvents efAdminCode As Windows.Forms.TextBox
 	Friend WithEvents cbUseDate As Windows.Forms.CheckBox
+	Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
+	Friend WithEvents CheckBox2 As Windows.Forms.CheckBox
+	Friend WithEvents CheckBox3 As Windows.Forms.CheckBox
+	Friend WithEvents CheckBox4 As Windows.Forms.CheckBox
+	Friend WithEvents GPRS As Windows.Forms.TabPage
+	Friend WithEvents TableLayoutPanel3 As Windows.Forms.TableLayoutPanel
+	Friend WithEvents efGatewayIP As Windows.Forms.TextBox
+	Friend WithEvents Label19 As Windows.Forms.Label
+	Friend WithEvents Label21 As Windows.Forms.Label
+	Friend WithEvents efICCD As Windows.Forms.TextBox
+	Friend WithEvents Label23 As Windows.Forms.Label
+	Friend WithEvents udICCDPort As Windows.Forms.NumericUpDown
+	Friend WithEvents efUser As Windows.Forms.TextBox
+	Friend WithEvents Label24 As Windows.Forms.Label
+	Friend WithEvents efPWD As Windows.Forms.TextBox
+	Friend WithEvents Label22 As Windows.Forms.Label
+	Friend WithEvents TextBox5 As Windows.Forms.TextBox
+	Friend WithEvents Button1 As Windows.Forms.Button
+	Friend WithEvents Label20 As Windows.Forms.Label
+	Friend WithEvents udGatewayPort As Windows.Forms.NumericUpDown
+	Friend WithEvents PrintSettings As Windows.Forms.TabPage
+	Friend WithEvents TableLayoutPanel4 As Windows.Forms.TableLayoutPanel
+	Friend WithEvents TableLayoutPanel5 As Windows.Forms.TableLayoutPanel
+	Friend WithEvents Label28 As Windows.Forms.Label
+	Friend WithEvents efPicture As Windows.Forms.TextBox
+	Friend WithEvents pbChoosePicture As Windows.Forms.Button
+	Friend WithEvents PictureBox1 As Windows.Forms.PictureBox
 End Class

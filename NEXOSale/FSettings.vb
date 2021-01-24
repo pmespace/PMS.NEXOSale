@@ -29,7 +29,7 @@ Public Class FSettings
 		useAdvancedSettings = advanced
 	End Sub
 
-	Private Sub TextBox_TextChanged(sender As Object, e As EventArgs) Handles efPOIID.TextChanged, efSaleID.TextChanged, efServerIP.TextChanged, efSettingsFileName.TextChanged, efSoftwareVersion.TextChanged, efManufacturerName.TextChanged, efCertificationCode.TextChanged, efApplicationName.TextChanged, efLogFileName.TextChanged, efServerIPBackup.TextChanged
+	Private Sub TextBox_TextChanged(sender As Object, e As EventArgs) Handles efPOIID.TextChanged, efSaleID.TextChanged, efServerIP.TextChanged, efSettingsFileName.TextChanged, efSoftwareVersion.TextChanged, efManufacturerName.TextChanged, efCertificationCode.TextChanged, efApplicationName.TextChanged, efLogFileName.TextChanged, efServerIPBackup.TextChanged, efUser.TextChanged, efPWD.TextChanged, efICCD.TextChanged, efGatewayIP.TextChanged, efPicture.TextChanged
 		Modified = True
 		'If sender Is efServerIP orelse sender Is efServerIPBackup OrElse sender Then
 		SetServerColors(efServerIP, udServerPort, SystemColors.Window)
@@ -42,7 +42,7 @@ Public Class FSettings
 		SetButtons()
 	End Sub
 
-	Private Sub UpDown_ValueChanged(sender As Object, e As EventArgs) Handles udServerPort.ValueChanged, udPaymentTimer.ValueChanged, udAutocloseDelay.ValueChanged, udPaymentTimerBackup.ValueChanged, udGeneralTimerBackup.ValueChanged, udGeneralTimer.ValueChanged, udCheckTimerBackup.ValueChanged, udCheckTimer.ValueChanged
+	Private Sub UpDown_ValueChanged(sender As Object, e As EventArgs) Handles udServerPort.ValueChanged, udPaymentTimer.ValueChanged, udAutocloseDelay.ValueChanged, udPaymentTimerBackup.ValueChanged, udGeneralTimerBackup.ValueChanged, udGeneralTimer.ValueChanged, udCheckTimerBackup.ValueChanged, udCheckTimer.ValueChanged, udICCDPort.ValueChanged
 		Modified = True
 		SetButtons()
 	End Sub
@@ -65,11 +65,14 @@ Public Class FSettings
 	End Sub
 
 	Private Sub FSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		efPWD.PasswordChar = "●" ' Microsoft.VisualBasic.charw &H25CF
 		If useAdvancedSettings Then
 			TabControl1.SelectedTab = TabControl1.TabPages(1)
 		Else
+			For i As Integer = TabControl1.TabPages.Count To 2 Step -1
+				TabControl1.TabPages.RemoveAt(i - 1)
+			Next
 			TabControl1.SelectedTab = TabControl1.TabPages(0)
-			TabControl1.TabPages.RemoveByKey(advancedSettingsPage.Name)
 		End If
 		'do not touch this, it makes room for the icon
 		pbChooseSettingsFile.Text = "    "
@@ -90,7 +93,7 @@ Public Class FSettings
 		If Not IsNothing(currencies) Then
 			'if currencies are available let's display them
 			For Each k As KeyValuePair(Of String, Currency) In currencies
-				cbxCurrency.Items.Add(k)
+				cbxCurrency.Items.Add(k.Value)
 			Next
 		Else
 			'if no available currency use the default one
@@ -98,6 +101,10 @@ Public Class FSettings
 			currency.Name = New RegionInfo(System.Globalization.CultureInfo.CurrentCulture.LCID).ISOCurrencySymbol
 			currency.Decimals = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits
 			cbxCurrency.SelectedIndex = cbxCurrency.Items.Add(currency)
+			'create default currencies file
+			currencies = New Currencies
+			currencies.Add(currency.Name, currency)
+			json.WriteSettings(currencies)
 		End If
 	End Sub
 
@@ -201,6 +208,17 @@ Public Class FSettings
 		Settings.Backup.CheckTimer = udCheckTimerBackup.Value
 		Settings.Backup.GeneralTimer = udGeneralTimerBackup.Value
 
+		'GPRS backup
+		Settings.GatewayIP = efGatewayIP.Text
+		Settings.UserID = efUser.Text
+		Settings.PWD = efPWD.Text
+		Settings.ICCD = efICCD.Text
+		Settings.POIPort = udICCDPort.Value
+		Settings.GatewayPort = udGatewayPort.Value
+
+		'print settings
+		Settings.Picture = efPicture.Text
+
 		If Not json.WriteSettings(Settings, True) Then
 			MsgBox("Settings file hasn't been saved. Please check file name and path" & vbCrLf & vbCrLf & SettingsFileName())
 		End If
@@ -302,6 +320,27 @@ Public Class FSettings
 			Catch ex As Exception
 				udGeneralTimerBackup.Value = 10
 			End Try
+
+			'GPRS backup
+			efGatewayIP.Text = Settings.GatewayIP
+			efUser.Text = Settings.UserID
+			efPWD.Text = Settings.PWD
+			efICCD.Text = Settings.ICCD
+			Try
+				udICCDPort.Value = Settings.POIPort
+			Catch ex As Exception
+				udICCDPort.Value = DEFAULT_PORT
+			End Try
+			Try
+				udGatewayPort.Value = Settings.GatewayPort
+			Catch ex As Exception
+				udGatewayPort.Value = DEFAULT_PORT
+			End Try
+
+			'print settings
+			efPicture.Text = Settings.Picture
+			UpdateLogo(False)
+
 		Else
 			Settings = New Settings
 			SaveSettings()
@@ -366,11 +405,26 @@ Public Class FSettings
 
 	Private Sub pbChooseSettingsFile_Click(sender As Object, e As EventArgs) Handles pbChooseSettingsFile.Click
 		efSettingsFileName.Text = ChooseFile(efSettingsFileName.Text, "Json files|*.json|Text files|*.txt|All files|*.*")
-
 	End Sub
 
 	Private Sub pbChooseLogFile_Click(sender As Object, e As EventArgs) Handles pbChooseLogFile.Click
 		efLogFileName.Text = ChooseFile(efLogFileName.Text, "Log files|*.log|Text files|*.txt|All files|*.*")
 	End Sub
 
+	Private Sub UpdateLogo(msg As Boolean)
+		If Not String.IsNullOrEmpty(efPicture.Text) Then
+			Try
+				'try to display the image
+				PictureBox1.Load(efPicture.Text)
+			Catch ex As Exception
+				If msg Then MsgBox("The image file is not supported or does not contain a valid image", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation)
+				efPicture.Text = Nothing
+			End Try
+		End If
+	End Sub
+
+	Private Sub pbChoosePicture_Click(sender As Object, e As EventArgs) Handles pbChoosePicture.Click
+		efPicture.Text = ChooseFile(efPicture.Text, "Image files|*.png;*.jpg;*.jpeg;*.bmp|All files|*.*")
+		UpdateLogo(True)
+	End Sub
 End Class

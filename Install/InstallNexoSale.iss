@@ -10,7 +10,9 @@
 #define MyCodeDestDir ".\NexoSaleTest\"
 #define MyInstallDir "..\Install\"
 #define MySourceDir "..\NEXOSaleTest\"
-#define MyAppPublisher "PMSoft"
+#define MyAppPublisher "PMS"
+#define MyRegistry "Software\PMS\NexoSale\"
+#define MyRegistryKey "SettingsFileName"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -36,7 +38,6 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 
 [Dirs]
 Name: "{userdocs}\{#MyAppName}"
-Name: "{userdocs}\{#MyAppName}\TestCSharp"
 
 [Files]
 Source: "{#MyExeDir}PMS.NEXO.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -50,13 +51,14 @@ Source: "{#MyExeDir}NexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyCodeDir}*.*"; DestDir: "{app}\{#MyCodeDestDir}"; Flags: ignoreversion
 
 [Run]
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component COMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component NEXO"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component NEXOSALE"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.COMMON"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO.dll"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXO"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE.dll"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXOSALE"
 
 [UninstallRun]
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component COMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component NEXO"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component NEXOSALE"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.COMMON"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXO"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXOSALE"
 
 [Registry]
+Root: HKCU; Subkey: "{#MyRegistry}"; ValueName: "{#MyRegistryKey}"; ValueType: string; ValueData: "{userdocs}\{#MyAppName}\"; Flags: createvalueifdoesntexist uninsdeletekey

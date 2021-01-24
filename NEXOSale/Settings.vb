@@ -385,6 +385,86 @@ Public Class Settings
 	End Property
 	Private _usedate As Boolean
 
+	<DispId(100)>
+	Public Property GatewayIP As String
+		Get
+			Return _gatewayip
+		End Get
+		Set(value As String)
+			_gatewayip = value
+		End Set
+	End Property
+	Private _gatewayip As String = DEFAULT_GATEWAY_IP
+	Public Const DEFAULT_GATEWAY_IP As String = "194.50.38.6"
+
+	<DispId(101)>
+	Public Property UserID As String
+		Get
+			Return _userid
+		End Get
+		Set(value As String)
+			_userid = value
+		End Set
+	End Property
+	Private _userid As String
+
+	<DispId(102)>
+	Public Property PWD As String
+		Get
+			Return _pwd
+		End Get
+		Set(value As String)
+			_pwd = value
+		End Set
+	End Property
+	Private _pwd As String
+
+	<DispId(103)>
+	Public Property ICCD As String
+		Get
+			Return _iccd
+		End Get
+		Set(value As String)
+			_iccd = value
+		End Set
+	End Property
+	Private _iccd As String
+
+	<DispId(104)>
+	Public Property POIPort As Decimal
+		Get
+			Return _poiport
+		End Get
+		Set(value As Decimal)
+			_poiport = value
+		End Set
+	End Property
+	Private _poiport As Decimal = DEFAULT_PORT
+	Private Const DEFAULT_PORT = 2018
+
+	<DispId(105)>
+	Public Property GatewayPort As Decimal
+		Get
+			Return _gatewayport
+		End Get
+		Set(value As Decimal)
+			_gatewayport = value
+		End Set
+	End Property
+	Private _gatewayport As Decimal = DEFAULT_GATEWAY_PORT
+	Public Const DEFAULT_GATEWAY_PORT As Decimal = 3470
+
+	<DispId(200)>
+	Public Property Picture As String
+		Get
+			Return _picture
+		End Get
+		Set(value As String)
+			_picture = value
+		End Set
+	End Property
+	Private _picture As String
+
 #End Region
 
 #Region "methods"

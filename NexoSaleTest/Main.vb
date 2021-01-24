@@ -5,8 +5,10 @@ Public Class Main
 
 	Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		ComboBox1.Items.Clear()
-		For i As Action = Action._begin + 1 To Action._base - 1
-			Dim j As Integer = ComboBox1.Items.Add(i)
+		For i As Action = Action._begin + 1 To Action._end - 1
+			If Not i.ToString.StartsWith("_") Then
+				Dim j As Integer = ComboBox1.Items.Add(i)
+			End If
 		Next
 		ComboBox1.SelectedIndex = 0
 	End Sub
@@ -23,5 +25,9 @@ Public Class Main
 			Nxo.Amount = 100
 		End Try
 		lblResult.Text = Nxo.DisplayProcessing(ComboBox1.SelectedItem).ToString
+	End Sub
+
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+		Nxo.CreateGPRSXML()
 	End Sub
 End Class
