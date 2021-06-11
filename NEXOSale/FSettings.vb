@@ -1,8 +1,16 @@
-﻿Imports System.Windows.Forms
+﻿#Const REMOVEGPRSPAGE = Not DEBUG
+#Const REMOVEPDFRECEIPTS = Not DEBUG
+#Const SUPPORTSABORT = Not DEBUG
+#Const SUPPORTSCHECKS = Not DEBUG
+
+Imports System.Windows.Forms
 Imports System.Globalization
 Imports System.Drawing
 Imports COMMON
+Imports NEXO
 Imports System.IO
+Imports System.Net.Security
+Imports Microsoft.Win32
 
 Public Class FSettings
 
@@ -10,7 +18,7 @@ Public Class FSettings
 	Public UseBackup As Boolean = False
 	Private Property Modified As Boolean
 		Get
-			Return _modified
+			Return _initialised And _modified
 		End Get
 		Set(value As Boolean)
 			_modified = value
@@ -18,6 +26,7 @@ Public Class FSettings
 		End Set
 	End Property
 	Private _modified As Boolean = False
+	Private _initialised As Boolean = False
 	Private Const DEFAULT_PORT As Integer = 2018
 	Private useAdvancedSettings As Boolean = False
 
@@ -29,20 +38,19 @@ Public Class FSettings
 		useAdvancedSettings = advanced
 	End Sub
 
-	Private Sub TextBox_TextChanged(sender As Object, e As EventArgs) Handles efPOIID.TextChanged, efSaleID.TextChanged, efServerIP.TextChanged, efSettingsFileName.TextChanged, efSoftwareVersion.TextChanged, efManufacturerName.TextChanged, efCertificationCode.TextChanged, efApplicationName.TextChanged, efLogFileName.TextChanged, efServerIPBackup.TextChanged, efUser.TextChanged, efPWD.TextChanged, efICCD.TextChanged, efGatewayIP.TextChanged, efPicture.TextChanged
+	Private Sub TextBox_TextChanged(sender As Object, e As EventArgs) Handles efPOIID.TextChanged, efSaleID.TextChanged, efServerIP.TextChanged, efSettingsFileName.TextChanged, efSoftwareVersion.TextChanged, efManufacturerName.TextChanged, efCertificationCode.TextChanged, efApplicationName.TextChanged, efLogFileName.TextChanged, efUser.TextChanged, efPWD.TextChanged, efICCD.TextChanged, efGatewayIP.TextChanged, efPicture.TextChanged, efReceiptsDirectory.TextChanged, efServerName.TextChanged
 		Modified = True
 		'If sender Is efServerIP orelse sender Is efServerIPBackup OrElse sender Then
 		SetServerColors(efServerIP, udServerPort, SystemColors.Window)
-		SetServerColors(efServerIPBackup, udServerPortBackup, SystemColors.Window)
 		SetButtons()
 	End Sub
 
-	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsCancel.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSynchronousBackup.CheckedChanged, cbSupportsCheckBackup.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsCancelBackup.CheckedChanged, cbPrintReceiptBackup.CheckedChanged, cbSupportsRefundBackup.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged
+	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsReversal.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged, cbSupportsReconciliation.CheckedChanged, cbSupportsAbort.CheckedChanged, cbMerchant.CheckedChanged, cbCustomer.CheckedChanged, cbUseDate.CheckedChanged, cbResuseMerchantReferenceID.CheckedChanged, cbRemoteCertificateNotAvailable.CheckedChanged, cbRemoteCertificateNameMismatch.CheckedChanged, cbRemoteCertificateChainErrors.CheckedChanged, cbNoAutoCloseOnError.CheckedChanged
 		Modified = True
 		SetButtons()
 	End Sub
 
-	Private Sub UpDown_ValueChanged(sender As Object, e As EventArgs) Handles udServerPort.ValueChanged, udPaymentTimer.ValueChanged, udAutocloseDelay.ValueChanged, udPaymentTimerBackup.ValueChanged, udGeneralTimerBackup.ValueChanged, udGeneralTimer.ValueChanged, udCheckTimerBackup.ValueChanged, udCheckTimer.ValueChanged, udICCDPort.ValueChanged
+	Private Sub UpDown_ValueChanged(sender As Object, e As EventArgs) Handles udServerPort.ValueChanged, udPaymentTimer.ValueChanged, udAutocloseDelay.ValueChanged, udGeneralTimer.ValueChanged, udCheckTimer.ValueChanged, udICCDPort.ValueChanged
 		Modified = True
 		SetButtons()
 	End Sub
@@ -55,17 +63,55 @@ Public Class FSettings
 		End If
 		pbSave.Enabled = Modified
 		pbSaveSettings.Enabled = pbSave.Enabled
-		panelPaymentTimer.Enabled = cbSupportsCancel.Checked
-		panelPaymentTimerBackup.Enabled = cbSupportsCancelBackup.Checked
+		'panelPaymentTimer.Enabled = cbSupportsReversal.Checked
 		panelChecks.Enabled = cbSupportsCheck.Checked
-		panelChecksBackup.Enabled = cbSupportsCheckBackup.Checked
+		panelReceipts.Enabled = cbPrintReceipt.Enabled AndAlso cbPrintReceipt.Checked
 		efSaleID.Enabled = Not cbSaleIDUSeIP.Checked
 		efPOIID.Enabled = Not cbPOIIDUseIP.Checked
-		cbUseBackup.Enabled = Not String.IsNullOrEmpty(efServerIPBackup.Text)
+		cbUseBackup.Enabled = Not IsNothing(Settings) AndAlso Not IsNothing(Settings.Backup) AndAlso Not String.IsNullOrEmpty(Settings.Backup.ServerIP)
 	End Sub
 
 	Private Sub FSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		Text = $"NEXOSale Settings [nexo retailer v{NexoCurrentVersion.Current.Version}]"
+		rbMainPOI.Checked = True
 		efPWD.PasswordChar = "●" ' Microsoft.VisualBasic.charw &H25CF
+
+#If REMOVEGPRSPAGE Then
+		Try
+			cbGPRS.Checked = False
+			cbGPRS.Enabled = False
+			cbGPRS.Visible = False
+			TabControl1.TabPages.RemoveByKey(GPRSPage.Name)
+		Catch ex As Exception
+		End Try
+#End If
+
+#If REMOVEPDFRECEIPTS Then
+		Try
+			cbPOIIsOffline.Checked = False
+			cbPOIIsOffline.Enabled = False
+			cbPOIIsOffline.Visible = False
+			pnlReceipts.Visible = False
+			lblReceiptsFolder.Visible = False
+			TabControl1.TabPages.RemoveByKey(printSettingsPage.Name)
+		Catch ex As Exception
+		End Try
+#End If
+
+#If SUPPORTSABORT Then
+		Try
+			cbSupportsAbort.Enabled = False
+		Catch ex As Exception
+		End Try
+#End If
+
+#If SUPPORTSCHECKS Then
+		Try
+			cbSupportsCheck.Enabled = False
+		Catch ex As Exception
+		End Try
+#End If
+
 		If useAdvancedSettings Then
 			TabControl1.SelectedTab = TabControl1.TabPages(1)
 		Else
@@ -81,7 +127,7 @@ Public Class FSettings
 		LoadCurrencies()
 		'finally load settings
 		LoadSettings()
-		Modified = False
+		_initialised = True
 		SetButtons()
 	End Sub
 
@@ -89,14 +135,16 @@ Public Class FSettings
 		'load available currencies from a json stored inside the same folder
 		Dim json As New CJson(Of Currencies)()
 		json.FileName = "nexosale.currencies.json"
-		Dim currencies As Currencies = json.ReadSettings()
-		If Not IsNothing(currencies) Then
+		Dim except As Boolean
+		Dim currencies As Currencies = json.ReadSettings(except)
+		If Not IsNothing(currencies) AndAlso 0 < currencies.Count Then
 			'if currencies are available let's display them
 			For Each k As KeyValuePair(Of String, Currency) In currencies
-				cbxCurrency.Items.Add(k.Value)
+				cbxCurrency.SelectedIndex = cbxCurrency.Items.Add(k.Value)
 			Next
 		Else
 			'if no available currency use the default one
+			'set a default currency
 			Dim currency As New Currency
 			currency.Name = New RegionInfo(System.Globalization.CultureInfo.CurrentCulture.LCID).ISOCurrencySymbol
 			currency.Decimals = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits
@@ -106,6 +154,14 @@ Public Class FSettings
 			currencies.Add(currency.Name, currency)
 			json.WriteSettings(currencies)
 		End If
+	End Sub
+
+	Private Sub SetDefaultCurrency()
+		'set a default currency
+		Dim currency As New Currency
+		currency.Name = New RegionInfo(System.Globalization.CultureInfo.CurrentCulture.LCID).ISOCurrencySymbol
+		currency.Decimals = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits
+		cbxCurrency.SelectedIndex = cbxCurrency.Items.Add(currency)
 	End Sub
 
 	Private Sub TestConnection(streamSettings As CStreamClientSettings, ip As Control, port As Control)
@@ -120,10 +176,6 @@ Public Class FSettings
 
 	Private Sub pbTestConnection_Click(sender As Object, e As EventArgs) Handles pbTestConnection.Click
 		TestConnection(New CStreamClientSettings With {.IP = efServerIP.Text, .Port = udServerPort.Value}, efServerIP, udServerPort)
-	End Sub
-
-	Private Sub pbTestConnectionBackup_Click(sender As Object, e As EventArgs) Handles pbTestConnectionBackup.Click
-		TestConnection(New CStreamClientSettings With {.IP = efServerIPBackup.Text, .Port = udServerPortBackup.Value}, efServerIPBackup, udServerPortBackup)
 	End Sub
 
 	Private Sub SetServerColors(ip As Control, port As Control, c As Color)
@@ -152,15 +204,25 @@ Public Class FSettings
 	End Sub
 
 	Private Function SettingsFileName() As String
-		If Not Settings Is Nothing Then
-			Return Settings.LogFileName 'settingsFileNamePath & SETTINGS_FILE_NAME
-		End If
-		Return "nexosale.settings.json"
+		'If Not Settings Is Nothing Then
+		'	Return Settings.LogFileName 'settingsFileNamePath & SETTINGS_FILE_NAME
+		'End If
+		'Return "nexosale.settings.json"
+		Return NEXOSALE.SettingsFileNameEx
 	End Function
 
 	Private Sub SaveSettings()
 		Dim json As New CJson(Of Settings)()
 		json.FileName = efSettingsFileName.Text
+		'save file name to registry
+		Dim key As RegistryKey
+		Try
+			key = Registry.CurrentUser.CreateSubKey(Settings.REGISTRY_SECTION)
+			If Not IsNothing(key) Then
+				key.SetValue(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, json.FileName)
+			End If
+		Catch ex As Exception
+		End Try
 
 		Settings.POIID = efPOIID.Text
 		Settings.POIIDUseIP = cbPOIIDUseIP.Checked
@@ -176,37 +238,18 @@ Public Class FSettings
 		Settings.Decimals = currency.Decimals
 		Settings.Autoclose = cbAutoclose.Checked
 		Settings.AutocloseDelay = udAutocloseDelay.Value
-		Settings.SettingsFileName = json.FileName
+		'Settings.SettingsFileName = json.FileName
 		Settings.LogFileName = efLogFileName.Text
 		Settings.UseDate = cbUseDate.Checked
 		Settings.AdminCode = efAdminCode.Text
+		Settings.NoAutocloseOnError = cbNoAutoCloseOnError.Checked
 		UseBackup = cbUseBackup.Checked
 
-		'primary POI settings
-		If IsNothing(Settings.Primary) Then Settings.Primary = New POISettings
-		'Settings.Primary.ConsiderPrimary = True
-		Settings.Primary.ServerIP = efServerIP.Text
-		Settings.Primary.ServerPort = udServerPort.Value
-		Settings.Primary.Synchronous = cbSynchronous.Checked
-		Settings.Primary.PrintReceipt = cbPrintReceipt.Checked
-		Settings.Primary.SupportsCancel = cbSupportsCancel.Checked
-		Settings.Primary.PaymentTimer = udPaymentTimer.Value
-		Settings.Primary.SupportsCheck = cbSupportsCheck.Checked
-		Settings.Primary.CheckTimer = udCheckTimer.Value
-		Settings.Primary.GeneralTimer = udGeneralTimer.Value
-
-		'backup POI settings
-		If IsNothing(Settings.Backup) Then Settings.Backup = New POISettings
-		'Settings.Primary.ConsiderPrimary = False
-		Settings.Backup.ServerIP = efServerIPBackup.Text
-		Settings.Backup.ServerPort = udServerPortBackup.Value
-		Settings.Backup.Synchronous = cbSynchronousBackup.Checked
-		Settings.Backup.PrintReceipt = cbPrintReceiptBackup.Checked
-		Settings.Backup.SupportsCancel = cbSupportsCancelBackup.Checked
-		Settings.Backup.PaymentTimer = udPaymentTimerBackup.Value
-		Settings.Backup.SupportsCheck = cbSupportsCheckBackup.Checked
-		Settings.Backup.CheckTimer = udCheckTimerBackup.Value
-		Settings.Backup.GeneralTimer = udGeneralTimerBackup.Value
+		If rbMainPOI.Checked Then
+			SavePOISettings(Settings.Primary)
+		Else
+			SavePOISettings(Settings.Backup)
+		End If
 
 		'GPRS backup
 		Settings.GatewayIP = efGatewayIP.Text
@@ -215,9 +258,22 @@ Public Class FSettings
 		Settings.ICCD = efICCD.Text
 		Settings.POIPort = udICCDPort.Value
 		Settings.GatewayPort = udGatewayPort.Value
+		Settings.AllowedSslErrors = SslPolicyErrors.None Or (cbRemoteCertificateNotAvailable.Checked And SslPolicyErrors.RemoteCertificateNotAvailable) Or
+			(cbRemoteCertificateNameMismatch.Checked And SslPolicyErrors.RemoteCertificateNameMismatch) Or (cbRemoteCertificateChainErrors.Checked And SslPolicyErrors.RemoteCertificateChainErrors)
+		Settings.ServerName = efServerName.Text
 
 		'print settings
+		Settings.SaveReceipts = cbSavePDF.Checked
+		Settings.ReceiptFolder = efReceiptsDirectory.Text
 		Settings.Picture = efPicture.Text
+		Dim f As Boolean = lblPrinter.Tag
+		If f Then
+			Settings.Printer = lblPrinter.Text
+		Else
+			Settings.Printer = Nothing
+		End If
+
+		Settings.ReuseMerchantReferenceIDAsTransactionID = cbResuseMerchantReferenceID.Checked
 
 		If Not json.WriteSettings(Settings, True) Then
 			MsgBox("Settings file hasn't been saved. Please check file name and path" & vbCrLf & vbCrLf & SettingsFileName())
@@ -230,7 +286,8 @@ Public Class FSettings
 		Dim json As New CJson(Of Settings)()
 		json.FileName = SettingsFileName()
 		efSettingsFileName.Text = json.FileName
-		Settings = json.ReadSettings()
+		Dim except As Boolean
+		Settings = json.ReadSettings(except)
 		If Not IsNothing(Settings) Then
 
 			efPOIID.Text = Settings.POIID
@@ -260,66 +317,50 @@ Public Class FSettings
 			End Try
 			efLogFileName.Text = Settings.LogFileName
 			cbUseBackup.Checked = UseBackup
+			cbNoAutoCloseOnError.Checked = Settings.NoAutocloseOnError
 
-			'primary POI settings
-			If IsNothing(Settings.Primary) Then Settings.Primary = New POISettings
-			'Settings.Primary.ConsiderPrimary = True
-			efServerIP.Text = Settings.Primary.ServerIP
-			Try
-				udServerPort.Value = Settings.Primary.ServerPort
-			Catch ex As Exception
-				udServerPort.Value = DEFAULT_PORT
-			End Try
-			cbSynchronous.Checked = Settings.Primary.Synchronous
-			cbPrintReceipt.Checked = Settings.Primary.PrintReceipt
-			cbSupportsRefund.Checked = Settings.Primary.SupportsRefund
-			cbSupportsCancel.Checked = Settings.Primary.SupportsCancel
-			Try
-				udPaymentTimer.Value = Settings.Primary.PaymentTimer
-			Catch ex As Exception
-				udPaymentTimer.Value = 0
-			End Try
-			cbSupportsCheck.Checked = Settings.Primary.SupportsCheck
-			Try
-				udCheckTimer.Value = Settings.Primary.CheckTimer
-			Catch ex As Exception
-				udCheckTimer.Value = 20
-			End Try
-			Try
-				udGeneralTimer.Value = Settings.Primary.GeneralTimer
-			Catch ex As Exception
-				udGeneralTimer.Value = 10
-			End Try
+			Dim poi As POISettings
+			If rbMainPOI.Checked Then
+				If IsNothing(Settings.Primary) Then Settings.Primary = New POISettings
+				poi = Settings.Primary
+			Else
+				If IsNothing(Settings.Backup) Then Settings.Backup = New POISettings
+				poi = Settings.Backup
+			End If
 
-			'backup POI settings
-			If IsNothing(Settings.Backup) Then Settings.Backup = New POISettings
-			'Settings.Backup.ConsiderPrimary = False
-			efServerIPBackup.Text = Settings.Backup.ServerIP
-			Try
-				udServerPortBackup.Value = Settings.Backup.ServerPort
-			Catch ex As Exception
-				udServerPortBackup.Value = DEFAULT_PORT
-			End Try
-			cbSynchronousBackup.Checked = Settings.Backup.Synchronous
-			cbPrintReceiptBackup.Checked = Settings.Backup.PrintReceipt
-			cbSupportsRefundBackup.Checked = Settings.Backup.SupportsRefund
-			cbSupportsCancelBackup.Checked = Settings.Backup.SupportsCancel
-			Try
-				udPaymentTimerBackup.Value = Settings.Backup.PaymentTimer
-			Catch ex As Exception
-				udPaymentTimerBackup.Value = 0
-			End Try
-			cbSupportsCheckBackup.Checked = Settings.Backup.SupportsCheck
-			Try
-				udCheckTimerBackup.Value = Settings.Backup.CheckTimer
-			Catch ex As Exception
-				udCheckTimerBackup.Value = 20
-			End Try
-			Try
-				udGeneralTimerBackup.Value = Settings.Backup.GeneralTimer
-			Catch ex As Exception
-				udGeneralTimerBackup.Value = 10
-			End Try
+			With poi
+				'Settings.Primary.ConsiderPrimary = True
+				efServerIP.Text = .ServerIP
+				Try
+					udServerPort.Value = .ServerPort
+				Catch ex As Exception
+					udServerPort.Value = DEFAULT_PORT
+				End Try
+				cbPrintReceipt.Checked = .PrintReceipt
+				cbCustomer.Checked = .PrintCustomerReceipt
+				cbMerchant.Checked = .PrintMerchantReceipt
+				cbSynchronous.Checked = .Synchronous
+				cbSupportsRefund.Checked = .SupportsRefund
+				cbSupportsReconciliation.Checked = .SupportsReconciliation
+				cbSupportsAbort.Checked = .SupportsAbort
+				cbSupportsReversal.Checked = .SupportsCancel
+				Try
+					udPaymentTimer.Value = .PaymentTimer
+				Catch ex As Exception
+					udPaymentTimer.Value = 0
+				End Try
+				cbSupportsCheck.Checked = .SupportsCheck
+				Try
+					udCheckTimer.Value = .CheckTimer
+				Catch ex As Exception
+					udCheckTimer.Value = 20
+				End Try
+				Try
+					udGeneralTimer.Value = .GeneralTimer
+				Catch ex As Exception
+					udGeneralTimer.Value = 10
+				End Try
+			End With
 
 			'GPRS backup
 			efGatewayIP.Text = Settings.GatewayIP
@@ -336,16 +377,35 @@ Public Class FSettings
 			Catch ex As Exception
 				udGatewayPort.Value = DEFAULT_PORT
 			End Try
+			cbRemoteCertificateNotAvailable.Checked = Settings.AllowedSslErrors And SslPolicyErrors.RemoteCertificateNotAvailable
+			cbRemoteCertificateNameMismatch.Checked = Settings.AllowedSslErrors And SslPolicyErrors.RemoteCertificateNameMismatch
+			cbRemoteCertificateChainErrors.Checked = Settings.AllowedSslErrors And SslPolicyErrors.RemoteCertificateChainErrors
+			efServerName.Text = Settings.ServerName
 
 			'print settings
+			cbSavePDF.Checked = Settings.SaveReceipts
+			efReceiptsDirectory.Text = Settings.ReceiptFolder
 			efPicture.Text = Settings.Picture
 			UpdateLogo(False)
+			SetPrinter(Settings.Printer)
 
+			'miscellaneous
+			cbResuseMerchantReferenceID.Checked = Settings.ReuseMerchantReferenceIDAsTransactionID
 		Else
 			Settings = New Settings
 			SaveSettings()
 		End If
 		Modified = False
+	End Sub
+
+	Private Sub SetPrinter(printerName As String)
+		If String.IsNullOrEmpty(printerName) Then
+			lblPrinter.Tag = False
+			lblPrinter.Text = "No printer selected"
+		Else
+			lblPrinter.Tag = True
+			lblPrinter.Text = printerName
+		End If
 	End Sub
 
 	Private Sub pbSaveSettings_Click(sender As Object, e As EventArgs) Handles pbSaveSettings.Click
@@ -416,6 +476,7 @@ Public Class FSettings
 			Try
 				'try to display the image
 				PictureBox1.Load(efPicture.Text)
+				PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
 			Catch ex As Exception
 				If msg Then MsgBox("The image file is not supported or does not contain a valid image", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation)
 				efPicture.Text = Nothing
@@ -426,5 +487,109 @@ Public Class FSettings
 	Private Sub pbChoosePicture_Click(sender As Object, e As EventArgs) Handles pbChoosePicture.Click
 		efPicture.Text = ChooseFile(efPicture.Text, "Image files|*.png;*.jpg;*.jpeg;*.bmp|All files|*.*")
 		UpdateLogo(True)
+	End Sub
+
+	Private Sub pbPrinter_Click(sender As Object, e As EventArgs) Handles pbPrinter.Click
+		Dim f As New FSelectPrinter
+		f.SelectedPrinter = lblPrinter.Text
+		f.ShowDialog()
+		If DialogResult.OK = f.DialogResult Then
+			SetPrinter(f.SelectedPrinter)
+			Modified = True
+		End If
+		f.Dispose()
+	End Sub
+
+	Private Sub SavePOISettings(poiToSave As POISettings)
+		If Not IsNothing(Settings) Then
+			'save modified settings to avoid changing it by switching POI settings
+			Dim fModified = _modified
+
+			If IsNothing(Settings.Primary) Then Settings.Primary = New POISettings
+			If IsNothing(Settings.Backup) Then Settings.Backup = New POISettings
+
+			'save currently displayed data
+			With poiToSave
+				'Settings.Primary.ConsiderPrimary = True
+				.ServerIP = efServerIP.Text
+				.ServerPort = udServerPort.Value
+				.Synchronous = cbSynchronous.Checked
+				.PrintReceipt = cbPrintReceipt.Checked
+				.PrintMerchantReceipt = cbMerchant.Checked
+				.PrintCustomerReceipt = cbCustomer.Checked
+				.SupportsRefund = cbSupportsRefund.Checked
+				.SupportsReconciliation = cbSupportsReconciliation.Checked
+				.SupportsAbort = cbSupportsAbort.Checked
+				.SupportsCancel = cbSupportsReversal.Checked
+				.PaymentTimer = udPaymentTimer.Value
+				.SupportsCheck = cbSupportsCheck.Checked
+				.CheckTimer = udCheckTimer.Value
+				.GeneralTimer = udGeneralTimer.Value
+			End With
+
+			'restore modified settings
+			_modified = fModified
+			SetButtons()
+		End If
+	End Sub
+
+	Private Sub DisplayPOISettings()
+		If Not IsNothing(Settings) Then
+			'save modified settings to avoid changing it by switching POI settings
+			Dim fModified = _modified
+
+			If IsNothing(Settings.Primary) Then Settings.Primary = New POISettings
+			If IsNothing(Settings.Backup) Then Settings.Backup = New POISettings
+			Dim poiToDisplay As POISettings
+			If rbMainPOI.Checked Then
+				poiToDisplay = Settings.Primary
+			Else
+				poiToDisplay = Settings.Backup
+			End If
+			'save currently displayed data
+			With poiToDisplay
+				'Settings.Primary.ConsiderPrimary = True
+				efServerIP.Text = .ServerIP
+				udServerPort.Value = .ServerPort
+				cbSynchronous.Checked = .Synchronous
+				cbPrintReceipt.Checked = .PrintReceipt
+				cbMerchant.Checked = .PrintMerchantReceipt
+				cbCustomer.Checked = .PrintCustomerReceipt
+				cbSupportsReversal.Checked = .SupportsCancel
+				udPaymentTimer.Value = .PaymentTimer
+				cbSupportsCheck.Checked = .SupportsCheck
+				udCheckTimer.Value = .CheckTimer
+				udGeneralTimer.Value = .GeneralTimer
+			End With
+
+			'restore modified settings
+			SetButtons()
+		End If
+	End Sub
+
+	Private Sub rbMainPOI_CheckedChanged(sender As Object, e As EventArgs) Handles rbMainPOI.CheckedChanged, rbBackupPOI.CheckedChanged
+		If DirectCast(sender, RadioButton).Checked Then
+			If Modified Then
+				If rbMainPOI.Checked Then
+					SavePOISettings(Settings.Backup)
+				Else
+					SavePOISettings(Settings.Primary)
+				End If
+			End If
+			DisplayPOISettings()
+		End If
+	End Sub
+
+	Private Sub pbReceiptsDirectory_Click(sender As Object, e As EventArgs) Handles pbReceiptsDirectory.Click
+		FolderBrowserDialog1.RootFolder = efReceiptsDirectory.Text
+		FolderBrowserDialog1.ShowNewFolderButton = True
+		If DialogResult.OK = FolderBrowserDialog1.ShowDialog Then
+			efReceiptsDirectory.Text = FolderBrowserDialog1.SelectedPath
+		End If
+		SetButtons()
+	End Sub
+
+	Private Sub cbSavePDF_CheckedChanged(sender As Object, e As EventArgs) Handles cbSavePDF.CheckedChanged
+		pnlReceipts.Enabled = cbSavePDF.Checked
 	End Sub
 End Class

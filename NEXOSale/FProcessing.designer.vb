@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FProcessing
 	Inherits System.Windows.Forms.Form
 
 	'Form remplace la méthode Dispose pour nettoyer la liste des composants.
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FProcessing
 	'REMARQUE : la procédure suivante est requise par le Concepteur Windows Form
 	'Elle peut être modifiée à l'aide du Concepteur Windows Form.  
 	'Ne la modifiez pas à l'aide de l'éditeur de code.
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Me.TableLayoutMain = New System.Windows.Forms.TableLayoutPanel()
@@ -31,6 +31,7 @@ Partial Class FProcessing
 		Me.timerBeforeTimeout = New System.Windows.Forms.Timer(Me.components)
 		Me.timerBeforeAutoClose = New System.Windows.Forms.Timer(Me.components)
 		Me.timerGlobal = New System.Windows.Forms.Timer(Me.components)
+		Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.TableLayoutMain.SuspendLayout()
 		Me.SuspendLayout()
 		'
@@ -96,6 +97,7 @@ Partial Class FProcessing
 		Me.information.Multiline = True
 		Me.information.Name = "information"
 		Me.information.ReadOnly = True
+		Me.information.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
 		Me.information.Size = New System.Drawing.Size(859, 110)
 		Me.information.TabIndex = 7
 		Me.information.Text = "information"
@@ -125,6 +127,9 @@ Partial Class FProcessing
 		'
 		'
 		'timerGlobal
+		'
+		'
+		'PrintDocument1
 		'
 		'
 		'FProcessing
@@ -158,4 +163,5 @@ Partial Class FProcessing
 	Friend WithEvents pbCancel As Windows.Forms.Button
 	Friend WithEvents information As Windows.Forms.TextBox
 	Friend WithEvents message As Windows.Forms.TextBox
+	Friend WithEvents PrintDocument1 As Drawing.Printing.PrintDocument
 End Class

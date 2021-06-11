@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
 Imports COMMON
-Public Class ConfirmCancel
+Public Class FConfirmCancel
 
 	Public Shared WM_CANCEL_CANCEL As UInteger = Win32.WM_USER + 1
 	Public Code As String

@@ -28,7 +28,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\Debug\</OutputPath>
+    <OutputPath>..\Bin\</OutputPath>
     <DocumentationFile>PMS.NEXOSALE30.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <RegisterForComInterop>true</RegisterForComInterop>
@@ -38,7 +38,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>..\Release\</OutputPath>
+    <OutputPath>..\Bin\</OutputPath>
     <DocumentationFile>PMS.NEXOSALE30.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <RegisterForComInterop>true</RegisterForComInterop>
@@ -56,14 +56,20 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PMS.COMMON, Version=3.0.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.COMMON.3.0.9\lib\net47\PMS.COMMON.dll</HintPath>
+    <Reference Include="NexoBuilder30, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PMS.NEXO30.3.3.0\lib\net47\NexoBuilder30.exe</HintPath>
     </Reference>
-    <Reference Include="PMS.NEXO30, Version=2.0.14.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.NEXO.2.0.14\lib\net47\PMS.NEXO30.dll</HintPath>
+    <Reference Include="NexoSimulator30, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PMS.NEXO30.3.3.0\lib\net47\NexoSimulator30.exe</HintPath>
+    </Reference>
+    <Reference Include="PMS.COMMON, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PMS.COMMON.4.1.1\lib\net47\PMS.COMMON.dll</HintPath>
+    </Reference>
+    <Reference Include="PMS.NEXO30, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PMS.NEXO30.3.3.0\lib\net47\PMS.NEXO30.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -87,10 +93,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmCancel.Designer.vb">
-      <DependentUpon>ConfirmCancel.vb</DependentUpon>
+    <Compile Include="FConfirmCancel.Designer.vb">
+      <DependentUpon>FConfirmCancel.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmCancel.vb">
+    <Compile Include="FConfirmCancel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Currencies.vb" />
@@ -98,6 +104,12 @@
       <DependentUpon>FProcessing.vb</DependentUpon>
     </Compile>
     <Compile Include="FProcessing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSelectPrinter.Designer.vb">
+      <DependentUpon>FSelectPrinter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FSelectPrinter.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FSettings.Designer.vb">
@@ -132,11 +144,14 @@
     <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ConfirmCancel.resx">
-      <DependentUpon>ConfirmCancel.vb</DependentUpon>
+    <EmbeddedResource Include="FConfirmCancel.resx">
+      <DependentUpon>FConfirmCancel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FProcessing.resx">
       <DependentUpon>FProcessing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSelectPrinter.resx">
+      <DependentUpon>FSelectPrinter.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FSettings.resx">
       <DependentUpon>FSettings.vb</DependentUpon>
@@ -152,6 +167,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <!-- Specific part, DO NOT MODIFY UNLESS REALLY NECESSARY -->
+    <id>PMS.NEXOSALE31</id>
+    <title>PMS.NEXOSALE31</title>
+    <authors>philippemp31</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <repository type="git" url="https://github.com/pmespace/PMS.NEXO.git" branch="master" />
+    <projectUrl>https://github.com/pmespace/PMS.NEXO/</projectUrl>
+    <description>
+      Nexo Retailer v3.1 easy to use client interface.
+      Nexo Retailer specs can be found at https://www.nexo-standards.org/standards/nexo-retailer-protocol, subscription is free of charges.
+    </description>
+    <copyright>PMS - philippemp31 at outlook dot com</copyright>
+    <developmentDependency>true</developmentDependency>
+    <tags>NEXO</tags>
+    
+  <!-- Modifiable -->
+    <dependencies>
+      <group targetFramework=".NETFramework4.7">
+        <dependency id="PMS.NEXO31" version="3.2.2" />
+      </group>
+    </dependencies>
+
+    <!-- Modifiable -->
+    <version>2.0.0</version>
+    <releaseNotes>
+      2.0.0
+      - Updated NewtonSoft.Json library
+      - The library exists now in 2 version PMS.NEXOSALE30 (based on Nexo 3.0) and PMS.NEXOSALE31 (based on Nexo 3.1)
+
+      1.0.2
+      - Added a window when the cashier connects to the POI, not blocking the application
+      - Fixed a bug with the Amount which was sometimes badly rounded
+      - Updated all libraries
+
+      1.0.1
+      - Updated PMS.NEXO to 2.0.2
+
+      1.0.0:
+      - Creation
+    </releaseNotes>
+
+    <!-- Specific part, DO NOT MODIFY UNLESS REALLY NECESSARY -->
+    <contentFiles>
+      <!-- <files include=".\Bin\NexoBuilder30.exe" buildAction="None" copyToOutput="true"></files> -->
+    </contentFiles>
+  </metadata>
+  
+  <!-- Specific part, DO NOT MODIFY UNLESS REALLY NECESSARY -->
+  <files>
+    <file src=".\Bin\PMS.NEXOSALE31.dll" target="lib\net47"></file>
+    <file src=".\Bin\PMS.NEXOSALE31.xml" target="lib\net47"></file>
+    <file src=".\Bin\PMS.NEXOSALE31.tlb" target="lib\net47"></file>
+    <file src=".\Bin\PMS.NEXOSALE31.pdb" target="lib\net47"></file>
+  </files>
+</package>

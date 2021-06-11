@@ -3,11 +3,13 @@
 
 ;#define MyLibName "NEXOSale"
 ;#define MyExeName "PMS\NEXOSale"
-#define MyAppName "PMS.CEGID.NEXO"
-#define MyLibVersion GetFileVersion("..\Release\PMS.NEXOSALE.dll")
-;#define MyDriverVersion GetFileVersion("..\NEXOD\BIN\PMS.CEGID.NEXO.dll")
+#define MyAppName "PMS.NEXO 3.0 Driver for CEGID Y2"
+#define MyAppKey "PMS.NEXO30.CEGID"
+#define MySimulator "Simulator"
+#define MyLibVersion GetFileVersion("..\Release\PMS.NEXOSALE30.dll")
 #define MyDriverVersion GetDateTimeString('yyyy/mm/dd', '-', ':');
 #define MyExeDir "..\Release\"
+#define MySimulatorDir "..\..\Nexo\Release\"
 #define MyExeDelphiDir "..\NEXOD\Bin\"
 #define MyCodeDir "..\NexoSaleTest\"
 #define MyCodeDestDir ".\NexoSaleTest\"
@@ -15,7 +17,10 @@
 #define MySourceDir "..\NEXOSaleTest\"
 #define MyAppPublisher "PMS"
 #define MyRegistry "Software\PMS\NexoSale\"
+#define MySimulatorRegistry "Software\PMS\NEXO\Simulator"
 #define MyRegistryKey "SettingsFileName"
+#define MySimulatorRegistryKey "Settings"
+#define MyUserdocs "..\..\..\"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -26,12 +31,12 @@ AppName={#MyAppName}
 AppVersion={#MyLibVersion}
 AppVerName={#MyAppName}
 AppPublisher={#MyAppPublisher}
-DefaultDirName={pf}\{#MyAppName}
+DefaultDirName={pf}\{#MyAppKey}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 DisableDirPage=yes
 OutputDir=..\Install
-OutputBaseFilename=Install{#MyAppName}-v{#MyLibVersion}-v{#MyDriverVersion}
+OutputBaseFilename=Install{#MyAppKey}-v{#MyLibVersion}-v{#MyDriverVersion}
 
 Compression=lzma
 SolidCompression=yes
@@ -40,36 +45,40 @@ SolidCompression=yes
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 
 [Dirs]
-Name: "{userdocs}\{#MyAppName}"
+Name: "{userdocs}\{#MyAppKey}"
+Name: "{userdocs}\{#MyAppKey}\{#MySimulator}"
 
 [Files]
-Source: "{#MyExeDir}PMS.NEXO.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}PMS.NEXO.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}PMS.NEXO30.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}PMS.COMMON.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}PMS.COMMON.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}Newtonsoft.Json.*"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}PMS.NEXOSALE.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}PMS.NEXOSALE.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}NexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDelphiDir}PMS.CEGID.NEXO.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}PMS.NEXOSALE30.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}nexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyUserdocs}nexosale.settings.json"; DestDir: "{userdocs}\{#MyAppKey}"; Flags: ignoreversion
+Source: "{#MySimulatorDir}nexoSimulator30.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MySimulatorDir}nexoBuilder30.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MySimulatorDir}nexo.simulator.json"; DestDir: "{userdocs}\{#MyAppKey}\{#MySimulator}"; Flags: ignoreversion
+Source: "{#MySimulatorDir}nexo.simulator.response.*.json"; DestDir: "{userdocs}\{#MyAppKey}\{#MySimulator}"; Flags: ignoreversion
+Source: "{#MyExeDelphiDir}PMS.NEXO30.CEGID.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Run]
 Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.COMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXO"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXOSALE"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXO"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXOSALE"
 ; register the driver inside the Y2 system
-Filename: {code:CPOSDllManagerDir}\CPOS_DllManager.exe;  Parameters: "-reg PMS.CEGID.NEXO.dll"; WorkingDir: "{app}"; Flags: runhidden runascurrentuser; StatusMsg: "Registering PMS.CEGID.NEXO driver";  Check: IsCPOSDllManagerPresent
+Filename: {code:CPOSDllManagerDir}\CPOS_DllManager.exe;  Parameters: "-reg PMS.NEXO30.CEGID.dll"; WorkingDir: "{app}"; Flags: runhidden runascurrentuser; StatusMsg: "Registering PMS.NEXO30.CEGID driver";  Check: IsCPOSDllManagerPresent
 
 [UninstallRun]
 Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.COMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXO"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXOSALE"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXO"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXOSALE"
 ; unregister the driver from the Y2 system
-Filename: {code:CPOSDllManagerDir}\CPOS_DllManager.exe;  Parameters: "-unreg PMS.CEGID.NEXO"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering PMS.CEGID.NEXO driver";  Check: IsCPOSDllManagerPresent
+Filename: {code:CPOSDllManagerDir}\CPOS_DllManager.exe;  Parameters: "-unreg PMS.NEXO30.CEGID"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering PMS.NEXO30.CEGID driver";  Check: IsCPOSDllManagerPresent
 
 [Registry]
-Root: HKCU; Subkey: "{#MyRegistry}"; ValueName: "{#MyRegistryKey}"; ValueType: string; ValueData: "{userdocs}\{#MyAppName}\"; Flags: createvalueifdoesntexist uninsdeletekey
-
+Root: HKCU; Subkey: "{#MyRegistry}"; ValueName: "{#MyRegistryKey}"; ValueType: string; ValueData: "{userdocs}\{#MyAppKey}\nexosale.settings.json"; Flags: createvalueifdoesntexist uninsdeletekey
+Root: HKCU; Subkey: "{#MySimulatorRegistry}"; ValueName: "{#MySimulatorRegistryKey}"; ValueType: string; ValueData: "{userdocs}\{#MyAppKey}\{#MySimulator}\nexo.simulator.json"; Flags: createvalueifdoesntexist uninsdeletekey
+											 
 [Code]
 var
   DirFound: string;

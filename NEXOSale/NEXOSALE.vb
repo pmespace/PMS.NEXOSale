@@ -7,7 +7,10 @@ Imports COMMON
 Imports Microsoft.Win32
 Imports System.IO
 Imports Newtonsoft.Json
+Imports System.Drawing.Printing
+Imports System.Drawing
 
+<ComVisible(True)>
 Public Enum Action
 	_none
 	_begin
@@ -26,6 +29,7 @@ Public Enum Action
 End Enum
 
 
+<ComVisible(True)>
 Public Enum ActionResult
 	_begin = -1
 	unknown
@@ -35,9 +39,11 @@ Public Enum ActionResult
 	timeout
 	exception
 	notSupported
+	incomplete
 	_end
 End Enum
 
+<ComVisible(True)>
 Public Enum CheckAuthorisationType
 	None
 	FNCI
@@ -62,7 +68,7 @@ Public Class NEXOSALE
 		_nexoclient = New NexoRetailerClient()
 		_login = New NexoLogin
 		_payment = New NexoPayment
-		_refund = New NexoRefund
+		_refund = New NexoPayment(PaymentTypeEnumeration.Refund)
 		_logout = New NexoLogout
 		LoadSettings()
 		UseBackup = False
@@ -135,30 +141,30 @@ Public Class NEXOSALE
 	''' </summary>
 	''' <returns></returns>
 	<DispId(3)>
-	Public Property TransactionID As String
+	Public ReadOnly Property SaleTransactionID As String
 		Get
-			Return _transactionid
+			Return _saletransactionid
 		End Get
-		Set(value As String)
-			_transactionid = value
-		End Set
+		'Set(value As String)
+		'	_transactionid = value
+		'End Set
 	End Property
-	Private _transactionid As String = Nothing
+	Friend _saletransactionid As String = Nothing
 
 	''' <summary>
 	''' Transaction timestamp given by the merchant
 	''' </summary>
 	''' <returns></returns>
 	<DispId(4)>
-	Public Property TransactionTimestamp As String
+	Public ReadOnly Property SaleTransactionTimestamp As String
 		Get
-			Return _transactiontimestamp
+			Return _saletransactiontimestamp
 		End Get
-		Set(value As String)
-			_transactiontimestamp = value
-		End Set
+		'Set(value As String)
+		'	_transactiontimestamp = value
+		'End Set
 	End Property
-	Private _transactiontimestamp As String = Nothing
+	Friend _saletransactiontimestamp As String = Nothing
 
 	''' <summary>
 	''' Main amerchant application window handle which will receive notifications during processing
@@ -254,12 +260,12 @@ Public Class NEXOSALE
 	''' </summary>
 	''' <returns></returns>
 	<DispId(12)>
-	Public ReadOnly Property Refund As NexoRefund
+	Public ReadOnly Property Refund As NexoPayment
 		Get
 			Return _refund
 		End Get
 	End Property
-	Friend _refund As NexoRefund
+	Friend _refund As NexoPayment
 
 	''' <summary>
 	''' Nexo logout command
@@ -318,7 +324,7 @@ Public Class NEXOSALE
 			Return _poitransactionid
 		End Get
 	End Property
-	Private _poitransactionid As String = Nothing
+	Friend _poitransactionid As String = Nothing
 
 	''' <summary>
 	''' POI assigned transaction timestamp
@@ -330,17 +336,20 @@ Public Class NEXOSALE
 			Return _poitransactiontimestamp
 		End Get
 	End Property
-	Private _poitransactiontimestamp As String = Nothing
+	Friend _poitransactiontimestamp As String = Nothing
 
 	''' <summary>
-	''' Origininally POI assigned transaction ID (for refund)
+	''' Originally POI assigned transaction ID (for refund)
 	''' </summary>
 	''' <returns></returns>
 	<DispId(19)>
-	Public ReadOnly Property OriginalPOITransactionID As String
+	Public Property OriginalPOITransactionID As String
 		Get
 			Return _originalpoitransactionid
 		End Get
+		Set(value As String)
+			_originalpoitransactionid = value
+		End Set
 	End Property
 	Private _originalpoitransactionid As String = Nothing
 
@@ -349,10 +358,13 @@ Public Class NEXOSALE
 	''' </summary>
 	''' <returns></returns>
 	<DispId(20)>
-	Public ReadOnly Property OriginalPOITransactionTimestamp As String
+	Public Property OriginalPOITransactionTimestamp As String
 		Get
 			Return _originalpoitransactiontimestamp
 		End Get
+		Set(value As String)
+			_originalpoitransactiontimestamp = value
+		End Set
 	End Property
 	Private _originalpoitransactiontimestamp As String = Nothing
 
@@ -577,21 +589,6 @@ Public Class NEXOSALE
 	Private _checkauthorisationsignature As String
 
 	''' <summary>
-	''' Merchant address that will be printed on a check
-	''' </summary>
-	''' <returns></returns>
-	<DispId(35)>
-	Public Property CheckAuthorisationResponseCode As String
-		Get
-			Return _checkauthorisationresponsecode
-		End Get
-		Set(value As String)
-			_checkauthorisationresponsecode = value
-		End Set
-	End Property
-	Private _checkauthorisationresponsecode As String
-
-	''' <summary>
 	''' Nexo input command
 	''' </summary>
 	''' <returns></returns>
@@ -614,6 +611,70 @@ Public Class NEXOSALE
 		End Get
 	End Property
 	Friend _print As NexoDevicePrint
+
+	''' <summary>
+	''' Merchant address that will be printed on a check
+	''' </summary>
+	''' <returns></returns>
+	<DispId(38)>
+	Public Property CheckAuthorisationResponseCode As String
+		Get
+			Return _checkauthorisationresponsecode
+		End Get
+		Set(value As String)
+			_checkauthorisationresponsecode = value
+		End Set
+	End Property
+	Private _checkauthorisationresponsecode As String
+
+	''' <summary>
+	''' Merchant reference to use for next/current transaction to process
+	''' </summary>
+	''' <returns></returns>
+	<DispId(39)>
+	Public Property MerchantReferenceID As String
+		Get
+			Return _merchantreferenceid
+		End Get
+		Set(value As String)
+			_merchantreferenceid = value
+		End Set
+	End Property
+	Private _merchantreferenceid As String = String.Empty
+
+	<DispId(40)>
+	Public ReadOnly Property Currency As NexoCurrency
+		Get
+			Return New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
+		End Get
+	End Property
+
+	<DispId(41)>
+	Public ReadOnly Property ReceiptAvailable As Boolean
+		Get
+			Return _receiptavailable
+		End Get
+	End Property
+	Friend _receiptavailable As Boolean
+
+	<DispId(42)>
+	Public ReadOnly Property POIInUse As POISettings
+		Get
+			Return _poiinuse
+		End Get
+	End Property
+	Friend _poiinuse As POISettings
+
+	<DispId(43)>
+	Public Property ReversalReason As String
+		Get
+			Return _reversalreason
+		End Get
+		Set(value As String)
+			_reversalreason = value
+		End Set
+	End Property
+	Private _reversalreason As String
 
 #End Region
 
@@ -642,32 +703,23 @@ Public Class NEXOSALE
 	<DispId(101)>
 	Public Function DisplayProcessing(theAction As Action) As ActionResult
 		Dim res As ActionResult = ActionResult.unknown
-		If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction OrElse Action.Reversal = theAction) AndAlso 0 <> Amount) OrElse
+		If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction) AndAlso 0 <> Amount) OrElse
+		(Action.Reversal = theAction) OrElse
 		(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
 			Dim f As Boolean = True
-			Dim localCurrency As NexoCurrency = Nothing
-			Dim localAmount As Double
+			Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
+			Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
 
 			'test action whether supported or not, eventually setting specific arguments
 			Select Case theAction
 				Case Action.Login, Action.Logout
 				Case Action.Payment, Action.Refund, Action.Reversal
-					If SupportsAction(Action.Payment, theAction, True, True) OrElse
+					f = Action.Payment = theAction OrElse
 						SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) OrElse
-						SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsReversal, Settings.Backup.SupportsReversal) Then
-						localCurrency = New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
-						localAmount = Amount / 10 ^ localCurrency.DecimalPlaces
-					Else
-						f = False
-					End If
+						SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
 				Case Action.Reconciliation, Action.Abort
-					If SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
-						SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort) Then
-						localCurrency = New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
-						localAmount = Amount / 10 ^ localCurrency.DecimalPlaces
-					Else
-						f = False
-					End If
+					f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
+						SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
 				Case Action.ReadCheck, Action.PrintCheck
 					f = SupportsAction(Action.ReadCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck) OrElse
 						SupportsAction(Action.PrintCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck)
@@ -682,42 +734,12 @@ Public Class NEXOSALE
 				Dim operation As New FProcessing.NexoOperation With
 				{
 				.Action = theAction,
-				.Currency = localCurrency,
 				.Amount = localAmount,
-				.SaleTransactionID = New TransactionIdentificationType() With
-					{
-					.TransactionID = TransactionID,
-					.TimeStamp = TransactionTimestamp
-					},
-				.OriginalPOITransactionID = New TransactionIdentificationType() With
-					{
-					.TransactionID = OriginalPOITransactionID,
-					.TimeStamp = OriginalPOITransactionTimestamp
-					},
-				.POI = poi,
-				.ReconciliationType = ReconciliationType,
-				.ReconciliationID = ReconciliationID,
-				.ReconciliationAcquirerID = ReconciliationAcquirerID,
-				.AbortReason = AbortReason,
-				.AbortMessageCategory = AbortMessageCategory,
-				.AbortServiceID = AbortServiceID,
-				.Check = New FProcessing.CheckToPrint() With
-					{
-					.MerchantName = MerchantName,
-					.MerchantAddress = MerchantAddress,
-					.CheckIndex = CheckIndex,
-					.Signature = CheckAuthorisationSignature,
-					.ResponseCode = CheckAuthorisationResponseCode
-					}
+				.POI = poi
 				}
 				Dim fp As New FProcessing(Me, operation)
 				Select Case fp.ShowDialog()
 					Case DialogResult.Yes
-						'retrieve potentially updated data
-						TransactionID = operation.SaleTransactionID.TransactionID
-						TransactionID = operation.SaleTransactionID.TimeStamp
-						_poitransactionid = operation.POITransactionID.TransactionID
-						_poitransactiontimestamp = operation.POITransactionID.TimeStamp
 						res = ActionResult.success
 					Case DialogResult.No
 						res = ActionResult.decline
@@ -725,6 +747,8 @@ Public Class NEXOSALE
 						res = ActionResult.cancel
 					Case DialogResult.Abort
 						res = ActionResult.timeout
+					Case DialogResult.Retry
+						res = ActionResult.incomplete
 					Case Else
 						res = ActionResult.unknown
 				End Select
@@ -732,9 +756,6 @@ Public Class NEXOSALE
 			Else
 				res = ActionResult.notSupported
 			End If
-			Amount = 0
-			TransactionID = Nothing
-			TransactionTimestamp = Nothing
 		Else
 			DisplayProcessing = DialogResult.Abort
 		End If
@@ -748,14 +769,25 @@ Public Class NEXOSALE
 	Public Function Connect() As Boolean
 		If Not Connected Then
 			_islogged = False
-			Dim poi As POISettings
-			If UseBackup Then poi = Settings.Backup Else poi = Settings.Primary
+			'Dim poi As POISettings
+			'If UseBackup Then poi = Settings.Backup Else poi = Settings.Primary
+			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
 			'If Connected Then Disconnect()
-			If (Not String.IsNullOrEmpty(poi.ServerIP)) Then
-				Dim clientSettings As New NexoRetailerClientSettings With {
-			.StreamClientSettings = New CStreamClientSettings With {
-				.IP = poi.ServerIP,
-				.Port = poi.ServerPort}}
+			If (Not String.IsNullOrEmpty(_poiinuse.ServerIP)) Then
+				Dim clientSettings As NexoRetailerClientSettings
+				If Settings.UseGPRS Then
+					clientSettings = New NexoRetailerClientSettings With {
+						.StreamClientSettings = New CStreamClientSettings With {
+						.IP = Settings.GatewayIP,
+						.Port = Settings.GatewayPort,
+						.ServerName = Settings.ServerName,
+						.AllowedSslErrors = Settings.AllowedSslErrors}}
+				Else
+					clientSettings = New NexoRetailerClientSettings With {
+						.StreamClientSettings = New CStreamClientSettings With {
+						.IP = _poiinuse.ServerIP,
+						.Port = _poiinuse.ServerPort}}
+				End If
 				Return NexoClient.Connect(clientSettings)
 			End If
 		End If
@@ -775,7 +807,33 @@ Public Class NEXOSALE
 	Public Function SettingsFileName() As String
 		Return SettingsFileNameEx()
 	End Function
-
+	''' <summary>
+	''' Returns the text associated to a DocumentQualifierEnumeration enumeration
+	''' </summary>
+	''' <param name="value">value to look for inside the enumeration</param>
+	''' <returns>The text associated to the value or null if not found</returns>
+	<DispId(501)>
+	Public Function DocumentQualifierToString(value As DocumentQualifierEnumeration) As String
+		Return CMisc.GetEnumName(GetType(DocumentQualifierEnumeration), value)
+	End Function
+	''' <summary>
+	''' Returns the text associated to a AlignmentEnumeration enumeration
+	''' </summary>
+	''' <param name="value">value to look for inside the enumeration</param>
+	''' <returns>The text associated to the value or null if not found</returns>
+	<DispId(502)>
+	Public Function AlignmentToString(value As AlignmentEnumeration) As String
+		Return CMisc.GetEnumName(GetType(AlignmentEnumeration), value)
+	End Function
+	''' <summary>
+	''' Returns the text associated to a AlignmentEnumeration enumeration
+	''' </summary>
+	''' <param name="value">value to look for inside the enumeration</param>
+	''' <returns>The text associated to the value or null if not found</returns>
+	<DispId(503)>
+	Public Function CharacterStyleToString(value As CharacterStyleEnumeration) As String
+		Return CMisc.GetEnumName(GetType(CharacterStyleEnumeration), value)
+	End Function
 #End Region
 
 #Region "private properties"
@@ -785,11 +843,12 @@ Public Class NEXOSALE
 #End Region
 
 #Region "private methods"
-	Private Function SettingsFileNameEx() As String
-		'return settings file name if it exsists nd has been read
-		If Not IsNothing(Settings) AndAlso Not IsNothing(Settings.SettingsFileName) Then
-			Return Settings.SettingsFileName
-		End If
+	Friend Shared Function SettingsFileNameEx() As String
+		Dim fileName As String = String.Empty
+		''return settings file name if it exsists nd has been read
+		'If Not IsNothing(Settings) AndAlso Not IsNothing(Settings.SettingsFileName) Then
+		'	Return Settings.SettingsFileName
+		'End If
 
 		Dim o As Object
 		'if it doesn't let's search for it inside the registry
@@ -799,9 +858,9 @@ Public Class NEXOSALE
 			If Not IsNothing(key) Then
 				Try
 					o = key.GetValue(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME)
-					If Not o Is Nothing AndAlso TestDir(o.ToString) Then
+					If Not o Is Nothing AndAlso NEXOSALE.TestDir(o.ToString) Then
 						'folder exsists and is writeable, we use that file name
-						Return o.ToString
+						fileName = o.ToString
 					End If
 				Catch ex As Exception
 				End Try
@@ -810,38 +869,54 @@ Public Class NEXOSALE
 		End Try
 
 		'if not inside the registry let's try Documents folder
-		Try
-			o = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-			'if invalid try to access the TEMP folder
-			If Not o Is Nothing AndAlso Not String.IsNullOrEmpty(o.ToString) Then
-				If o.ToString.EndsWith("\") Then
-					Return o.ToString & Settings.DEFAULT_SETTINGS_FILE_NAME
-				Else
-					Return o.ToString & "\" & Settings.DEFAULT_SETTINGS_FILE_NAME
+		If String.IsNullOrEmpty(fileName) Then
+			Try
+				o = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+				'if invalid try to access the TEMP folder
+				If Not o Is Nothing AndAlso Not String.IsNullOrEmpty(o.ToString) Then
+					If o.ToString.EndsWith("\") Then
+						fileName = o.ToString & Settings.DEFAULT_SETTINGS_FILE_NAME
+					Else
+						fileName = o.ToString & "\" & Settings.DEFAULT_SETTINGS_FILE_NAME
+					End If
 				End If
-			End If
-		Catch ex As Exception
-		End Try
+			Catch ex As Exception
+			End Try
+		End If
 
 		'if not inside Documents let's try TEMP folder
-		Try
-			o = Path.GetTempPath
-			'if invalid try to access the TEMP folder
-			If Not o Is Nothing AndAlso Not String.IsNullOrEmpty(o.ToString) Then
-				If o.ToString.EndsWith("\") Then
-					Return o.ToString & Settings.DefaultSettingsFileName
-				Else
-					Return o.ToString & "\" & Settings.DEFAULT_SETTINGS_FILE_NAME
+		If String.IsNullOrEmpty(fileName) Then
+			Try
+				o = Path.GetTempPath
+				'if invalid try to access the TEMP folder
+				If Not o Is Nothing AndAlso Not String.IsNullOrEmpty(o.ToString) Then
+					If o.ToString.EndsWith("\") Then
+						fileName = o.ToString & Settings.DEFAULT_SETTINGS_FILE_NAME
+					Else
+						fileName = o.ToString & "\" & Settings.DEFAULT_SETTINGS_FILE_NAME
+					End If
 				End If
-			End If
-		Catch ex As Exception
-		End Try
+			Catch ex As Exception
+			End Try
+		End If
 
 		'final default is current directory
-		Return Settings.DEFAULT_SETTINGS_FILE_NAME_FOLDER & Settings.DEFAULT_SETTINGS_FILE_NAME
+		If String.IsNullOrEmpty(fileName) Then
+			fileName = Settings.DEFAULT_SETTINGS_FILE_NAME_FOLDER & Settings.DEFAULT_SETTINGS_FILE_NAME
+		End If
+
+		''save file name to registry
+		'Try
+		'	key = Registry.CurrentUser.CreateSubKey(Settings.REGISTRY_SECTION)
+		'	If Not IsNothing(key) Then
+		'		key.SetValue(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, fileName)
+		'	End If
+		'Catch ex As Exception
+		'End Try
+		Return fileName
 	End Function
 
-	Private Function TestDir(fileNamed As String) As Boolean
+	Private Shared Function TestDir(fileNamed As String) As Boolean
 		Try
 			Dim fi As New FileInfo(fileNamed)
 			Dim dir = CMisc.VerifyDirectory(fi.Directory.FullName, True, True)
@@ -857,10 +932,11 @@ Public Class NEXOSALE
 	Private Sub LoadSettings()
 		Dim json As New CJson(Of Settings)()
 		json.FileName = SettingsFileName()
-		Settings = json.ReadSettings()
+		Dim except As Boolean
+		Settings = json.ReadSettings(except)
 		If IsNothing(Settings) Then
 			Settings = New Settings
-			Settings.SettingsFileName = json.FileName
+			'Settings.SettingsFileName = json.FileName
 			SaveSettings()
 		End If
 	End Sub
@@ -874,48 +950,6 @@ Public Class NEXOSALE
 	Private Function SupportsAction(actionToTest As Action, actionSelected As Action, primarySupport As Boolean, backupSupport As Boolean) As Boolean
 		Return actionToTest = actionSelected AndAlso ((UseBackup AndAlso backupSupport) Or (Not UseBackup AndAlso primarySupport))
 	End Function
-
-	Public Sub CreateGPRSXML()
-		'create the XML request
-		Dim request As New ConnectRequest
-		request.connect.ICCD = Settings.ICCD
-		request.connect.ICCD = Settings.ICCD
-		request.connect.user = Settings.UserID
-		request.connect.password = Settings.PWD
-		request.connect.port = Settings.POIPort
-		Dim xml As XmlDocument = JsonConvert.DeserializeXmlNode(JsonConvert.SerializeObject(request))
-		Dim clientSettings As New CStreamClientSettings() With
-			{
-			.IP = Settings.GatewayIP,
-			.Port = Settings.GatewayPort,
-			.CheckCertificate = False,
-			.ReceiveTimeout = 5
-			}
-		'send xml request waiting for an xml reply
-		Dim replySize As Integer
-		Dim timedout As Boolean
-		Dim s As String = xml.InnerXml
-		Dim xmls As String = CStream.ConnectSendReceive(clientSettings, s, replySize, timedout)
-		If Not String.IsNullOrEmpty(xmls) Then
-			Try
-				'deserialize the reply to a structure
-				Dim reply As ConnectReply = NexoRetailer.XmlDeserialize(Of ConnectReply)(xmls)
-				If Not IsNothing(reply) Then
-					'test the result
-					If reply.connect.Status Then
-					Else
-					End If
-				Else
-					'error, not a valid object
-				End If
-			Catch ex As Exception
-
-			End Try
-			'test the returned status
-		Else
-			'error connecting to the gateway
-		End If
-	End Sub
 
 #End Region
 

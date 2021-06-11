@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
 	Inherits System.Windows.Forms.Form
 
 	'Form overrides dispose to clean up the component list.
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Main
 	'NOTE: The following procedure is required by the Windows Form Designer
 	'It can be modified using the Windows Form Designer.  
 	'Do not modify it using the code editor.
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
 		Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -34,7 +34,6 @@ Partial Class Main
 		Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-		Me.Button3 = New System.Windows.Forms.Button()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		Me.TableLayoutPanel3.SuspendLayout()
@@ -54,7 +53,6 @@ Partial Class Main
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 1, 1)
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel4, 0, 0)
-		Me.TableLayoutPanel1.Controls.Add(Me.Button3, 1, 0)
 		Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 12)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 2
@@ -200,21 +198,14 @@ Partial Class Main
 		'
 		Me.CheckBox1.Anchor = System.Windows.Forms.AnchorStyles.Left
 		Me.CheckBox1.AutoSize = True
+		Me.CheckBox1.Checked = True
+		Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
 		Me.CheckBox1.Location = New System.Drawing.Point(64, 29)
 		Me.CheckBox1.Name = "CheckBox1"
 		Me.CheckBox1.Size = New System.Drawing.Size(114, 17)
 		Me.CheckBox1.TabIndex = 1
 		Me.CheckBox1.Text = "Advanced settings"
 		Me.CheckBox1.UseVisualStyleBackColor = True
-		'
-		'Button3
-		'
-		Me.Button3.Location = New System.Drawing.Point(213, 3)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(78, 46)
-		Me.Button3.TabIndex = 3
-		Me.Button3.Text = "Button3"
-		Me.Button3.UseVisualStyleBackColor = True
 		'
 		'Main
 		'
@@ -252,5 +243,4 @@ Partial Class Main
 	Friend WithEvents TableLayoutPanel4 As Windows.Forms.TableLayoutPanel
 	Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
 	Friend WithEvents lblResult As Label
-	Friend WithEvents Button3 As Button
 End Class

@@ -1,4 +1,5 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Net.Security
+Imports System.Runtime.InteropServices
 Imports COMMON
 Imports Microsoft.Win32
 
@@ -44,6 +45,28 @@ Public Class POISettings
 		End Set
 	End Property
 	Private _printreceipt As Boolean = True
+
+	<DispId(11)>
+	Public Property PrintCustomerReceipt As Boolean
+		Get
+			Return _printcustomerreceipt
+		End Get
+		Set(value As Boolean)
+			_printcustomerreceipt = value
+		End Set
+	End Property
+	Private _printcustomerreceipt As Boolean = True
+
+	<DispId(12)>
+	Public Property PrintMerchantReceipt As Boolean
+		Get
+			Return _printmerchantreceipt
+		End Get
+		Set(value As Boolean)
+			_printmerchantreceipt = value
+		End Set
+	End Property
+	Private _printmerchantreceipt As Boolean = True
 
 	<DispId(20)>
 	Public Property Synchronous As Boolean
@@ -111,17 +134,6 @@ Public Class POISettings
 	End Property
 	Private _supportscheck As Boolean = False
 
-	<DispId(35)>
-	Public Property SupportsReversal As Boolean
-		Get
-			Return _supportsreversal
-		End Get
-		Set(value As Boolean)
-			_supportsreversal = value
-		End Set
-	End Property
-	Private _supportsreversal As Boolean = False
-
 	<DispId(50)>
 	Public Property GeneralTimer As Integer
 		Get
@@ -156,6 +168,13 @@ Public Class POISettings
 	End Property
 	Private _checktimer As Integer = DEFAULT_CHECK_TIMER
 	Private Const DEFAULT_CHECK_TIMER As UInteger = 30
+
+	<DispId(53)>
+	Public ReadOnly Property IsValid As Boolean
+		Get
+			Return Not String.IsNullOrEmpty(ServerIP) AndAlso 0 <> ServerPort
+		End Get
+	End Property
 #End Region
 
 #Region "methods"
@@ -290,23 +309,15 @@ Public Class Settings
 	Private _decimals As UInteger
 
 	<DispId(30)>
-	Public Property SettingsFileName As String
+	Public Property NoAutocloseOnError As Boolean
 		Get
-			Return _settingsfilename
+			Return _noautocloseonerror
 		End Get
-		Set(value As String)
-			_settingsfilename = value
-			Dim key As RegistryKey
-			Try
-				key = Registry.CurrentUser.CreateSubKey(REGISTRY_SECTION)
-				If Not IsNothing(key) Then
-					key.SetValue(REGISTRY_KEY_SETTINGS_FILE_NAME, _settingsfilename)
-				End If
-			Catch ex As Exception
-			End Try
+		Set(value As Boolean)
+			_noautocloseonerror = value
 		End Set
 	End Property
-	Private _settingsfilename As String = "nexosale.settings.json"
+	Private _noautocloseonerror As Boolean = True
 
 	<DispId(31)>
 	Public Property LogFileName As String
@@ -454,6 +465,28 @@ Public Class Settings
 	Private _gatewayport As Decimal = DEFAULT_GATEWAY_PORT
 	Public Const DEFAULT_GATEWAY_PORT As Decimal = 3470
 
+	<DispId(106)>
+	Public Property AllowedSslErrors As SslPolicyErrors
+		Get
+			Return _allowedsslerrors
+		End Get
+		Set(value As SslPolicyErrors)
+			_allowedsslerrors = value
+		End Set
+	End Property
+	Private _allowedsslerrors As SslPolicyErrors = SslPolicyErrors.None
+
+	<DispId(107)>
+	Public Property ServerName As String
+		Get
+			Return _servername
+		End Get
+		Set(value As String)
+			_servername = value
+		End Set
+	End Property
+	Private _servername As String = "sslstca.lyra-network.com"
+
 	<DispId(200)>
 	Public Property Picture As String
 		Get
@@ -464,6 +497,73 @@ Public Class Settings
 		End Set
 	End Property
 	Private _picture As String
+
+	<DispId(201)>
+	Public Property Printer As String
+		Get
+			Return _printer
+		End Get
+		Set(value As String)
+			_printer = value
+		End Set
+	End Property
+	Private _printer As String
+
+	<DispId(202)>
+	Public Property ReceiptFolder As String
+		Get
+			Return _receiptfolder
+		End Get
+		Set(value As String)
+			_receiptfolder = value
+		End Set
+	End Property
+	Private _receiptfolder As String
+
+	<DispId(203)>
+	Public Property MerchantTextToPrint As String
+		Get
+			Return _merchanttexttoprint
+		End Get
+		Set(value As String)
+			_merchanttexttoprint = value
+		End Set
+	End Property
+	Private _merchanttexttoprint As String
+
+	<DispId(250)>
+	Public Property SaveReceipts As Boolean
+		Get
+			Return _savereceipts
+		End Get
+		Set(value As Boolean)
+			_savereceipts = value
+		End Set
+	End Property
+	Private _savereceipts As Boolean
+
+	<DispId(251)>
+	Public Property ReuseMerchantReferenceIDAsTransactionID As Boolean
+		Get
+			Return _reusemerchantreferenceidastransactionid
+		End Get
+		Set(value As Boolean)
+			_reusemerchantreferenceidastransactionid = value
+		End Set
+	End Property
+	Private _reusemerchantreferenceidastransactionid As Boolean = True
+
+	'usable only inside the component
+	''' <summary>
+	''' Indicates to use connection through GPRS
+	''' </summary>
+	''' <returns></returns>
+	Friend Property UseGPRS As Boolean
+	''' <summary>
+	''' Indicates the POI is offline
+	''' </summary>
+	''' <returns></returns>
+	Friend Property POIIsOffline As Boolean
 
 #End Region
 

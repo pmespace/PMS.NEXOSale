@@ -1,4 +1,6 @@
-﻿Imports NEXOSALE
+﻿Imports NEXO
+Imports COMMON
+Imports NEXOSALE
 
 Public Class Main
 	Private Nxo As New NEXOSALE.NEXOSALE
@@ -20,14 +22,36 @@ Public Class Main
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 		Try
 			Nxo.Amount = UInteger.Parse(TextBox1.Text)
+			Select Case ComboBox1.SelectedItem
+				Case Action.Payment
+				Case Action.Refund
+					Nxo.OriginalPOITransactionID = Nothing
+					Nxo.OriginalPOITransactionTimestamp = Nothing
+				Case Action.Reversal
+					Nxo.Amount = 0
+				Case Action.Reconciliation
+			End Select
 		Catch ex As Exception
 			TextBox1.Text = 100
 			Nxo.Amount = 100
 		End Try
-		lblResult.Text = Nxo.DisplayProcessing(ComboBox1.SelectedItem).ToString
+		Dim result As ActionResult = Nxo.DisplayProcessing(ComboBox1.SelectedItem)
+		lblResult.Text = result.ToString
+		Select Case result
+			Case ActionResult.success
+				Select Case ComboBox1.SelectedItem
+					Case Action.Payment
+						Nxo.OriginalPOITransactionID = Nxo.POITransactionID
+						Nxo.OriginalPOITransactionTimestamp = Nxo.POITransactionTimestamp
+					Case Action.Refund
+						Nxo.OriginalPOITransactionID = "AAA" 'Nothing
+						Nxo.OriginalPOITransactionTimestamp = Nothing
+					Case Action.Reversal
+						Nxo.OriginalPOITransactionID = Nothing
+						Nxo.OriginalPOITransactionTimestamp = Nothing
+					Case Action.Reconciliation
+				End Select
+		End Select
 	End Sub
 
-	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-		Nxo.CreateGPRSXML()
-	End Sub
 End Class
