@@ -54,7 +54,9 @@
   <files>
     <file src=".\Bin\PMS.NEXOSALE31.dll" target="lib\net47"></file>
     <file src=".\Bin\PMS.NEXOSALE31.xml" target="lib\net47"></file>
+    <!--
     <file src=".\Bin\PMS.NEXOSALE31.tlb" target="lib\net47"></file>
+    -->
     <file src=".\Bin\PMS.NEXOSALE31.pdb" target="lib\net47"></file>
   </files>
 </package>
