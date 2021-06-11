@@ -1000,6 +1000,7 @@ Public Class FProcessing
 		If autoclose Then
 			pbCancel.Text = CLOSE_BUTTON_TEXT & " in " & CInt(timerBeforeAutoClose.Tag) & " seconds"
 		Else
+			canBeCancelled = False
 			pbCancel.Text = CLOSE_BUTTON_TEXT
 		End If
 	End Sub
