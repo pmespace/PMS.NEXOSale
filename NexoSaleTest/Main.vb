@@ -37,6 +37,7 @@ Public Class Main
 		End Try
 		Dim result As ActionResult = Nxo.DisplayProcessing(ComboBox1.SelectedItem)
 		lblResult.Text = result.ToString
+		lblBrand.Text = Nxo.Brand
 		Select Case result
 			Case ActionResult.success
 				Select Case ComboBox1.SelectedItem

@@ -34,6 +34,7 @@ Partial Class FSettings
 		Me.Label12 = New System.Windows.Forms.Label()
 		Me.udAutocloseDelay = New System.Windows.Forms.NumericUpDown()
 		Me.cbAutoclose = New System.Windows.Forms.CheckBox()
+		Me.cbNoAutoCloseOnError = New System.Windows.Forms.CheckBox()
 		Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.cbUseBackup = New System.Windows.Forms.CheckBox()
 		Me.cbGPRS = New System.Windows.Forms.CheckBox()
@@ -145,11 +146,12 @@ Partial Class FSettings
 		Me.lblPrinter = New System.Windows.Forms.Label()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 		Me.miscellaneous = New System.Windows.Forms.TabPage()
-		Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.cbResuseMerchantReferenceID = New System.Windows.Forms.CheckBox()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-		Me.cbNoAutoCloseOnError = New System.Windows.Forms.CheckBox()
+		Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.cbReturnBrand = New System.Windows.Forms.CheckBox()
+		Me.cbAllowOfflinePOI = New System.Windows.Forms.CheckBox()
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -194,7 +196,7 @@ Partial Class FSettings
 		Me.TableLayoutPanel5.SuspendLayout()
 		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.miscellaneous.SuspendLayout()
-		Me.FlowLayoutPanel2.SuspendLayout()
+		Me.FlowLayoutPanel5.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'panelMain
@@ -379,6 +381,17 @@ Partial Class FSettings
 		Me.cbAutoclose.TabIndex = 0
 		Me.cbAutoclose.Text = "Autoclose processing window"
 		Me.cbAutoclose.UseVisualStyleBackColor = True
+		'
+		'cbNoAutoCloseOnError
+		'
+		Me.cbNoAutoCloseOnError.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.cbNoAutoCloseOnError.AutoSize = True
+		Me.cbNoAutoCloseOnError.Location = New System.Drawing.Point(361, 4)
+		Me.cbNoAutoCloseOnError.Name = "cbNoAutoCloseOnError"
+		Me.cbNoAutoCloseOnError.Size = New System.Drawing.Size(128, 17)
+		Me.cbNoAutoCloseOnError.TabIndex = 3
+		Me.cbNoAutoCloseOnError.Text = "No autoclose on error"
+		Me.cbNoAutoCloseOnError.UseVisualStyleBackColor = True
 		'
 		'FlowLayoutPanel3
 		'
@@ -1820,7 +1833,7 @@ Partial Class FSettings
 		'
 		'miscellaneous
 		'
-		Me.miscellaneous.Controls.Add(Me.FlowLayoutPanel2)
+		Me.miscellaneous.Controls.Add(Me.FlowLayoutPanel5)
 		Me.miscellaneous.Location = New System.Drawing.Point(4, 22)
 		Me.miscellaneous.Name = "miscellaneous"
 		Me.miscellaneous.Padding = New System.Windows.Forms.Padding(3)
@@ -1828,19 +1841,6 @@ Partial Class FSettings
 		Me.miscellaneous.TabIndex = 4
 		Me.miscellaneous.Text = "Miscellaneous"
 		Me.miscellaneous.UseVisualStyleBackColor = True
-		'
-		'FlowLayoutPanel2
-		'
-		Me.FlowLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-			Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.FlowLayoutPanel2.AutoSize = True
-		Me.FlowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.FlowLayoutPanel2.Controls.Add(Me.cbResuseMerchantReferenceID)
-		Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 3)
-		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-		Me.FlowLayoutPanel2.Size = New System.Drawing.Size(256, 23)
-		Me.FlowLayoutPanel2.TabIndex = 0
 		'
 		'cbResuseMerchantReferenceID
 		'
@@ -1860,16 +1860,38 @@ Partial Class FSettings
 		Me.OpenFileDialog1.CheckPathExists = False
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
 		'
-		'cbNoAutoCloseOnError
+		'FlowLayoutPanel5
 		'
-		Me.cbNoAutoCloseOnError.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.cbNoAutoCloseOnError.AutoSize = True
-		Me.cbNoAutoCloseOnError.Location = New System.Drawing.Point(361, 4)
-		Me.cbNoAutoCloseOnError.Name = "cbNoAutoCloseOnError"
-		Me.cbNoAutoCloseOnError.Size = New System.Drawing.Size(128, 17)
-		Me.cbNoAutoCloseOnError.TabIndex = 3
-		Me.cbNoAutoCloseOnError.Text = "No autoclose on error"
-		Me.cbNoAutoCloseOnError.UseVisualStyleBackColor = True
+		Me.FlowLayoutPanel5.AutoSize = True
+		Me.FlowLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+		Me.FlowLayoutPanel5.Controls.Add(Me.cbResuseMerchantReferenceID)
+		Me.FlowLayoutPanel5.Controls.Add(Me.cbReturnBrand)
+		Me.FlowLayoutPanel5.Controls.Add(Me.cbAllowOfflinePOI)
+		Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.FlowLayoutPanel5.Location = New System.Drawing.Point(3, 3)
+		Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
+		Me.FlowLayoutPanel5.Size = New System.Drawing.Size(794, 371)
+		Me.FlowLayoutPanel5.TabIndex = 1
+		'
+		'cbReturnBrand
+		'
+		Me.cbReturnBrand.AutoSize = True
+		Me.cbReturnBrand.Location = New System.Drawing.Point(259, 3)
+		Me.cbReturnBrand.Name = "cbReturnBrand"
+		Me.cbReturnBrand.Size = New System.Drawing.Size(191, 17)
+		Me.cbReturnBrand.TabIndex = 1
+		Me.cbReturnBrand.Text = "Return card brand after transaction"
+		Me.cbReturnBrand.UseVisualStyleBackColor = True
+		'
+		'cbAllowOfflinePOI
+		'
+		Me.cbAllowOfflinePOI.AutoSize = True
+		Me.cbAllowOfflinePOI.Location = New System.Drawing.Point(456, 3)
+		Me.cbAllowOfflinePOI.Name = "cbAllowOfflinePOI"
+		Me.cbAllowOfflinePOI.Size = New System.Drawing.Size(181, 17)
+		Me.cbAllowOfflinePOI.TabIndex = 2
+		Me.cbAllowOfflinePOI.Text = "Allow transactions if POI is offline"
+		Me.cbAllowOfflinePOI.UseVisualStyleBackColor = True
 		'
 		'FSettings
 		'
@@ -1965,8 +1987,8 @@ Partial Class FSettings
 		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.miscellaneous.ResumeLayout(False)
 		Me.miscellaneous.PerformLayout()
-		Me.FlowLayoutPanel2.ResumeLayout(False)
-		Me.FlowLayoutPanel2.PerformLayout()
+		Me.FlowLayoutPanel5.ResumeLayout(False)
+		Me.FlowLayoutPanel5.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -2088,7 +2110,6 @@ Partial Class FSettings
 	Friend WithEvents pnlLogFileName As Windows.Forms.TableLayoutPanel
 	Friend WithEvents pnlReceipts As Windows.Forms.TableLayoutPanel
 	Friend WithEvents miscellaneous As Windows.Forms.TabPage
-	Friend WithEvents FlowLayoutPanel2 As Windows.Forms.FlowLayoutPanel
 	Friend WithEvents cbResuseMerchantReferenceID As Windows.Forms.CheckBox
 	Friend WithEvents FlowLayoutPanel3 As Windows.Forms.FlowLayoutPanel
 	Friend WithEvents cbGPRS As Windows.Forms.CheckBox
@@ -2100,4 +2121,7 @@ Partial Class FSettings
 	Friend WithEvents efServerName As Windows.Forms.TextBox
 	Friend WithEvents cbPOIIsOffline As Windows.Forms.CheckBox
 	Friend WithEvents cbNoAutoCloseOnError As Windows.Forms.CheckBox
+	Friend WithEvents FlowLayoutPanel5 As Windows.Forms.FlowLayoutPanel
+	Friend WithEvents cbReturnBrand As Windows.Forms.CheckBox
+	Friend WithEvents cbAllowOfflinePOI As Windows.Forms.CheckBox
 End Class

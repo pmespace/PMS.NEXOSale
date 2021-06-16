@@ -259,8 +259,8 @@ Public Class FProcessing
 #Region "constructor"
 	Public Sub New(ByRef a As NEXOSALE, ope As NexoOperation)
 		MyBase.New
-		InitializeComponent()
 		nexoSale = a
+		InitializeComponent()
 		clientSettings = New NexoRetailerClientSettings With
 			{
 			.OnSentRequestStatusChanged = AddressOf OnSentRequestStatusChanged,
@@ -396,6 +396,7 @@ Public Class FProcessing
 						PostMessage(WM_ACTION)
 
 					Case Else
+						nexoSale._poiisoffline = True
 						isInError = True
 						message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "Failed to connect to POI"})
 						PostMessage(WM_AUTOCLOSE_START)
@@ -454,13 +455,13 @@ Public Class FProcessing
 							t = RealPaymentTimer()
 							ms = WM_REFUND
 						Case Action.Reversal
-							t = requestedOperation.POI.GeneralTimer
+							t = RealPaymentTimer() ' requestedOperation.POI.GeneralTimer
 							ms = WM_REVERSAL
 						Case Action.Reconciliation
-							t = requestedOperation.POI.GeneralTimer
+							t = RealPaymentTimer() 'requestedOperation.POI.GeneralTimer
 							ms = WM_RECONCILIATION
 						Case Action.Abort
-							t = requestedOperation.POI.GeneralTimer
+							t = RealPaymentTimer() 'requestedOperation.POI.GeneralTimer
 							ms = WM_ABORT
 
 							'Case Action.readcheck
@@ -745,6 +746,7 @@ Public Class FProcessing
 						nexoSale._poitransactionid = nxo.ReplyPOITransactionID
 						nexoSale._poitransactiontimestamp = nxo.ReplyPOITransactionTimestamp
 						printReceipt = requestedOperation.POI.PrintReceipt
+						nexoSale.InternalBrand = nexoSale.GetSchemeFromAvailableData(nxo)
 					Else
 						'test reason of failure
 						If nxo.Refusal AndAlso nxo.LoggedOut Then
@@ -771,6 +773,7 @@ Public Class FProcessing
 						message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = act & " accepted"})
 						nexoSale._poitransactionid = nxo.ReplyPOITransactionID
 						nexoSale._poitransactiontimestamp = nxo.ReplyPOITransactionTimestamp
+						nexoSale.InternalBrand = nexoSale.GetSchemeFromAvailableData(nxo)
 					Else
 						'test reason of failure
 						If nxo.Refusal AndAlso nxo.LoggedOut Then
@@ -959,13 +962,14 @@ Public Class FProcessing
 	End Sub
 
 	Private Sub pbCancel_Click(sender As Object, e As EventArgs) Handles pbCancel.Click
-		If canBeCancelled Then
+		If canBeCancelled AndAlso DialogResult.None = MyDialogResult Then
 			PostMessage(WM_CANCEL)
 		Else
 			'arrived it can only be a close button which was pressed
 			PostMessage(WM_END)
 		End If
 	End Sub
+
 	Private Sub timerBeforeTimeout_Tick(sender As Object, e As EventArgs) Handles timerBeforeTimeout.Tick
 		'allows displaying remaining time before timeout
 		If Not hasTimedOut AndAlso 0 < CInt(timerBeforeTimeout.Tag) Then

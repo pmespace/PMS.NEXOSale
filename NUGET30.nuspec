@@ -25,12 +25,15 @@
     </dependencies>
 
     <!-- Modifiable -->
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <releaseNotes>
+      1.2.0 NOT PUBLISHED
+      - Added new properties to NEXOSALE so as to control brand, offline POI,...
+
       1.1.0
       - Updated NewtonSoft.Json library
       - The library exists now in 2 version PMS.NEXOSALE30 (based on Nexo 3.0) and PMS.NEXOSALE31 (based on Nexo 3.1)
-      - Full support for nex refunud, reversal and reconciliation
+      - Full support for nex refund, reversal and reconciliation
 
       1.0.2
       - Added a window when the cashier connects to the POI, not blocking the application

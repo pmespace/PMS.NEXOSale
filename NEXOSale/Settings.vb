@@ -553,6 +553,28 @@ Public Class Settings
 	End Property
 	Private _reusemerchantreferenceidastransactionid As Boolean = True
 
+	<DispId(252)>
+	Public Property IndicateBrand As Boolean
+		Get
+			Return _indicatebrand
+		End Get
+		Set(value As Boolean)
+			_indicatebrand = value
+		End Set
+	End Property
+	Private _indicatebrand As Boolean = True
+
+	<DispId(253)>
+	Public Property AllowOfflinePOI As Boolean
+		Get
+			Return _allowofflinepoi
+		End Get
+		Set(value As Boolean)
+			_allowofflinepoi = value
+		End Set
+	End Property
+	Private _allowofflinepoi As Boolean = True
+
 	'usable only inside the component
 	''' <summary>
 	''' Indicates to use connection through GPRS

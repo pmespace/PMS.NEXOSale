@@ -11,6 +11,22 @@ Imports System.Drawing.Printing
 Imports System.Drawing
 
 <ComVisible(True)>
+Public Enum Scheme
+	_none
+	_begin
+	cb
+	visa
+	mci
+	jcb
+	cup
+	diners
+	discover
+	amex
+	card
+	_end
+End Enum
+
+<ComVisible(True)>
 Public Enum Action
 	_none
 	_begin
@@ -27,7 +43,6 @@ Public Enum Action
 	PrintCheck
 	_end
 End Enum
-
 
 <ComVisible(True)>
 Public Enum ActionResult
@@ -676,6 +691,37 @@ Public Class NEXOSALE
 	End Property
 	Private _reversalreason As String
 
+	<DispId(44)>
+	Public ReadOnly Property Brand As String
+		Get
+			If IndicateBrand Then
+				Return SchemeToString(InternalBrand)
+			Else
+				Return SchemeToString(Scheme.card)
+			End If
+		End Get
+	End Property
+	Friend Property InternalBrand As Scheme
+
+	<DispId(45)>
+	Public Property IndicateBrand As Boolean
+		Get
+			Return _indicatebrand
+		End Get
+		Set(value As Boolean)
+			_indicatebrand = value
+		End Set
+	End Property
+	Private _indicatebrand As Boolean = True
+
+	<DispId(46)>
+	Public ReadOnly Property POIIsOffline As Boolean
+		Get
+			Return _poiisoffline
+		End Get
+	End Property
+	Friend _poiisoffline As Boolean = False
+
 #End Region
 
 #Region "public methods"
@@ -684,7 +730,7 @@ Public Class NEXOSALE
 	''' </summary>
 	<DispId(100)>
 	Public Sub DisplaySettings(useAdvancedSettings As Boolean)
-		Dim f As New FSettings(useAdvancedSettings)
+		Dim f As New FSettings(Me, useAdvancedSettings)
 		f.UseBackup = UseBackup
 		Select Case f.ShowDialog()
 			Case DialogResult.OK
@@ -727,40 +773,48 @@ Public Class NEXOSALE
 					f = False
 			End Select
 
-			If f Then
-				Dim poi As POISettings
-				If UseBackup Then poi = Settings.Backup Else poi = Settings.Primary
-				'prepare the operation object
-				Dim operation As New FProcessing.NexoOperation With
-				{
-				.Action = theAction,
-				.Amount = localAmount,
-				.POI = poi
-				}
-				Dim fp As New FProcessing(Me, operation)
-				Select Case fp.ShowDialog()
-					Case DialogResult.Yes
-						res = ActionResult.success
-					Case DialogResult.No
-						res = ActionResult.decline
-					Case DialogResult.Cancel
-						res = ActionResult.cancel
-					Case DialogResult.Abort
-						res = ActionResult.timeout
-					Case DialogResult.Retry
-						res = ActionResult.incomplete
-					Case Else
-						res = ActionResult.unknown
-				End Select
-				fp.Dispose()
+			If Not POIIsOffline Then
+				If f AndAlso Not POIIsOffline Then
+					If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
+					'prepare the operation object
+					Dim operation As New FProcessing.NexoOperation With
+					{
+					.Action = theAction,
+					.Amount = localAmount,
+					.POI = POIInUse
+					}
+					Dim fp As New FProcessing(Me, operation)
+					PrepareNexosaleObject()
+					Select Case fp.ShowDialog()
+						Case DialogResult.Yes
+							res = ActionResult.success
+						Case DialogResult.No
+							res = ActionResult.decline
+						Case DialogResult.Cancel
+							res = ActionResult.cancel
+						Case DialogResult.Abort
+							res = ActionResult.timeout
+						Case DialogResult.Retry
+							res = ActionResult.incomplete
+						Case Else
+							res = ActionResult.unknown
+					End Select
+					fp.Dispose()
+				Else
+					res = ActionResult.notSupported
+				End If
 			Else
-				res = ActionResult.notSupported
+				'POI is offline, return a timeout result to allow the application take appropriate measures
+				res = ActionResult.incomplete
 			End If
 		Else
 			DisplayProcessing = DialogResult.Abort
 		End If
 		Return res
 	End Function
+	Private Sub PrepareNexosaleObject()
+		InternalBrand = Scheme.card
+	End Sub
 	''' <summary>
 	''' Try to connect to the server
 	''' </summary>
@@ -785,8 +839,8 @@ Public Class NEXOSALE
 				Else
 					clientSettings = New NexoRetailerClientSettings With {
 						.StreamClientSettings = New CStreamClientSettings With {
-						.IP = _poiinuse.ServerIP,
-						.Port = _poiinuse.ServerPort}}
+						.IP = POIInUse.ServerIP,
+						.Port = POIInUse.ServerPort}}
 				End If
 				Return NexoClient.Connect(clientSettings)
 			End If
@@ -951,6 +1005,83 @@ Public Class NEXOSALE
 		Return actionToTest = actionSelected AndAlso ((UseBackup AndAlso backupSupport) Or (Not UseBackup AndAlso primarySupport))
 	End Function
 
+#End Region
+
+#Region "friend methods"
+	''' <summary>
+	''' Tries to determine the scheme base on a <see cref="NexoPayment"/> object
+	''' Determination is done by:
+	'''  1/ analysing the <see cref="NexoPayment.ReplyPaymentBrand"/> looking for a scheme name
+	'''  2/ analysing all receipts looking for a scheme name
+	''' </summary>
+	''' <param name="nxo">The <see cref="NexoPayment"/> object to analyse</param>
+	''' <returns>The scheme if one found or <see cref="Scheme.card"/> if no scheme could be found</returns>
+	Friend Function GetSchemeFromAvailableData(nxo As NexoPayment) As Scheme
+		Dim sz As String = Nothing
+		GetSchemeFromAvailableData = Scheme.card
+		'look for brand returned by nexo
+		If Not String.IsNullOrEmpty(nxo.ReplyPaymentBrand) Then
+			sz = nxo.ReplyPaymentBrand
+			GetSchemeFromAvailableData = TryDeterminingScheme(sz)
+		End If
+		'if no scheme look inside the receipts
+		If Scheme.card = GetSchemeFromAvailableData And 0 <> nxo.ReplyData.PaymentReceiptSize Then
+			'loop on all available receipts
+			For i As Integer = 0 To nxo.ReplyData.PaymentReceiptSize - 1
+				Dim receipt = nxo.ReplyData.PaymentReceiptGetItem(i)
+				If Not IsNothing(receipt) AndAlso Not IsNothing(receipt.OutputContent) AndAlso 0 <> receipt.OutputContent.OutputTextSize Then
+					'loop on all available lines inside the receipt
+					For j As Integer = 0 To receipt.OutputContent.OutputTextSize - 1
+						Dim outputtext = receipt.OutputContent.OutputTextGetItem(j)
+						'try to determine the scheme
+						If Not IsNothing(outputtext) AndAlso Not IsNothing(outputtext.Value) Then
+							GetSchemeFromAvailableData = TryDeterminingScheme(outputtext.Value)
+							If Scheme.card <> GetSchemeFromAvailableData Then Return GetSchemeFromAvailableData
+						End If
+					Next
+				End If
+			Next
+		End If
+		Return GetSchemeFromAvailableData
+	End Function
+
+	''' <summary>
+	''' Returns the scheme name if available (defined in <see cref="Scheme"/> enum
+	''' </summary>
+	''' <param name="scheme">The scheme to look for</param>
+	''' <returns>The name of the scheme in lowercase if found, <see cref="Scheme.card"/> if not found</returns>
+	Friend Function SchemeToString(scheme As Scheme) As String
+		Dim sz As String = CMisc.EnumValueToString(GetType(Scheme), scheme)
+		If String.IsNullOrEmpty(sz) Then Return Scheme.card.ToString.ToLower
+		Return sz.ToLower
+	End Function
+
+	''' <summary>
+	''' Determines the scheme based on a string
+	''' Determination is made by analysing the beginning of the string, looking for identifiable data which may give way to determine the scheme
+	''' </summary>
+	''' <param name="sz">The string to analyse to determine the scheme</param>
+	''' <returns>The scheme as determined or <see cref="Scheme.card"/> if unable to determine it</returns>
+	Friend Function TryDeterminingScheme(sz As String) As Scheme
+		TryDeterminingScheme = Scheme.card
+		If sz.StartsWith("CB", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("Carte bancaire", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.cb
+		ElseIf sz.StartsWith("VISA", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.visa
+		ElseIf sz.StartsWith("Mastercard", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.mci
+		ElseIf sz.StartsWith("AMEX", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("american express", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.amex
+		ElseIf sz.StartsWith("CUP", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("chiname union", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.cup
+		ElseIf sz.StartsWith("JCB", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.jcb
+		ElseIf sz.StartsWith("diner", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.diners
+		ElseIf sz.StartsWith("discover", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.discover
+		End If
+	End Function
 #End Region
 
 #Region "window stack management"

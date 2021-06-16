@@ -1,4 +1,5 @@
 ﻿#Const REMOVEGPRSPAGE = Not DEBUG
+#Const REMOVEPOIISOFFLINE = Not DEBUG
 #Const REMOVEPDFRECEIPTS = Not DEBUG
 #Const SUPPORTSABORT = Not DEBUG
 #Const SUPPORTSCHECKS = Not DEBUG
@@ -16,6 +17,7 @@ Public Class FSettings
 
 	Public Settings As Settings
 	Public UseBackup As Boolean = False
+
 	Private Property Modified As Boolean
 		Get
 			Return _initialised And _modified
@@ -25,12 +27,19 @@ Public Class FSettings
 			SetButtons()
 		End Set
 	End Property
+
 	Private _modified As Boolean = False
 	Private _initialised As Boolean = False
 	Private Const DEFAULT_PORT As Integer = 2018
 	Private useAdvancedSettings As Boolean = False
+	Private nexoSale As NEXOSALE = Nothing
+	Private POIIsOffline As Boolean = False
 
-	Public Sub New(advanced As Boolean)
+	Public Sub New(ByRef a As NEXOSALE, advanced As Boolean)
+		MyBase.New
+		nexoSale = a
+		POIIsOffline = nexoSale.POIIsOffline
+
 		' This call is required by the designer.
 		InitializeComponent()
 
@@ -39,20 +48,30 @@ Public Class FSettings
 	End Sub
 
 	Private Sub TextBox_TextChanged(sender As Object, e As EventArgs) Handles efPOIID.TextChanged, efSaleID.TextChanged, efServerIP.TextChanged, efSettingsFileName.TextChanged, efSoftwareVersion.TextChanged, efManufacturerName.TextChanged, efCertificationCode.TextChanged, efApplicationName.TextChanged, efLogFileName.TextChanged, efUser.TextChanged, efPWD.TextChanged, efICCD.TextChanged, efGatewayIP.TextChanged, efPicture.TextChanged, efReceiptsDirectory.TextChanged, efServerName.TextChanged
-		Modified = True
-		'If sender Is efServerIP orelse sender Is efServerIPBackup OrElse sender Then
-		SetServerColors(efServerIP, udServerPort, SystemColors.Window)
-		SetButtons()
+		If _initialised Then
+			'If sender Is efServerIP orelse sender Is efServerIPBackup OrElse sender Then
+			SetServerColors(efServerIP, udServerPort, SystemColors.Window)
+			Modified = True
+		End If
 	End Sub
 
-	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsReversal.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged, cbSupportsReconciliation.CheckedChanged, cbSupportsAbort.CheckedChanged, cbMerchant.CheckedChanged, cbCustomer.CheckedChanged, cbUseDate.CheckedChanged, cbResuseMerchantReferenceID.CheckedChanged, cbRemoteCertificateNotAvailable.CheckedChanged, cbRemoteCertificateNameMismatch.CheckedChanged, cbRemoteCertificateChainErrors.CheckedChanged, cbNoAutoCloseOnError.CheckedChanged
-		Modified = True
-		SetButtons()
+	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsReversal.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged, cbSupportsReconciliation.CheckedChanged, cbSupportsAbort.CheckedChanged, cbMerchant.CheckedChanged, cbCustomer.CheckedChanged, cbUseDate.CheckedChanged, cbResuseMerchantReferenceID.CheckedChanged, cbRemoteCertificateNotAvailable.CheckedChanged, cbRemoteCertificateNameMismatch.CheckedChanged, cbRemoteCertificateChainErrors.CheckedChanged, cbNoAutoCloseOnError.CheckedChanged, cbPOIIsOffline.CheckedChanged, cbReturnBrand.CheckedChanged, cbAllowOfflinePOI.CheckedChanged
+		If _initialised Then
+			If sender Is cbUseBackup Then
+				cbPOIIsOffline.Checked = False
+			ElseIf sender Is cbAllowOfflinePOI Then
+				cbPOIIsOffline.Checked = False
+			ElseIf sender Is cbPOIIsOffline Then
+				POIIsOffline = cbPOIIsOffline.Checked
+			End If
+			Modified = True
+		End If
 	End Sub
 
 	Private Sub UpDown_ValueChanged(sender As Object, e As EventArgs) Handles udServerPort.ValueChanged, udPaymentTimer.ValueChanged, udAutocloseDelay.ValueChanged, udGeneralTimer.ValueChanged, udCheckTimer.ValueChanged, udICCDPort.ValueChanged
-		Modified = True
-		SetButtons()
+		If _initialised Then
+			Modified = True
+		End If
 	End Sub
 
 	Private Sub SetButtons()
@@ -68,7 +87,10 @@ Public Class FSettings
 		panelReceipts.Enabled = cbPrintReceipt.Enabled AndAlso cbPrintReceipt.Checked
 		efSaleID.Enabled = Not cbSaleIDUSeIP.Checked
 		efPOIID.Enabled = Not cbPOIIDUseIP.Checked
+
 		cbUseBackup.Enabled = Not IsNothing(Settings) AndAlso Not IsNothing(Settings.Backup) AndAlso Not String.IsNullOrEmpty(Settings.Backup.ServerIP)
+
+		cbPOIIsOffline.Enabled = Not IsNothing(Settings) AndAlso Settings.AllowOfflinePOI AndAlso POIIsOffline
 	End Sub
 
 	Private Sub FSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -88,9 +110,6 @@ Public Class FSettings
 
 #If REMOVEPDFRECEIPTS Then
 		Try
-			cbPOIIsOffline.Checked = False
-			cbPOIIsOffline.Enabled = False
-			cbPOIIsOffline.Visible = False
 			pnlReceipts.Visible = False
 			lblReceiptsFolder.Visible = False
 			TabControl1.TabPages.RemoveByKey(printSettingsPage.Name)
@@ -127,8 +146,18 @@ Public Class FSettings
 		LoadCurrencies()
 		'finally load settings
 		LoadSettings()
+
+		If Settings.AllowOfflinePOI Then
+			Try
+				cbPOIIsOffline.Checked = POIIsOffline
+			Catch ex As Exception
+			End Try
+		End If
+
+		cbPOIIsOffline.Checked = POIIsOffline
+
 		_initialised = True
-		SetButtons()
+		Modified = False
 	End Sub
 
 	Private Sub LoadCurrencies()
@@ -274,6 +303,10 @@ Public Class FSettings
 		End If
 
 		Settings.ReuseMerchantReferenceIDAsTransactionID = cbResuseMerchantReferenceID.Checked
+		Settings.IndicateBrand = cbReturnBrand.Checked
+		Settings.AllowOfflinePOI = cbAllowOfflinePOI.Checked
+
+		nexoSale._poiisoffline = POIIsOffline
 
 		If Not json.WriteSettings(Settings, True) Then
 			MsgBox("Settings file hasn't been saved. Please check file name and path" & vbCrLf & vbCrLf & SettingsFileName())
@@ -391,6 +424,9 @@ Public Class FSettings
 
 			'miscellaneous
 			cbResuseMerchantReferenceID.Checked = Settings.ReuseMerchantReferenceIDAsTransactionID
+			cbReturnBrand.Checked = Settings.IndicateBrand
+			cbAllowOfflinePOI.Checked = Settings.AllowOfflinePOI
+
 		Else
 			Settings = New Settings
 			SaveSettings()
