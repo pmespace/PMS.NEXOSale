@@ -25,8 +25,11 @@
     </dependencies>
 
     <!-- Modifiable -->
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <releaseNotes>
+      1.2.1
+      - Small enhancements in UI
+
       1.2.0
       - Added new properties to NEXOSALE so as to control brand, offline POI,...
       - Offline POI can be managed directly from the component

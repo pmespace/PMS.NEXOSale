@@ -12,8 +12,8 @@
 #define MySimulator "Simulator"
 #define MyLibVersion GetFileVersion("..\Bin\PMS.NEXOSALE30.dll")
 #define MyDriverVersion GetDateTimeString('yyyy/mm/dd', '-', ':');
-#define MyExeDir "..\Bin\"
-#define MySimulatorDir "..\..\Nexo\Bin\"
+#define MyExeDir "..\bin\"
+#define MySimulatorDir "..\..\Nexo\bin\net47\"
 #define MyExeDelphiDir "..\NEXOD\Bin\"
 #define MyCodeDir "..\NexoSaleTest\"
 #define MyCodeDestDir ".\NexoSaleTest\"

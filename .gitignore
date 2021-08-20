@@ -342,3 +342,10 @@ healthchecksdb
 # nuget private files
 Nuget/
 *.nupkg
+
+__history/
+__recovery/
+*.exe
+*.dll
+*.zip
+*.7z

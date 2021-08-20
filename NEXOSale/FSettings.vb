@@ -110,6 +110,10 @@ Public Class FSettings
 
 #If REMOVEPDFRECEIPTS Then
 		Try
+			cbSavePDF.Checked = False
+			cbSavePDF.Enabled = False
+			cbPrintReceipt.Enabled = False
+			pnlReceipts.Enabled = False
 			pnlReceipts.Visible = False
 			lblReceiptsFolder.Visible = False
 			TabControl1.TabPages.RemoveByKey(printSettingsPage.Name)

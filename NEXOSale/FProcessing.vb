@@ -401,6 +401,7 @@ Public Class FProcessing
 						message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "Failed to connect to POI"})
 						PostMessage(WM_AUTOCLOSE_START)
 				End Select
+				frm.Dispose()
 
 			Case WM_DISCONNECT
 				CLog.Add("WM_DISCONNECT")

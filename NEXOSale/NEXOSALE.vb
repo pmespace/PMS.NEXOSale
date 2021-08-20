@@ -15,8 +15,11 @@ Public Enum Scheme
 	_none
 	_begin
 	cb
+	epi
 	visa
+	vpay
 	mci
+	maestro
 	jcb
 	cup
 	diners
@@ -657,6 +660,10 @@ Public Class NEXOSALE
 	End Property
 	Private _merchantreferenceid As String = String.Empty
 
+	''' <summary>
+	''' The currency that will be used for all transactions
+	''' </summary>
+	''' <returns></returns>
 	<DispId(40)>
 	Public ReadOnly Property Currency As NexoCurrency
 		Get
@@ -664,6 +671,10 @@ Public Class NEXOSALE
 		End Get
 	End Property
 
+	''' <summary>
+	''' Indicate whether a receipt is available in the financial response
+	''' </summary>
+	''' <returns></returns>
 	<DispId(41)>
 	Public ReadOnly Property ReceiptAvailable As Boolean
 		Get
@@ -672,6 +683,10 @@ Public Class NEXOSALE
 	End Property
 	Friend _receiptavailable As Boolean
 
+	''' <summary>
+	''' Indicate the settings of the currently used POI
+	''' </summary>
+	''' <returns></returns>
 	<DispId(42)>
 	Public ReadOnly Property POIInUse As POISettings
 		Get
@@ -680,6 +695,10 @@ Public Class NEXOSALE
 	End Property
 	Friend _poiinuse As POISettings
 
+	''' <summary>
+	''' Reason to use for the reversal
+	''' </summary>
+	''' <returns></returns>
 	<DispId(43)>
 	Public Property ReversalReason As String
 		Get
@@ -691,6 +710,10 @@ Public Class NEXOSALE
 	End Property
 	Private _reversalreason As String
 
+	''' <summary>
+	''' Card brand used for financial transaction, if it is possible to determine it
+	''' </summary>
+	''' <returns></returns>
 	<DispId(44)>
 	Public ReadOnly Property Brand As String
 		Get
@@ -703,6 +726,10 @@ Public Class NEXOSALE
 	End Property
 	Friend Property InternalBrand As Scheme
 
+	''' <summary>
+	''' Instruct to indicate the card brand when financial transaction is finished
+	''' </summary>
+	''' <returns></returns>
 	<DispId(45)>
 	Public Property IndicateBrand As Boolean
 		Get
@@ -714,6 +741,10 @@ Public Class NEXOSALE
 	End Property
 	Private _indicatebrand As Boolean = True
 
+	''' <summary>
+	''' Indicates whether the POI is offline or not
+	''' </summary>
+	''' <returns></returns>
 	<DispId(46)>
 	Public ReadOnly Property POIIsOffline As Boolean
 		Get
@@ -721,6 +752,48 @@ Public Class NEXOSALE
 		End Get
 	End Property
 	Friend _poiisoffline As Boolean = False
+
+	''' <summary>
+	''' If used <see cref="StartProcessing(Action, Form, Control, Control, Integer)"/> to run the nexo processing the result will be put inside this data
+	''' That data does not pertain until the caller has received the windows message as indicated when calling the function
+	''' </summary>
+	''' <returns></returns>
+	<DispId(47)>
+	Public ReadOnly Property AsynchronousResult As ActionResult
+		Get
+			Return _asynchronousresult
+		End Get
+	End Property
+	Friend _asynchronousresult As ActionResult = ActionResult.unknown
+
+	''' <summary>
+	''' Message that will be sent to the caller when <see cref="StartProcessing(Action, Form, Control, Control, Integer)"/> terminates
+	''' The result is stored in <see cref="AsynchronousResult"/>
+	''' </summary>
+	''' <returns></returns>
+	<DispId(48)>
+	Public Property AsynchronousTerminateMessage As Integer
+		Get
+			Return _asynchronousterminatemessage
+		End Get
+		Set(value As Integer)
+			If WM_ASYNCHRONOUSTERMINATE <= value Then _asynchronousterminatemessage = value
+		End Set
+	End Property
+	Friend _asynchronousterminatemessage As Integer = WM_ASYNCHRONOUSTERMINATE
+
+	''' <summary>
+	''' The default value of the message returned by an asynchronous nexo processing
+	''' This entry is here to allow the caller to know the message value that will be used so know if changing it is necessary
+	''' </summary>
+	''' <returns></returns>
+	<DispId(49)>
+	Public ReadOnly Property AsynchronousDefaultTerminateMessage As Integer
+		Get
+			Return WM_ASYNCHRONOUSTERMINATE
+		End Get
+	End Property
+	Private Const WM_ASYNCHRONOUSTERMINATE As Integer = Win32.WM_USER + 1000
 
 #End Region
 
@@ -815,6 +888,81 @@ Public Class NEXOSALE
 	Private Sub PrepareNexosaleObject()
 		InternalBrand = Scheme.card
 	End Sub
+	''' <summary>
+	''' Display processing window
+	''' </summary>
+	''' <param name="theAction">Action to perform <see cref="Action"/></param>
+	''' <param name="form">The caller's form that will be warned when nexo processing is finished</param>
+	''' <param name="message">The control whose text will be updated when a message is to be displayed to the user, default is null meaning no message will be displayed</param>
+	''' <param name="information">The control whose text will be updated when an information message is to be displayed to the user, default is null meaning no information message will be displayed</param>
+	''' <param name="asynchronousTerminate">The message to send back to the indicated form when nexo processing is finished, default value is contained in <see cref="AsynchronousDefaultTerminateMessage"/></param>
+	''' <returns></returns>
+	<DispId(102)>
+	Public Function StartProcessing(theAction As Action, form As Form, Optional message As Control = Nothing, Optional information As Control = Nothing, Optional asynchronousTerminate As Integer = WM_ASYNCHRONOUSTERMINATE) As Boolean
+		Dim res As ActionResult = ActionResult.unknown
+		'If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction) AndAlso 0 <> Amount) OrElse
+		'(Action.Reversal = theAction) OrElse
+		'(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
+		'	Dim f As Boolean = True
+		'	Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
+		'	Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
+
+		'	'test action whether supported or not, eventually setting specific arguments
+		'	Select Case theAction
+		'		Case Action.Login, Action.Logout
+		'		Case Action.Payment, Action.Refund, Action.Reversal
+		'			f = Action.Payment = theAction OrElse
+		'				SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) OrElse
+		'				SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
+		'		Case Action.Reconciliation, Action.Abort
+		'			f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
+		'				SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
+		'		Case Action.ReadCheck, Action.PrintCheck
+		'			f = SupportsAction(Action.ReadCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck) OrElse
+		'				SupportsAction(Action.PrintCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck)
+		'		Case Else
+		'			f = False
+		'	End Select
+
+		'	If Not POIIsOffline Then
+		'		If f AndAlso Not POIIsOffline Then
+		'			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
+		'			'prepare the operation object
+		'			Dim operation As New FProcessing.NexoOperation With
+		'			{
+		'			.Action = theAction,
+		'			.Amount = localAmount,
+		'			.POI = POIInUse
+		'			}
+		'			Dim fp As New FProcessing(Me, operation)
+		'			PrepareNexosaleObject()
+		'			Select Case fp.ShowDialog()
+		'				Case DialogResult.Yes
+		'					res = ActionResult.success
+		'				Case DialogResult.No
+		'					res = ActionResult.decline
+		'				Case DialogResult.Cancel
+		'					res = ActionResult.cancel
+		'				Case DialogResult.Abort
+		'					res = ActionResult.timeout
+		'				Case DialogResult.Retry
+		'					res = ActionResult.incomplete
+		'				Case Else
+		'					res = ActionResult.unknown
+		'			End Select
+		'			fp.Dispose()
+		'		Else
+		'			res = ActionResult.notSupported
+		'		End If
+		'	Else
+		'		'POI is offline, return a timeout result to allow the application take appropriate measures
+		'		res = ActionResult.incomplete
+		'	End If
+		'Else
+		'	StartProcessing = DialogResult.Abort
+		'End If
+		Return res
+	End Function
 	''' <summary>
 	''' Try to connect to the server
 	''' </summary>
@@ -1005,6 +1153,73 @@ Public Class NEXOSALE
 		Return actionToTest = actionSelected AndAlso ((UseBackup AndAlso backupSupport) Or (Not UseBackup AndAlso primarySupport))
 	End Function
 
+	Private Function CheckProcessing(theAction As Action) As FProcessing.NexoOperation
+		'Dim res As ActionResult = ActionResult.unknown
+		'If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction) AndAlso 0 <> Amount) OrElse
+		'(Action.Reversal = theAction) OrElse
+		'(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
+		'	Dim f As Boolean = True
+		'	Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
+		'	Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
+
+		'	'test action whether supported or not, eventually setting specific arguments
+		'	Select Case theAction
+		'		Case Action.Login, Action.Logout
+		'		Case Action.Payment, Action.Refund, Action.Reversal
+		'			f = Action.Payment = theAction OrElse
+		'				SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) OrElse
+		'				SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
+		'		Case Action.Reconciliation, Action.Abort
+		'			f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
+		'				SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
+		'		Case Action.ReadCheck, Action.PrintCheck
+		'			f = SupportsAction(Action.ReadCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck) OrElse
+		'				SupportsAction(Action.PrintCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck)
+		'		Case Else
+		'			f = False
+		'	End Select
+
+		'	If Not POIIsOffline Then
+		'		If f AndAlso Not POIIsOffline Then
+		'			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
+		'			'prepare the operation object
+		'			Dim operation As New FProcessing.NexoOperation With
+		'			{
+		'			.Action = theAction,
+		'			.Amount = localAmount,
+		'			.POI = POIInUse
+		'			}
+		'			Dim fp As New FProcessing(Me, operation)
+		'			PrepareNexosaleObject()
+		'			Select Case fp.ShowDialog()
+		'				Case DialogResult.Yes
+		'					res = ActionResult.success
+		'				Case DialogResult.No
+		'					res = ActionResult.decline
+		'				Case DialogResult.Cancel
+		'					res = ActionResult.cancel
+		'				Case DialogResult.Abort
+		'					res = ActionResult.timeout
+		'				Case DialogResult.Retry
+		'					res = ActionResult.incomplete
+		'				Case Else
+		'					res = ActionResult.unknown
+		'			End Select
+		'			fp.Dispose()
+		'		Else
+		'			res = ActionResult.notSupported
+		'		End If
+		'	Else
+		'		'POI is offline, return a timeout result to allow the application take appropriate measures
+		'		res = ActionResult.incomplete
+		'	End If
+		'Else
+		'	StartProcessing = DialogResult.Abort
+		'End If
+
+		Return New FProcessing.NexoOperation
+	End Function
+
 #End Region
 
 #Region "friend methods"
@@ -1066,19 +1281,25 @@ Public Class NEXOSALE
 		TryDeterminingScheme = Scheme.card
 		If sz.StartsWith("CB", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("Carte bancaire", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.cb
-		ElseIf sz.StartsWith("VISA", StringComparison.InvariantCultureIgnoreCase) Then
+		ElseIf sz.StartsWith("EPI", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.epi
+		ElseIf sz.StartsWith("VISA", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("VIS", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.visa
-		ElseIf sz.StartsWith("Mastercard", StringComparison.InvariantCultureIgnoreCase) Then
+		ElseIf sz.StartsWith("VPAY", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.vpay
+		ElseIf sz.StartsWith("Mastercard", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("MCI", StringComparison.InvariantCultureIgnoreCase) Then
+			TryDeterminingScheme = Scheme.mci
+		ElseIf sz.StartsWith("maestro", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.mci
 		ElseIf sz.StartsWith("AMEX", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("american express", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.amex
-		ElseIf sz.StartsWith("CUP", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("chiname union", StringComparison.InvariantCultureIgnoreCase) Then
+		ElseIf sz.StartsWith("CUP", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("china union", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("union", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("UPI", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.cup
 		ElseIf sz.StartsWith("JCB", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.jcb
-		ElseIf sz.StartsWith("diner", StringComparison.InvariantCultureIgnoreCase) Then
+		ElseIf sz.StartsWith("DINER", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.diners
-		ElseIf sz.StartsWith("discover", StringComparison.InvariantCultureIgnoreCase) Then
+		ElseIf sz.StartsWith("discover", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("DFS", StringComparison.InvariantCultureIgnoreCase) Then
 			TryDeterminingScheme = Scheme.discover
 		End If
 	End Function

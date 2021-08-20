@@ -9,6 +9,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NexoSaleTest", "NexoSaleTes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E68753E-F7C8-4D13-A0E8-1E96AD5CBAE3}"
 	ProjectSection(SolutionItems) = preProject
+		Install\InstallNexo30CegidDriver.iss = Install\InstallNexo30CegidDriver.iss
 		Install\InstallNexoSale.iss = Install\InstallNexoSale.iss
 		NUGET30.nuspec = NUGET30.nuspec
 		NUGET31.nuspec = NUGET31.nuspec
