@@ -4,6 +4,7 @@ Imports System.Xml
 Imports NEXO
 Imports NEXO.Client
 Imports COMMON
+Imports COMMON.WIN32
 Imports Microsoft.Win32
 Imports System.IO
 Imports Newtonsoft.Json
@@ -1266,7 +1267,7 @@ Public Class NEXOSALE
 	''' <param name="scheme">The scheme to look for</param>
 	''' <returns>The name of the scheme in lowercase if found, <see cref="Scheme.card"/> if not found</returns>
 	Friend Function SchemeToString(scheme As Scheme) As String
-		Dim sz As String = CMisc.EnumValueToString(GetType(Scheme), scheme)
+		Dim sz As String = CMisc.GetEnumName(GetType(Scheme), scheme)
 		If String.IsNullOrEmpty(sz) Then Return Scheme.card.ToString.ToLower
 		Return sz.ToLower
 	End Function

@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms
 Imports COMMON
+Imports COMMON.WIN32
 
 Public Class FWait
 
@@ -115,7 +116,7 @@ Public Class FWait
 		MyBase.WndProc(m)
 	End Sub
 
-	Function MyThreadFunction(Optional data As CThreadData = Nothing, Optional o As Object = Nothing) As Integer
+	Function MyThreadFunction(thread As CThread, Optional o As Object = Nothing) As Integer
 		Dim f As Boolean = nexoSale.Connect()
 		If f Then
 			Return WM_CONNECT_SUCCESS

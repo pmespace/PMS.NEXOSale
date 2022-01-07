@@ -3,6 +3,7 @@ Imports System.Windows.Forms
 Imports NEXO
 Imports NEXO.Client
 Imports COMMON
+Imports COMMON.WIN32
 Imports Newtonsoft.Json
 Imports System.Net.Sockets
 Imports System.Threading
@@ -696,7 +697,7 @@ Public Class FProcessing
 		MyBase.WndProc(m)
 	End Sub
 
-	Public Sub OnReceivedReply(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, threadData As CThreadData, o As Object)
+	Public Sub OnReceivedReply(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, thread As CThread, o As Object)
 		isComplete = True
 		canBeCancelled = False
 		timerBeforeTimeout.Stop()
@@ -866,12 +867,12 @@ Public Class FProcessing
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_REPLY, .wParam = res})
 	End Sub
 
-	Public Sub OnReceivedRequest(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, threadData As CThreadData, o As Object)
+	Public Sub OnReceivedRequest(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, thread As CThread, o As Object)
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.requestReceived, .Message = "Received" & MessageDescription(obj.Item, xml)})
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_REQUEST, .wParam = RESULT_OK})
 	End Sub
 
-	Public Sub OnReceivedNotification(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, threadData As CThreadData, o As Object)
+	Public Sub OnReceivedNotification(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, thread As CThread, o As Object)
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.notificationReceived, .Message = "Received" & MessageDescription(obj.Item, xml)})
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_NOTIFICATION, .wParam = RESULT_OK})
 	End Sub
@@ -943,7 +944,7 @@ Public Class FProcessing
 		DescribeError = response.AdditionalResponse
 	End Function
 
-	Public Sub OnSentRequestStatusChanged(xml As String, obj As NexoObjectToProcess, status As NexoMessageStatus, tcp As TcpClient, threadData As CThreadData, o As Object)
+	Public Sub OnSentRequestStatusChanged(xml As String, obj As NexoObjectToProcess, status As NexoMessageStatus, tcp As TcpClient, thread As CThread, o As Object)
 		Dim hasTimedOut As Boolean = NexoMessageStatus.timeout = status
 		If hasTimedOut Then
 			message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.timerTimout, .Message = "The operation timed out and has been cancelled"})
@@ -958,7 +959,7 @@ Public Class FProcessing
 		End If
 	End Sub
 
-	Public Sub OnSend(xml As String, item As NexoItem, tcp As TcpClient, threadData As CThreadData, o As Object)
+	Public Sub OnSend(xml As String, item As NexoItem, tcp As TcpClient, thread As CThread, threadData As CThreadData, o As Object)
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.information, .Message = MessageDescription(item, xml)})
 	End Sub
 
