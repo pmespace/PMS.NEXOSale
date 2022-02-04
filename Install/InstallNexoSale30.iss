@@ -23,6 +23,7 @@
 #define MyRegistryKey "SettingsFileName"
 #define MySimulatorRegistryKey "Settings"
 #define MyUserdocs "..\..\..\"
+#define MyPDFToAdd "..\PMS.NEXOSALE*.pdf"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -33,7 +34,7 @@ AppName={#MyAppName}
 AppVersion={#MyLibVersion}
 AppVerName={#MyAppName}
 AppPublisher={#MyAppPublisher}
-DefaultDirName={pf}\{#MyAppKey}
+DefaultDirName={commonpf}\{#MyAppKey}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
 DisableDirPage=yes
@@ -65,7 +66,7 @@ Source: "{#MySimulatorDir}nexoBuilder30.exe"; DestDir: "{app}"; Flags: ignorever
 
 Source: "{#MySimulatorDir}nexo.simulator.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
 Source: "{#MySimulatorDir}nexo.simulator.response.*.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
-Source: "*.pdf"; DestDir: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: onlyifdoesntexist
+Source: "{#MyPDFToAdd}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: onlyifdoesntexist
 
 [Run]
 Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.COMMON"
@@ -73,9 +74,9 @@ Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /codebase"; Work
 Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXOSALE30"
 
 [UninstallRun]
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.COMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXO30"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXOSALE30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.COMMON"; RunOnceId: "UnregisteringPMSCOMMON"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXO30"; RunOnceId: "UnregisteringPMSNEXO30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXOSALE30"; RunOnceId: "UnregisteringPMSNEXOSALE30"
 
 [Registry]
 Root: HKCU; Subkey: "{#MySimulatorRegistry}"; ValueName: "{#MySimulatorRegistryKey}"; ValueType: string; ValueData: "{commonappdata}\{#MyAppKey}\{#MySimulator}\nexo.simulator.json"; Flags: createvalueifdoesntexist uninsdeletekey
@@ -128,7 +129,7 @@ var
 	fname: string;
 begin
   DirFound := '';
-	fdir := ExpandConstant('{pf}\CEGID');
+	fdir := ExpandConstant('{commonpf}\CEGID');
 	fname := 'CPOS_DllManager'
   result := FindInDir(fdir, fname + '.exe');
   if not result then MsgBox(fname + ' hasn''t been not found in ' + fdir + ' and sub-directories. The driver could not be processed (registered/unregistered), please proceed manually.', mbError, MB_OK);
