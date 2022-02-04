@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Install\InstallNexoSale.iss = Install\InstallNexoSale.iss
 		NUGET30.nuspec = NUGET30.nuspec
 		NUGET31.nuspec = NUGET31.nuspec
+		PMS.NEXO30.CEGID - Y2 Interface - User Guide.odt = PMS.NEXO30.CEGID - Y2 Interface - User Guide.odt
 		PMS.NEXOSALE quick user guide.odt = PMS.NEXOSALE quick user guide.odt
 		readme.md = readme.md
 	EndProjectSection
