@@ -1,7 +1,7 @@
 rem @echo off
 del *.zip /q
 del *.7z /q
-set pwd=CEGID
+set pwd=%1
 
 rem for %%f in (".\*.exe") do echo %%~nf
 for %%f in (".\*.exe") do call :zipit %%~nf
