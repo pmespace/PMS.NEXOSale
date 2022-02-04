@@ -319,7 +319,7 @@ Public Class FProcessing
 		information.Text = ""
 		back = message.BackColor
 		fore = message.ForeColor
-		If nexoSale.HideNexoMessagesWhenProcessing Then
+		If nexoSale.Settings.HideNexoMessagesWhenProcessing Then
 			information.Visible = False
 			Dim row As Integer = TableLayoutMain.GetRow(information)
 			TableLayoutMain.RowStyles(row).SizeType = SizeType.Absolute

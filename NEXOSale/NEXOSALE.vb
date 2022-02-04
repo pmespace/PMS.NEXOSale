@@ -796,20 +796,6 @@ Public Class NEXOSALE
 	End Property
 	Private Const WM_ASYNCHRONOUSTERMINATE As Integer = Win32.WM_USER + 1000
 
-	''' <summary>
-	''' Allows hiding the nexo messages while processing an operation
-	''' </summary>
-	''' <returns></returns>
-	<DispId(50)>
-	Public Property HideNexoMessagesWhenProcessing As Boolean
-		Get
-			Return _hidenexomessageswhenprocessing
-		End Get
-		Set(value As Boolean)
-			_hidenexomessageswhenprocessing = value
-		End Set
-	End Property
-	Private _hidenexomessageswhenprocessing As Boolean = False
 #End Region
 
 #Region "public methods"

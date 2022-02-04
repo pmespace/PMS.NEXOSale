@@ -152,6 +152,7 @@ Partial Class FSettings
 		Me.cbAllowOfflinePOI = New System.Windows.Forms.CheckBox()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+		Me.cbHideInformation = New System.Windows.Forms.CheckBox()
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -403,6 +404,7 @@ Partial Class FSettings
 		Me.FlowLayoutPanel3.Controls.Add(Me.cbUseBackup)
 		Me.FlowLayoutPanel3.Controls.Add(Me.cbGPRS)
 		Me.FlowLayoutPanel3.Controls.Add(Me.cbPOIIsOffline)
+		Me.FlowLayoutPanel3.Controls.Add(Me.cbHideInformation)
 		Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
 		Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 45)
 		Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
@@ -1893,6 +1895,18 @@ Partial Class FSettings
 		Me.OpenFileDialog1.CheckPathExists = False
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
 		'
+		'cbHideInformation
+		'
+		Me.cbHideInformation.AutoSize = True
+		Me.cbHideInformation.Checked = True
+		Me.cbHideInformation.CheckState = System.Windows.Forms.CheckState.Checked
+		Me.cbHideInformation.Location = New System.Drawing.Point(3, 75)
+		Me.cbHideInformation.Name = "cbHideInformation"
+		Me.cbHideInformation.Size = New System.Drawing.Size(212, 17)
+		Me.cbHideInformation.TabIndex = 7
+		Me.cbHideInformation.Text = "Hide information pane when processing"
+		Me.cbHideInformation.UseVisualStyleBackColor = True
+		'
 		'FSettings
 		'
 		Me.AcceptButton = Me.pbSave
@@ -2124,4 +2138,5 @@ Partial Class FSettings
 	Friend WithEvents FlowLayoutPanel5 As Windows.Forms.FlowLayoutPanel
 	Friend WithEvents cbReturnBrand As Windows.Forms.CheckBox
 	Friend WithEvents cbAllowOfflinePOI As Windows.Forms.CheckBox
+	Friend WithEvents cbHideInformation As Windows.Forms.CheckBox
 End Class

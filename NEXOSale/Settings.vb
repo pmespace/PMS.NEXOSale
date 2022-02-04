@@ -611,6 +611,21 @@ Public Class Settings
 	End Property
 	Private _allowofflinepoi As Boolean = True
 
+	''' <summary>
+	''' Allows hiding the nexo messages while processing an operation
+	''' </summary>
+	''' <returns></returns>
+	<DispId(254)>
+	Public Property HideNexoMessagesWhenProcessing As Boolean
+		Get
+			Return _hidenexomessageswhenprocessing
+		End Get
+		Set(value As Boolean)
+			_hidenexomessageswhenprocessing = value
+		End Set
+	End Property
+	Private _hidenexomessageswhenprocessing As Boolean = True
+
 	Public Property CardSchemes As CardScheme
 		Get
 			Return _cardschemes

@@ -309,6 +309,7 @@ Public Class FSettings
 		Settings.ReuseMerchantReferenceIDAsTransactionID = cbResuseMerchantReferenceID.Checked
 		Settings.IndicateBrand = cbReturnBrand.Checked
 		Settings.AllowOfflinePOI = cbAllowOfflinePOI.Checked
+		Settings.HideNexoMessagesWhenProcessing = cbHideInformation.Checked
 
 		nexoSale._poiisoffline = POIIsOffline
 
@@ -430,6 +431,7 @@ Public Class FSettings
 			cbResuseMerchantReferenceID.Checked = Settings.ReuseMerchantReferenceIDAsTransactionID
 			cbReturnBrand.Checked = Settings.IndicateBrand
 			cbAllowOfflinePOI.Checked = Settings.AllowOfflinePOI
+			cbHideInformation.Checked = Settings.HideNexoMessagesWhenProcessing
 
 		Else
 			Settings = New Settings

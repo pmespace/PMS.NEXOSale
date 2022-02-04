@@ -35,7 +35,6 @@ Public Class Main
 			TextBox1.Text = 100
 			Nxo.Amount = 100
 		End Try
-		Nxo.HideNexoMessagesWhenProcessing = CheckBox2.Checked
 		Dim result As ActionResult = Nxo.DisplayProcessing(ComboBox1.SelectedItem)
 		lblResult.Text = result.ToString
 		lblBrand.Text = Nxo.Brand

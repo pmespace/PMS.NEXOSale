@@ -9,7 +9,7 @@
 #define MyLog "Log"
 #define MyDoc "Doc"
 #define MySimulator "Simulator"
-#define MyLibVersion GetFileVersion("..\Bin\PMS.NEXOSALE30.dll")
+#define MyLibVersion GetVersionNumbersString("..\Bin\PMS.NEXOSALE30.dll")
 #define MyDriverVersion GetDateTimeString('yyyy/mm/dd', '-', ':');
 #define MyExeDir "..\bin\"
 #define MySimulatorDir "..\..\Nexo\bin\net47\"
@@ -74,9 +74,9 @@ Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /codebase"; Work
 Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXOSALE30"
 
 [UninstallRun]
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.COMMON"; RunOnceId: "UnregisteringPMSCOMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXO30"; RunOnceId: "UnregisteringPMSNEXO30"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Unregistering component PMS.NEXOSALE30"; RunOnceId: "UnregisteringPMSNEXOSALE30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; RunOnceId: "UnregisteringPMSCOMMON"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; RunOnceId: "UnregisteringPMSNEXO30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; RunOnceId: "UnregisteringPMSNEXOSALE30"
 
 [Registry]
 Root: HKCU; Subkey: "{#MySimulatorRegistry}"; ValueName: "{#MySimulatorRegistryKey}"; ValueType: string; ValueData: "{commonappdata}\{#MyAppKey}\{#MySimulator}\nexo.simulator.json"; Flags: createvalueifdoesntexist uninsdeletekey

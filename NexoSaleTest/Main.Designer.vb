@@ -35,7 +35,6 @@ Partial Class Main
 		Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-		Me.CheckBox2 = New System.Windows.Forms.CheckBox()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		Me.TableLayoutPanel3.SuspendLayout()
@@ -55,7 +54,6 @@ Partial Class Main
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 1, 1)
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel4, 0, 0)
-		Me.TableLayoutPanel1.Controls.Add(Me.CheckBox2, 1, 0)
 		Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 12)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 2
@@ -223,17 +221,6 @@ Partial Class Main
 		Me.CheckBox1.Text = "Advanced settings"
 		Me.CheckBox1.UseVisualStyleBackColor = True
 		'
-		'CheckBox2
-		'
-		Me.CheckBox2.Anchor = System.Windows.Forms.AnchorStyles.Left
-		Me.CheckBox2.AutoSize = True
-		Me.CheckBox2.Location = New System.Drawing.Point(213, 32)
-		Me.CheckBox2.Name = "CheckBox2"
-		Me.CheckBox2.Size = New System.Drawing.Size(185, 17)
-		Me.CheckBox2.TabIndex = 3
-		Me.CheckBox2.Text = "Hide information when processing"
-		Me.CheckBox2.UseVisualStyleBackColor = True
-		'
 		'Main
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -271,5 +258,4 @@ Partial Class Main
 	Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
 	Friend WithEvents lblResult As Label
 	Friend WithEvents lblBrand As Label
-	Friend WithEvents CheckBox2 As CheckBox
 End Class
