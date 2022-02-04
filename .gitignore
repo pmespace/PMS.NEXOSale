@@ -26,6 +26,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+[Dd][Cc][Uu]/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -351,3 +352,4 @@ __recovery/
 *.7z
 *.odt
 *.docx
+*.dcu
