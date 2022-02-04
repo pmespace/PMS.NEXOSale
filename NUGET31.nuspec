@@ -7,8 +7,8 @@
     <authors>philippemp31</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <repository type="git" url="https://github.com/pmespace/PMS.NEXO.git" branch="master" />
-    <projectUrl>https://github.com/pmespace/PMS.NEXO/</projectUrl>
+    <repository type="git" url="https://github.com/pmespace/PMS.NEXOSALE.git" branch="master" />
+    <projectUrl>https://github.com/pmespace/PMS.NEXOSALE/</projectUrl>
     <description>
       Nexo Retailer v3.1 easy to use client interface.
       Nexo Retailer specs can be found at https://www.nexo-standards.org/standards/nexo-retailer-protocol, subscription is free of charges.
@@ -20,13 +20,16 @@
     <!-- Modifiable -->
     <dependencies>
       <group targetFramework=".NETFramework4.7">
-        <dependency id="PMS.NEXO30" version="3.4.0" />
+        <dependency id="PMS.NEXO30" version="4.3.0" />
       </group>
     </dependencies>
 
     <!-- Modifiable -->
-    <version>1.3.0</version>
+    <version>1.3.1</version>
     <releaseNotes>
+      1.3.1
+      - Added property to hide information part at runtime in the processing window
+      
       1.3.0
       - PMS.NEXOxx 4.3.0
 

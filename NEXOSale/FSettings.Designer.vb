@@ -146,12 +146,12 @@ Partial Class FSettings
 		Me.lblPrinter = New System.Windows.Forms.Label()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 		Me.miscellaneous = New System.Windows.Forms.TabPage()
-		Me.cbResuseMerchantReferenceID = New System.Windows.Forms.CheckBox()
-		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
 		Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
+		Me.cbResuseMerchantReferenceID = New System.Windows.Forms.CheckBox()
 		Me.cbReturnBrand = New System.Windows.Forms.CheckBox()
 		Me.cbAllowOfflinePOI = New System.Windows.Forms.CheckBox()
+		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -1842,24 +1842,6 @@ Partial Class FSettings
 		Me.miscellaneous.Text = "Miscellaneous"
 		Me.miscellaneous.UseVisualStyleBackColor = True
 		'
-		'cbResuseMerchantReferenceID
-		'
-		Me.cbResuseMerchantReferenceID.AutoSize = True
-		Me.cbResuseMerchantReferenceID.Checked = True
-		Me.cbResuseMerchantReferenceID.CheckState = System.Windows.Forms.CheckState.Checked
-		Me.cbResuseMerchantReferenceID.Location = New System.Drawing.Point(3, 3)
-		Me.cbResuseMerchantReferenceID.Name = "cbResuseMerchantReferenceID"
-		Me.cbResuseMerchantReferenceID.Size = New System.Drawing.Size(250, 17)
-		Me.cbResuseMerchantReferenceID.TabIndex = 0
-		Me.cbResuseMerchantReferenceID.Text = "Reuse merchant reference ID for transaction ID"
-		Me.cbResuseMerchantReferenceID.UseVisualStyleBackColor = True
-		'
-		'OpenFileDialog1
-		'
-		Me.OpenFileDialog1.CheckFileExists = False
-		Me.OpenFileDialog1.CheckPathExists = False
-		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-		'
 		'FlowLayoutPanel5
 		'
 		Me.FlowLayoutPanel5.AutoSize = True
@@ -1872,6 +1854,18 @@ Partial Class FSettings
 		Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
 		Me.FlowLayoutPanel5.Size = New System.Drawing.Size(794, 371)
 		Me.FlowLayoutPanel5.TabIndex = 1
+		'
+		'cbResuseMerchantReferenceID
+		'
+		Me.cbResuseMerchantReferenceID.AutoSize = True
+		Me.cbResuseMerchantReferenceID.Checked = True
+		Me.cbResuseMerchantReferenceID.CheckState = System.Windows.Forms.CheckState.Checked
+		Me.cbResuseMerchantReferenceID.Location = New System.Drawing.Point(3, 3)
+		Me.cbResuseMerchantReferenceID.Name = "cbResuseMerchantReferenceID"
+		Me.cbResuseMerchantReferenceID.Size = New System.Drawing.Size(250, 17)
+		Me.cbResuseMerchantReferenceID.TabIndex = 0
+		Me.cbResuseMerchantReferenceID.Text = "Reuse merchant reference ID for transaction ID"
+		Me.cbResuseMerchantReferenceID.UseVisualStyleBackColor = True
 		'
 		'cbReturnBrand
 		'
@@ -1892,6 +1886,12 @@ Partial Class FSettings
 		Me.cbAllowOfflinePOI.TabIndex = 2
 		Me.cbAllowOfflinePOI.Text = "Allow transactions if POI is offline"
 		Me.cbAllowOfflinePOI.UseVisualStyleBackColor = True
+		'
+		'OpenFileDialog1
+		'
+		Me.OpenFileDialog1.CheckFileExists = False
+		Me.OpenFileDialog1.CheckPathExists = False
+		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
 		'
 		'FSettings
 		'

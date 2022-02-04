@@ -27,6 +27,7 @@ Partial Class Main
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+		Me.lblBrand = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.ComboBox1 = New System.Windows.Forms.ComboBox()
 		Me.Button2 = New System.Windows.Forms.Button()
@@ -34,7 +35,7 @@ Partial Class Main
 		Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-		Me.lblBrand = New System.Windows.Forms.Label()
+		Me.CheckBox2 = New System.Windows.Forms.CheckBox()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
 		Me.TableLayoutPanel3.SuspendLayout()
@@ -54,6 +55,7 @@ Partial Class Main
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 1, 1)
 		Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel4, 0, 0)
+		Me.TableLayoutPanel1.Controls.Add(Me.CheckBox2, 1, 0)
 		Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 12)
 		Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
 		Me.TableLayoutPanel1.RowCount = 2
@@ -125,6 +127,16 @@ Partial Class Main
 		Me.TableLayoutPanel3.Size = New System.Drawing.Size(453, 75)
 		Me.TableLayoutPanel3.TabIndex = 2
 		'
+		'lblBrand
+		'
+		Me.lblBrand.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.lblBrand.AutoSize = True
+		Me.lblBrand.Location = New System.Drawing.Point(344, 31)
+		Me.lblBrand.Name = "lblBrand"
+		Me.lblBrand.Size = New System.Drawing.Size(106, 13)
+		Me.lblBrand.TabIndex = 4
+		Me.lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
 		'Label2
 		'
 		Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -142,7 +154,7 @@ Partial Class Main
 		Me.ComboBox1.FormattingEnabled = True
 		Me.ComboBox1.Location = New System.Drawing.Point(75, 27)
 		Me.ComboBox1.Name = "ComboBox1"
-		Me.ComboBox1.Size = New System.Drawing.Size(105, 21)
+		Me.ComboBox1.Size = New System.Drawing.Size(106, 21)
 		Me.ComboBox1.TabIndex = 0
 		'
 		'Button2
@@ -150,7 +162,7 @@ Partial Class Main
 		Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Right
 		Me.Button2.AutoSize = True
 		Me.Button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.Button2.Location = New System.Drawing.Point(186, 26)
+		Me.Button2.Location = New System.Drawing.Point(187, 26)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(39, 23)
 		Me.Button2.TabIndex = 1
@@ -161,9 +173,9 @@ Partial Class Main
 		'
 		Me.lblResult.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.lblResult.AutoSize = True
-		Me.lblResult.Location = New System.Drawing.Point(231, 31)
+		Me.lblResult.Location = New System.Drawing.Point(232, 31)
 		Me.lblResult.Name = "lblResult"
-		Me.lblResult.Size = New System.Drawing.Size(105, 13)
+		Me.lblResult.Size = New System.Drawing.Size(106, 13)
 		Me.lblResult.TabIndex = 3
 		Me.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
@@ -211,15 +223,16 @@ Partial Class Main
 		Me.CheckBox1.Text = "Advanced settings"
 		Me.CheckBox1.UseVisualStyleBackColor = True
 		'
-		'lblBrand
+		'CheckBox2
 		'
-		Me.lblBrand.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.lblBrand.AutoSize = True
-		Me.lblBrand.Location = New System.Drawing.Point(342, 31)
-		Me.lblBrand.Name = "lblBrand"
-		Me.lblBrand.Size = New System.Drawing.Size(108, 13)
-		Me.lblBrand.TabIndex = 4
-		Me.lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.CheckBox2.Anchor = System.Windows.Forms.AnchorStyles.Left
+		Me.CheckBox2.AutoSize = True
+		Me.CheckBox2.Location = New System.Drawing.Point(213, 32)
+		Me.CheckBox2.Name = "CheckBox2"
+		Me.CheckBox2.Size = New System.Drawing.Size(185, 17)
+		Me.CheckBox2.TabIndex = 3
+		Me.CheckBox2.Text = "Hide information when processing"
+		Me.CheckBox2.UseVisualStyleBackColor = True
 		'
 		'Main
 		'
@@ -258,4 +271,5 @@ Partial Class Main
 	Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
 	Friend WithEvents lblResult As Label
 	Friend WithEvents lblBrand As Label
+	Friend WithEvents CheckBox2 As CheckBox
 End Class

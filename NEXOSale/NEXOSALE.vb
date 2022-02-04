@@ -796,6 +796,20 @@ Public Class NEXOSALE
 	End Property
 	Private Const WM_ASYNCHRONOUSTERMINATE As Integer = Win32.WM_USER + 1000
 
+	''' <summary>
+	''' Allows hiding the nexo messages while processing an operation
+	''' </summary>
+	''' <returns></returns>
+	<DispId(50)>
+	Public Property HideNexoMessagesWhenProcessing As Boolean
+		Get
+			Return _hidenexomessageswhenprocessing
+		End Get
+		Set(value As Boolean)
+			_hidenexomessageswhenprocessing = value
+		End Set
+	End Property
+	Private _hidenexomessageswhenprocessing As Boolean = False
 #End Region
 
 #Region "public methods"
@@ -1279,29 +1293,20 @@ Public Class NEXOSALE
 	''' <param name="sz">The string to analyse to determine the scheme</param>
 	''' <returns>The scheme as determined or <see cref="Scheme.card"/> if unable to determine it</returns>
 	Friend Function TryDeterminingScheme(sz As String) As Scheme
-		TryDeterminingScheme = Scheme.card
-		If sz.StartsWith("CB", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("Carte bancaire", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.cb
-		ElseIf sz.StartsWith("EPI", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.epi
-		ElseIf sz.StartsWith("VISA", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("VIS", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.visa
-		ElseIf sz.StartsWith("VPAY", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.vpay
-		ElseIf sz.StartsWith("Mastercard", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("MCI", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.mci
-		ElseIf sz.StartsWith("maestro", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.mci
-		ElseIf sz.StartsWith("AMEX", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("american express", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.amex
-		ElseIf sz.StartsWith("CUP", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("china union", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("union", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("UPI", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.cup
-		ElseIf sz.StartsWith("JCB", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.jcb
-		ElseIf sz.StartsWith("DINER", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.diners
-		ElseIf sz.StartsWith("discover", StringComparison.InvariantCultureIgnoreCase) OrElse sz.StartsWith("DFS", StringComparison.InvariantCultureIgnoreCase) Then
-			TryDeterminingScheme = Scheme.discover
+		TryDeterminingScheme = Nothing
+		For Each cs As KeyValuePair(Of String, List(Of String)) In Settings.CardSchemes
+			For Each tag As String In cs.Value
+				If sz.StartsWith(tag) Then
+					TryDeterminingScheme = cs.Key
+					Exit For
+				End If
+			Next
+			If Not IsNothing(TryDeterminingScheme) Then
+				Exit For
+			End If
+		Next
+		If IsNothing(TryDeterminingScheme) Then
+			TryDeterminingScheme = "Card"
 		End If
 	End Function
 #End Region

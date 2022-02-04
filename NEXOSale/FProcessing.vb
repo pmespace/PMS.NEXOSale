@@ -319,6 +319,12 @@ Public Class FProcessing
 		information.Text = ""
 		back = message.BackColor
 		fore = message.ForeColor
+		If nexoSale.HideNexoMessagesWhenProcessing Then
+			information.Visible = False
+			Dim row As Integer = TableLayoutMain.GetRow(information)
+			TableLayoutMain.RowStyles(row).SizeType = SizeType.Absolute
+			TableLayoutMain.RowStyles(row).Height = 0
+		End If
 		'determine
 		If canBeCancelled Then
 			cancelButtonText = pbCancel.Text = CANCEL_BUTTON_TEXT

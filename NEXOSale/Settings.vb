@@ -182,6 +182,42 @@ Public Class POISettings
 
 End Class
 
+'<ComClass(CardScheme.ClassId, CardScheme.InterfaceId, CardScheme.EventsId)>
+Public Class CardScheme
+	Inherits Dictionary(Of String, List(Of String))
+
+#Region "GUID"
+	Public Shadows Const ClassId As String = "06F6DFC2-2504-47B5-945C-9526AE7A5386"
+	Public Shadows Const InterfaceId As String = "C5B4E0EF-148D-4C66-B118-DF5C6C36FF41"
+	Public Shadows Const EventsId As String = "E88593D2-D655-41F4-BEEA-2AD595EDB811"
+#End Region
+
+	'<DispId(1)>
+	'Public Property Name As String
+	'	Get
+	'		Return _name
+	'	End Get
+	'	Set(value As String)
+	'		_name = value
+	'	End Set
+	'End Property
+	'Private _name As String = Nothing
+	'<DispId(2)>
+	'Public Property Tags As List(Of String)
+	'	Get
+	'		Return _tags
+	'	End Get
+	'	Set(value As List(Of String))
+	'		If Not IsNothing(value) Then
+	'			_tags = value
+	'		Else
+	'			_tags.Clear()
+	'		End If
+	'	End Set
+	'End Property
+	'Private _tags As New List(Of String)
+End Class
+
 <ComClass(Settings.ClassId, Settings.InterfaceId, Settings.EventsId)>
 Public Class Settings
 #Region "GUID"
@@ -574,6 +610,20 @@ Public Class Settings
 		End Set
 	End Property
 	Private _allowofflinepoi As Boolean = True
+
+	Public Property CardSchemes As CardScheme
+		Get
+			Return _cardschemes
+		End Get
+		Set(value As CardScheme)
+			If Not IsNothing(value) Then
+				_cardschemes = value
+			Else
+				_cardschemes.Clear()
+			End If
+		End Set
+	End Property
+	Private _cardschemes As New CardScheme
 
 	'usable only inside the component
 	''' <summary>
