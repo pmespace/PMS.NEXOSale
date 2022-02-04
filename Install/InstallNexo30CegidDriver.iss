@@ -25,7 +25,8 @@
 #define MyRegistryKey "SettingsFileName"
 #define MySimulatorRegistryKey "Settings"
 #define MyUserdocs "..\..\..\"
-
+#define MyPDFToAdd "..\PMS.NEXOSALE*.pdf"
+									
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
@@ -70,7 +71,7 @@ Source: "{#MyExeDelphiDir}nexoDSaleTest.exe"; DestDir: "{app}"; Flags: ignorever
 Source: "{#MyExeDelphiDir}{#MySettingsFileName}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: onlyifdoesntexist
 Source: "{#MySimulatorDir}nexo.simulator.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
 Source: "{#MySimulatorDir}nexo.simulator.response.*.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
-Source: "*.pdf"; DestDir: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: onlyifdoesntexist
+Source: "{#MyPDFToAdd}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: onlyifdoesntexist
 
 [Run]
 Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.COMMON"
