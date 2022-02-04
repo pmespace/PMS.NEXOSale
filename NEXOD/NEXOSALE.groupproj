@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{2640D099-313F-4E89-95FD-F4DCCB61983C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PMS.NEXO30.CEGID.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="nexoDSaleTest\nexoDSaleTest.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="PMS_NEXO30_CEGID">
+        <MSBuild Projects="PMS.NEXO30.CEGID.dproj"/>
+    </Target>
+    <Target Name="PMS_NEXO30_CEGID:Clean">
+        <MSBuild Projects="PMS.NEXO30.CEGID.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PMS_NEXO30_CEGID:Make">
+        <MSBuild Projects="PMS.NEXO30.CEGID.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="nexoDSaleTest">
+        <MSBuild Projects="nexoDSaleTest\nexoDSaleTest.dproj"/>
+    </Target>
+    <Target Name="nexoDSaleTest:Clean">
+        <MSBuild Projects="nexoDSaleTest\nexoDSaleTest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="nexoDSaleTest:Make">
+        <MSBuild Projects="nexoDSaleTest\nexoDSaleTest.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="PMS_NEXO30_CEGID;nexoDSaleTest"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="PMS_NEXO30_CEGID:Clean;nexoDSaleTest:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="PMS_NEXO30_CEGID:Make;nexoDSaleTest:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
