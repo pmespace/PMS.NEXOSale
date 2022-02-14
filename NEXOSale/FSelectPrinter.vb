@@ -1,4 +1,5 @@
 ﻿Public Class FSelectPrinter
+
 	Public SelectedPrinter As String
 	Private initialIndex As Integer = -1
 
@@ -16,9 +17,9 @@
 	Private Sub SetButtons()
 		pbSelect.Enabled = -1 <> lbPrinters.SelectedIndex AndAlso initialIndex <> lbPrinters.SelectedIndex
 		If pbSelect.Enabled Then
-			pbClose.Text = "Cancel"
+			pbClose.Text = My.Resources.CommonResources.Button_CancelX
 		Else
-			pbClose.Text = "Close"
+			pbClose.Text = My.Resources.CommonResources.Button_CloseX
 		End If
 	End Sub
 

@@ -578,48 +578,60 @@ begin
 										verr := DRIVER_ERROR_TRANSACTION_DECLINED;
 										setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
 									end;
+								ActionResult_cancel, ActionResult_timeout, ActionResult_exception:
+									begin
+										if (myNexo.DisplayConfirmPurchase()) then
+										begin
+											dlgpresText := TXN_RESULT_MANUALLY_VALIDATED;
+											verr := DRIVER_ERROR_TRANSACTION_MANUALLY_ENTERED;
+											leTransactionResult := rtAccepted;
+											txnPaymentMethod := TXN_PAYMENT_METHOD_NO_RETAILER;
+											txnAuthNumber := '';
+											txnSignature := msNO;
+											txnMode := TXN_MODE_UNKOWN;
+											txnCard := '';
+											txnReference := '';
+										end
+										else
+										begin
+											leTransactionResult := rtRefussed;
+											if ActionResult_cancel = dlgpres then
+											begin
+												dlgpresText := TXN_RESULT_CANCELLED_BY_USER;
+												verr := DRIVER_ERROR_TRANSACTION_CANCELLED_BY_USER;
+											end
+											else if ActionResult_timeout = dlgpres then
+											begin
+												dlgpresText := TXN_RESULT_TIMEOUT;
+												verr := DRIVER_ERROR_TRANSACTION_TIMEOUT;
+											end
+											else
+											begin
+												dlgpresText := TXN_RESULT_EXCEPTION;
+												verr := DRIVER_ERROR_EXCEPTION;
+												result := false;
+											end;
+											setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+										end;
+									end;
 								ActionResult_incomplete:
 									begin
 										dlgpresText := TXN_RESULT_INCOMPLETE;
-										case MessageDlg(TXN_OFFLINE_MESSAGE, mtWarning, mbYesNoCancel, 0, mbYes) of
-											mrYes:
-												begin
-													dlgpresText := TXN_RESULT_MANUALLY_VALIDATED;
-													verr := DRIVER_ERROR_TRANSACTION_MANUALLY_ENTERED;
-													leTransactionResult := rtAccepted;
-													txnPaymentMethod := TXN_PAYMENT_METHOD_NO_RETAILER;
-													txnAuthNumber := '';
-													txnSignature := msNO;
-													txnMode := TXN_MODE_UNKOWN;
-													txnCard := '';
-													txnReference := '';
-												end;
-										else
-											begin
-												leTransactionResult := rtRefussed;
-												verr := DRIVER_ERROR_TRANSACTION_INCOMPLETE;
-												setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
-											end;
-										end;
-									end;
-								ActionResult_cancel:
-									begin
-										dlgpresText := TXN_RESULT_CANCELLED_BY_USER;
-										verr := DRIVER_ERROR_TRANSACTION_CANCELLED_BY_USER;
+										verr := DRIVER_ERROR_TRANSACTION_INCOMPLETE;
 										setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
-									end;
-								ActionResult_timeout:
-									begin
-										dlgpresText := TXN_RESULT_TIMEOUT;
-										verr := DRIVER_ERROR_TRANSACTION_TIMEOUT;
-										setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
-									end;
-								ActionResult_exception:
-									begin
-										dlgpresText := TXN_RESULT_EXCEPTION;
-										verr := DRIVER_ERROR_EXCEPTION;
-										result := false;
-										setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+										// end;
+										// ActionResult_timeout:
+										// begin
+										// dlgpresText := TXN_RESULT_TIMEOUT;
+										// verr := DRIVER_ERROR_TRANSACTION_TIMEOUT;
+										// setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+										// end;
+										// ActionResult_exception:
+										// begin
+										// dlgpresText := TXN_RESULT_EXCEPTION;
+										// verr := DRIVER_ERROR_EXCEPTION;
+										// result := false;
+										// setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
 									end
 							else
 								begin

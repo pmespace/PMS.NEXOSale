@@ -95,6 +95,11 @@ Public Class NEXOSALE
 		'	UseBackup = True
 		'	UseBackup = Connect()
 		'End If
+
+#If DEBUG Then
+		Threading.Thread.CurrentThread.CurrentUICulture = Globalization.CultureInfo.GetCultureInfo("en")
+#End If
+
 	End Sub
 #End Region
 
@@ -847,43 +852,43 @@ Public Class NEXOSALE
 					f = False
 			End Select
 
-			If Not POIIsOffline Then
-				If f AndAlso Not POIIsOffline Then
-					If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
-					'prepare the operation object
-					Dim operation As New FProcessing.NexoOperation With
-					{
-					.Action = theAction,
-					.Amount = localAmount,
-					.POI = POIInUse
-					}
-					Dim fp As New FProcessing(Me, operation)
-					PrepareNexosaleObject()
-					Select Case fp.ShowDialog()
-						Case DialogResult.Yes
-							res = ActionResult.success
-						Case DialogResult.No
-							res = ActionResult.decline
-						Case DialogResult.Cancel
-							res = ActionResult.cancel
-						Case DialogResult.Abort
-							res = ActionResult.timeout
-						Case DialogResult.Retry
-							res = ActionResult.incomplete
-						Case Else
-							res = ActionResult.unknown
-					End Select
-					fp.Dispose()
-				Else
-					res = ActionResult.notSupported
-				End If
-			Else
-				'POI is offline, return a timeout result to allow the application take appropriate measures
-				res = ActionResult.incomplete
-			End If
+			'If Not POIIsOffline Then
+			'	If f AndAlso Not POIIsOffline Then
+			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
+			'prepare the operation object
+			Dim operation As New FProcessing.NexoOperation With
+			{
+			.Action = theAction,
+			.Amount = localAmount,
+			.POI = POIInUse
+			}
+			Dim fp As New FProcessing(Me, operation)
+			PrepareNexosaleObject()
+			Select Case fp.ShowDialog()
+				Case DialogResult.Yes
+					res = ActionResult.success
+				Case DialogResult.No
+					res = ActionResult.decline
+				Case DialogResult.Cancel
+					res = ActionResult.cancel
+				Case DialogResult.Abort
+					res = ActionResult.timeout
+				Case DialogResult.Retry
+					res = ActionResult.incomplete
+				Case Else
+					res = ActionResult.unknown
+			End Select
+			fp.Dispose()
 		Else
-			DisplayProcessing = DialogResult.Abort
+			res = ActionResult.notSupported
 		End If
+		'	Else
+		'		'POI is offline, return a timeout result to allow the application take appropriate measures
+		'		res = ActionResult.incomplete
+		'	End If
+		'Else
+		'	DisplayProcessing = DialogResult.Abort
+		'End If
 		Return res
 	End Function
 	Private Sub PrepareNexosaleObject()
@@ -965,6 +970,15 @@ Public Class NEXOSALE
 		Return res
 	End Function
 	''' <summary>
+	''' request confirmation of a purchase final result
+	''' </summary>
+	''' <returns>True if accepted, false otherwise</returns>
+	<DispId(103)>
+	Public Function DisplayConfirmPurchase() As Boolean
+		Dim f As New FConfirmResult
+		Return DialogResult.Yes = f.ShowDialog
+	End Function
+	''' <summary>
 	''' Try to connect to the server
 	''' </summary>
 	''' <returns>True is connected, false otherwise</returns>
@@ -984,12 +998,14 @@ Public Class NEXOSALE
 						.IP = Settings.GatewayIP,
 						.Port = Settings.GatewayPort,
 						.ServerName = Settings.ServerName,
-						.AllowedSslErrors = Settings.AllowedSslErrors}}
+						.AllowedSslErrors = Settings.AllowedSslErrors,
+						.ReceiveTimeout = _poiinuse.GeneralTimer}}
 				Else
 					clientSettings = New NexoRetailerClientSettings With {
 						.StreamClientSettings = New CStreamClientSettings With {
 						.IP = POIInUse.ServerIP,
-						.Port = POIInUse.ServerPort}}
+						.Port = POIInUse.ServerPort,
+						.ReceiveTimeout = _poiinuse.GeneralTimer}}
 				End If
 				Return NexoClient.Connect(clientSettings)
 			End If

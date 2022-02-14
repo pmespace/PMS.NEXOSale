@@ -117,8 +117,242 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="timerBeforeTimeout.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="message.Size" type="System.Drawing.Size, System.Drawing">
+    <value>859, 110</value>
+  </data>
+  <data name="&gt;&gt;price.Name" xml:space="preserve">
+    <value>price</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="price.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="pbCancel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;message.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pbCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 370</value>
+  </data>
+  <data name="&gt;&gt;timerBeforeAutoClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FProcessing</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbCancel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutMain.Name" xml:space="preserve">
+    <value>TableLayoutMain</value>
+  </data>
+  <data name="pbCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="TableLayoutMain.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TableLayoutMain.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pbCancel" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="price" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="information" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="message" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,34,Absolute,5,Percent,33,Absolute,5,Percent,33,Absolute,5,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="TableLayoutMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>865, 400</value>
+  </data>
+  <data name="information.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="message.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;price.Parent" xml:space="preserve">
+    <value>TableLayoutMain</value>
+  </data>
+  <data name="message.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 249</value>
+  </data>
+  <data name="pbCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;message.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TableLayoutMain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;PrintDocument1.Type" xml:space="preserve">
+    <value>System.Drawing.Printing.PrintDocument, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information.Text" xml:space="preserve">
+    <value>information</value>
+  </data>
+  <data name="&gt;&gt;message.Parent" xml:space="preserve">
+    <value>TableLayoutMain</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;message.Name" xml:space="preserve">
+    <value>message</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="TableLayoutMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="message.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="information.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="TableLayoutMain.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="price.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 23</value>
+  </data>
+  <data name="price.Text" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;price.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PrintDocument1.Name" xml:space="preserve">
+    <value>PrintDocument1</value>
+  </data>
+  <data name="information.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 128</value>
+  </data>
+  <data name="&gt;&gt;information.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="message.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;timerGlobal.Name" xml:space="preserve">
+    <value>timerGlobal</value>
+  </data>
+  <data name="&gt;&gt;information.Parent" xml:space="preserve">
+    <value>TableLayoutMain</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.Name" xml:space="preserve">
+    <value>pbCancel</value>
+  </data>
+  <data name="pbCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;timerBeforeTimeout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="message.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="TableLayoutMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerGlobal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="information.Size" type="System.Drawing.Size, System.Drawing">
+    <value>859, 110</value>
+  </data>
+  <data name="&gt;&gt;timerBeforeAutoClose.Name" xml:space="preserve">
+    <value>timerBeforeAutoClose</value>
+  </data>
+  <data name="&gt;&gt;information.Name" xml:space="preserve">
+    <value>information</value>
+  </data>
+  <data name="information.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="price.Size" type="System.Drawing.Size, System.Drawing">
+    <value>859, 73</value>
+  </data>
+  <data name="TableLayoutMain.RowCount" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="message.Text" xml:space="preserve">
+    <value>message
+message
+message
+message</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Please wait...</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.Parent" xml:space="preserve">
+    <value>TableLayoutMain</value>
+  </data>
+  <data name="information.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="price.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 48pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;information.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;price.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timerBeforeTimeout.Name" xml:space="preserve">
+    <value>timerBeforeTimeout</value>
+  </data>
+  <data name="price.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="message.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="information.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="price.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>889, 424</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pbCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>859, 26</value>
+  </data>
+  <data name="price.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="information.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="timerBeforeAutoClose.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>178, 17</value>
@@ -128,5 +362,8 @@
   </metadata>
   <metadata name="PrintDocument1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>464, 17</value>
+  </metadata>
+  <metadata name="timerBeforeTimeout.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
 </root>

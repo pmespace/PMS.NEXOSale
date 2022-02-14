@@ -12,19 +12,15 @@
 #define MySimulator "Simulator"
 #define MyLibVersion GetVersionNumbersString("..\Bin\PMS.NEXOSALE30.dll")
 #define MyDriverVersion GetDateTimeString('yyyy/mm/dd', '-', ':');
-#define MyExeDir "..\bin\"
-#define MySimulatorDir "..\..\Nexo\bin\net47\"
-#define MyExeDelphiDir "..\NEXOD\Bin\"
-#define MyCodeDir "..\NexoSaleTest\"
-#define MyCodeDestDir ".\NexoSaleTest\"
-#define MyInstallDir "..\Install\"
-#define MySourceDir "..\NEXOSaleTest\"
+#define MyExeDir "..\bin"
+#define MySimulatorDir "..\..\Nexo\bin\net47"
+#define MyExeDelphiDir "..\NEXOD\Bin"
 #define MyAppPublisher "PMS"
 #define MyRegistry "Software\PMS\NexoSale\"
 #define MySimulatorRegistry "Software\PMS\NEXO\Simulator"
 #define MyRegistryKey "SettingsFileName"
 #define MySimulatorRegistryKey "Settings"
-#define MyUserdocs "..\..\..\"
+#define MyUserdocs "..\..\.."
 #define MyPDFToAdd "..\PMS.NEXO30.CEGID*.pdf"
 									
 [Setup]
@@ -50,27 +46,32 @@ SolidCompression=yes
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 
 [Dirs]
+Name: "{app}"; Flags: uninsalwaysuninstall
 Name: "{commonappdata}\{#MyAppKey}"; Flags: uninsneveruninstall
 Name: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: uninsneveruninstall
 Name: "{commonappdata}\{#MyAppKey}\{#MyLog}"; Flags: uninsneveruninstall
-Name: "{commonappdata}\{#MyAppKey}\{#MyDoc}"
-Name: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: uninsneveruninstall
+Name: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: uninsalwaysuninstall
+Name: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: uninsalwaysuninstall
 
 [Files]
-Source: "{#MyExeDir}PMS.NEXO30.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}PMS.COMMON.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}PMS.NEXOSALE30.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}nexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyUserdocs}nexosale.settings.json"; DestDir: "{userdocs}\{#MyAppKey}"; Flags: ignoreversion
-Source: "{#MySimulatorDir}nexoSimulator30.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MySimulatorDir}nexoBuilder30.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDelphiDir}PMS.NEXO30.CEGID.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDelphiDir}nexoDSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\PMS.NEXO30.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\PMS.COMMON.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-Source: "{#MyExeDelphiDir}{#MySettingsFileName}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: onlyifdoesntexist
-Source: "{#MySimulatorDir}nexo.simulator.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
-Source: "{#MySimulatorDir}nexo.simulator.response.*.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
+Source: "{#MyExeDir}\PMS.NEXOSALE30.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\fr\PMS.NEXOSALE30.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
+
+Source: "{#MyExeDir}\nexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\fr\nexoSaleTest.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
+
+Source: "{#MyUserdocs}\nexosale.settings.json"; DestDir: "{userdocs}\{#MyAppKey}"; Flags: ignoreversion
+Source: "{#MySimulatorDir}\nexoSimulator30.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MySimulatorDir}\nexoBuilder30.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDelphiDir}\PMS.NEXO30.CEGID.dll"; DestDir: "{app}"; Flags: ignoreversion
+
+Source: "{#MyExeDelphiDir}\{#MySettingsFileName}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: onlyifdoesntexist
+Source: "{#MySimulatorDir}\nexo.simulator.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
+Source: "{#MySimulatorDir}\nexo.simulator.response.*.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
 Source: "{#MyPDFToAdd}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: onlyifdoesntexist
 
 [Run]

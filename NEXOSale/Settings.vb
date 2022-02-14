@@ -626,6 +626,21 @@ Public Class Settings
 	End Property
 	Private _hidenexomessageswhenprocessing As Boolean = True
 
+	''' <summary>
+	''' Allows indicating a Login must always be performed before performing running the service
+	''' </summary>
+	''' <returns></returns>
+	<DispId(255)>
+	Public Property AlwaysLogToPOI As Boolean
+		Get
+			Return _alwayslogtopoi
+		End Get
+		Set(value As Boolean)
+			_alwayslogtopoi = value
+		End Set
+	End Property
+	Private _alwayslogtopoi As Boolean = True
+
 	Public Property CardSchemes As CardScheme
 		Get
 			Return _cardschemes

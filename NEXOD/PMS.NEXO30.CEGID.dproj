@@ -3,7 +3,7 @@
         <ProjectGuid>{341304FF-A1B9-4DF1-A42D-1AE95330A925}</ProjectGuid>
         <MainSource>PMS.NEXO30.CEGID.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Library</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -93,8 +93,8 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.0.0.85;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>85</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.0.0.86;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>86</VerInfo_Build>
         <DCC_ExeOutput>.\bin\</DCC_ExeOutput>
         <DCC_DcuOutput>.\dcu\</DCC_DcuOutput>
         <VerInfo_MinorVer>0</VerInfo_MinorVer>

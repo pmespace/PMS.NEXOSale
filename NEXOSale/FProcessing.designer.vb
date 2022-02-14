@@ -23,6 +23,7 @@ Partial Class FProcessing
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FProcessing))
 		Me.TableLayoutMain = New System.Windows.Forms.TableLayoutPanel()
 		Me.pbCancel = New System.Windows.Forms.Button()
 		Me.price = New System.Windows.Forms.Label()
@@ -37,87 +38,38 @@ Partial Class FProcessing
 		'
 		'TableLayoutMain
 		'
-		Me.TableLayoutMain.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-			Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.TableLayoutMain.ColumnCount = 1
-		Me.TableLayoutMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+		resources.ApplyResources(Me.TableLayoutMain, "TableLayoutMain")
 		Me.TableLayoutMain.Controls.Add(Me.pbCancel, 0, 6)
 		Me.TableLayoutMain.Controls.Add(Me.price, 0, 0)
 		Me.TableLayoutMain.Controls.Add(Me.information, 0, 2)
 		Me.TableLayoutMain.Controls.Add(Me.message, 0, 4)
-		Me.TableLayoutMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
-		Me.TableLayoutMain.Location = New System.Drawing.Point(12, 12)
 		Me.TableLayoutMain.Name = "TableLayoutMain"
-		Me.TableLayoutMain.RowCount = 7
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.0!))
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.0!))
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.0!))
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle())
-		Me.TableLayoutMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-		Me.TableLayoutMain.Size = New System.Drawing.Size(865, 400)
-		Me.TableLayoutMain.TabIndex = 0
 		'
 		'pbCancel
 		'
-		Me.pbCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.pbCancel.AutoSize = True
-		Me.pbCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-		Me.pbCancel.Location = New System.Drawing.Point(3, 370)
+		resources.ApplyResources(Me.pbCancel, "pbCancel")
 		Me.pbCancel.Name = "pbCancel"
-		Me.pbCancel.Size = New System.Drawing.Size(859, 26)
-		Me.pbCancel.TabIndex = 5
 		Me.pbCancel.TabStop = False
-		Me.pbCancel.Text = "Cancel"
 		Me.pbCancel.UseVisualStyleBackColor = True
 		'
 		'price
 		'
-		Me.price.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-		Me.price.AutoSize = True
-		Me.price.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.price.Location = New System.Drawing.Point(3, 23)
+		resources.ApplyResources(Me.price, "price")
 		Me.price.Name = "price"
-		Me.price.Size = New System.Drawing.Size(859, 73)
-		Me.price.TabIndex = 3
-		Me.price.Text = "Label1"
-		Me.price.TextAlign = System.Drawing.ContentAlignment.TopCenter
 		'
 		'information
 		'
-		Me.information.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-			Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		resources.ApplyResources(Me.information, "information")
 		Me.information.BackColor = System.Drawing.SystemColors.Control
-		Me.information.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.information.Location = New System.Drawing.Point(3, 128)
-		Me.information.Multiline = True
 		Me.information.Name = "information"
 		Me.information.ReadOnly = True
-		Me.information.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-		Me.information.Size = New System.Drawing.Size(859, 110)
-		Me.information.TabIndex = 7
-		Me.information.Text = "information"
-		Me.information.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'message
 		'
-		Me.message.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-			Or System.Windows.Forms.AnchorStyles.Left) _
-			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		resources.ApplyResources(Me.message, "message")
 		Me.message.BackColor = System.Drawing.SystemColors.Control
-		Me.message.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.message.Location = New System.Drawing.Point(3, 249)
-		Me.message.Multiline = True
 		Me.message.Name = "message"
 		Me.message.ReadOnly = True
-		Me.message.Size = New System.Drawing.Size(859, 110)
-		Me.message.TabIndex = 8
-		Me.message.Text = "message" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "message" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "message" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "message"
-		Me.message.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'timerBeforeTimeout
 		'
@@ -134,10 +86,8 @@ Partial Class FProcessing
 		'
 		'FProcessing
 		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+		resources.ApplyResources(Me, "$this")
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.AutoSize = True
-		Me.ClientSize = New System.Drawing.Size(889, 424)
 		Me.ControlBox = False
 		Me.Controls.Add(Me.TableLayoutMain)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -147,8 +97,6 @@ Partial Class FProcessing
 		Me.ShowIcon = False
 		Me.ShowInTaskbar = False
 		Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "Please wait..."
 		Me.TableLayoutMain.ResumeLayout(False)
 		Me.TableLayoutMain.PerformLayout()
 		Me.ResumeLayout(False)

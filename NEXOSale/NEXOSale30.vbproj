@@ -87,13 +87,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FConfirmCancel.Designer.vb">
-      <DependentUpon>FConfirmCancel.vb</DependentUpon>
+    <Compile Include="CommonResources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="FConfirmCancel.vb">
+    <Compile Include="FConfirm.Designer.vb">
+      <DependentUpon>FConfirm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FConfirm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Currencies.vb" />
+    <Compile Include="FConfirmResult.Designer.vb">
+      <DependentUpon>FConfirmResult.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FConfirmResult.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FProcessing.designer.vb">
       <DependentUpon>FProcessing.vb</DependentUpon>
     </Compile>
@@ -124,11 +135,6 @@
       <DependentUpon>Application.myapp</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -138,25 +144,47 @@
     <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FConfirmCancel.resx">
-      <DependentUpon>FConfirmCancel.vb</DependentUpon>
+    <EmbeddedResource Include="CommonResources.fr.resx" />
+    <EmbeddedResource Include="CommonResources.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FConfirm.fr.resx">
+      <DependentUpon>FConfirm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FConfirm.resx">
+      <DependentUpon>FConfirm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FConfirmResult.fr.resx">
+      <DependentUpon>FConfirmResult.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FConfirmResult.resx">
+      <DependentUpon>FConfirmResult.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FProcessing.fr.resx">
+      <DependentUpon>FProcessing.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FProcessing.resx">
       <DependentUpon>FProcessing.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FSelectPrinter.fr.resx">
+      <DependentUpon>FSelectPrinter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FSelectPrinter.resx">
       <DependentUpon>FSelectPrinter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSettings.fr.resx">
+      <DependentUpon>FSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FSettings.resx">
       <DependentUpon>FSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FWait.resx">
+    <EmbeddedResource Include="FWait.fr.resx">
       <DependentUpon>FWait.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    <EmbeddedResource Include="FWait.resx">
+      <DependentUpon>FWait.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +201,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Image1.png" />
     <None Include="button green.png" />
     <None Include="button red.png" />
     <Content Include="Open.png" />

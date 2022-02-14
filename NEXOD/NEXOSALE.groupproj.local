@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions/>
-  <Default.Personality>
-    <Projects ActiveProject="C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\nexoDSaleTest\nexoDSaleTest.dproj"/>
-  </Default.Personality>
+	<Transactions/>
+	<Default.Personality>
+		<Projects ActiveProject="C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\PMS.NEXO30.CEGID.dproj"/>
+	</Default.Personality>
 </BorlandProject>

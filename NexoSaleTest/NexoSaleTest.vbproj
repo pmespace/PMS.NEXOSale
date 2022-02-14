@@ -120,6 +120,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Main.fr.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>

@@ -117,4 +117,169 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="panelMain.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="Label1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="pbClose" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,50,Percent,50,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 101</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Connecting to POI</value>
+  </data>
+  <data name="panelMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbClose.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="panelMain.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="&gt;&gt;pbClose.Parent" xml:space="preserve">
+    <value>panelMain</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 25</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 24</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>panelMain</value>
+  </data>
+  <data name="panelMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 177</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pbClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;pbClose.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelMain.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 20</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>panelMain</value>
+  </data>
+  <data name="panelMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;pbClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;panelMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FWait</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="panelMain.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pbClose.Name" xml:space="preserve">
+    <value>pbClose</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pbClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>265, 151</value>
+  </data>
+  <data name="panelMain.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;panelMain.Name" xml:space="preserve">
+    <value>panelMain</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>630, 203</value>
+  </data>
+  <data name="&gt;&gt;panelMain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="panelMain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="pbClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="pbClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;panelMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
+  </metadata>
 </root>

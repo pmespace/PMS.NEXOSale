@@ -4,21 +4,27 @@ File_1=TSourceModule,'c:\program files (x86)\embarcadero\studio\20.0\SOURCE\VCL\
 File_2=TSourceModule,'C:\Users\philippe\Documents\Dev\NEXOD\COM\PMS_NEXOSALE_TLB.pas',0,1,317,44,341,0,0,,
 
 [Modules]
-Module0=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\nexoDSaleTest\main.pas
-Module1=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\PMS.NEXO30.CEGID.dproj
-Module2=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\COM\PMS_NEXOSALE30_TLB.pas
-Module3=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOPluginBase.pas
-Module4=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXO.pas
-Module5=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOLib.pas
+Module0=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOLib.pas
+Module1=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXO.pas
+Module2=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\PMS.NEXO30.CEGID.dproj
+Module3=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\nexoDSaleTest\main.pas
+Module4=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\COM\PMS_NEXOSALE30_TLB.pas
+Module5=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOPluginBase.pas
 Module6=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOPluginLoader.pas
 Count=7
 EditWindowCount=1
 
-[C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\nexoDSaleTest\main.pas]
+[C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOLib.pas]
+ModuleType=TSourceModule
+
+[C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXO.pas]
 ModuleType=TSourceModule
 
 [C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\PMS.NEXO30.CEGID.dproj]
 ModuleType=TBaseProject
+
+[C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\nexoDSaleTest\main.pas]
+ModuleType=TSourceModule
 
 [C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\COM\PMS_NEXOSALE30_TLB.pas]
 ModuleType=TSourceModule
@@ -26,18 +32,12 @@ ModuleType=TSourceModule
 [C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOPluginBase.pas]
 ModuleType=TSourceModule
 
-[C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXO.pas]
-ModuleType=TSourceModule
-
-[C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOLib.pas]
-ModuleType=TSourceModule
-
 [C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOPluginLoader.pas]
 ModuleType=TSourceModule
 
 [EditWindow0]
 ViewCount=7
-CurrentEditView=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\nexoDSaleTest\main.pas
+CurrentEditView=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOLib.pas
 View0=0
 View1=1
 View2=2
@@ -77,12 +77,12 @@ BottomMiddelPanelData=0000080001020200000009000000446F636B5369746530100000004772
 [View0]
 CustomEditViewType=TEditView
 Module=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXO.pas
-CursorX=1
-CursorY=353
-TopLine=332
+CursorX=47
+CursorY=583
+TopLine=570
 LeftCol=1
 Elisions=
-Bookmarks={0,971,5}{1,971,5}
+Bookmarks={0,979,1}{1,979,1}
 EditViewName=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXO.pas
 
 [View1]
@@ -143,9 +143,9 @@ EditViewName=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\PMS.NEXO30.CEGID.dpr
 [View6]
 CustomEditViewType=TEditView
 Module=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOLib.pas
-CursorX=1
-CursorY=153
-TopLine=116
+CursorX=135
+CursorY=80
+TopLine=51
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -288,11 +288,6 @@ LRDockWidth=1896
 Dockable=1
 StayOnTop=0
 SplitPos=111
-
-[PropInspDesignerSelection]
-ArrangeBy=Name
-SelectedItem=,
-ExpandedItems=
 
 [frmDesignPreview]
 PercentageSizes=1
@@ -782,5 +777,5 @@ ActiveTabID=ToolForm
 TabDockClients=ToolForm,TemplateView
 
 [ActiveProject]
-ActiveProject=2
+ActiveProject=1
 

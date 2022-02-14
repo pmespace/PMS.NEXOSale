@@ -1,6 +1,7 @@
 ﻿#Const REMOVEGPRSPAGE = Not DEBUG
 #Const REMOVEPOIISOFFLINE = Not DEBUG
 #Const REMOVEPDFRECEIPTS = Not DEBUG
+#Const REMOVEALWAYSLOGTOPOI = Not DEBUG
 #Const SUPPORTSABORT = Not DEBUG
 #Const SUPPORTSCHECKS = Not DEBUG
 
@@ -15,6 +16,7 @@ Imports Microsoft.Win32
 
 Public Class FSettings
 
+	Private HEADER As String = "SETTINGS WINDOW - "
 	Public Settings As Settings
 	Public UseBackup As Boolean = False
 
@@ -76,9 +78,9 @@ Public Class FSettings
 
 	Private Sub SetButtons()
 		If Modified Then
-			pbCancel.Text = "&Cancel"
+			pbCancel.Text = My.Resources.CommonResources.Button_CancelX
 		Else
-			pbCancel.Text = "&Close"
+			pbCancel.Text = My.Resources.CommonResources.Button_CloseX
 		End If
 		pbSave.Enabled = Modified
 		pbSaveSettings.Enabled = pbSave.Enabled
@@ -90,11 +92,12 @@ Public Class FSettings
 
 		cbUseBackup.Enabled = Not IsNothing(Settings) AndAlso Not IsNothing(Settings.Backup) AndAlso Not String.IsNullOrEmpty(Settings.Backup.ServerIP)
 
-		cbPOIIsOffline.Enabled = Not IsNothing(Settings) AndAlso Settings.AllowOfflinePOI AndAlso POIIsOffline
+		cbPOIIsOffline.Enabled = False 'Not IsNothing(Settings) AndAlso Settings.AllowOfflinePOI AndAlso POIIsOffline
 	End Sub
 
 	Private Sub FSettings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		Text = $"NEXOSale Settings [nexo retailer v{NexoCurrentVersion.Current.Version}]"
+		CLog.Add(HEADER & "Start")
+		Text = $"{My.Resources.CommonResources.FSettings_Caption} [nexo retailer v{NexoCurrentVersion.Current.Version}]"
 		rbMainPOI.Checked = True
 		efPWD.PasswordChar = "●" ' Microsoft.VisualBasic.charw &H25CF
 
@@ -121,11 +124,27 @@ Public Class FSettings
 		End Try
 #End If
 
+#If REMOVEPOIISOFFLINE Then
+		Try
+			cbAllowOfflinePOI.Visible = False
+			cbPOIIsOffline.Visible = False
+		Catch ex As Exception
+		End Try
+#End If
+
+#If REMOVEALWAYSLOGTOPOI Then
+		Try
+			cbAlwaysLogToPOI.Visible = False
+		Catch ex As Exception
+		End Try
+#End If
+
 #If SUPPORTSABORT Then
 		Try
 			cbSupportsAbort.Enabled = False
 		Catch ex As Exception
 		End Try
+#Else
 #End If
 
 #If SUPPORTSCHECKS Then
@@ -218,7 +237,7 @@ Public Class FSettings
 
 	Private Sub FSettings_FormClosing(sender As Object, e As Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
 		If Modified Then
-			Select Case MsgBox("Some settings have been modified." & vbCrLf & "Do you want to save them ?", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.DefaultButton1 Or MsgBoxStyle.Question)
+			Select Case MsgBox($"{My.Resources.CommonResources.FSettings_SomeSettingsModified}.{vbCrLf}{My.Resources.CommonResources.FSettings_SomeSettingsModifiedSaveThem}", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.DefaultButton1 Or MsgBoxStyle.Question)
 				Case MsgBoxResult.Yes
 					SaveSettings()
 					e.Cancel = False
@@ -311,10 +330,12 @@ Public Class FSettings
 		Settings.AllowOfflinePOI = cbAllowOfflinePOI.Checked
 		Settings.HideNexoMessagesWhenProcessing = cbHideInformation.Checked
 
+		Settings.AlwaysLogToPOI = cbAlwaysLogToPOI.Checked
+
 		nexoSale._poiisoffline = POIIsOffline
 
 		If Not json.WriteSettings(Settings, True) Then
-			MsgBox("Settings file hasn't been saved. Please check file name and path" & vbCrLf & vbCrLf & SettingsFileName())
+			MsgBox($"{My.Resources.CommonResources.FSettings_SettingsFileNotSaved}{vbCrLf}{vbCrLf}{SettingsFileName()}")
 		End If
 
 		Modified = False
@@ -356,6 +377,8 @@ Public Class FSettings
 			efLogFileName.Text = Settings.LogFileName
 			cbUseBackup.Checked = UseBackup
 			cbNoAutoCloseOnError.Checked = Settings.NoAutocloseOnError
+
+			cbAlwaysLogToPOI.Checked = Settings.AlwaysLogToPOI
 
 			Dim poi As POISettings
 			If rbMainPOI.Checked Then
@@ -443,7 +466,7 @@ Public Class FSettings
 	Private Sub SetPrinter(printerName As String)
 		If String.IsNullOrEmpty(printerName) Then
 			lblPrinter.Tag = False
-			lblPrinter.Text = "No printer selected"
+			lblPrinter.Text = My.Resources.CommonResources.FSettings_NoPrinter
 		Else
 			lblPrinter.Tag = True
 			lblPrinter.Text = printerName
@@ -506,11 +529,11 @@ Public Class FSettings
 	End Function
 
 	Private Sub pbChooseSettingsFile_Click(sender As Object, e As EventArgs) Handles pbChooseSettingsFile.Click
-		efSettingsFileName.Text = ChooseFile(efSettingsFileName.Text, "Json files|*.json|Text files|*.txt|All files|*.*")
+		efSettingsFileName.Text = ChooseFile(efSettingsFileName.Text, My.Resources.CommonResources.FSettings_SettingsFiles)
 	End Sub
 
 	Private Sub pbChooseLogFile_Click(sender As Object, e As EventArgs) Handles pbChooseLogFile.Click
-		efLogFileName.Text = ChooseFile(efLogFileName.Text, "Log files|*.log|Text files|*.txt|All files|*.*")
+		efLogFileName.Text = ChooseFile(efLogFileName.Text, My.Resources.CommonResources.FSettings_LogsFiles)
 	End Sub
 
 	Private Sub UpdateLogo(msg As Boolean)
@@ -520,14 +543,14 @@ Public Class FSettings
 				PictureBox1.Load(efPicture.Text)
 				PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
 			Catch ex As Exception
-				If msg Then MsgBox("The image file is not supported or does not contain a valid image", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation)
+				If msg Then MsgBox(My.Resources.CommonResources.FSettings_UnsupportedImageFile, MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation)
 				efPicture.Text = Nothing
 			End Try
 		End If
 	End Sub
 
 	Private Sub pbChoosePicture_Click(sender As Object, e As EventArgs) Handles pbChoosePicture.Click
-		efPicture.Text = ChooseFile(efPicture.Text, "Image files|*.png;*.jpg;*.jpeg;*.bmp|All files|*.*")
+		efPicture.Text = ChooseFile(efPicture.Text, My.Resources.CommonResources.FSettings_ImagesFiles)
 		UpdateLogo(True)
 	End Sub
 

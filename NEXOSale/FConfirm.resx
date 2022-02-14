@@ -131,32 +131,41 @@
   <data name="TableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="lbPrinters.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="lblMessage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
-  <data name="lbPrinters.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="lblMessage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lbPrinters.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="lblMessage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
-  <data name="lbPrinters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>535, 117</value>
+  <data name="lblMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 33</value>
   </data>
-  <data name="lbPrinters.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 15</value>
+  </data>
+  <data name="lblMessage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;lbPrinters.Name" xml:space="preserve">
-    <value>lbPrinters</value>
+  <data name="lblMessage.Text" xml:space="preserve">
+    <value>Are you sur you want to cancel the operation ?</value>
   </data>
-  <data name="&gt;&gt;lbPrinters.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblMessage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;lbPrinters.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblMessage.Name" xml:space="preserve">
+    <value>lblMessage</value>
+  </data>
+  <data name="&gt;&gt;lblMessage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMessage.Parent" xml:space="preserve">
     <value>TableLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;lbPrinters.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblMessage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="TableLayoutPanel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -169,82 +178,70 @@
     <value>GrowAndShrink</value>
   </data>
   <data name="TableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
-  <data name="pbSelect.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="lblInvite.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <data name="pbSelect.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblInvite.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="pbSelect.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
+  <data name="lblInvite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 6</value>
   </data>
-  <data name="pbSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>404, 3</value>
+  <data name="lblInvite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 13</value>
   </data>
-  <data name="pbSelect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 23</value>
-  </data>
-  <data name="pbSelect.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblInvite.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="pbSelect.Text" xml:space="preserve">
-    <value>Select printer</value>
+  <data name="lblInvite.Text" xml:space="preserve">
+    <value>Enter the admin code:</value>
   </data>
-  <data name="&gt;&gt;pbSelect.Name" xml:space="preserve">
-    <value>pbSelect</value>
+  <data name="&gt;&gt;lblInvite.Name" xml:space="preserve">
+    <value>lblInvite</value>
   </data>
-  <data name="&gt;&gt;pbSelect.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblInvite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pbSelect.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblInvite.Parent" xml:space="preserve">
     <value>TableLayoutPanel2</value>
   </data>
-  <data name="&gt;&gt;pbSelect.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblInvite.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="pbClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="TextBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
-  <data name="pbClose.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="TextBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>249, 3</value>
   </data>
-  <data name="pbClose.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
+  <data name="TextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 20</value>
   </data>
-  <data name="pbClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>489, 3</value>
-  </data>
-  <data name="pbClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 23</value>
-  </data>
-  <data name="pbClose.TabIndex" type="System.Int32, mscorlib">
+  <data name="TextBox1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="pbClose.Text" xml:space="preserve">
-    <value>Close</value>
+  <data name="&gt;&gt;TextBox1.Name" xml:space="preserve">
+    <value>TextBox1</value>
   </data>
-  <data name="&gt;&gt;pbClose.Name" xml:space="preserve">
-    <value>pbClose</value>
+  <data name="&gt;&gt;TextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pbClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbClose.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TextBox1.Parent" xml:space="preserve">
     <value>TableLayoutPanel2</value>
   </data>
-  <data name="&gt;&gt;pbClose.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TextBox1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 126</value>
+    <value>3, 84</value>
   </data>
   <data name="TableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>535, 29</value>
+    <value>493, 26</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -262,16 +259,103 @@
     <value>1</value>
   </data>
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pbSelect" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="pbClose" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblInvite" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TextBox1" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="TableLayoutPanel3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="TableLayoutPanel3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TableLayoutPanel3.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="TableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="pbAccept.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 3</value>
+  </data>
+  <data name="pbAccept.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="pbAccept.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="pbAccept.Text" xml:space="preserve">
+    <value>&amp;Accept</value>
+  </data>
+  <data name="&gt;&gt;pbAccept.Name" xml:space="preserve">
+    <value>pbAccept</value>
+  </data>
+  <data name="&gt;&gt;pbAccept.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbAccept.Parent" xml:space="preserve">
+    <value>TableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;pbAccept.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pbCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>415, 3</value>
+  </data>
+  <data name="pbCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="pbCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pbCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.Name" xml:space="preserve">
+    <value>pbCancel</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.Parent" xml:space="preserve">
+    <value>TableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;pbCancel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 158</value>
+  </data>
+  <data name="TableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="TableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>493, 30</value>
+  </data>
+  <data name="TableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel3.Name" xml:space="preserve">
+    <value>TableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel3.Parent" xml:space="preserve">
+    <value>TableLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pbAccept" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="pbCancel" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
   </data>
   <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>541, 158</value>
+    <value>499, 191</value>
   </data>
   <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -289,7 +373,7 @@
     <value>0</value>
   </data>
   <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lbPrinters" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblMessage" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel3" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,66,AutoSize,0,Percent,34,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>fr</value>
@@ -301,16 +385,16 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>565, 182</value>
+    <value>523, 220</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Select printer to use</value>
+    <value>Confirm cancel operation</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FSelectPrinter</value>
+    <value>FConfirm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

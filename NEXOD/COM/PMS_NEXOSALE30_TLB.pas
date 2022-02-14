@@ -12,7 +12,7 @@
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 04/02/2022 11:55:53 depuis la bibliothèque de types ci-dessous.
+// Fichier généré le 14/02/2022 11:40:44 depuis la bibliothèque de types ci-dessous.
 
 // ************************************************************************  //
 // Biblio. types : C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb (1)
@@ -49,19 +49,20 @@ uses Winapi.Windows, mscorlib_TLB, PMS_NEXO30_TLB, System.Classes, System.Varian
 const
 	// Versions mineure et majeure de la bibliothèque de types
 	PMS_NEXOSALE30MajorVersion = 1;
-	PMS_NEXOSALE30MinorVersion = 3;
+	PMS_NEXOSALE30MinorVersion = 4;
 
 	LIBID_PMS_NEXOSALE30: TGUID = '{B82C79B0-4829-4E9B-BBD8-993B1D2240DC}';
 
-	IID__FConfirmCancel: TGUID = '{8F163F53-3C60-3326-A54B-138028F53A30}';
+	IID__FConfirm: TGUID = '{9974E3A5-54E5-3A5F-AC9E-6ED028B8F992}';
 	IID__Currency: TGUID = '{9457A49D-F7C7-4F70-A712-9F2652E09C3A}';
+	IID__FConfirmResult: TGUID = '{2F65A977-ABA8-394A-A7E6-48D142D2DC9D}';
 	IID__FProcessing: TGUID = '{A90D2E54-B13B-3238-B283-F3BE59B41045}';
 	IID__FSelectPrinter: TGUID = '{21B674D4-CD3C-38C9-9C8F-1EC1FCB4EFB6}';
 	IID__FSettings: TGUID = '{BB400D29-BA2E-3F5E-A67B-686A37C25322}';
 	IID__FWait: TGUID = '{4D08397F-21F4-3E4C-B8E9-8AA56AA6D485}';
 	IID__NEXOSALE: TGUID = '{24B500EF-FCF4-4438-9541-2EEB99BEF014}';
 	IID__POISettings: TGUID = '{78192CA7-AD36-408B-B822-A2FDAA6FA65C}';
-	CLASS_CardScheme: TGUID = '{02331548-2BB2-3C43-9A08-4A4270A1879D}';
+	CLASS_CardScheme: TGUID = '{5342A1A4-9E95-391E-A478-007F7032405B}';
 	IID__Settings: TGUID = '{56D0D286-89A1-403D-A3CD-F73F2173D7AB}';
 	CLASS_Currency: TGUID = '{A0F233DB-6682-4DC2-9C06-107077CC6717}';
 	IID__CheckToPrint: TGUID = '{268D27E4-86C4-38F5-B088-B30ED08D1646}';
@@ -79,23 +80,24 @@ const
 	IID__ConnectRequest_2: TGUID = '{33E64AB9-7739-3014-BB6C-75480E5ABA82}';
 	IID__ConnectReplyData_2: TGUID = '{352B83BD-4A3B-34FE-9907-C708633DA424}';
 	IID__ConnectReply_2: TGUID = '{4DBE4A65-110A-3B8B-B422-8CE65AE8D407}';
-	CLASS_FConfirmCancel: TGUID = '{0250FC4D-C142-3D5B-8FF5-18CE06D08E25}';
-	CLASS_FProcessing: TGUID = '{9865D782-D149-35F1-B70C-6413180D98BF}';
-	CLASS_FSelectPrinter: TGUID = '{1F2A93EC-6806-392C-983C-05DB774186CD}';
-	CLASS_FSettings: TGUID = '{FA977873-59AB-358E-A01B-05352C4A2DC4}';
-	CLASS_FWait: TGUID = '{3CBAA235-201D-369A-A5B3-6887D5A4DD2A}';
-	CLASS_CheckToPrint: TGUID = '{CA31A669-71A5-38C5-BB6F-85A16B7AD1E3}';
-	CLASS_NexoOperation: TGUID = '{37D6FECA-A975-32E4-8CAB-BBC3F3BFE426}';
-	CLASS_Receipts: TGUID = '{695339AF-E297-3827-A33E-27278D18A71E}';
-	CLASS_ReceiptDocument: TGUID = '{BC925D40-D393-3DBD-93A4-4F6FF92C4F03}';
-	CLASS_ConnectRequestData: TGUID = '{1AFB16CD-61FF-3A1C-87CC-E263B9FB811B}';
-	CLASS_ConnectRequest: TGUID = '{EFACB178-40EE-3590-9769-2B78888FEE2A}';
-	CLASS_ConnectReplyData: TGUID = '{077D22ED-0FB1-3823-A52E-059570AFE615}';
-	CLASS_ConnectReply: TGUID = '{2AE9B841-1FB9-3C25-8E07-F0DA38E79E30}';
-	CLASS_ConnectRequestData_2: TGUID = '{FFADF9A6-7D08-39DB-92D5-E828FD6A7360}';
-	CLASS_ConnectRequest_2: TGUID = '{10ACA3D8-8470-3F7A-96D8-4BC8DE615236}';
-	CLASS_ConnectReplyData_2: TGUID = '{DE7B0D54-2B4E-3A63-8BB0-6330A79C51B1}';
-	CLASS_ConnectReply_2: TGUID = '{FBD6B046-AB0E-3BE9-8A7E-16DAB329B84F}';
+	CLASS_FConfirm: TGUID = '{714D49D1-059E-3CCA-AE5E-3A5B582FD666}';
+	CLASS_FConfirmResult: TGUID = '{80355090-ADCD-367D-933D-E10185782DC4}';
+	CLASS_FProcessing: TGUID = '{DC75F4BC-59CA-3BD0-A1BF-45FAD231DEB1}';
+	CLASS_FSelectPrinter: TGUID = '{71BAF283-0471-3E14-A30E-E066C12B9EDA}';
+	CLASS_FSettings: TGUID = '{5CE726A9-5F95-315C-8B19-AB662CCBF485}';
+	CLASS_FWait: TGUID = '{43EFC204-5D67-36BD-941F-F3D3583CD808}';
+	CLASS_CheckToPrint: TGUID = '{DE4FE35E-AE5E-3064-83A6-3AAB293AFE21}';
+	CLASS_NexoOperation: TGUID = '{37DC4F3F-C551-3761-9B63-C8AE0398E0DE}';
+	CLASS_Receipts: TGUID = '{70796A49-A88E-3099-B105-33F4B13DCD80}';
+	CLASS_ReceiptDocument: TGUID = '{59170342-62D7-30D4-9604-1698EA09CB2F}';
+	CLASS_ConnectRequestData: TGUID = '{5CCF8630-6EC4-372C-8E18-59B6C560258E}';
+	CLASS_ConnectRequest: TGUID = '{7C7A8DBD-5CDD-3449-8B90-78FBB30A97C6}';
+	CLASS_ConnectReplyData: TGUID = '{0F785B64-EE51-3ACB-A85B-79A85AB510B5}';
+	CLASS_ConnectReply: TGUID = '{16ED394F-AF3F-3C46-B29A-C3184E31A41A}';
+	CLASS_ConnectRequestData_2: TGUID = '{898CA653-BCA1-3BF9-9394-431EF075C3FE}';
+	CLASS_ConnectRequest_2: TGUID = '{B3989919-922A-39A1-985B-ABDBD80366EC}';
+	CLASS_ConnectReplyData_2: TGUID = '{E30C75C6-FD4B-35B7-822C-433FB86F598E}';
+	CLASS_ConnectReply_2: TGUID = '{5CD4FBD8-21BD-3147-85E2-5C4077BF4D59}';
 
 	// *********************************************************************//
 	// Déclaration d'énumérations définies dans la bibliothèque de types
@@ -171,10 +173,12 @@ type
 	// *********************************************************************//
 	// Déclaration Forward des types définis dans la bibliothèque de types
 	// *********************************************************************//
-	_FConfirmCancel = interface;
-	_FConfirmCancelDisp = dispinterface;
+	_FConfirm = interface;
+	_FConfirmDisp = dispinterface;
 	_Currency = interface;
 	_CurrencyDisp = dispinterface;
+	_FConfirmResult = interface;
+	_FConfirmResultDisp = dispinterface;
 	_FProcessing = interface;
 	_FProcessingDisp = dispinterface;
 	_FSelectPrinter = interface;
@@ -223,7 +227,8 @@ type
 	NEXOSALE = _NEXOSALE;
 	POISettings = _POISettings;
 	Settings = _Settings;
-	FConfirmCancel = _FConfirmCancel;
+	FConfirm = _FConfirm;
+	FConfirmResult = _FConfirmResult;
 	FProcessing = _FProcessing;
 	FSelectPrinter = _FSelectPrinter;
 	FSettings = _FSettings;
@@ -242,21 +247,21 @@ type
 	ConnectReply_2 = _ConnectReply_2;
 
 	// *********************************************************************//
-	// Interface :   _FConfirmCancel
+	// Interface :   _FConfirm
 	// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-	// GUID :        {8F163F53-3C60-3326-A54B-138028F53A30}
+	// GUID :        {9974E3A5-54E5-3A5F-AC9E-6ED028B8F992}
 	// *********************************************************************//
-	_FConfirmCancel = interface(IDispatch)
-		['{8F163F53-3C60-3326-A54B-138028F53A30}']
+	_FConfirm = interface(IDispatch)
+		['{9974E3A5-54E5-3A5F-AC9E-6ED028B8F992}']
 	end;
 
 	// *********************************************************************//
-	// DispIntf :    _FConfirmCancelDisp
+	// DispIntf :    _FConfirmDisp
 	// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-	// GUID :        {8F163F53-3C60-3326-A54B-138028F53A30}
+	// GUID :        {9974E3A5-54E5-3A5F-AC9E-6ED028B8F992}
 	// *********************************************************************//
-	_FConfirmCancelDisp = dispinterface
-		['{8F163F53-3C60-3326-A54B-138028F53A30}']
+	_FConfirmDisp = dispinterface
+		['{9974E3A5-54E5-3A5F-AC9E-6ED028B8F992}']
 	end;
 
 	// *********************************************************************//
@@ -286,6 +291,24 @@ type
 		property Name: WideString dispid 1;
 		property Decimals: LongWord dispid 2;
 		property ToString: WideString readonly dispid 100;
+	end;
+
+	// *********************************************************************//
+	// Interface :   _FConfirmResult
+	// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
+	// GUID :        {2F65A977-ABA8-394A-A7E6-48D142D2DC9D}
+	// *********************************************************************//
+	_FConfirmResult = interface(IDispatch)
+		['{2F65A977-ABA8-394A-A7E6-48D142D2DC9D}']
+	end;
+
+	// *********************************************************************//
+	// DispIntf :    _FConfirmResultDisp
+	// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
+	// GUID :        {2F65A977-ABA8-394A-A7E6-48D142D2DC9D}
+	// *********************************************************************//
+	_FConfirmResultDisp = dispinterface
+		['{2F65A977-ABA8-394A-A7E6-48D142D2DC9D}']
 	end;
 
 	// *********************************************************************//
@@ -443,6 +466,7 @@ type
 		function DisplayProcessing(theAction: Action): ActionResult; safecall;
 		function StartProcessing(theAction: Action; const form: _Form; const message: _Control; const information: _Control;
 			asynchronousTerminate: Integer): WordBool; safecall;
+		function DisplayConfirmPurchase: WordBool; safecall;
 		function Connect: WordBool; safecall;
 		procedure Disconnect; safecall;
 		function SettingsFileName: WideString; safecall;
@@ -558,6 +582,7 @@ type
 		function DisplayProcessing(theAction: Action): ActionResult; dispid 101;
 		function StartProcessing(theAction: Action; const form: _Form; const message: _Control; const information: _Control;
 			asynchronousTerminate: Integer): WordBool; dispid 102;
+		function DisplayConfirmPurchase: WordBool; dispid 103;
 		function Connect: WordBool; dispid 200;
 		procedure Disconnect; dispid 201;
 		function SettingsFileName: WideString; dispid 500;
@@ -720,6 +745,8 @@ type
 		procedure Set_AllowOfflinePOI(pRetVal: WordBool); safecall;
 		function Get_HideNexoMessagesWhenProcessing: WordBool; safecall;
 		procedure Set_HideNexoMessagesWhenProcessing(pRetVal: WordBool); safecall;
+		function Get_AlwaysLogToPOI: WordBool; safecall;
+		procedure Set_AlwaysLogToPOI(pRetVal: WordBool); safecall;
 		function Get_CardSchemes: IEnumerable; safecall;
 		procedure _Set_CardSchemes(const pRetVal: IEnumerable); safecall;
 		function RegistryEntry: WideString; safecall;
@@ -761,6 +788,7 @@ type
 		property IndicateBrand: WordBool read Get_IndicateBrand write Set_IndicateBrand;
 		property AllowOfflinePOI: WordBool read Get_AllowOfflinePOI write Set_AllowOfflinePOI;
 		property HideNexoMessagesWhenProcessing: WordBool read Get_HideNexoMessagesWhenProcessing write Set_HideNexoMessagesWhenProcessing;
+		property AlwaysLogToPOI: WordBool read Get_AlwaysLogToPOI write Set_AlwaysLogToPOI;
 		property CardSchemes: IEnumerable read Get_CardSchemes write _Set_CardSchemes;
 	end;
 
@@ -807,7 +835,8 @@ type
 		property IndicateBrand: WordBool dispid 252;
 		property AllowOfflinePOI: WordBool dispid 253;
 		property HideNexoMessagesWhenProcessing: WordBool dispid 254;
-		property CardSchemes: IEnumerable dispid 48;
+		property AlwaysLogToPOI: WordBool dispid 255;
+		property CardSchemes: IEnumerable dispid 49;
 		function RegistryEntry: WideString; dispid 500;
 		function RegistryKeySettingsFileName: WideString; dispid 501;
 		function DefaultSettingsFileName: WideString; dispid 502;
@@ -1091,15 +1120,27 @@ type
 	end;
 
 	// *********************************************************************//
-	// La classe CoFConfirmCancel fournit une méthode Create et CreateRemote pour
-	// créer des instances de l'interface par défaut _FConfirmCancel exposée
-	// par la CoClasse FConfirmCancel. Les fonctions sont destinées à être utilisées par
+	// La classe CoFConfirm fournit une méthode Create et CreateRemote pour
+	// créer des instances de l'interface par défaut _FConfirm exposée
+	// par la CoClasse FConfirm. Les fonctions sont destinées à être utilisées par
 	// les clients désirant automatiser les objets CoClasse exposés par
 	// le serveur de cette bibliothèque de types.
 	// *********************************************************************//
-	CoFConfirmCancel = class
-		class function Create: _FConfirmCancel;
-		class function CreateRemote(const MachineName: string): _FConfirmCancel;
+	CoFConfirm = class
+		class function Create: _FConfirm;
+		class function CreateRemote(const MachineName: string): _FConfirm;
+	end;
+
+	// *********************************************************************//
+	// La classe CoFConfirmResult fournit une méthode Create et CreateRemote pour
+	// créer des instances de l'interface par défaut _FConfirmResult exposée
+	// par la CoClasse FConfirmResult. Les fonctions sont destinées à être utilisées par
+	// les clients désirant automatiser les objets CoClasse exposés par
+	// le serveur de cette bibliothèque de types.
+	// *********************************************************************//
+	CoFConfirmResult = class
+		class function Create: _FConfirmResult;
+		class function CreateRemote(const MachineName: string): _FConfirmResult;
 	end;
 
 	// *********************************************************************//
@@ -1348,14 +1389,24 @@ begin
 	Result := CreateRemoteComObject(MachineName, CLASS_Settings) as _Settings;
 end;
 
-class function CoFConfirmCancel.Create: _FConfirmCancel;
+class function CoFConfirm.Create: _FConfirm;
 begin
-	Result := CreateComObject(CLASS_FConfirmCancel) as _FConfirmCancel;
+	Result := CreateComObject(CLASS_FConfirm) as _FConfirm;
 end;
 
-class function CoFConfirmCancel.CreateRemote(const MachineName: string): _FConfirmCancel;
+class function CoFConfirm.CreateRemote(const MachineName: string): _FConfirm;
 begin
-	Result := CreateRemoteComObject(MachineName, CLASS_FConfirmCancel) as _FConfirmCancel;
+	Result := CreateRemoteComObject(MachineName, CLASS_FConfirm) as _FConfirm;
+end;
+
+class function CoFConfirmResult.Create: _FConfirmResult;
+begin
+	Result := CreateComObject(CLASS_FConfirmResult) as _FConfirmResult;
+end;
+
+class function CoFConfirmResult.CreateRemote(const MachineName: string): _FConfirmResult;
+begin
+	Result := CreateRemoteComObject(MachineName, CLASS_FConfirmResult) as _FConfirmResult;
 end;
 
 class function CoFProcessing.Create: _FProcessing;

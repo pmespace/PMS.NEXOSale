@@ -78,15 +78,29 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\NEXOSale\CommonResources.Designer.vb">
+      <Link>CommonResources.Designer.vb</Link>
+      <DependentUpon>CommonResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="..\NEXOSale\Currencies.vb">
       <Link>Currencies.vb</Link>
     </Compile>
-    <Compile Include="..\NEXOSale\FConfirmCancel.designer.vb">
-      <Link>FConfirmCancel.designer.vb</Link>
-      <DependentUpon>FConfirmCancel.vb</DependentUpon>
+    <Compile Include="..\NEXOSale\FConfirm.designer.vb">
+      <Link>FConfirm.designer.vb</Link>
+      <DependentUpon>FConfirm.vb</DependentUpon>
     </Compile>
-    <Compile Include="..\NEXOSale\FConfirmCancel.vb">
-      <Link>FConfirmCancel.vb</Link>
+    <Compile Include="..\NEXOSale\FConfirm.vb">
+      <Link>FConfirm.vb</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\NEXOSale\FConfirmResult.designer.vb">
+      <Link>FConfirmResult.designer.vb</Link>
+      <DependentUpon>FConfirmResult.vb</DependentUpon>
+    </Compile>
+    <Compile Include="..\NEXOSale\FConfirmResult.vb">
+      <Link>FConfirmResult.vb</Link>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="..\NEXOSale\FProcessing.designer.vb">
@@ -133,11 +147,6 @@
       <DependentUpon>Application.myapp</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -145,30 +154,62 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\NEXOSale\FConfirmCancel.resx">
-      <Link>FConfirmCancel.resx</Link>
-      <DependentUpon>FConfirmCancel.vb</DependentUpon>
+    <EmbeddedResource Include="..\NEXOSale\CommonResources.fr.resx">
+      <Link>CommonResources.fr.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\CommonResources.resx">
+      <Link>CommonResources.resx</Link>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonResources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FConfirm.fr.resx">
+      <Link>FConfirm.fr.resx</Link>
+      <DependentUpon>FConfirm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FConfirm.resx">
+      <Link>FConfirm.resx</Link>
+      <DependentUpon>FConfirm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FConfirmResult.fr.resx">
+      <Link>FConfirmResult.fr.resx</Link>
+      <DependentUpon>FConfirmResult.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FConfirmResult.resx">
+      <Link>FConfirmResult.resx</Link>
+      <DependentUpon>FConfirmResult.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FProcessing.fr.resx">
+      <Link>FProcessing.fr.resx</Link>
+      <DependentUpon>FProcessing.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\NEXOSale\FProcessing.resx">
       <Link>FProcessing.resx</Link>
       <DependentUpon>FProcessing.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FSelectPrinter.fr.resx">
+      <Link>FSelectPrinter.fr.resx</Link>
+      <DependentUpon>FSelectPrinter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\NEXOSale\FSelectPrinter.resx">
       <Link>FSelectPrinter.resx</Link>
       <DependentUpon>FSelectPrinter.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FSettings.fr.resx">
+      <Link>FSettings.fr.resx</Link>
+      <DependentUpon>FSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\NEXOSale\FSettings.resx">
       <Link>FSettings.resx</Link>
       <DependentUpon>FSettings.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale\FWait.fr.resx">
+      <Link>FWait.fr.resx</Link>
+      <DependentUpon>FWait.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\NEXOSale\FWait.resx">
       <Link>FWait.resx</Link>
       <DependentUpon>FWait.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -183,15 +224,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="button green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="button red.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Open.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -70,22 +70,22 @@ Public Class FWait
 		Select Case (m.Msg)
 			Case WM_START
 				If nexoSale.UseBackup Then
-					ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = "CONNECTING TO POI (USING BACKUP)", .Message2 = "Please wait"})
+					ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = My.Resources.CommonResources.FWait_ConnectingToPOIBackup, .Message2 = My.Resources.CommonResources.PleaseWait})
 				Else
-					ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = "CONNECTING TO POI", .Message2 = "Please wait"})
+					ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = My.Resources.CommonResources.FWait_ConnectingToPOI, .Message2 = My.Resources.CommonResources.PleaseWait})
 				End If
 				PostMessage(WM_CONNECT)
 
 			Case WM_ERROR1
-				ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = "ERROR STARTING CONNECTION PROCESS"})
+				ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = My.Resources.CommonResources.FWait_ErrorStartingConnectionProcess})
 				pbClose.Enabled = True
 
 			Case WM_ERROR2
-				ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = "FATAL ERROR CONNECTING TO POI"})
+				ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = My.Resources.CommonResources.FWait_FatalError})
 				pbClose.Enabled = True
 
 			Case WM_ERROR3
-				ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = "CONNECTION FAILED, CHECK SETTINGS"})
+				ProcessUI(New Activity() With {.Evt = ActivityEvent.message, .Message1 = My.Resources.CommonResources.FWait_ConnectionFailed})
 				pbClose.Enabled = True
 
 			Case WM_CONNECT
