@@ -354,3 +354,10 @@ __recovery/
 *.docx
 *.dcu
 *.~*
+
+*.dpr
+*.dsk
+*.stat
+
+install/
+

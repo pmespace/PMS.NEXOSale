@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Collections.Generic
+Imports NEXO
 
 <ComClass(Currency.ClassId, Currency.InterfaceId, Currency.EventsId)>
 Public Class Currency
@@ -10,31 +11,50 @@ Public Class Currency
 #End Region
 
 #Region "properties"
+	Private currency As NexoCurrency = NexoCurrency.DefaultCurrency
 	<DispId(1)>
 	Public Property Name As String
 		Get
-			Return _name
+			Return currency.Value
 		End Get
 		Set(value As String)
-			_name = value
+			If Name = value Then Return
+			If String.IsNullOrEmpty(value) Then
+				currency = NexoCurrency.DefaultCurrency()
+			Else
+				currency = New NexoCurrency() With {.Value = value}
+			End If
 		End Set
 	End Property
-	Private _name As String = "EUR"
 
 	<DispId(2)>
 	Public Property Decimals As UInteger
 		Get
-			Return _decimals
+			Return currency.DecimalPlaces
 		End Get
 		Set(value As UInteger)
-			_decimals = value
+			currency.DecimalPlaces = value
 		End Set
 	End Property
-	Private _decimals As UInteger = 2
 
 	<DispId(100)>
 	Public Overrides Function ToString() As String
-		Return Name
+		'Return $"{Name} ({Decimals})"
+		Return $"{Name}"
+	End Function
+
+	Public Overloads Function Equals(obj As Currency) As Boolean
+		If obj.Name = Name Then
+			Return True
+		End If
+		Return False
+	End Function
+
+	Public Overloads Shared Function Equals(obj1 As Currency, obj2 As Currency) As Boolean
+		If obj1.Name = obj2.Name Then
+			Return True
+		End If
+		Return False
 	End Function
 #End Region
 End Class

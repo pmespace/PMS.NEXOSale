@@ -360,4 +360,10 @@
   <data name="NexoErrorInformation" xml:space="preserve">
     <value>Code retour du terminal</value>
   </data>
+  <data name="FProcessing.Amount" xml:space="preserve">
+    <value>Pas de montant</value>
+  </data>
+  <data name="FSelectPrinter.DefaultPrinter" xml:space="preserve">
+    <value>(imprimante par défaut)</value>
+  </data>
 </root>

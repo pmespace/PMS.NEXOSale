@@ -155,6 +155,7 @@ Partial Class FSettings
 		Me.cbAllowOfflinePOI = New System.Windows.Forms.CheckBox()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+		Me.cbUseRefundForCancel = New System.Windows.Forms.CheckBox()
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -250,8 +251,8 @@ Partial Class FSettings
 		'
 		'settingsPage
 		'
-		resources.ApplyResources(Me.settingsPage, "settingsPage")
 		Me.settingsPage.Controls.Add(Me.panelSettingsPage)
+		resources.ApplyResources(Me.settingsPage, "settingsPage")
 		Me.settingsPage.Name = "settingsPage"
 		Me.settingsPage.UseVisualStyleBackColor = True
 		'
@@ -340,8 +341,8 @@ Partial Class FSettings
 		'
 		'advancedSettingsPage
 		'
-		resources.ApplyResources(Me.advancedSettingsPage, "advancedSettingsPage")
 		Me.advancedSettingsPage.Controls.Add(Me.panelAdvancedSettings)
+		resources.ApplyResources(Me.advancedSettingsPage, "advancedSettingsPage")
 		Me.advancedSettingsPage.Name = "advancedSettingsPage"
 		Me.advancedSettingsPage.UseVisualStyleBackColor = True
 		'
@@ -813,8 +814,8 @@ Partial Class FSettings
 		'
 		'GPRSPage
 		'
-		resources.ApplyResources(Me.GPRSPage, "GPRSPage")
 		Me.GPRSPage.Controls.Add(Me.TableLayoutPanel3)
+		resources.ApplyResources(Me.GPRSPage, "GPRSPage")
 		Me.GPRSPage.Name = "GPRSPage"
 		Me.GPRSPage.UseVisualStyleBackColor = True
 		'
@@ -959,8 +960,8 @@ Partial Class FSettings
 		'
 		'printSettingsPage
 		'
-		resources.ApplyResources(Me.printSettingsPage, "printSettingsPage")
 		Me.printSettingsPage.Controls.Add(Me.TableLayoutPanel4)
+		resources.ApplyResources(Me.printSettingsPage, "printSettingsPage")
 		Me.printSettingsPage.Name = "printSettingsPage"
 		Me.printSettingsPage.UseVisualStyleBackColor = True
 		'
@@ -1029,8 +1030,8 @@ Partial Class FSettings
 		'
 		'miscellaneous
 		'
-		resources.ApplyResources(Me.miscellaneous, "miscellaneous")
 		Me.miscellaneous.Controls.Add(Me.FlowLayoutPanel5)
+		resources.ApplyResources(Me.miscellaneous, "miscellaneous")
 		Me.miscellaneous.Name = "miscellaneous"
 		Me.miscellaneous.UseVisualStyleBackColor = True
 		'
@@ -1040,6 +1041,7 @@ Partial Class FSettings
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbResuseMerchantReferenceID)
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbReturnBrand)
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbAllowOfflinePOI)
+		Me.FlowLayoutPanel5.Controls.Add(Me.cbUseRefundForCancel)
 		Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
 		'
 		'cbResuseMerchantReferenceID
@@ -1067,11 +1069,12 @@ Partial Class FSettings
 		Me.OpenFileDialog1.CheckFileExists = False
 		Me.OpenFileDialog1.CheckPathExists = False
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-		resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
 		'
-		'FolderBrowserDialog1
+		'cbUseRefundForCancel
 		'
-		resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
+		resources.ApplyResources(Me.cbUseRefundForCancel, "cbUseRefundForCancel")
+		Me.cbUseRefundForCancel.Name = "cbUseRefundForCancel"
+		Me.cbUseRefundForCancel.UseVisualStyleBackColor = True
 		'
 		'FSettings
 		'
@@ -1302,4 +1305,5 @@ Partial Class FSettings
 	Friend WithEvents cbAllowOfflinePOI As Windows.Forms.CheckBox
 	Friend WithEvents cbHideInformation As Windows.Forms.CheckBox
 	Friend WithEvents cbAlwaysLogToPOI As Windows.Forms.CheckBox
+	Friend WithEvents cbUseRefundForCancel As Windows.Forms.CheckBox
 End Class

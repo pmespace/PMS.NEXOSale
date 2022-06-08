@@ -370,4 +370,10 @@
   <data name="NexoErrorInformation" xml:space="preserve">
     <value>POI return code</value>
   </data>
+  <data name="FProcessing.Amount" xml:space="preserve">
+    <value>No amount</value>
+  </data>
+  <data name="FSelectPrinter.DefaultPrinter" xml:space="preserve">
+    <value>(default printer)</value>
+  </data>
 </root>

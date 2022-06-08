@@ -220,6 +220,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to No amount.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_Amount() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to An error has occurred, transaction processing could not complete.
         '''</summary>
         Friend Shared ReadOnly Property FProcessing_AnErrorHasOccurred() As String
@@ -612,6 +621,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property FromSaleU() As String
             Get
                 Return ResourceManager.GetString("FromSaleU", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to (default printer).
+        '''</summary>
+        Friend Shared ReadOnly Property FSelectPrinter_DefaultPrinter() As String
+            Get
+                Return ResourceManager.GetString("FSelectPrinter.DefaultPrinter", resourceCulture)
             End Get
         End Property
         

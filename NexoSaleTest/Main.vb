@@ -1,10 +1,7 @@
 ﻿Imports NEXO
+Imports NEXO.Client
 Imports COMMON
 Imports NEXOSALE
-Imports System.Globalization
-Imports System.Resources
-Imports System.ComponentModel
-Imports System.Threading
 
 Public Class Main
 	Private Nxo As New NEXOSALE.NEXOSALE
@@ -17,6 +14,7 @@ Public Class Main
 			End If
 		Next
 		cbxServices.SelectedIndex = 0
+		cbInternalPrinting.Checked = Nxo.UseInternalPrinting
 	End Sub
 
 	Private Structure MyCulture
@@ -29,27 +27,34 @@ Public Class Main
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		Nxo.DisplaySettings(CheckBox1.Checked)
+		cbUseBackup.Checked = Nxo.UseBackup
 	End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		Try
-			Nxo.Amount = UInteger.Parse(TextBox1.Text)
-			Select Case cbxServices.SelectedItem
-				Case Action.Payment
-				Case Action.Refund
-					Nxo.OriginalPOITransactionID = Nothing
-					Nxo.OriginalPOITransactionTimestamp = Nothing
-				Case Action.Reversal
-					Nxo.Amount = 0
-				Case Action.Reconciliation
-			End Select
-		Catch ex As Exception
-			TextBox1.Text = 100
-			Nxo.Amount = 100
-		End Try
+		If cbUseAmount.Checked OrElse Action.Payment = cbxServices.SelectedItem OrElse Action.Refund = cbxServices.SelectedItem Then
+			Try
+				Nxo.Amount = Double.Parse(TextBox1.Text)
+			Catch ex As Exception
+				Nxo.Amount = 0.1
+				TextBox1.Text = Nxo.Amount.ToString
+			End Try
+		Else
+			Nxo.Amount = 0
+		End If
+		Select Case cbxServices.SelectedItem
+			Case Action.Payment
+			Case Action.Refund
+				Nxo.OriginalPOITransactionID = Nothing
+				Nxo.OriginalPOITransactionTimestamp = Nothing
+			Case Action.Reversal
+				Nxo.OriginalPOITransactionID = "00000000"
+				Nxo.OriginalPOITransactionTimestamp = NexoISODateTime.CurrentDateTime
+			Case Action.Reconciliation
+		End Select
+		Nxo.UseInternalPrinting = cbInternalPrinting.Checked
 		Dim result As ActionResult = Nxo.DisplayProcessing(cbxServices.SelectedItem)
-		lblResult.Text = result.ToString
-		lblBrand.Text = Nxo.Brand
+		lblResult.Text = My.Resources.Main_FinalResult & vbCrLf & result.ToString
+		lblBrand.Text = My.Resources.Main_Brand & vbCrLf & Nxo.Brand
 		Select Case result
 			Case ActionResult.success
 				Select Case cbxServices.SelectedItem
@@ -65,6 +70,10 @@ Public Class Main
 					Case Action.Reconciliation
 				End Select
 		End Select
+	End Sub
+
+	Private Sub cbUseBackup_CheckedChanged(sender As Object, e As EventArgs) Handles cbUseBackup.CheckedChanged
+		Nxo.UseBackup = cbUseBackup.Checked
 	End Sub
 
 End Class

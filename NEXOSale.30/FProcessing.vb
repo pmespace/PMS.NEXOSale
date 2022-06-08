@@ -1,5 +1,6 @@
 ﻿Imports System.Drawing
 Imports System.Windows.Forms
+Imports HPDF
 Imports NEXO
 Imports NEXO.Client
 Imports COMMON
@@ -12,14 +13,6 @@ Imports System.IO
 Imports System.Drawing.Printing
 Imports System.Xml.Serialization
 Imports System.Xml
-'Imports iText.Kernel.Pdf
-'Imports iText.Layout
-'Imports iText.Layout.Element
-'Imports iText.Kernel.Font
-'Imports iText.IO.Font
-'Imports iText.IO.Image
-
-'Imports LIBHPDF
 
 #Const NOCOLOR = True
 
@@ -46,6 +39,7 @@ Public Class FProcessing
 	Private currentAction As Action
 	Private Const ONE_SECOND As Integer = 1000
 	Private myLock As Object = New Object
+	Private lastMessageHeader As MessageHeaderType
 
 	Private Property Caption As String
 		Get
@@ -238,7 +232,9 @@ Public Class FProcessing
 		Public Header As MessageHeaderType = Nothing
 		Public SaleTransactionID As TransactionIdentificationType = Nothing
 		Public POITransactionID As TransactionIdentificationType = Nothing
-		Public ReceiptsToPrint As PaymentReceiptType() = Nothing
+		Public Receipts As PaymentReceiptType() = Nothing
+		Public SaleTimestamp As String
+		Public POITimestamp As String
 	End Class
 	Private ReceiptsToPrint As Receipts = Nothing
 #End Region
@@ -279,12 +275,10 @@ Public Class FProcessing
 			Select Case activity.Evt
 				Case ActivityEvent.message
 					CLog.Add(HEADER & activity.Message)
-					message.Text = vbCrLf & activity.Message
+					message.Text = activity.Message
 				Case ActivityEvent.information
 					CLog.Add(HEADER & activity.Message)
 					information.Text = information.Text & vbCrLf & activity.Message
-					information.Select(information.Text.Length - 1, 0)
-					information.ScrollToCaret()
 				Case ActivityEvent.replyReceived
 				Case ActivityEvent.postMessage
 					PostMessage(activity.WM, activity.wParam, activity.lParam)
@@ -302,6 +296,7 @@ Public Class FProcessing
 #Region "constructor"
 	Public Sub New(ByRef a As NEXOSALE, ope As NexoOperation)
 		MyBase.New
+		CLog.Add($"{HEADER} - Parameters: {JsonConvert.SerializeObject(ope, Newtonsoft.Json.Formatting.None, New JsonSerializerSettings() With {.NullValueHandling = NullValueHandling.Include, .MissingMemberHandling = MissingMemberHandling.Ignore})}", TLog.INFOR)
 		nexoSale = a
 		InitializeComponent()
 		clientSettings = New NexoRetailerClientSettings With
@@ -533,6 +528,8 @@ Public Class FProcessing
 					End Select
 					'if the action can be processed
 					If 0 <> ms Then
+						'clear the last receipt
+						nexoSale.LastReceipt = Nothing
 						hasTimedOut = hasTimedOut Or False
 						hasBeenCancelled = hasBeenCancelled Or False
 						timerBeforeTimeout = New Windows.Forms.Timer()
@@ -642,6 +639,7 @@ Public Class FProcessing
 				If 0 = requestedOperation.Amount Then
 					o.RequestData.ReversedAmountSpecified = False
 				Else
+					o.RequestReversedAmount = requestedOperation.Amount
 					o.RequestSaleReferenceID = nexoSale.MerchantReferenceID
 				End If
 				o.RequestOriginalPOITransactionID = nexoSale.OriginalPOITransactionID
@@ -766,7 +764,7 @@ Public Class FProcessing
 		timerBeforeTimeout.Stop()
 		Dim res As Boolean = obj.CurrentObject.Success
 		Dim replyIsKnown As Boolean = True
-		Dim printReceipt As Boolean = False
+		Dim printReceipts As Boolean = False
 
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.information, .Message = MessageDescription(obj.Item, xml)})
 
@@ -804,14 +802,14 @@ Public Class FProcessing
 				'processing financial operation
 				If PaymentTypeEnumeration.Normal = nxo.PaymentType Then
 					'processing payment
-					nexoSale._receiptavailable = 0 <> nxo.ReplyData.PaymentReceiptSize
+					nexoSale._receiptavailable = 0 <> nxo.ReplyData.PaymentReceiptLength
 					act = My.Resources.CommonResources.Payment
 					If nxo.Success Then
 						message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = $"{act} {My.Resources.CommonResources.Accepted}"})
 						nexoSale._poitransactionid = nxo.ReplyPOITransactionID
 						nexoSale._poitransactiontimestamp = nxo.ReplyPOITransactionTimestamp
-						printReceipt = requestedOperation.POI.PrintReceipt
-						nexoSale.InternalBrand = nexoSale.GetSchemeFromAvailableData(nxo)
+						printReceipts = requestedOperation.POI.PrintReceipt
+						nexoSale.Brand = nexoSale.GetSchemeFromAvailableData(nxo)
 					Else
 						'test reason of failure
 						If nxo.Refusal AndAlso nxo.LoggedOut Then
@@ -823,22 +821,22 @@ Public Class FProcessing
 						Else
 							stackOfActions.Clear()
 							message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = $"{act} {My.Resources.CommonResources.Declined}" & vbCrLf & DescribeError(nxo.Response)})
-							printReceipt = requestedOperation.POI.PrintReceipt
+							printReceipts = requestedOperation.POI.PrintReceipt
 						End If
 					End If
-					If printReceipt Then
-						ReceiptsToPrint = New Receipts With {.Header = nxo.Reply.MessageHeader, .POITransactionID = nxo.ReplyData.POIData.POITransactionID, .ReceiptsToPrint = nxo.ReplyData.PaymentReceipt} ', .SaleTransactionID = nxo.ReplyData.SaleData.SaleTransactionID}
-						PreparePDF()
+					nexoSale.LastReceipt = nxo.ReplyData.PaymentReceipt
+					If printReceipts Then
+						PreparePDF(New Receipts With {.Header = nxo.Reply.MessageHeader, .POITransactionID = nxo.ReplyData.POIData.POITransactionID, .Receipts = nxo.ReplyData.PaymentReceipt, .SaleTimestamp = nxo.RequestSaleTransactionTimestamp, .POITimestamp = nxo.ReplyPOITransactionTimestamp})
 					End If
 
 				ElseIf PaymentTypeEnumeration.Refund = nxo.PaymentType Then
 					'processing refund
-					nexoSale._receiptavailable = 0 <> nxo.ReplyData.PaymentReceiptSize
+					nexoSale._receiptavailable = 0 <> nxo.ReplyData.PaymentReceiptLength
 					If nxo.Success Then
 						message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = $"{act} {My.Resources.CommonResources.Accepted}"})
 						nexoSale._poitransactionid = nxo.ReplyPOITransactionID
 						nexoSale._poitransactiontimestamp = nxo.ReplyPOITransactionTimestamp
-						nexoSale.InternalBrand = nexoSale.GetSchemeFromAvailableData(nxo)
+						nexoSale.Brand = nexoSale.GetSchemeFromAvailableData(nxo)
 					Else
 						'test reason of failure
 						If nxo.Refusal AndAlso nxo.LoggedOut Then
@@ -864,7 +862,7 @@ Public Class FProcessing
 			Try
 				'processing reversal
 				Dim nxo As NexoReversal = obj.CurrentObject
-				nexoSale._receiptavailable = 0 <> nxo.ReplyData.PaymentReceiptSize
+				nexoSale._receiptavailable = 0 <> nxo.ReplyData.PaymentReceiptLength
 				If res Then
 					message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = My.Resources.CommonResources.FProcessing_TransactionReversed})
 				Else
@@ -1141,6 +1139,14 @@ Public Class FProcessing
 		pbCancel.Focus()
 	End Sub
 
+	Private Sub FProcessing_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+		CLog.Add(HEADER & "RESULT CODE: " & DialogResult.ToString)
+		nexoSale.ResetOwner(Me)
+		DialogResult = MyDialogResult
+	End Sub
+#End Region
+
+#Region "PDF and print"
 	Private Function PrepareStringToPrint(check As CheckToPrint, amount As UInteger) As String
 		Const SEP As String = "*"
 		Dim maxprintwithamount As Integer = 80
@@ -1191,126 +1197,456 @@ Public Class FProcessing
 		Return toprint
 	End Function
 
-	Private Sub PreparePDF()
-		'	If Not IsNothing(ReceiptsToPrint) Then
-		'		If Not IsNothing(ReceiptsToPrint.ReceiptsToPrint) Then
-		'			For Each receipt As PaymentReceiptType In ReceiptsToPrint.ReceiptsToPrint
-		'				'create file name
-		'				Dim fileName As String = $"{receipt.DocumentQualifier}.SALEID.{ReceiptsToPrint.Header.SaleID}.POIID.{ReceiptsToPrint.Header.POIID}"
-		'				If Not IsNothing(ReceiptsToPrint.SaleTransactionID) AndAlso Not String.IsNullOrEmpty(ReceiptsToPrint.SaleTransactionID.TransactionID) AndAlso Not String.IsNullOrEmpty(ReceiptsToPrint.SaleTransactionID.TimeStamp) Then
-		'					fileName &= $".SALETID.{ReceiptsToPrint.SaleTransactionID.TransactionID}.SALETSTMP.{ReceiptsToPrint.SaleTransactionID.TimeStamp}"
-		'				ElseIf Not IsNothing(ReceiptsToPrint.POITransactionID) AndAlso Not String.IsNullOrEmpty(ReceiptsToPrint.POITransactionID.TransactionID) AndAlso Not String.IsNullOrEmpty(ReceiptsToPrint.POITransactionID.TimeStamp) Then
-		'					fileName &= $".POITID.{ReceiptsToPrint.POITransactionID.TransactionID}.POITSTMP.{ReceiptsToPrint.POITransactionID.TimeStamp}"
-		'				Else
-		'					fileName &= $".DATE.{DateTime.Now.ToString(Chars.DATETIME)}"
-		'				End If
-
-		'				'remplace invalid characters if any
-		'				Dim invalidChars As Char() = Path.GetInvalidFileNameChars
-		'				For Each c As Char In invalidChars
-		'					fileName = fileName.Replace(c, ".")
-		'				Next
-		'				fileName &= ".pdf"
-
-		'				'prepare printing
-		'				Select Case receipt.DocumentQualifier.ToLower
-		'					Case DocumentQualifierEnumeration.CashierReceipt.ToString.ToLower, DocumentQualifierEnumeration.CustomerReceipt.ToString.ToLower
-		'						Dim writer As New PdfWriter(fileName)
-		'						Dim pdf = New PdfDocument(writer)
-		'						Dim document As New Document(pdf)
-		'						Dim std As PdfFont = PdfFontFactory.CreateFont(FontConstants.HELVETICA)
-		'						Dim bold As PdfFont = PdfFontFactory.CreateFont(FontConstants.HELVETICA_BOLD)
-		'						document.SetFont(std)
-
-		'						'if a logo must be printed, let's do it
-		'						Try
-		'							Dim img As New ImageData(.)
-		'							Dim logo As New Image(ImageDataFactory.Create(Settings.))
-		'						Catch ex As Exception
-
-		'						End Try
-
-		'						Try
-		'							Dim p As Paragraph
-		'							Dim line As String = Nothing
-		'							'start printing text
-		'							For Each text As OutputTextType In receipt.OutputContent.OutputText
-		'								line &= text.Value
-		'								p = New Paragraph(line)
-		'								'If text.EndOfLineFlag Then
-		'								document.Add(p)
-		'								line = Nothing
-		'								'End If
-		'							Next
-		'							If Not String.IsNullOrEmpty(line) Then
-		'								p = New Paragraph(line)
-		'								document.Add(p)
-		'							End If
-		'						Catch ex As Exception
-		'						End Try
-		'						document.Close()
-		'				End Select
-		'			Next
-		'		Else
-		'			CLog.Add("No receipt to print", TLog.ERROR)
-		'		End If
-		'	Else
-		'		CLog.Add("No data to print", TLog.ERROR)
-		'	End If
-	End Sub
-
-	Private Sub PrintDocument1_BeginPrint(sender As Object, e As Printing.PrintEventArgs) Handles PrintDocument1.BeginPrint
-	End Sub
-
-	Private Sub PrintDocument1_EndPrint(sender As Object, e As Printing.PrintEventArgs) Handles PrintDocument1.EndPrint
-	End Sub
-
-	Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-	End Sub
-
-	Private Sub FProcessing_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-		CLog.Add(HEADER & "RESULT CODE: " & DialogResult.ToString)
-		nexoSale.ResetOwner(Me)
-		DialogResult = MyDialogResult
-	End Sub
-
-	Public Class ReceiptDocument
-		Inherits System.Drawing.Printing.PrintDocument
-		Private _titleFont As Font
-		Private _detailFont As Font
-	End Class
-
-	Public Function CreateReceipt(receipt As PaymentReceiptType, Optional fileName As String = Nothing) As Boolean
-		Select Case receipt.DocumentQualifier
-			Case DocumentQualifierEnumeration.CashierReceipt, DocumentQualifierEnumeration.CustomerReceipt
-				Try
-					Dim stream As New StreamWriter(fileName)
-					If Not IsNothing(stream) Then
-						Dim s As String
-						'indicate type of receipt
-						If DocumentQualifierEnumeration.CashierReceipt = receipt.DocumentQualifier Then
-							s = My.Resources.CommonResources.FPrint_MerchantReceipt
-						Else
-							s = My.Resources.CommonResources.FPrint_CustomerReceipt
+	Private Function GetReceiptRect(receipt As PaymentReceiptType, page As HPDFPage) As HPDFSizeStruct
+		Dim lineSpacing = page.CurrentFontSize
+		GetReceiptRect = New HPDFSizeStruct With {.Width = 0, .Height = 0}
+		If Not IsNothing(receipt.OutputContent) AndAlso Not IsNothing(receipt.OutputContent.OutputText) Then
+			'verify lines
+			Dim newt As New OutputContentType
+			Dim crandlf = New Char() {vbCr, vbLf}
+			For i As Integer = 0 To receipt.OutputContent.OutputTextLength - 1
+				Dim s As String = receipt.OutputContent.OutputTextGetItem(i).Value
+				Dim previousc As Char = ""
+				Do
+					Dim pos = s.IndexOfAny(crandlf)
+					If -1 <> pos Then
+						Dim currentc = s.Chars(pos)
+						Dim v = s.Substring(0, pos)
+						'add the line only if
+						'- there are some characters
+						'- OR no characters but the control character to go to next line is the first one (CR or LF)
+						'- OR no characters but the control character to go to next line is not the first one but is not différent from the previous one (CRLF won't give 2 lines but 1 while CRCR or LFLF give 2 lines)
+						If Not String.IsNullOrEmpty(v) OrElse (String.IsNullOrEmpty(v) AndAlso (previousc = "" OrElse previousc = currentc)) Then
+							newt.OutputTextAddItem(New OutputTextType(receipt.OutputContent.OutputTextGetItem(i)) With {.Value = v})
 						End If
-						stream.WriteLine(s)
-						stream.WriteLine()
-
-						'start printing text
-						For Each text As OutputTextType In receipt.OutputContent.OutputText
-							If text.EndOfLineFlag Then
-								stream.WriteLine(text.Value)
-							Else
-								stream.Write(text.Value)
-							End If
-						Next
-						Return True
+						previousc = currentc
+						If s.Length - 1 > pos Then
+							s = s.Substring(pos + 1)
+						Else
+							s = Nothing
+						End If
+					Else
+						'If Not String.IsNullOrEmpty(s) Then
+						newt.OutputTextAddItem(New OutputTextType(receipt.OutputContent.OutputTextGetItem(i)) With {.Value = s})
+						s = Nothing
+						'End If
 					End If
-				Catch ex As Exception
-				End Try
+				Loop Until String.IsNullOrEmpty(s)
+			Next
+			receipt.OutputContent = newt
+			For i = 0 To receipt.OutputContent.OutputText.Length - 1
+				GetReceiptRect.Width = Math.Max(GetReceiptRect.Width, page.GetTextWidth(receipt.OutputContent.OutputText(i).Value))
+				GetReceiptRect.Height += lineSpacing
+			Next
+		End If
+		'If (GetReceiptRect.Width > page.Width) Then GetReceiptRect.Reset()
+		'If (GetReceiptRect.Height > page.Height) Then GetReceiptRect.Reset()
+	End Function
 
+	Private Function CreateReceiptPDF(analysis As ReceiptAnalysis, receipts As Receipts) As Boolean
+		'Try
+		'			'if no receipt to print return immediately
+		'			If 0 = analysis.receipt.OutputContent.OutputTextLength Then Return False
+
+		'			Dim titleFontSize = 14
+		'			Dim receiptFontSize = 12
+		'			Dim rectangleMargin = 10.0F
+		'			Dim upperPageBorderToTitle = 50.0F
+		'			Dim numberOfEmptyLines = 2
+
+		'			'create the PDF document and load fonts
+		'			Dim document As New HPDFDocument
+		'			Dim receiptFont As HPDFFont = document.GetFont(StandardFonts.Courier, HPDFSingleByteEncoders.WinAnsiEncoding.ToString)
+		'			Dim titleFont As HPDFFont = document.GetFont(StandardFonts.CourierBold, HPDFSingleByteEncoders.WinAnsiEncoding.ToString)
+
+		'			'create the pdf page to write the receipt into
+		'			Dim page = document.AddPage()
+		'			page.SetSize(HPDFPageSizes.A4, HPDFPageDirections.Portrait)
+
+		'			'prepare title
+		'			Dim title As String
+		'			If DocumentQualifierEnumeration.CustomerReceipt = analysis.target Then
+		'				title = My.Resources.CommonResources.FPrint_CustomerReceipt
+		'			Else
+		'				title = My.Resources.CommonResources.FPrint_MerchantReceipt
+		'			End If
+		'			page.SetFont(titleFont, titleFontSize)
+		'			Dim textWidth = page.GetTextWidth(title)
+		'			Dim titlePos As New HPDFPointStruct() With {.x = (page.Width - textWidth) / 2, .y = page.Height - upperPageBorderToTitle - titleFontSize}
+
+		'			'prepare receipt itself
+		'			page.SetFont(receiptFont, receiptFontSize)
+		'			Dim receiptPos As New HPDFPointStruct(titlePos)
+		'			Dim receiptRect = GetReceiptRect(analysis.receipt, page)
+		'			If Not receiptRect.IsNull Then
+		'				'get final text width for outline
+		'				textWidth = Math.Max(textWidth, receiptRect.Width)
+		'			End If
+
+		'			'arrived here we can determine the position and size of the logo (if any)
+		'			'print the logo
+		'			If DocumentQualifierEnumeration.CustomerReceipt = analysis.target AndAlso Not String.IsNullOrEmpty(nexoSale.Settings.Picture) Then
+		'				Dim fi As New FileInfo(nexoSale.Settings.Picture)
+		'				If fi.Exists Then
+		'					Dim image As HPDFImage = Nothing
+		'					Select Case fi.Extension.ToLower
+		'						Case ".png"
+		'							image = document.LoadPNGImageFromFile(nexoSale.Settings.Picture)
+		'						Case ".jpg", ".jpeg"
+		'							image = document.LoadJpegImageFromFile(nexoSale.Settings.Picture)
+		'							'Case ".bmp"
+		'							'	image = document.LoadRawImageFromFile(nexoSale.Settings.Picture)
+		'					End Select
+		'					If Not IsNothing(image) Then
+		'						Dim size As New HPDFSizeStruct
+		'						'determine ratio between width and size of the image
+		'						Dim imagewidth As Single = textWidth + rectangleMargin * 2
+		'						Dim f As Single = imagewidth / image.GetWidth
+		'						Dim imageheight As Single = f * image.GetHeight
+		'						page.DrawImage(image, New HPDFPointStruct With {.x = (page.Width - imagewidth) / 2, .y = page.Height - upperPageBorderToTitle - imageheight}, New HPDFSizeStruct With {.Width = imagewidth, .Height = imageheight})
+		'						'move all subsequent text by the height of the image
+		'						page.TextRaise = -imageheight - rectangleMargin * 2
+		'					End If
+		'				End If
+		'			End If
+
+		'			'prepare positions and sizes to use
+		'			Dim lowerLeftCorner As New HPDFPointStruct(titlePos)
+		'			Dim upperLeftCorner As New HPDFPointStruct() With {.x = titlePos.x, .y = titlePos.y + titleFontSize}
+		'			Dim sizeRectangle As New HPDFSizeStruct() With {.Width = textWidth, .Height = titleFontSize}
+
+		'			'print the title
+		'			page.SetFont(titleFont, titleFontSize)
+		'			page.BeginText()
+		'			page.ShowTextAt(title, titlePos)
+		'			page.EndText()
+
+		'			'leave empty lines
+		'			Dim titleReceiptSpacing = receiptFontSize * numberOfEmptyLines
+		'			sizeRectangle.Width = textWidth
+		'			sizeRectangle.Height += titleReceiptSpacing + receiptRect.Height
+
+		'			'print the receipt
+		'			If Not receiptRect.IsNull Then
+		'				page.SetFont(receiptFont, receiptFontSize)
+		'				page.BeginText()
+		'				'Set position on the page to start printing the receipt
+		'				Dim receiptCurrentPos As New HPDFPointStruct() With {.x = (page.Width - receiptRect.Width) / 2, .y = titlePos.y - titleReceiptSpacing - receiptFontSize}
+		'				receiptPos = New HPDFPointStruct(receiptCurrentPos)
+		'				page.MoveTextPos(receiptCurrentPos)
+		'				receiptCurrentPos.Reset()
+		'				'print the receipt 
+		'				For i As Integer = 0 To analysis.receipt.OutputContent.OutputTextLength - 1
+		'					page.MoveTextPos(receiptCurrentPos)
+		'					page.ShowText(analysis.receipt.OutputContent.OutputText(i).Value)
+		'					'page.ShowTextAt(analysis.receipt.OutputContent.OutputText(i).Value, receiptPos)
+		'					receiptCurrentPos.y = -receiptFontSize
+		'				Next
+		'				'get the final lower left point
+		'				lowerLeftCorner.x = Math.Min(lowerLeftCorner.x, receiptPos.x)
+		'				lowerLeftCorner.y = page.CurrentTextPos.y
+		'				page.EndText()
+		'			End If
+
+		'			'add a rectangle around the whole receipt
+		'			page.SetLineWidth(1)
+		'			lowerLeftCorner.AddY(page.TextRaise)
+		'			lowerLeftCorner.DimX(rectangleMargin)
+		'			lowerLeftCorner.DimY(rectangleMargin)
+		'			sizeRectangle.AddWidth(rectangleMargin * 2)
+		'			sizeRectangle.AddHeight(rectangleMargin * 2)
+		'			page.Rectangle(lowerLeftCorner, sizeRectangle)
+		'			page.Stroke()
+
+		'			'save file
+		'			Dim dt As DateTime = Now
+		'			'Dim fname As String = $"{title}-{receipts.POITimestamp}-{receipts.SaleTransactionID}-{receipts.POITransactionID}"
+		'			Dim fname As String = $"{analysis.target}-{dt.ToString("yyyyMMdd HHmmss")}"
+		'			Dim exists As Boolean
+		'			Dim created As Boolean = document.SaveToFile(fname, exists, False)
+
+		'#If DEBUG Then
+		'			Try
+		'				If DocumentQualifierEnumeration.CustomerReceipt = analysis.target Then
+		'					If created Then
+		'						Dim fi As New FileInfo(fname)
+		'						Dim si As New ProcessStartInfo()
+		'						si.UseShellExecute = True
+		'						si.FileName = fi.FullName
+		'						si.Verb = "Open"
+		'						Dim prsok = Process.Start(si)
+		'					End If
+		'				End If
+		'			Catch ex As Exception
+
+		'			End Try
+		'#End If
+
+		'			Return created
+		'		Catch ex As Exception
+		'			Return False
+		'		End Try
+		'		Return False
+
+		Try
+			'if no receipt to print return immediately
+			If 0 = analysis.receipt.OutputContent.OutputTextLength Then Return False
+
+			Dim receiptFontSize = 12
+			Dim margin = 10.0F
+
+			'create the PDF document and load fonts
+			Dim document As New HPDFDocument
+			Dim receiptFont As HPDFFont = document.GetFont(StandardFonts.Courier, HPDFSingleByteEncoders.WinAnsiEncoding.ToString)
+
+			'create the pdf page to write the receipt into
+			Dim page = document.AddPage()
+
+			'prepare receipt itself
+			page.SetFont(receiptFont, receiptFontSize)
+			Dim receiptRect = GetReceiptRect(analysis.receipt, page)
+			If Not receiptRect.IsNull Then
+				'get final text width for outline
+				Dim textWidth = receiptRect.Width
+
+				'resize the page
+				page.SetSize(HPDFPageSizes.A4, HPDFPageDirections.Portrait)
+				page.Height = receiptRect.Height + margin * 2
+				page.Width = textWidth + margin * 2
+
+				'arrived here we can determine the position and size of the logo (if any)
+				Dim fi As FileInfo
+
+				'print the logo
+				If DocumentQualifierEnumeration.CustomerReceipt = analysis.target AndAlso Not String.IsNullOrEmpty(nexoSale.Settings.Picture) Then
+					fi = New FileInfo(nexoSale.Settings.Picture)
+					If fi.Exists Then
+						Dim image As HPDFImage = Nothing
+						Select Case fi.Extension.ToLower
+							Case ".png"
+								image = document.LoadPNGImageFromFile(nexoSale.Settings.Picture)
+							Case ".jpg", ".jpeg"
+								image = document.LoadJpegImageFromFile(nexoSale.Settings.Picture)
+								'Case ".bmp"
+								'	image = document.LoadRawImageFromFile(nexoSale.Settings.Picture)
+						End Select
+						If Not IsNothing(image) Then
+							Dim size As New HPDFSizeStruct
+							'determine ratio between width and size of the image
+							Dim imagewidth As Single = textWidth + margin * 2
+							Dim f As Single = imagewidth / image.GetWidth
+							Dim imageheight As Single = f * image.GetHeight
+
+							'resize the page
+							page.Height = receiptRect.Height + imageheight + margin * 3
+
+							page.DrawImage(image, New HPDFPointStruct With {.x = (page.Width - imagewidth) / 2, .y = page.Height - margin - imageheight}, New HPDFSizeStruct With {.Width = imagewidth, .Height = imageheight})
+							'move all subsequent text by the height of the image
+							page.TextRaise = -imageheight - margin
+						End If
+					End If
+				End If
+
+				'starting point of the receipt on the page
+				Dim receiptPos As New HPDFPointStruct() With {.x = (page.Width - textWidth) / 2, .y = page.Height - margin}
+
+				'print the receipt
+				page.BeginText()
+				page.SetFont(receiptFont, receiptFontSize)
+				'Set position on the page to start printing the receipt
+				Dim receiptCurrentPos As New HPDFPointStruct() With {.x = (page.Width - receiptRect.Width) / 2, .y = receiptPos.y - receiptFontSize}
+				receiptPos = New HPDFPointStruct(receiptCurrentPos)
+				page.MoveTextPos(receiptCurrentPos)
+				receiptCurrentPos.Reset()
+				'print the receipt 
+				For i As Integer = 0 To analysis.receipt.OutputContent.OutputTextLength - 1
+					Dim txt = analysis.receipt.OutputContent.OutputTextGetItem(i).Value
+					Dim tw = page.GetTextWidth(txt)
+					Dim linePos As New HPDFPointStruct(receiptCurrentPos)
+					Dim alignment As AlignmentEnumeration = New NexoEnumeration(TagsEnumeration.Alignment.ToString).GetLabel(analysis.receipt.OutputContent.OutputTextGetItem(i).Alignment)
+					Select Case alignment
+						Case AlignmentEnumeration.Justified, AlignmentEnumeration.Centred
+							'justification not supported here
+							linePos.x = (textWidth - tw) / 2
+						Case AlignmentEnumeration.Left
+							linePos.x = linePos.x
+						Case AlignmentEnumeration.Right
+							linePos.x = linePos.x + textWidth - tw
+					End Select
+					page.MoveTextPos(linePos)
+					page.ShowText(analysis.receipt.OutputContent.OutputText(i).Value)
+					'page.ShowTextAt(analysis.receipt.OutputContent.OutputText(i).Value, receiptPos)
+					receiptCurrentPos.y = -receiptFontSize
+				Next
+				'get the final lower left point
+				page.EndText()
+
+				'save file
+				Dim dt As DateTime = Now
+				'Dim fname As String = $"{title}-{receipts.POITimestamp}-{receipts.SaleTransactionID}-{receipts.POITransactionID}"
+				'get forlder to save files in
+				Dim folder As String = Path.GetTempPath
+				If analysis.save Then
+					Try
+						Dim di As New DirectoryInfo(nexoSale.Settings.ReceiptFolder)
+						If di.Exists Then
+							folder = di.FullName
+						End If
+					Catch ex As Exception
+					End Try
+				End If
+				If Not folder.EndsWith(Path.DirectorySeparatorChar) Then
+					folder = folder & Path.DirectorySeparatorChar
+				End If
+				Dim fname As String = $"{folder}{analysis.target}-{receipts.Header.SaleID}-{receipts.Header.POIID}-{dt.ToString("yyyyMMdd HHmmss")}"
+				Dim exists As Boolean
+				Dim created As Boolean = document.SaveToFile(fname, exists, False)
+				fi = New FileInfo(fname)
+
+				'#If DEBUG Then
+				'				Try
+				'					If DocumentQualifierEnumeration.CustomerReceipt = analysis.target Then
+				'						If created Then
+				'							Dim si As New ProcessStartInfo()
+				'							si.UseShellExecute = True
+				'							si.FileName = fi.FullName
+				'							si.Verb = "Open"
+				'							Dim prsok = Process.Start(si)
+				'							Try
+				'								If Not IsNothing(prsok) Then
+				'									prsok.WaitForExit(nexoSale.POIInUse.GeneralTimer * 1000)
+				'								End If
+				'							Catch ex As Exception
+				'							End Try
+				'						End If
+				'					End If
+				'				Catch ex As Exception
+				'				End Try
+				'#End If
+
+				If created Then
+					If DocumentQualifierEnumeration.CustomerReceipt = analysis.target Then
+						nexoSale.CustomerReceiptFileName = fi.FullName
+					Else
+						nexoSale.MerchantReceiptFileName = fi.FullName
+					End If
+					Dim canDelete As Boolean = Not analysis.save
+					If analysis.print And 0 <> PrinterSettings.InstalledPrinters.Count Then
+						Dim myprinter As New PrinterSettings
+						Try
+							'get printer to use, a psecified one or the defualt one
+							If Not String.IsNullOrEmpty(nexoSale.Settings.Printer) Then
+								myprinter = New PrinterSettings
+								myprinter.PrinterName = nexoSale.Settings.Printer
+							End If
+							If IsNothing(myprinter) OrElse Not myprinter.IsValid Then
+								myprinter = New PrinterSettings()
+							End If
+							If Not IsNothing(myprinter) Then
+								'arrived here we've got a valid printer
+								Dim usingDefPrinter As Boolean = (0 = String.Compare(myprinter.PrinterName, New PrinterSettings().PrinterName, True))
+
+								Dim si As New ProcessStartInfo(fname)
+								si.Arguments = """" & myprinter.PrinterName & """"
+								si.Verb = "PrintTo"
+								si.CreateNoWindow = True
+								si.WindowStyle = ProcessWindowStyle.Hidden
+								si.UseShellExecute = True 'usingDefPrinter
+								Dim prc = Process.Start(si)
+								Try
+									If Not IsNothing(prc) Then
+										canDelete = prc.WaitForExit(nexoSale.POIInUse.GeneralTimer * 1000)
+									End If
+								Catch ex As Exception
+									canDelete = False
+								End Try
+							End If
+						Catch ex As Exception
+							CLog.Add($"Printing {analysis.target} receipt ({fname}) on {myprinter.PrinterName} has failed", TLog.ERROR)
+						End Try
+					End If
+
+					If canDelete Then
+						Try
+							fi.Delete()
+						Catch ex As Exception
+						End Try
+					End If
+				Else
+					If DocumentQualifierEnumeration.CustomerReceipt = analysis.target Then
+						nexoSale.CustomerReceiptFileName = Nothing
+					Else
+						nexoSale.MerchantReceiptFileName = Nothing
+					End If
+				End If
+				Return created
+			End If
+		Catch ex As Exception
+		End Try
+		'arrived here no receipt has been printed
+		Return False
+	End Function
+
+	Private Function AnalyseReceipt(type As DocumentQualifierEnumeration, receipts As PaymentReceiptType()) As ReceiptAnalysis
+		Dim analysis As New ReceiptAnalysis With {.OK = False, .lines = 0, .maxline = 0, .receipt = Nothing}
+		If IsNothing(receipts) OrElse 0 = receipts.Count Then Return analysis
+		'search the requested receipt
+		For i As Integer = 0 To receipts.Count - 1
+			Dim receipt = receipts(i)
+			If 0 = String.Compare(receipt.DocumentQualifier, type.ToString, True) Then
+				'the requested receipt is present, let's analyse it
+				analysis.OK = True
+				analysis.receipt = receipt
+				analysis.target = CMisc.GetEnumValue(GetType(DocumentQualifierEnumeration), receipt.DocumentQualifier)
+				'count number of lines and maximum line size
+				analysis.lines = receipt.OutputContent.OutputText.Length
+				For j As Integer = 0 To receipt.OutputContent.OutputText.Length - 1
+					analysis.maxline = Math.Max(analysis.maxline, receipt.OutputContent.OutputText(j).Value.Length)
+				Next
+				Exit For
+			End If
+		Next
+		Return analysis
+	End Function
+
+	Private Structure ReceiptAnalysis
+		Public OK As Boolean
+		Public lines As Integer
+		Public maxline As Integer
+		Public save As Boolean
+		Public print As Boolean
+		Public receipt As PaymentReceiptType
+		Public target As DocumentQualifierEnumeration
+	End Structure
+
+	Private Function PrepareSpecificPDF(type As DocumentQualifierEnumeration, receipts As Receipts) As Boolean
+		Select Case type
+			Case DocumentQualifierEnumeration.CustomerReceipt, DocumentQualifierEnumeration.CashierReceipt
+				Dim analysis = AnalyseReceipt(type, receipts.Receipts)
+				If Not IsNothing(analysis) AndAlso analysis.OK Then
+					analysis.save = nexoSale.Settings.SaveReceipts
+					If DocumentQualifierEnumeration.CustomerReceipt = type Then
+						analysis.print = requestedOperation.POI.PrintReceipt AndAlso requestedOperation.POI.PrintCustomerReceipt
+					Else
+						analysis.print = requestedOperation.POI.PrintReceipt AndAlso requestedOperation.POI.PrintMerchantReceipt
+					End If
+					analysis.print = analysis.print AndAlso nexoSale.UseInternalPrinting
+					Return CreateReceiptPDF(analysis, receipts)
+				End If
 		End Select
-		'arrived here nothing has been printed
+		Return False
+	End Function
+
+	Private Function PreparePDF(receipts As Receipts) As Boolean
+		Try
+			If Not HPDFClass.IsReady Then Return False
+			If PrepareSpecificPDF(DocumentQualifierEnumeration.CustomerReceipt, receipts) Then
+				If PrepareSpecificPDF(DocumentQualifierEnumeration.CashierReceipt, receipts) Then
+					Return True
+				End If
+			End If
+		Catch ex As Exception
+		End Try
 		Return False
 	End Function
 #End Region

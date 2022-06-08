@@ -27,8 +27,8 @@ Partial Class FProcessing
 		Me.TableLayoutMain = New System.Windows.Forms.TableLayoutPanel()
 		Me.pbCancel = New System.Windows.Forms.Button()
 		Me.price = New System.Windows.Forms.Label()
-		Me.information = New System.Windows.Forms.TextBox()
-		Me.message = New System.Windows.Forms.TextBox()
+		Me.message = New System.Windows.Forms.Label()
+		Me.information = New System.Windows.Forms.Label()
 		Me.timerBeforeTimeout = New System.Windows.Forms.Timer(Me.components)
 		Me.timerBeforeAutoClose = New System.Windows.Forms.Timer(Me.components)
 		Me.timerGlobal = New System.Windows.Forms.Timer(Me.components)
@@ -41,8 +41,8 @@ Partial Class FProcessing
 		resources.ApplyResources(Me.TableLayoutMain, "TableLayoutMain")
 		Me.TableLayoutMain.Controls.Add(Me.pbCancel, 0, 6)
 		Me.TableLayoutMain.Controls.Add(Me.price, 0, 0)
-		Me.TableLayoutMain.Controls.Add(Me.information, 0, 2)
 		Me.TableLayoutMain.Controls.Add(Me.message, 0, 4)
+		Me.TableLayoutMain.Controls.Add(Me.information, 0, 2)
 		Me.TableLayoutMain.Name = "TableLayoutMain"
 		'
 		'pbCancel
@@ -57,19 +57,17 @@ Partial Class FProcessing
 		resources.ApplyResources(Me.price, "price")
 		Me.price.Name = "price"
 		'
-		'information
-		'
-		resources.ApplyResources(Me.information, "information")
-		Me.information.BackColor = System.Drawing.SystemColors.Control
-		Me.information.Name = "information"
-		Me.information.ReadOnly = True
-		'
 		'message
 		'
 		resources.ApplyResources(Me.message, "message")
-		Me.message.BackColor = System.Drawing.SystemColors.Control
+		Me.message.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
 		Me.message.Name = "message"
-		Me.message.ReadOnly = True
+		'
+		'information
+		'
+		resources.ApplyResources(Me.information, "information")
+		Me.information.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.information.Name = "information"
 		'
 		'timerBeforeTimeout
 		'
@@ -79,9 +77,6 @@ Partial Class FProcessing
 		'
 		'
 		'timerGlobal
-		'
-		'
-		'PrintDocument1
 		'
 		'
 		'FProcessing
@@ -109,7 +104,7 @@ Partial Class FProcessing
 	Friend WithEvents price As Windows.Forms.Label
 	Friend WithEvents timerGlobal As Windows.Forms.Timer
 	Friend WithEvents pbCancel As Windows.Forms.Button
-	Friend WithEvents information As Windows.Forms.TextBox
-	Friend WithEvents message As Windows.Forms.TextBox
 	Friend WithEvents PrintDocument1 As Drawing.Printing.PrintDocument
+	Friend WithEvents message As Windows.Forms.Label
+	Friend WithEvents information As Windows.Forms.Label
 End Class

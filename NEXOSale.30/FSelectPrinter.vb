@@ -1,12 +1,17 @@
-﻿Public Class FSelectPrinter
+﻿Imports System.Drawing.Printing
+
+Public Class FSelectPrinter
 
 	Public SelectedPrinter As String
 	Private initialIndex As Integer = -1
 
 	Private Sub FSelectPrinter_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		For Each printer As String In System.Drawing.Printing.PrinterSettings.InstalledPrinters
+			Dim printerSettings As New PrinterSettings
+			printerSettings.PrinterName = printer
+			If printerSettings.IsDefaultPrinter Then printer = $"{printer} {My.Resources.CommonResources.FSelectPrinter_DefaultPrinter}"
 			Dim i As Integer = lbPrinters.Items.Add(printer)
-			If SelectedPrinter = printer Then
+			If 0 = String.Compare(SelectedPrinter, printer, True) Then
 				lbPrinters.SelectedIndex = i
 				initialIndex = i
 			End If

@@ -93,8 +93,8 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.0.0.86;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
-        <VerInfo_Build>86</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.0.0.92;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Build>92</VerInfo_Build>
         <DCC_ExeOutput>.\bin\</DCC_ExeOutput>
         <DCC_DcuOutput>.\dcu\</DCC_DcuOutput>
         <VerInfo_MinorVer>0</VerInfo_MinorVer>
@@ -130,13 +130,13 @@
         <DCCReference Include="ED_EFTBinding.pas"/>
         <DCCReference Include="MC_Binding.pas"/>
         <DCCReference Include="MC_UICallbackParamsIn.pas"/>
-        <DCCReference Include="COM\PMS_NEXO30_TLB.pas"/>
         <DCCReference Include="COM\Accessibility_TLB.pas"/>
-        <DCCReference Include="COM\mscorlib_TLB.pas"/>
-        <DCCReference Include="COM\PMS_Common_TLB.pas"/>
+        <DCCReference Include="COM\PMS_COMMON_TLB.pas"/>
+        <DCCReference Include="COM\PMS_NEXO30_TLB.pas"/>
+        <DCCReference Include="COM\PMS_NEXOSALE30_TLB.pas"/>
         <DCCReference Include="COM\System_TLB.pas"/>
         <DCCReference Include="COM\System_Windows_Forms_TLB.pas"/>
-        <DCCReference Include="COM\PMS_NEXOSALE30_TLB.pas"/>
+        <DCCReference Include="COM\mscorlib_TLB.pas"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -200,7 +200,7 @@
                 </DeployFile>
                 <DeployFile LocalName="bin\PMS.NEXO30.CEGID.dll" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>PMS_NEXOSALE30.dll</RemoteName>
+                        <RemoteName>PMS_NEXO30_CEGID.dll</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

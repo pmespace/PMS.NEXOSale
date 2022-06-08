@@ -66,6 +66,7 @@ Partial Class FSelectPrinter
 		'
 		'FSelectPrinter
 		'
+		Me.AcceptButton = Me.pbSelect
 		resources.ApplyResources(Me, "$this")
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ControlBox = False

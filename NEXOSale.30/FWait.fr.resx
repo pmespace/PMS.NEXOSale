@@ -123,4 +123,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Connexion au POI</value>
   </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>***vide***</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>***vide***</value>
+  </data>
 </root>

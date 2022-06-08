@@ -8,12 +8,13 @@
 #define MySettings "Settings"
 #define MyLog "Log"
 #define MyDoc "Doc"
+#define MyReceipts "Receipts"
 #define MySettingsFileName "pms.nexo30.cegid.settings.json"
 #define MySimulator "Simulator"
 #define MyLibVersion GetVersionNumbersString("..\Bin\PMS.NEXOSALE30.dll")
 #define MyDriverVersion GetDateTimeString('yyyy/mm/dd', '-', ':');
 #define MyExeDir "..\bin"
-#define MySimulatorDir "..\..\Nexo\bin\net47"
+#define MySimulatorDir "..\..\retailer3x\bin\net47"
 #define MyExeDelphiDir "..\NEXOD\Bin"
 #define MyAppPublisher "PMS"
 #define MyRegistry "Software\PMS\NexoSale\"
@@ -48,48 +49,51 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 [Dirs]
 Name: "{app}"; Flags: uninsalwaysuninstall
 Name: "{commonappdata}\{#MyAppKey}"; Flags: uninsneveruninstall
-Name: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: uninsneveruninstall
-Name: "{commonappdata}\{#MyAppKey}\{#MyLog}"; Flags: uninsneveruninstall
+Name: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: uninsalwaysuninstall
+Name: "{commonappdata}\{#MyAppKey}\{#MyLog}"; Flags: uninsalwaysuninstall
 Name: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: uninsalwaysuninstall
 Name: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: uninsalwaysuninstall
+Name: "{commonappdata}\{#MyAppKey}\{#MyReceipts}"; Flags: uninsneveruninstall
 
 [Files]
 Source: "{#MyExeDir}\PMS.NEXO30.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\PMS.COMMON.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\PMS.HPDF.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\libhpdf.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "{#MyExeDir}\PMS.NEXOSALE30.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}\fr\PMS.NEXOSALE30.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
-
 Source: "{#MyExeDir}\nexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}\fr\nexoSaleTest.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
 
-Source: "{#MyUserdocs}\nexosale.settings.json"; DestDir: "{userdocs}\{#MyAppKey}"; Flags: ignoreversion
+Source: "{#MyExeDir}\fr\*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
+
+;Source: "{#MyUserdocs}\nexosale.settings.json"; DestDir: "{userdocs}\{#MyAppKey}"; Flags: ignoreversion
 Source: "{#MySimulatorDir}\nexoSimulator30.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MySimulatorDir}\nexoBuilder30.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDelphiDir}\PMS.NEXO30.CEGID.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "{#MyExeDelphiDir}\{#MySettingsFileName}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: onlyifdoesntexist
+Source: "{#myUserdocs}\nexosale\nexosale.settings.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; DestName: "{#MySettingsFileName}"; Flags: onlyifdoesntexist
 Source: "{#MySimulatorDir}\nexo.simulator.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
 Source: "{#MySimulatorDir}\nexo.simulator.response.*.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
-Source: "{#MyPDFToAdd}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: onlyifdoesntexist
+Source: "{#MyPDFToAdd}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MyDoc}"; Flags: ignoreversion
 
 [Run]
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.COMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXO30"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden; StatusMsg: "Registering component PMS.NEXOSALE30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden waituntilterminated; StatusMsg: "Registering component PMS.COMMON"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden waituntilterminated; StatusMsg: "Registering component PMS.NEXO30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /codebase"; WorkingDir: "{app}"; Flags: runhidden waituntilterminated; StatusMsg: "Registering component PMS.NEXOSALE30"
 ; register the driver inside the Y2 system
 Filename: {code:CPOSDllManagerDir}\CPOS_DllManager.exe;  Parameters: "-reg PMS.NEXO30.CEGID.dll"; WorkingDir: "{app}"; Flags: runhidden runascurrentuser; StatusMsg: "Registering PMS.NEXO30.CEGID driver";  Check: IsCPOSDllManagerPresent
 
 [UninstallRun]
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; RunOnceId: "UnregisteringPMSCOMMON"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; RunOnceId: "UnregisteringPMSNEXO30"
-Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden; RunOnceId: "UnregisteringPMSNEXOSALE30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.COMMON.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden waituntilterminated; RunOnceId: "UnregisteringPMSCOMMON"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXO30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden waituntilterminated; RunOnceId: "UnregisteringPMSNEXO30"
+Filename: {dotnet40}\Regasm.exe;    Parameters: "PMS.NEXOSALE30.dll /unregister"; WorkingDir: "{app}"; Flags: runhidden waituntilterminated; RunOnceId: "UnregisteringPMSNEXOSALE30"
 ; unregister the driver from the Y2 system
-Filename: {code:CPOSDllManagerDir}\CPOS_DllManager.exe;  Parameters: "-unreg PMS.NEXO30.CEGID"; WorkingDir: "{app}"; Flags: runhidden; Check: IsCPOSDllManagerPresent; RunOnceId: "UnregisteringPMSNEXO30CEGID"
+Filename: {code:CPOSDllManagerDir}\CPOS_DllManager.exe;  Parameters: "-unreg PMS.NEXO30.CEGID"; WorkingDir: "{app}"; Flags: runhidden waituntilterminated; Check: IsCPOSDllManagerPresent; RunOnceId: "UnregisteringPMSNEXO30CEGID"
 
 [Registry]
-Root: HKCU; Subkey: "{#MyRegistry}"; ValueName: "{#MyRegistryKey}"; ValueType: string; ValueData: "{commonappdata}\{#MyAppKey}\{#MySettings}\{#MySettingsFileName}"; Flags: createvalueifdoesntexist uninsdeletekey
+Root: HKCU; Subkey: "{#MyRegistry}"; ValueName: "{#MyRegistryKey}"; ValueType: string; ValueData: "{commonappdata}\{#MyAppKey}\{#MySettings}\{#MySettingsFileName}"; Flags: createvalueifdoesntexist 
 Root: HKCU; Subkey: "{#MySimulatorRegistry}"; ValueName: "{#MySimulatorRegistryKey}"; ValueType: string; ValueData: "{commonappdata}\{#MyAppKey}\{#MySimulator}\nexo.simulator.json"; Flags: createvalueifdoesntexist uninsdeletekey
 											 
 [Code]

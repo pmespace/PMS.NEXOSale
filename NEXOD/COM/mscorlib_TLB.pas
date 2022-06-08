@@ -12,7 +12,7 @@ unit mscorlib_TLB;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 14/02/2022 11:40:44 depuis la bibliothèque de types ci-dessous.
+// Fichier généré le 07/06/2022 17:58:47 depuis la bibliothèque de types ci-dessous.
 
 // ************************************************************************  //
 // Biblio. types : C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb (5)

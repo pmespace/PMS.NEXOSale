@@ -76,9 +76,12 @@ const
 	TXN_SHORT_RECEIPT_TRANSACTION = 'TRANSACTION';
 	TXN_SHORT_RECEIPT_FINAL_RESULT = 'FINAL RESULT';
 
-	TXN_OFFLINE_MESSAGE = 'The transaction has been cancelled before completed and is in an unstable state. Check the terminal for final result.' + CRLF + CRLF + 'Press YES if the purchase has been accepted.' + CRLF + 'Press NO if the purchase has been declined.';
-	TXN_OFFLINE_MESSAGE_FAILED = 'You indicated the purchase was not completed.' + CRLF + 'Press YES to confirm.' + CRLF + 'Press NO to The transaction has been cancelled before completed and is in an unstable state. Check the terminal for final result.' + CRLF + CRLF + 'Press YES if the purchase has been accepted.' + CRLF + 'Press NO if the purchase has been declined.';
-	TXN_OFFLINE_CAPTION = 'Incomplete transaction';
+//	TXN_OFFLINE_MESSAGE = 'The transaction has been cancelled before being completed and is in an unstable state. Check the terminal for final result.' + CRLF
+//		+ CRLF + 'Press YES if the purchase has been accepted.' + CRLF + 'Press NO if the purchase has been declined.';
+//	TXN_OFFLINE_MESSAGE_FAILED = 'You indicated the purchase was not completed.' + CRLF + 'Press YES to confirm.' + CRLF +
+//		'Press NO to The transaction has been cancelled before completed and is in an unstable state. Check the terminal for final result.' + CRLF + CRLF
+//		+ 'Press YES if the purchase has been accepted.' + CRLF + 'Press NO if the purchase has been declined.';
+//	TXN_OFFLINE_CAPTION = 'Incomplete transaction';
 
 	// ***********************************************
 	// words used to identify the payment inside Y2 *
@@ -115,6 +118,7 @@ end;
 
 function GetErrorDescription(error: integer): wideString;
 begin
+
 	case error of
 		DRIVER_NO_ERROR:
 			result := 'No error';

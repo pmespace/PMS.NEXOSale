@@ -63,6 +63,7 @@ Public Class FWait
 
 	Private Sub FWait_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		pbClose.Enabled = False
+		pbClose.Focus()
 		PostMessage(WM_START)
 	End Sub
 

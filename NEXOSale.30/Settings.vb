@@ -2,6 +2,7 @@
 Imports System.Runtime.InteropServices
 Imports COMMON
 Imports Microsoft.Win32
+Imports Newtonsoft.Json
 
 <ComClass(POISettings.ClassId, POISettings.InterfaceId, POISettings.EventsId)>
 Public Class POISettings
@@ -641,19 +642,31 @@ Public Class Settings
 	End Property
 	Private _alwayslogtopoi As Boolean = True
 
+	<DispId(256)>
+	Public Property UseRefundForCancel As Boolean
+		Get
+			Return _userefundforcancel
+		End Get
+		Set(value As Boolean)
+			_userefundforcancel = value
+		End Set
+	End Property
+	Private _userefundforcancel As Boolean = False
+
+	<DispId(300)>
 	Public Property CardSchemes As CardScheme
 		Get
-			Return _cardschemes
+			Return _cardscheme
 		End Get
 		Set(value As CardScheme)
 			If Not IsNothing(value) Then
-				_cardschemes = value
+				_cardscheme = value
 			Else
-				_cardschemes.Clear()
+				_cardscheme.Clear()
 			End If
 		End Set
 	End Property
-	Private _cardschemes As New CardScheme
+	Private _cardscheme As New CardScheme
 
 	'usable only inside the component
 	''' <summary>
@@ -692,6 +705,18 @@ Public Class Settings
 	<DispId(503)>
 	Public Function DefaultSettingsFolder() As String
 		Return DEFAULT_SETTINGS_FILE_NAME_FOLDER
+	End Function
+
+	Public Const REGISTRY_KEY_CURRENCIES_FILE_NAME As String = "CurrenciesFileName"
+	<DispId(504)>
+	Public Function RegistryKeyCurrenciesFileName() As String
+		Return REGISTRY_KEY_CURRENCIES_FILE_NAME
+	End Function
+
+	Public Const DEFAULT_CURRENCIES_FILE_NAME As String = "nexosale.currencies.json"
+	<DispId(505)>
+	Public Function DefaultCurrenciesFileName() As String
+		Return DEFAULT_CURRENCIES_FILE_NAME
 	End Function
 #End Region
 

@@ -105,13 +105,6 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\COM\PMS_NEXOSALE30_TLB.pas"/>
-        <DCCReference Include="..\COM\PMS_NEXO30_TLB.pas"/>
-        <DCCReference Include="..\COM\mscorlib_TLB.pas"/>
-        <DCCReference Include="..\COM\System_TLB.pas"/>
-        <DCCReference Include="..\COM\System_Windows_Forms_TLB.pas"/>
-        <DCCReference Include="..\COM\PMS_Common_TLB.pas"/>
-        <DCCReference Include="..\COM\Accessibility_TLB.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

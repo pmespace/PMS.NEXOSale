@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pbSaveSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pbSaveSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 23</value>
+  </data>
+  <data name="pbSaveSettings.Text" xml:space="preserve">
+    <value>Enregistrer les paramètres</value>
+  </data>
+  <data name="pbSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>775, 3</value>
+  </data>
+  <data name="pbSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 23</value>
+  </data>
+  <data name="pbSave.Text" xml:space="preserve">
+    <value>&amp;Valider</value>
+  </data>
+  <data name="pbCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>830, 3</value>
+  </data>
+  <data name="pbCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 23</value>
+  </data>
+  <data name="pbCancel.Text" xml:space="preserve">
+    <value>&amp;Annuler</value>
+  </data>
+  <data name="panelButtons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>886, 29</value>
+  </data>
+  <data name="Label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>269, 6</value>
+  </data>
+  <data name="Label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 13</value>
+  </data>
+  <data name="Label12.Text" xml:space="preserve">
+    <value>Délai avant fermeture automatique:</value>
+  </data>
+  <data name="udAutocloseDelay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 3</value>
+  </data>
+  <data name="cbAutoclose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbAutoclose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>260, 17</value>
+  </data>
+  <data name="cbAutoclose.Text" xml:space="preserve">
+    <value>Fermeture automatique de la fenêtre de traitement</value>
+  </data>
+  <data name="cbNoAutoCloseOnError.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbNoAutoCloseOnError.Location" type="System.Drawing.Point, System.Drawing">
+    <value>510, 4</value>
+  </data>
+  <data name="cbNoAutoCloseOnError.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 17</value>
+  </data>
+  <data name="cbNoAutoCloseOnError.Text" xml:space="preserve">
+    <value>Pas de fermeture automatique en cas d'erreur</value>
+  </data>
+  <data name="panelAutocloseSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>875, 26</value>
+  </data>
+  <data name="cbUseBackup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbUseBackup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 20</value>
+  </data>
+  <data name="cbUseBackup.Text" xml:space="preserve">
+    <value>Utiliser le terminal de secours</value>
+  </data>
+  <data name="cbGPRS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbGPRS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>191, 17</value>
+  </data>
+  <data name="cbGPRS.Text" xml:space="preserve">
+    <value>Utiliser la connexion GPRS/3G/4G</value>
+  </data>
+  <data name="cbPOIIsOffline.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbPOIIsOffline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 17</value>
+  </data>
+  <data name="cbPOIIsOffline.Text" xml:space="preserve">
+    <value>Le terminal n'est pas connecté</value>
+  </data>
+  <data name="cbHideInformation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbHideInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 17</value>
+  </data>
+  <data name="cbHideInformation.Text" xml:space="preserve">
+    <value>Cacher les traces durant le traitement d'une transaction</value>
+  </data>
+  <data name="cbAlwaysLogToPOI.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbAlwaysLogToPOI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 17</value>
+  </data>
+  <data name="cbAlwaysLogToPOI.Text" xml:space="preserve">
+    <value>Toulours se reconnecter au terminal avant une transaction</value>
+  </data>
+  <data name="FlowLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>875, 330</value>
+  </data>
+  <data name="panelSettingsPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>881, 378</value>
+  </data>
+  <data name="settingsPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>878, 377</value>
+  </data>
+  <data name="settingsPage.Text" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="rbMainPOI.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbMainPOI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 17</value>
+  </data>
+  <data name="rbMainPOI.Text" xml:space="preserve">
+    <value>POI principal</value>
+  </data>
+  <data name="rbBackupPOI.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbBackupPOI.Location" type="System.Drawing.Point, System.Drawing">
+    <value>94, 3</value>
+  </data>
+  <data name="rbBackupPOI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 17</value>
+  </data>
+  <data name="rbBackupPOI.Text" xml:space="preserve">
+    <value>POI de secours</value>
+  </data>
+  <data name="cbSavePDF.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSavePDF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 3</value>
+  </data>
+  <data name="cbSavePDF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 17</value>
+  </data>
+  <data name="cbSavePDF.Text" xml:space="preserve">
+    <value>Enregistrer les reçus</value>
+  </data>
+  <data name="FlowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>868, 23</value>
+  </data>
+  <data name="efServerIP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 6</value>
+  </data>
+  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 9</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 13</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>IP du terminal:</value>
+  </data>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>392, 9</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Port du terminal:</value>
+  </data>
+  <data name="udServerPort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>481, 6</value>
+  </data>
+  <data name="pbTestConnection.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbTestConnection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>582, 4</value>
+  </data>
+  <data name="pbTestConnection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 23</value>
+  </data>
+  <data name="pbTestConnection.Text" xml:space="preserve">
+    <value>&amp;Tester la connexion</value>
+  </data>
+  <data name="udCheckTimer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 3</value>
+  </data>
+  <data name="Label17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 13</value>
+  </data>
+  <data name="Label17.Text" xml:space="preserve">
+    <value>Timer chèque:</value>
+  </data>
+  <data name="panelChecks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>715, 67</value>
+  </data>
+  <data name="panelChecks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 26</value>
+  </data>
+  <data name="udGeneralTimer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 3</value>
+  </data>
+  <data name="Label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>Timer nexo:</value>
+  </data>
+  <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>715, 3</value>
+  </data>
+  <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 26</value>
+  </data>
+  <data name="udPaymentTimer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 3</value>
+  </data>
+  <data name="Label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 13</value>
+  </data>
+  <data name="Label11.Text" xml:space="preserve">
+    <value>Timer paiement:</value>
+  </data>
+  <data name="panelPaymentTimer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>715, 35</value>
+  </data>
+  <data name="panelPaymentTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 26</value>
+  </data>
+  <data name="cbSupportsCheck.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSupportsCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>582, 71</value>
+  </data>
+  <data name="cbSupportsCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 17</value>
+  </data>
+  <data name="cbSupportsCheck.Text" xml:space="preserve">
+    <value>Support des chèques</value>
+  </data>
+  <data name="cbSynchronous.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSynchronous.Location" type="System.Drawing.Point, System.Drawing">
+    <value>582, 39</value>
+  </data>
+  <data name="cbSynchronous.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 17</value>
+  </data>
+  <data name="cbSynchronous.Text" xml:space="preserve">
+    <value>Synchrone</value>
+  </data>
+  <data name="cbPrintReceipt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbPrintReceipt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 17</value>
+  </data>
+  <data name="cbPrintReceipt.Text" xml:space="preserve">
+    <value>Imprimer les reçus</value>
+  </data>
+  <data name="cbSupportsAbort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSupportsAbort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>481, 71</value>
+  </data>
+  <data name="cbSupportsAbort.Text" xml:space="preserve">
+    <value>Support abort</value>
+  </data>
+  <data name="cbSupportsRefund.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSupportsRefund.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 17</value>
+  </data>
+  <data name="cbSupportsRefund.Text" xml:space="preserve">
+    <value>Support du remboursement</value>
+  </data>
+  <data name="cbCustomer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbCustomer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 17</value>
+  </data>
+  <data name="cbCustomer.Text" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="cbMerchant.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbMerchant.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 4</value>
+  </data>
+  <data name="cbMerchant.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 17</value>
+  </data>
+  <data name="cbMerchant.Text" xml:space="preserve">
+    <value>Commerçant</value>
+  </data>
+  <data name="panelReceipts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 35</value>
+  </data>
+  <data name="cbSupportsReversal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSupportsReversal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>162, 71</value>
+  </data>
+  <data name="cbSupportsReversal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 17</value>
+  </data>
+  <data name="cbSupportsReversal.Text" xml:space="preserve">
+    <value>Support de l'annulation</value>
+  </data>
+  <data name="cbSupportsReconciliation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSupportsReconciliation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 71</value>
+  </data>
+  <data name="cbSupportsReconciliation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 17</value>
+  </data>
+  <data name="cbSupportsReconciliation.Text" xml:space="preserve">
+    <value>Support de la réconciliation</value>
+  </data>
+  <data name="panelServerSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>868, 96</value>
+  </data>
+  <data name="TableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>874, 131</value>
+  </data>
+  <data name="lblReceiptsFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblReceiptsFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 81</value>
+  </data>
+  <data name="lblReceiptsFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 13</value>
+  </data>
+  <data name="lblReceiptsFolder.Text" xml:space="preserve">
+    <value>Répertoire des reçus:</value>
+  </data>
+  <data name="Label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 11</value>
+  </data>
+  <data name="Label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 13</value>
+  </data>
+  <data name="Label13.Text" xml:space="preserve">
+    <value>Nom du fichier de paramètres:</value>
+  </data>
+  <data name="Label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 46</value>
+  </data>
+  <data name="Label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 13</value>
+  </data>
+  <data name="Label14.Text" xml:space="preserve">
+    <value>Nom du fichier LOG:</value>
+  </data>
+  <data name="efSettingsFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>676, 20</value>
+  </data>
+  <data name="pbChooseSettingsFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbChooseSettingsFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>685, 3</value>
+  </data>
+  <data name="pnlSettingsFileName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 3</value>
+  </data>
+  <data name="pnlSettingsFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 29</value>
+  </data>
+  <data name="efLogFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>676, 20</value>
+  </data>
+  <data name="pbChooseLogFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbChooseLogFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>685, 3</value>
+  </data>
+  <data name="pnlLogFileName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 38</value>
+  </data>
+  <data name="pnlLogFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 29</value>
+  </data>
+  <data name="pbReceiptsDirectory.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbReceiptsDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>685, 3</value>
+  </data>
+  <data name="efReceiptsDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>676, 20</value>
+  </data>
+  <data name="pnlReceipts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 73</value>
+  </data>
+  <data name="pnlReceipts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>714, 29</value>
+  </data>
+  <data name="panelFileSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>874, 105</value>
+  </data>
+  <data name="efSaleID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSaleIDUSeIP.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSaleIDUSeIP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 5</value>
+  </data>
+  <data name="cbSaleIDUSeIP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 17</value>
+  </data>
+  <data name="cbSaleIDUSeIP.Text" xml:space="preserve">
+    <value>Utiliser l'IP locale</value>
+  </data>
+  <data name="panelSaleID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 27</value>
+  </data>
+  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbPOIIDUseIP.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbPOIIDUseIP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 5</value>
+  </data>
+  <data name="cbPOIIDUseIP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 17</value>
+  </data>
+  <data name="cbPOIIDUseIP.Text" xml:space="preserve">
+    <value>Utiliser l'IP du terminal</value>
+  </data>
+  <data name="efPOIID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="panelPOIID.Location" type="System.Drawing.Point, System.Drawing">
+    <value>294, 3</value>
+  </data>
+  <data name="panelPOIID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 27</value>
+  </data>
+  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Nom de l'application:</value>
+  </data>
+  <data name="efApplicationName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>114, 3</value>
+  </data>
+  <data name="efApplicationName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 20</value>
+  </data>
+  <data name="panelApplicationName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 26</value>
+  </data>
+  <data name="Label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>Version du logiciel:</value>
+  </data>
+  <data name="efSoftwareVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 3</value>
+  </data>
+  <data name="efSoftwareVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 20</value>
+  </data>
+  <data name="panelSoftwareVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 36</value>
+  </data>
+  <data name="panelSoftwareVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 26</value>
+  </data>
+  <data name="Label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 13</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>Nom du fournisseur:</value>
+  </data>
+  <data name="efManufacturerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 3</value>
+  </data>
+  <data name="efManufacturerName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 20</value>
+  </data>
+  <data name="panelManufacturerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>294, 36</value>
+  </data>
+  <data name="panelManufacturerName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 26</value>
+  </data>
+  <data name="Label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>Devise:</value>
+  </data>
+  <data name="cbxCurrency.Location" type="System.Drawing.Point, System.Drawing">
+    <value>52, 3</value>
+  </data>
+  <data name="cbxCurrency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 21</value>
+  </data>
+  <data name="panelCurrency.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 3</value>
+  </data>
+  <data name="panelCurrency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 27</value>
+  </data>
+  <data name="Label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value>Certificat:</value>
+  </data>
+  <data name="efCertificationCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 3</value>
+  </data>
+  <data name="efCertificationCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 20</value>
+  </data>
+  <data name="panelCertificationCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 26</value>
+  </data>
+  <data name="Label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 13</value>
+  </data>
+  <data name="Label18.Text" xml:space="preserve">
+    <value>Code administrateur:</value>
+  </data>
+  <data name="efAdminCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 3</value>
+  </data>
+  <data name="efAdminCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="cbUseDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbUseDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 4</value>
+  </data>
+  <data name="cbUseDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 17</value>
+  </data>
+  <data name="cbUseDate.Text" xml:space="preserve">
+    <value>Utiliser la date</value>
+  </data>
+  <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>585, 68</value>
+  </data>
+  <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 26</value>
+  </data>
+  <data name="panelNexoSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>874, 97</value>
+  </data>
+  <data name="panelAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>880, 377</value>
+  </data>
+  <data name="advancedSettingsPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>878, 377</value>
+  </data>
+  <data name="advancedSettingsPage.Text" xml:space="preserve">
+    <value>Paramètres avancés</value>
+  </data>
+  <data name="efGatewayIP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 3</value>
+  </data>
+  <data name="Label19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 13</value>
+  </data>
+  <data name="Label19.Text" xml:space="preserve">
+    <value>IP de la passerelle:</value>
+  </data>
+  <data name="Label21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 61</value>
+  </data>
+  <data name="efICCD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 58</value>
+  </data>
+  <data name="Label23.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 61</value>
+  </data>
+  <data name="udICCDPort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 58</value>
+  </data>
+  <data name="efUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 84</value>
+  </data>
+  <data name="Label24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 87</value>
+  </data>
+  <data name="Label24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 13</value>
+  </data>
+  <data name="Label24.Text" xml:space="preserve">
+    <value>Mot de passe:</value>
+  </data>
+  <data name="efPWD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 84</value>
+  </data>
+  <data name="Label22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 87</value>
+  </data>
+  <data name="Label22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 13</value>
+  </data>
+  <data name="Label22.Text" xml:space="preserve">
+    <value>Utilisateur:</value>
+  </data>
+  <data name="Label20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="Label20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="Label20.Text" xml:space="preserve">
+    <value>Port de la passerelle:</value>
+  </data>
+  <data name="udGatewayPort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 3</value>
+  </data>
+  <data name="pbTestGPRS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbTestGPRS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 110</value>
+  </data>
+  <data name="pbTestGPRS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 23</value>
+  </data>
+  <data name="pbTestGPRS.Text" xml:space="preserve">
+    <value>&amp;Tester la connexion</value>
+  </data>
+  <data name="TextBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>494, 58</value>
+  </data>
+  <data name="TextBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 46</value>
+  </data>
+  <data name="cbRemoteCertificateNotAvailable.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbRemoteCertificateNotAvailable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 17</value>
+  </data>
+  <data name="cbRemoteCertificateNotAvailable.Text" xml:space="preserve">
+    <value>Certificat non disponible</value>
+  </data>
+  <data name="cbRemoteCertificateNameMismatch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbRemoteCertificateNameMismatch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 3</value>
+  </data>
+  <data name="cbRemoteCertificateNameMismatch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 17</value>
+  </data>
+  <data name="cbRemoteCertificateNameMismatch.Text" xml:space="preserve">
+    <value>Le nom du certificat est erroné</value>
+  </data>
+  <data name="cbRemoteCertificateChainErrors.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbRemoteCertificateChainErrors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>322, 3</value>
+  </data>
+  <data name="cbRemoteCertificateChainErrors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 17</value>
+  </data>
+  <data name="cbRemoteCertificateChainErrors.Text" xml:space="preserve">
+    <value>Erreur dans la chaine des certificats</value>
+  </data>
+  <data name="Label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>525, 6</value>
+  </data>
+  <data name="Label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="Label16.Text" xml:space="preserve">
+    <value>Nom du server:</value>
+  </data>
+  <data name="efServerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>610, 3</value>
+  </data>
+  <data name="efServerName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 20</value>
+  </data>
+  <data name="GPRSPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>878, 377</value>
+  </data>
+  <data name="GPRSPage.Text" xml:space="preserve">
+    <value>Dégradé GPRS/3G/4G</value>
+  </data>
+  <data name="Label29.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 48</value>
+  </data>
+  <data name="Label29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 13</value>
+  </data>
+  <data name="Label29.Text" xml:space="preserve">
+    <value>Texte à imprimer:</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Label29.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Label28.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>52, 89</value>
+  </data>
+  <data name="Label28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 13</value>
+  </data>
+  <data name="Label28.Text" xml:space="preserve">
+    <value>Logo à imprimer:</value>
+  </data>
+  <data name="efPicture.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 85</value>
+  </data>
+  <data name="efPicture.Size" type="System.Drawing.Size, System.Drawing">
+    <value>658, 20</value>
+  </data>
+  <data name="pbChoosePicture.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbChoosePicture.Location" type="System.Drawing.Point, System.Drawing">
+    <value>806, 84</value>
+  </data>
+  <data name="pbChoosePicture.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 23</value>
+  </data>
+  <data name="pbChoosePicture.Text" xml:space="preserve">
+    <value>Choisir...</value>
+  </data>
+  <data name="efMerchantName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 32</value>
+  </data>
+  <data name="efMerchantName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>658, 46</value>
+  </data>
+  <data name="efMerchantName.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="pbPrinter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbPrinter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 23</value>
+  </data>
+  <data name="pbPrinter.Text" xml:space="preserve">
+    <value>Sélectionner l'imprimante</value>
+  </data>
+  <data name="lblPrinter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblPrinter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>142, 8</value>
+  </data>
+  <data name="lblPrinter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 13</value>
+  </data>
+  <data name="lblPrinter.Text" xml:space="preserve">
+    <value>Aucune imprimante sélectionnée</value>
+  </data>
+  <data name="TableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>866, 110</value>
+  </data>
+  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>866, 249</value>
+  </data>
+  <data name="TableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>872, 371</value>
+  </data>
+  <data name="printSettingsPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>878, 377</value>
+  </data>
+  <data name="printSettingsPage.Text" xml:space="preserve">
+    <value>Paramètres d'impression</value>
+  </data>
+  <data name="cbResuseMerchantReferenceID.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbResuseMerchantReferenceID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>370, 17</value>
+  </data>
+  <data name="cbResuseMerchantReferenceID.Text" xml:space="preserve">
+    <value>Réutiliser la référence du commerçant comme référence de la transaction</value>
+  </data>
+  <data name="cbReturnBrand.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbReturnBrand.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 3</value>
+  </data>
+  <data name="cbReturnBrand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 17</value>
+  </data>
+  <data name="cbReturnBrand.Text" xml:space="preserve">
+    <value>Récupérer la marque de la carte après la transaction</value>
+  </data>
+  <data name="cbAllowOfflinePOI.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbAllowOfflinePOI.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 26</value>
+  </data>
+  <data name="cbAllowOfflinePOI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 17</value>
+  </data>
+  <data name="cbAllowOfflinePOI.Text" xml:space="preserve">
+    <value>Permettre les paiements si le terminal est hors ligne</value>
+  </data>
+  <data name="FlowLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>872, 371</value>
+  </data>
+  <data name="miscellaneous.Size" type="System.Drawing.Size, System.Drawing">
+    <value>878, 377</value>
+  </data>
+  <data name="miscellaneous.Text" xml:space="preserve">
+    <value>Divers</value>
+  </data>
+  <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>886, 403</value>
+  </data>
+  <data name="panelMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>892, 444</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>916, 468</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Paramètres nexo Retailer</value>
+  </data>
+  <data name="cbUseRefundForCancel.Text" xml:space="preserve">
+    <value>Utiliser le remboursement au lieu de l'annulation de transaction</value>
+  </data>
+</root>

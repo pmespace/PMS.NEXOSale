@@ -4,24 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{03C2B68F-C658-43EE-83F7-6A86F2C62AE3}</ProjectGuid>
+    <ProjectGuid>{303A0841-5197-493C-A7FC-DE870F8CB7C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>NEXOSALE</RootNamespace>
-    <AssemblyName>PMS.NEXOSALE30</AssemblyName>
+    <AssemblyName>PMS.NEXOSALE31</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
-    <ShouldCreateLogs>True</ShouldCreateLogs>
-    <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
-    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
-    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
-    <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <AssemblyVersionSettings>None.None.None.None</AssemblyVersionSettings>
-    <UpdatePackageVersion>False</UpdatePackageVersion>
-    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
-    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
-    <AssemblyFileVersionSettings>None.None.None.None</AssemblyFileVersionSettings>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,9 +21,9 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\bin\</OutputPath>
-    <DocumentationFile>PMS.NEXOSALE30.xml</DocumentationFile>
+    <DocumentationFile>PMS.NEXOSALE31.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,9 +31,9 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>..\bin\</OutputPath>
-    <DocumentationFile>PMS.NEXOSALE30.xml</DocumentationFile>
+    <DocumentationFile>PMS.NEXOSALE31.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -56,15 +48,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="PMS.COMMON, Version=5.5.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.COMMON.5.5.5\lib\net47\PMS.COMMON.dll</HintPath>
-    </Reference>
-    <Reference Include="PMS.NEXO30, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\PMS.NEXO30.4.3.0\lib\net47\PMS.NEXO30.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -76,7 +60,12 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="COMMON" />
+    <Import Include="COMMON.WIN32" />
+    <Import Include="HPDF" />
     <Import Include="Microsoft.VisualBasic" />
+    <Import Include="NEXO" />
+    <Import Include="NEXO.Client" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
@@ -87,47 +76,68 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonResources.Designer.vb">
+    <Compile Include="..\NEXOSale.30\CommonResources.Designer.vb">
+      <Link>CommonResources.Designer.vb</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CommonResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="FConfirm.Designer.vb">
+    <Compile Include="..\NEXOSale.30\Currencies.vb">
+      <Link>Currencies.vb</Link>
+    </Compile>
+    <Compile Include="..\NEXOSale.30\FConfirm.designer.vb">
+      <Link>FConfirm.designer.vb</Link>
       <DependentUpon>FConfirm.vb</DependentUpon>
     </Compile>
-    <Compile Include="FConfirm.vb">
+    <Compile Include="..\NEXOSale.30\FConfirm.vb">
+      <Link>FConfirm.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Currencies.vb" />
-    <Compile Include="FConfirmResult.Designer.vb">
+    <Compile Include="..\NEXOSale.30\FConfirmResult.designer.vb">
+      <Link>FConfirmResult.designer.vb</Link>
       <DependentUpon>FConfirmResult.vb</DependentUpon>
     </Compile>
-    <Compile Include="FConfirmResult.vb">
+    <Compile Include="..\NEXOSale.30\FConfirmResult.vb">
+      <Link>FConfirmResult.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FProcessing.designer.vb">
+    <Compile Include="..\NEXOSale.30\FProcessing.designer.vb">
+      <Link>FProcessing.designer.vb</Link>
       <DependentUpon>FProcessing.vb</DependentUpon>
     </Compile>
-    <Compile Include="FProcessing.vb">
+    <Compile Include="..\NEXOSale.30\FProcessing.vb">
+      <Link>FProcessing.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FSelectPrinter.Designer.vb">
+    <Compile Include="..\NEXOSale.30\FSelectPrinter.designer.vb">
+      <Link>FSelectPrinter.designer.vb</Link>
       <DependentUpon>FSelectPrinter.vb</DependentUpon>
     </Compile>
-    <Compile Include="FSelectPrinter.vb">
+    <Compile Include="..\NEXOSale.30\FSelectPrinter.vb">
+      <Link>FSelectPrinter.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FSettings.Designer.vb">
+    <Compile Include="..\NEXOSale.30\FSettings.designer.vb">
+      <Link>FSettings.designer.vb</Link>
       <DependentUpon>FSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="FSettings.vb">
+    <Compile Include="..\NEXOSale.30\FSettings.vb">
+      <Link>FSettings.vb</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FWait.Designer.vb">
+    <Compile Include="..\NEXOSale.30\FWait.designer.vb">
+      <Link>FWait.designer.vb</Link>
       <DependentUpon>FWait.vb</DependentUpon>
     </Compile>
-    <Compile Include="FWait.vb">
+    <Compile Include="..\NEXOSale.30\FWait.vb">
+      <Link>FWait.vb</Link>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\NEXOSale.30\NEXOSALE.vb">
+      <Link>NEXOSALE.vb</Link>
+    </Compile>
+    <Compile Include="..\NEXOSale.30\Settings.vb">
+      <Link>Settings.vb</Link>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -140,50 +150,63 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="NEXOSALE.vb" />
-    <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CommonResources.fr.resx" />
-    <EmbeddedResource Include="CommonResources.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    <EmbeddedResource Include="..\NEXOSale.30\CommonResources.fr.resx">
+      <Link>CommonResources.fr.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\NEXOSale.30\CommonResources.resx">
+      <Link>CommonResources.resx</Link>
       <Generator>ResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <LastGenOutput>CommonResources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="FConfirm.fr.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FConfirm.fr.resx">
+      <Link>FConfirm.fr.resx</Link>
       <DependentUpon>FConfirm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FConfirm.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FConfirm.resx">
+      <Link>FConfirm.resx</Link>
       <DependentUpon>FConfirm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FConfirmResult.fr.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FConfirmResult.fr.resx">
+      <Link>FConfirmResult.fr.resx</Link>
       <DependentUpon>FConfirmResult.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FConfirmResult.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FConfirmResult.resx">
+      <Link>FConfirmResult.resx</Link>
       <DependentUpon>FConfirmResult.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FProcessing.fr.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FProcessing.fr.resx">
+      <Link>FProcessing.fr.resx</Link>
       <DependentUpon>FProcessing.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FProcessing.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FProcessing.resx">
+      <Link>FProcessing.resx</Link>
       <DependentUpon>FProcessing.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FSelectPrinter.fr.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FSelectPrinter.fr.resx">
+      <Link>FSelectPrinter.fr.resx</Link>
       <DependentUpon>FSelectPrinter.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FSelectPrinter.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FSelectPrinter.resx">
+      <Link>FSelectPrinter.resx</Link>
       <DependentUpon>FSelectPrinter.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FSettings.fr.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FSettings.fr.resx">
+      <Link>FSettings.fr.resx</Link>
       <DependentUpon>FSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FSettings.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FSettings.resx">
+      <Link>FSettings.resx</Link>
       <DependentUpon>FSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FWait.fr.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FWait.fr.resx">
+      <Link>FWait.fr.resx</Link>
       <DependentUpon>FWait.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FWait.resx">
+    <EmbeddedResource Include="..\NEXOSale.30\FWait.resx">
+      <Link>FWait.resx</Link>
       <DependentUpon>FWait.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -198,21 +221,15 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="packages.config" />
+    <None Include="NUGET31.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.png" />
-    <None Include="button green.png" />
-    <None Include="button red.png" />
-    <Content Include="Open.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <PackageReference Include="PMS.HPDF">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="PMS.NEXO31">
+      <Version>4.7.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>rem C:\Windows\Microsoft.NET\Framework64\v4.0.30319\regasm.exe $(OutDir)PMS.COMMON.dll /codebase
-rem C:\Windows\Microsoft.NET\Framework64\v4.0.30319\regasm.exe $(OutDir)PMS.NEXO.dll /codebase
-</PreBuildEvent>
-  </PropertyGroup>
 </Project>

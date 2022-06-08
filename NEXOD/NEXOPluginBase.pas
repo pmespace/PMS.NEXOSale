@@ -3,7 +3,9 @@ unit NEXOPluginBase;
 interface
 
 uses
-	MC_PluginInterface, NEXOTypes, activeX;
+	MC_PluginInterface,
+	NEXOTypes,
+	activeX;
 
 const
 	_RESULT = ' - result: ';
@@ -31,8 +33,7 @@ type
 	protected
 		function GetLogClass: widestring; virtual; abstract;
 		function doUICallback(aeType: TMC_UICallbackType; acParamsIn: IMC_UICallbackParamsIn; out zcParamOut: IMC_UICallbackResult): TMC_CallbackResult;
-		function doMC_Callback(aeDeviceType: TMC_DeviceType; aiDeviceNum: integer; acInput: IStream; out zcAnswer: IStream; out zcErr: IMC_Error)
-			: TMC_CallbackResult;
+		function doMC_Callback(aeDeviceType: TMC_DeviceType; aiDeviceNum: integer; acInput: IStream; out zcAnswer: IStream; out zcErr: IMC_Error): TMC_CallbackResult;
 		procedure doAddLog(aeSeverity: TMC_LogSeverity; const asMessage: widestring);
 		function doManageLog(aeSeverity: TMC_LogSeverity): TMC_CallbackResult;
 		function notError: boolean;
@@ -65,25 +66,32 @@ type
 		function checkHealth(const asConnectString: widestring; out zsAnswer: widestring): boolean; stdcall;
 		function InitDevice(): boolean; stdcall;
 		function directCommand(const asCommand: widestring; acDataIn: IStream; out zcDataOut: IStream): boolean; stdcall;
-		property pluginInformations: IMC_PluginInformations read get_PluginInformations;
-		property state: TMC_StateDevice read get_State;
-		property callback: IMC_PluginCallback read get_CallBack write set_Callback;
-		property LangId: widestring read fsLangId;
+		property pluginInformations: IMC_PluginInformations
+			read get_PluginInformations;
+		property state: TMC_StateDevice
+			read get_State;
+		property callback: IMC_PluginCallback
+			read get_CallBack
+			write set_Callback;
+		property LangId: widestring
+			read fsLangId;
 
 	protected
 		// EDEL
-		procedure AddLog(fTest: boolean; level: integer; szMessage: widestring);
-		procedure AddLogInformation(szMessage: widestring);
-		procedure AddLogVerbose(szMessage: widestring);
-		procedure AddLogWarning(szMessage: widestring);
-		procedure AddLogError(szMessage: widestring);
-		procedure AddLogX(level: integer; szMessage: widestring);
+		function AddLog(fTest: boolean; level: integer; szMessage: widestring): widestring;
+		function AddLogInformation(szMessage: widestring): widestring;
+		function AddLogVerbose(szMessage: widestring): widestring;
+		function AddLogWarning(szMessage: widestring): widestring;
+		function AddLogError(szMessage: widestring): widestring;
+		function AddLogX(level: integer; szMessage: widestring): widestring;
 	end;
 
 implementation
 
 uses
-	sysutils, NEXOLib, MC_UICallbackParamsIn;
+	sysutils,
+	NEXOLib,
+	MC_UICallbackParamsIn;
 
 constructor TNexoPluginBase.create(const asLangID: widestring);
 begin
@@ -93,29 +101,29 @@ begin
 	fsSendTraceAsUICallback := CEGID_STRING_FALSE;
 end;
 
-procedure TNexoPluginBase.AddLogError(szMessage: widestring);
+function TNexoPluginBase.AddLogError(szMessage: widestring): widestring;
 begin
-	AddLogX(lsError, szMessage);
+	result := AddLogX(lsError, szMessage);
 end;
 
-procedure TNexoPluginBase.AddLogInformation(szMessage: widestring);
+function TNexoPluginBase.AddLogInformation(szMessage: widestring): widestring;
 begin
-	AddLogX(lsInformation, szMessage);
+	result := AddLogX(lsInformation, szMessage);
 end;
 
-procedure TNexoPluginBase.AddLogVerbose(szMessage: widestring);
+function TNexoPluginBase.AddLogVerbose(szMessage: widestring): widestring;
 begin
-	AddLogX(lsVerbose, szMessage);
+	result := AddLogX(lsVerbose, szMessage);
 end;
 
-procedure TNexoPluginBase.AddLogWarning(szMessage: widestring);
+function TNexoPluginBase.AddLogWarning(szMessage: widestring): widestring;
 begin
-	AddLogX(lsWarning, szMessage);
+	result := AddLogX(lsWarning, szMessage);
 end;
 
-procedure TNexoPluginBase.AddLogX(level: integer; szMessage: widestring);
+function TNexoPluginBase.AddLogX(level: integer; szMessage: widestring): widestring;
 begin
-	AddLog(doManageLog(level) = cbrOk, level, szMessage);
+	result := AddLog(doManageLog(level) = cbrOk, level, szMessage);
 end;
 
 function TNexoPluginBase.CFB: widestring;
@@ -138,33 +146,29 @@ begin
 	result := _FUNCTION;
 end;
 
-procedure TNexoPluginBase.AddLog(fTest: boolean; level: integer; szMessage: widestring);
+function TNexoPluginBase.AddLog(fTest: boolean; level: integer; szMessage: widestring): widestring;
 begin
 	if fTest then
 		doAddLog(level, szMessage);
+	result := szMessage;
 end;
 
-function TNexoPluginBase.doUICallback(aeType: TMC_UICallbackType; acParamsIn: IMC_UICallbackParamsIn; out zcParamOut: IMC_UICallbackResult)
-	: TMC_CallbackResult;
+function TNexoPluginBase.doUICallback(aeType: TMC_UICallbackType; acParamsIn: IMC_UICallbackParamsIn; out zcParamOut: IMC_UICallbackResult): TMC_CallbackResult;
 begin
 	_F('TNexoPluginBase.doUICallback');
-	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose,
-		CFB + ' - aeType: ' + inttostr(aeType) + ' - acParamsIn.assigned: ' + booltostr_(assigned(acParamsIn)));
+	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose, CFB + ' - aeType: ' + inttostr(aeType) + ' - acParamsIn.assigned: ' + booltostr_(assigned(acParamsIn)));
 
 	result := cbrNoAnswer;
 	if assigned(callback) then
 		result := callback.onMC_UICallback((self as IMC_PluginBase), aeType, acParamsIn, zcParamOut);
 
-	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose,
-		CFER + inttostr(result) + ' - zcParams.assigned: ' + booltostr_(assigned(zcParamOut)));
+	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose, CFER + inttostr(result) + ' - zcParams.assigned: ' + booltostr_(assigned(zcParamOut)));
 end;
 
-function TNexoPluginBase.doMC_Callback(aeDeviceType: TMC_DeviceType; aiDeviceNum: integer; acInput: IStream; out zcAnswer: IStream;
-	out zcErr: IMC_Error): TMC_CallbackResult;
+function TNexoPluginBase.doMC_Callback(aeDeviceType: TMC_DeviceType; aiDeviceNum: integer; acInput: IStream; out zcAnswer: IStream; out zcErr: IMC_Error): TMC_CallbackResult;
 begin
 	_F('TNexoPluginBase.doMC_Callback');
-	AddLogVerbose(CFB + ' aeDeviceType: ' + inttostr(aeDeviceType) + ' - aiDeviceNum: ' + inttostr(aiDeviceNum) + ' - acInput.assigned: ' +
-		booltostr_(assigned(acInput)));
+	AddLogVerbose(CFB + ' aeDeviceType: ' + inttostr(aeDeviceType) + ' - aiDeviceNum: ' + inttostr(aiDeviceNum) + ' - acInput.assigned: ' + booltostr_(assigned(acInput)));
 
 	result := cbrNoAnswer;
 	if assigned(callback) then
@@ -178,8 +182,7 @@ var
 	lcParamOut: IMC_UICallbackResult;
 begin
 	if fsSendTraceAsUICallback = CEGID_STRING_TRUE then
-		doUICallback(ctMessage, TMC_UICallbackPIMessage.create('- TRACE - severity: ' + inttostr(ord(aeSeverity)) + '- ' + DRIVER_NAME_SHORT +
-			' - class: ' + className + ' - ' + asMessage, 0), lcParamOut)
+		doUICallback(ctMessage, TMC_UICallbackPIMessage.create('- TRACE - severity: ' + inttostr(ord(aeSeverity)) + '- ' + DRIVER_NAME_SHORT + ' - class: ' + className + ' - ' + asMessage, 0), lcParamOut)
 	else if assigned(callback) then
 		callback.onAddLog(aeSeverity, GetLogClass, 'class: ' + className + ' - ' + asMessage);
 end;
@@ -195,9 +198,7 @@ begin
 		fsSendTraceAsUICallback := '?';
 
 	if fsSendTraceAsUICallback = '?' then
-		fsSendTraceAsUICallback :=
-			booltostr_(cbrOk = doUICallback(ctAsk,
-			TMC_UICallbackPIMessage.create('Do you want to see ALL data sent to trace tools (log tool) as UICalback?', 0), lcParamOut));
+		fsSendTraceAsUICallback := booltostr_(cbrOk = doUICallback(ctAsk, TMC_UICallbackPIMessage.create('Do you want to see ALL data sent to trace tools (log tool) as UICalback?', 0), lcParamOut));
 
 	if fsSendTraceAsUICallback = CEGID_STRING_TRUE then
 		result := cbrOk
@@ -286,8 +287,7 @@ begin
 	if assigned(fcError) then
 	begin
 		if fcError.QueryInterface(IMC_DetailedError, lcDetailedError) = S_OK then
-			result := TMC_DetailedError.create(lcDetailedError.code, lcDetailedError.message, lcDetailedError.extraInfo, lcDetailedError.TechnicalMessage,
-				lcDetailedError.AdviceMessage, lcDetailedError.Critical)
+			result := TMC_DetailedError.create(lcDetailedError.code, lcDetailedError.message, lcDetailedError.extraInfo, lcDetailedError.TechnicalMessage, lcDetailedError.AdviceMessage, lcDetailedError.Critical)
 		else
 			result := TMC_Error.create(fcError.code, fcError.message, fcError.extraInfo);
 	end;
@@ -323,15 +323,15 @@ begin
 	result := '';
 	case aiCapability of
 		caCheckHealthBeforeOpen:
-			result := CEGID_STRING_NO;
+			result := CEGID_STRING_FALSE;
 		caAlwaysOpen:
 			result := CEGID_STRING_FALSE;
 		caManagesStandaloneSettings:
 			result := CEGID_STRING_FALSE;
 		caMC_CallbackID:
 			result := CEGID_STRING_FALSE;
-	else
-		AddLogError(CF + ' - Capability #' + inttostr(aiCapability) + ' out of index');
+		else
+			AddLogError(CF + ' - Capability #' + inttostr(aiCapability) + ' out of index');
 	end;
 
 	AddLogVerbose(CFER + result);
@@ -433,12 +433,9 @@ begin
 			result := doDirectCommand(asCommand, acDataIn, zcDataOut)
 		else
 			setError(TMC_Error.create(30, 'No command to execute', 0));
-	end
-	else
-	begin
+	end else begin
 		lcErr := getLastError;
-		AddLogWarning(CF + ' - A previous error exists: ' + inttostr(lcErr.code) + ' - message: ' + lcErr.message + ' - extraInfo: ' +
-			inttostr(lcErr.extraInfo));
+		AddLogWarning(CF + ' - A previous error exists: ' + inttostr(lcErr.code) + ' - message: ' + lcErr.message + ' - extraInfo: ' + inttostr(lcErr.extraInfo));
 	end;
 
 	AddLogVerbose(CFER + booltostr_(result) + ' - zcDataOut.assigned: ' + booltostr_(assigned(zcDataOut)));

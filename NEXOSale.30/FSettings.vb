@@ -1,6 +1,6 @@
 ﻿#Const REMOVEGPRSPAGE = Not DEBUG
 #Const REMOVEPOIISOFFLINE = Not DEBUG
-#Const REMOVEPDFRECEIPTS = Not DEBUG
+'#Const REMOVEPDFRECEIPTS = Not DEBUG
 #Const REMOVEALWAYSLOGTOPOI = Not DEBUG
 #Const SUPPORTSABORT = Not DEBUG
 #Const SUPPORTSCHECKS = Not DEBUG
@@ -8,6 +8,7 @@
 Imports System.Windows.Forms
 Imports System.Globalization
 Imports System.Drawing
+Imports System.Linq
 Imports COMMON
 Imports NEXO
 Imports System.IO
@@ -19,6 +20,7 @@ Public Class FSettings
 	Private HEADER As String = "SETTINGS WINDOW - "
 	Public Settings As Settings
 	Public UseBackup As Boolean = False
+	Dim currencies As Currencies = Nothing
 
 	Private Property Modified As Boolean
 		Get
@@ -57,7 +59,7 @@ Public Class FSettings
 		End If
 	End Sub
 
-	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsReversal.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged, cbSupportsReconciliation.CheckedChanged, cbSupportsAbort.CheckedChanged, cbMerchant.CheckedChanged, cbCustomer.CheckedChanged, cbUseDate.CheckedChanged, cbResuseMerchantReferenceID.CheckedChanged, cbRemoteCertificateNotAvailable.CheckedChanged, cbRemoteCertificateNameMismatch.CheckedChanged, cbRemoteCertificateChainErrors.CheckedChanged, cbNoAutoCloseOnError.CheckedChanged, cbPOIIsOffline.CheckedChanged, cbReturnBrand.CheckedChanged, cbAllowOfflinePOI.CheckedChanged
+	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsReversal.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged, cbSupportsReconciliation.CheckedChanged, cbSupportsAbort.CheckedChanged, cbMerchant.CheckedChanged, cbCustomer.CheckedChanged, cbUseDate.CheckedChanged, cbResuseMerchantReferenceID.CheckedChanged, cbRemoteCertificateNotAvailable.CheckedChanged, cbRemoteCertificateNameMismatch.CheckedChanged, cbRemoteCertificateChainErrors.CheckedChanged, cbNoAutoCloseOnError.CheckedChanged, cbPOIIsOffline.CheckedChanged, cbReturnBrand.CheckedChanged, cbAllowOfflinePOI.CheckedChanged, cbSavePDF.CheckedChanged, cbxCurrency.SelectedIndexChanged, cbUseRefundForCancel.CheckedChanged
 		If _initialised Then
 			If sender Is cbUseBackup Then
 				cbPOIIsOffline.Checked = False
@@ -180,41 +182,33 @@ Public Class FSettings
 		cbPOIIsOffline.Checked = POIIsOffline
 
 		_initialised = True
-		Modified = False
+		Modified = Modified Or False
 	End Sub
 
 	Private Sub LoadCurrencies()
 		'load available currencies from a json stored inside the same folder
 		Dim json As New CJson(Of Currencies)()
-		json.FileName = "nexosale.currencies.json"
+		json.FileName = NEXOSALE.SettingsFileNameEx(Settings.REGISTRY_KEY_CURRENCIES_FILE_NAME, Settings.DEFAULT_CURRENCIES_FILE_NAME, True)
 		Dim except As Boolean
-		Dim currencies As Currencies = json.ReadSettings(except)
-		If Not IsNothing(currencies) AndAlso 0 < currencies.Count Then
-			'if currencies are available let's display them
-			For Each k As KeyValuePair(Of String, Currency) In currencies
-				cbxCurrency.SelectedIndex = cbxCurrency.Items.Add(k.Value)
-			Next
-		Else
-			'if no available currency use the default one
-			'set a default currency
-			Dim currency As New Currency
-			currency.Name = New RegionInfo(System.Globalization.CultureInfo.CurrentCulture.LCID).ISOCurrencySymbol
-			currency.Decimals = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits
-			cbxCurrency.SelectedIndex = cbxCurrency.Items.Add(currency)
-			'create default currencies file
-			currencies = New Currencies
+		currencies = json.ReadSettings(except)
+		If IsNothing(currencies) OrElse 0 = currencies.Count Then
+			currencies = New Currencies()
+			Dim currency As Currency = GetDefaultCurrency()
 			currencies.Add(currency.Name, currency)
 			json.WriteSettings(currencies)
 		End If
+
+		For Each k As KeyValuePair(Of String, Currency) In currencies
+			cbxCurrency.SelectedIndex = cbxCurrency.Items.Add(k.Key)
+		Next
 	End Sub
 
-	Private Sub SetDefaultCurrency()
+	Private Function GetDefaultCurrency() As Currency
 		'set a default currency
-		Dim currency As New Currency
-		currency.Name = New RegionInfo(System.Globalization.CultureInfo.CurrentCulture.LCID).ISOCurrencySymbol
-		currency.Decimals = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits
-		cbxCurrency.SelectedIndex = cbxCurrency.Items.Add(currency)
-	End Sub
+		GetDefaultCurrency = New Currency
+		GetDefaultCurrency.Name = New RegionInfo(System.Globalization.CultureInfo.CurrentCulture.LCID).ISOCurrencySymbol
+		GetDefaultCurrency.Decimals = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalDigits
+	End Function
 
 	Private Sub TestConnection(streamSettings As CStreamClientSettings, ip As Control, port As Control)
 		Dim streamIO = CStream.Connect(streamSettings)
@@ -255,26 +249,17 @@ Public Class FSettings
 		End If
 	End Sub
 
-	Private Function SettingsFileName() As String
-		'If Not Settings Is Nothing Then
-		'	Return Settings.LogFileName 'settingsFileNamePath & SETTINGS_FILE_NAME
-		'End If
-		'Return "nexosale.settings.json"
-		Return NEXOSALE.SettingsFileNameEx
-	End Function
+	'Private Function SettingsFileName() As String
+	'	'If Not Settings Is Nothing Then
+	'	'	Return Settings.LogFileName 'settingsFileNamePath & SETTINGS_FILE_NAME
+	'	'End If
+	'	'Return "nexosale.settings.json"
+	'	Return nexoSale.SettingsFileNameEx(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, Settings.DEFAULT_SETTINGS_FILE_NAME)
+	'End Function
 
 	Private Sub SaveSettings()
 		Dim json As New CJson(Of Settings)()
-		json.FileName = efSettingsFileName.Text
-		'save file name to registry
-		Dim key As RegistryKey
-		Try
-			key = Registry.CurrentUser.CreateSubKey(Settings.REGISTRY_SECTION)
-			If Not IsNothing(key) Then
-				key.SetValue(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, json.FileName)
-			End If
-		Catch ex As Exception
-		End Try
+		json.FileName = NEXOSALE.SettingsFileNameEx(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, efSettingsFileName.Text, True)
 
 		Settings.POIID = efPOIID.Text
 		Settings.POIIDUseIP = cbPOIIDUseIP.Checked
@@ -284,10 +269,16 @@ Public Class FSettings
 		Settings.ManufacturerName = efManufacturerName.Text
 		Settings.SoftwareVersion = efSoftwareVersion.Text
 		Settings.CertificationCode = efCertificationCode.Text
-		Dim currency As Currency = cbxCurrency.SelectedItem
-		cbxCurrency.SelectedItem.ToString()
-		Settings.Currency = currency.Name
-		Settings.Decimals = currency.Decimals
+
+		Try
+			Settings.Currency = currencies(cbxCurrency.GetItemText(cbxCurrency.SelectedItem)).Name
+			Settings.Decimals = currencies(cbxCurrency.GetItemText(cbxCurrency.SelectedItem)).Decimals
+		Catch ex As Exception
+			Dim currency = GetDefaultCurrency()
+			Settings.Currency = currency.Name
+			Settings.Decimals = currency.Decimals
+		End Try
+
 		Settings.Autoclose = cbAutoclose.Checked
 		Settings.AutocloseDelay = udAutocloseDelay.Value
 		'Settings.SettingsFileName = json.FileName
@@ -317,6 +308,7 @@ Public Class FSettings
 		'print settings
 		Settings.SaveReceipts = cbSavePDF.Checked
 		Settings.ReceiptFolder = efReceiptsDirectory.Text
+
 		Settings.Picture = efPicture.Text
 		Dim f As Boolean = lblPrinter.Tag
 		If f Then
@@ -329,21 +321,23 @@ Public Class FSettings
 		Settings.IndicateBrand = cbReturnBrand.Checked
 		Settings.AllowOfflinePOI = cbAllowOfflinePOI.Checked
 		Settings.HideNexoMessagesWhenProcessing = cbHideInformation.Checked
+		Settings.UseRefundForCancel = cbUseRefundForCancel.Checked
 
 		Settings.AlwaysLogToPOI = cbAlwaysLogToPOI.Checked
 
 		nexoSale._poiisoffline = POIIsOffline
 
 		If Not json.WriteSettings(Settings, True) Then
-			MsgBox($"{My.Resources.CommonResources.FSettings_SettingsFileNotSaved}{vbCrLf}{vbCrLf}{SettingsFileName()}")
+			MsgBox($"{My.Resources.CommonResources.FSettings_SettingsFileNotSaved}{vbCrLf}{vbCrLf}{json.FileName}")
 		End If
 
 		Modified = False
 	End Sub
 
 	Private Sub LoadSettings()
+		Dim mustRemainModified As Boolean = False
 		Dim json As New CJson(Of Settings)()
-		json.FileName = SettingsFileName()
+		json.FileName = NEXOSALE.SettingsFileNameEx(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, Settings.DEFAULT_SETTINGS_FILE_NAME, True)
 		efSettingsFileName.Text = json.FileName
 		Dim except As Boolean
 		Settings = json.ReadSettings(except)
@@ -357,17 +351,14 @@ Public Class FSettings
 			efManufacturerName.Text = Settings.ManufacturerName
 			efSoftwareVersion.Text = Settings.SoftwareVersion
 			efCertificationCode.Text = Settings.CertificationCode
+
 			Try
-				Dim currency As New Currency
-				currency.Name = Settings.Currency
-				currency.Decimals = Settings.Decimals
-				cbxCurrency.SelectedItem = currency
+				cbxCurrency.SelectedItem = Settings.Currency
+				mustRemainModified = cbxCurrency.SelectedItem <> Settings.Currency
 			Catch ex As Exception
 				cbxCurrency.SelectedIndex = 0
 			End Try
-			If IsNothing(cbxCurrency.SelectedItem) AndAlso 0 < cbxCurrency.Items.Count Then
-				cbxCurrency.SelectedIndex = 0
-			End If
+
 			cbAutoclose.Checked = Settings.Autoclose
 			Try
 				udAutocloseDelay.Value = Settings.AutocloseDelay
@@ -455,12 +446,13 @@ Public Class FSettings
 			cbReturnBrand.Checked = Settings.IndicateBrand
 			cbAllowOfflinePOI.Checked = Settings.AllowOfflinePOI
 			cbHideInformation.Checked = Settings.HideNexoMessagesWhenProcessing
+			cbUseRefundForCancel.Checked = Settings.UseRefundForCancel
 
 		Else
 			Settings = New Settings
 			SaveSettings()
 		End If
-		Modified = False
+		Modified = False OrElse mustRemainModified
 	End Sub
 
 	Private Sub SetPrinter(printerName As String)
@@ -646,7 +638,7 @@ Public Class FSettings
 	End Sub
 
 	Private Sub pbReceiptsDirectory_Click(sender As Object, e As EventArgs) Handles pbReceiptsDirectory.Click
-		FolderBrowserDialog1.RootFolder = efReceiptsDirectory.Text
+		FolderBrowserDialog1.SelectedPath = efReceiptsDirectory.Text
 		FolderBrowserDialog1.ShowNewFolderButton = True
 		If DialogResult.OK = FolderBrowserDialog1.ShowDialog Then
 			efReceiptsDirectory.Text = FolderBrowserDialog1.SelectedPath
@@ -654,7 +646,4 @@ Public Class FSettings
 		SetButtons()
 	End Sub
 
-	Private Sub cbSavePDF_CheckedChanged(sender As Object, e As EventArgs) Handles cbSavePDF.CheckedChanged
-		pnlReceipts.Enabled = cbSavePDF.Checked
-	End Sub
 End Class

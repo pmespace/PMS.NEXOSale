@@ -12,25 +12,6 @@ Imports System.Drawing.Printing
 Imports System.Drawing
 
 <ComVisible(True)>
-Public Enum Scheme
-	_none
-	_begin
-	cb
-	epi
-	visa
-	vpay
-	mci
-	maestro
-	jcb
-	cup
-	diners
-	discover
-	amex
-	card
-	_end
-End Enum
-
-<ComVisible(True)>
 Public Enum Action
 	_none
 	_begin
@@ -150,15 +131,15 @@ Public Class NEXOSALE
 	''' </summary>
 	''' <returns></returns>
 	<DispId(2)>
-	Public Property Amount As UInteger
+	Public Property Amount As Double
 		Get
 			Return _amount
 		End Get
-		Set(value As UInteger)
+		Set(value As Double)
 			_amount = value
 		End Set
 	End Property
-	Private _amount As UInteger = 0
+	Private _amount As Double = 0
 
 	''' <summary>
 	''' Transaction ID given by the merchant
@@ -600,7 +581,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Merchant address that will be printed on a check
 	''' </summary>
-	''' <returns></returns>
 	<DispId(35)>
 	Public Property CheckAuthorisationSignature As String
 		Get
@@ -615,7 +595,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Nexo input command
 	''' </summary>
-	''' <returns></returns>
 	<DispId(36)>
 	Public ReadOnly Property Input As NexoDeviceInput
 		Get
@@ -627,7 +606,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Nexo input command
 	''' </summary>
-	''' <returns></returns>
 	<DispId(37)>
 	Public ReadOnly Property Print As NexoDevicePrint
 		Get
@@ -639,7 +617,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Merchant address that will be printed on a check
 	''' </summary>
-	''' <returns></returns>
 	<DispId(38)>
 	Public Property CheckAuthorisationResponseCode As String
 		Get
@@ -654,7 +631,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Merchant reference to use for next/current transaction to process
 	''' </summary>
-	''' <returns></returns>
 	<DispId(39)>
 	Public Property MerchantReferenceID As String
 		Get
@@ -669,7 +645,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' The currency that will be used for all transactions
 	''' </summary>
-	''' <returns></returns>
 	<DispId(40)>
 	Public ReadOnly Property Currency As NexoCurrency
 		Get
@@ -680,7 +655,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Indicate whether a receipt is available in the financial response
 	''' </summary>
-	''' <returns></returns>
 	<DispId(41)>
 	Public ReadOnly Property ReceiptAvailable As Boolean
 		Get
@@ -692,7 +666,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Indicate the settings of the currently used POI
 	''' </summary>
-	''' <returns></returns>
 	<DispId(42)>
 	Public ReadOnly Property POIInUse As POISettings
 		Get
@@ -704,7 +677,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Reason to use for the reversal
 	''' </summary>
-	''' <returns></returns>
 	<DispId(43)>
 	Public Property ReversalReason As String
 		Get
@@ -719,23 +691,26 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Card brand used for financial transaction, if it is possible to determine it
 	''' </summary>
-	''' <returns></returns>
 	<DispId(44)>
-	Public ReadOnly Property Brand As String
+	Public Property Brand As String
 		Get
-			If IndicateBrand Then
-				Return SchemeToString(InternalBrand)
-			Else
-				Return SchemeToString(Scheme.card)
-			End If
+			Return _brand
+		End Get
+		Friend Set(value As String)
+			_brand = value
+		End Set
+	End Property
+	Friend Property _brand As String = DEFAULT_BRAND
+	Public Const DEFAULT_BRAND As String = "Unknown brand"
+	Public ReadOnly Property UnknownBrand As String
+		Get
+			Return DEFAULT_BRAND
 		End Get
 	End Property
-	Friend Property InternalBrand As Scheme
 
 	''' <summary>
 	''' Instruct to indicate the card brand when financial transaction is finished
 	''' </summary>
-	''' <returns></returns>
 	<DispId(45)>
 	Public Property IndicateBrand As Boolean
 		Get
@@ -750,7 +725,6 @@ Public Class NEXOSALE
 	''' <summary>
 	''' Indicates whether the POI is offline or not
 	''' </summary>
-	''' <returns></returns>
 	<DispId(46)>
 	Public ReadOnly Property POIIsOffline As Boolean
 		Get
@@ -759,47 +733,103 @@ Public Class NEXOSALE
 	End Property
 	Friend _poiisoffline As Boolean = False
 
-	''' <summary>
-	''' If used <see cref="StartProcessing(Action, Form, Control, Control, Integer)"/> to run the nexo processing the result will be put inside this data
-	''' That data does not pertain until the caller has received the windows message as indicated when calling the function
-	''' </summary>
-	''' <returns></returns>
-	<DispId(47)>
-	Public ReadOnly Property AsynchronousResult As ActionResult
-		Get
-			Return _asynchronousresult
-		End Get
-	End Property
-	Friend _asynchronousresult As ActionResult = ActionResult.unknown
+	'''' <summary>
+	'''' If used <see cref="StartProcessing(Action, Form, Control, Control, Integer)"/> to run the nexo processing the result will be put inside this data
+	'''' That data does not pertain until the caller has received the windows message as indicated when calling the function
+	'''' </summary>
+	'<DispId(47)>
+	'Public ReadOnly Property AsynchronousResult As ActionResult
+	'	Get
+	'		Return _asynchronousresult
+	'	End Get
+	'End Property
+	'Friend _asynchronousresult As ActionResult = ActionResult.unknown
+
+	'''' <summary>
+	'''' Message that will be sent to the caller when <see cref="StartProcessing(Action, Form, Control, Control, Integer)"/> terminates
+	'''' The result is stored in <see cref="AsynchronousResult"/>
+	'''' </summary>
+	'<DispId(48)>
+	'Public Property AsynchronousTerminateMessage As Integer
+	'	Get
+	'		Return _asynchronousterminatemessage
+	'	End Get
+	'	Set(value As Integer)
+	'		If WM_ASYNCHRONOUSTERMINATE <= value Then _asynchronousterminatemessage = value
+	'	End Set
+	'End Property
+	'Friend _asynchronousterminatemessage As Integer = WM_ASYNCHRONOUSTERMINATE
+
+	'''' <summary>
+	'''' The default value of the message returned by an asynchronous nexo processing
+	'''' This entry is here to allow the caller to know the message value that will be used so know if changing it is necessary
+	'''' </summary>
+	'<DispId(49)>
+	'Public ReadOnly Property AsynchronousDefaultTerminateMessage As Integer
+	'	Get
+	'		Return WM_ASYNCHRONOUSTERMINATE
+	'	End Get
+	'End Property
+	'Private Const WM_ASYNCHRONOUSTERMINATE As Integer = Win32.WM_USER + 1000
 
 	''' <summary>
-	''' Message that will be sent to the caller when <see cref="StartProcessing(Action, Form, Control, Control, Integer)"/> terminates
-	''' The result is stored in <see cref="AsynchronousResult"/>
+	''' Allows bypassing printing setting if the component is included inside an application already allowing printing of the receipts.
+	''' In that is the case the calling application can set the "print receipts" flag to indicate the receipt is to be printed (and the sale will know it) while preventing the NEXOSALE module to it by itself, delegating the task to the caller
+	''' Settings this property to TRUE will make the component to print the receipt itself, to FALSE the component delegates printing to the calling application, defualt is TRUE
 	''' </summary>
-	''' <returns></returns>
-	<DispId(48)>
-	Public Property AsynchronousTerminateMessage As Integer
+	<DispId(50)>
+	Public Property UseInternalPrinting As Boolean
 		Get
-			Return _asynchronousterminatemessage
+			Return _useinternalprinting
 		End Get
-		Set(value As Integer)
-			If WM_ASYNCHRONOUSTERMINATE <= value Then _asynchronousterminatemessage = value
+		Set(value As Boolean)
+			_useinternalprinting = value
 		End Set
 	End Property
-	Friend _asynchronousterminatemessage As Integer = WM_ASYNCHRONOUSTERMINATE
+	Private _useinternalprinting As Boolean = True
 
 	''' <summary>
-	''' The default value of the message returned by an asynchronous nexo processing
-	''' This entry is here to allow the caller to know the message value that will be used so know if changing it is necessary
+	''' Name of the customer receipt saved as a PDF, if saved
 	''' </summary>
-	''' <returns></returns>
-	<DispId(49)>
-	Public ReadOnly Property AsynchronousDefaultTerminateMessage As Integer
+	<DispId(51)>
+	Public Property CustomerReceiptFileName As String
 		Get
-			Return WM_ASYNCHRONOUSTERMINATE
+			Return _customerreceiptfilename
 		End Get
+		Friend Set(value As String)
+			_customerreceiptfilename = value
+		End Set
 	End Property
-	Private Const WM_ASYNCHRONOUSTERMINATE As Integer = Win32.WM_USER + 1000
+	Private _customerreceiptfilename As String = Nothing
+
+	''' <summary>
+	''' Name of the merchant receipt saved as a PDF, if saved
+	''' </summary>
+	<DispId(52)>
+	Public Property MerchantReceiptFileName As String
+		Get
+			Return _merchantreceiptfilename
+		End Get
+		Friend Set(value As String)
+			_merchantreceiptfilename = value
+		End Set
+	End Property
+	Private _merchantreceiptfilename As String = Nothing
+
+
+	''' <summary>
+	''' Last receipt received from POI
+	''' </summary>
+	<DispId(53)>
+	Public Property LastReceipt As PaymentReceiptType()
+		Get
+			Return _lastreceipt
+		End Get
+		Friend Set(value As PaymentReceiptType())
+			_lastreceipt = value
+		End Set
+	End Property
+	Private _lastreceipt As PaymentReceiptType() = Nothing
 
 #End Region
 
@@ -832,16 +862,26 @@ Public Class NEXOSALE
 		(Action.Reversal = theAction) OrElse
 		(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
 			Dim f As Boolean = True
-			Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
-			Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
+
+			'Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
+			'Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
 
 			'test action whether supported or not, eventually setting specific arguments
 			Select Case theAction
 				Case Action.Login, Action.Logout
 				Case Action.Payment, Action.Refund, Action.Reversal
-					f = Action.Payment = theAction OrElse
-						SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) OrElse
-						SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
+					Dim supportsRefund = SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund)
+					Dim supportsReversal = SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
+					If Action.Reversal = theAction AndAlso supportsReversal Then
+						If Settings.UseRefundForCancel Then
+							If SupportsAction(Action.Refund, Action.Refund, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) Then
+								theAction = Action.Refund
+							Else
+								supportsReversal = False
+							End If
+						End If
+					End If
+					f = Action.Payment = theAction OrElse supportsReversal OrElse supportsRefund
 				Case Action.Reconciliation, Action.Abort
 					f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
 						SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
@@ -859,7 +899,7 @@ Public Class NEXOSALE
 			Dim operation As New FProcessing.NexoOperation With
 			{
 			.Action = theAction,
-			.Amount = localAmount,
+			.Amount = Amount,
 			.POI = POIInUse
 			}
 			Dim fp As New FProcessing(Me, operation)
@@ -892,83 +932,83 @@ Public Class NEXOSALE
 		Return res
 	End Function
 	Private Sub PrepareNexosaleObject()
-		InternalBrand = Scheme.card
+		'InternalBrand = Scheme.card
 	End Sub
-	''' <summary>
-	''' Display processing window
-	''' </summary>
-	''' <param name="theAction">Action to perform <see cref="Action"/></param>
-	''' <param name="form">The caller's form that will be warned when nexo processing is finished</param>
-	''' <param name="message">The control whose text will be updated when a message is to be displayed to the user, default is null meaning no message will be displayed</param>
-	''' <param name="information">The control whose text will be updated when an information message is to be displayed to the user, default is null meaning no information message will be displayed</param>
-	''' <param name="asynchronousTerminate">The message to send back to the indicated form when nexo processing is finished, default value is contained in <see cref="AsynchronousDefaultTerminateMessage"/></param>
-	''' <returns></returns>
-	<DispId(102)>
-	Public Function StartProcessing(theAction As Action, form As Form, Optional message As Control = Nothing, Optional information As Control = Nothing, Optional asynchronousTerminate As Integer = WM_ASYNCHRONOUSTERMINATE) As Boolean
-		Dim res As ActionResult = ActionResult.unknown
-		'If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction) AndAlso 0 <> Amount) OrElse
-		'(Action.Reversal = theAction) OrElse
-		'(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
-		'	Dim f As Boolean = True
-		'	Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
-		'	Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
+	'''' <summary>
+	'''' Display processing window
+	'''' </summary>
+	'''' <param name="theAction">Action to perform <see cref="Action"/></param>
+	'''' <param name="form">The caller's form that will be warned when nexo processing is finished</param>
+	'''' <param name="message">The control whose text will be updated when a message is to be displayed to the user, default is null meaning no message will be displayed</param>
+	'''' <param name="information">The control whose text will be updated when an information message is to be displayed to the user, default is null meaning no information message will be displayed</param>
+	'''' <param name="asynchronousTerminate">The message to send back to the indicated form when nexo processing is finished, default value is contained in <see cref="AsynchronousDefaultTerminateMessage"/></param>
+	'''' <returns></returns>
+	'<DispId(102)>
+	'Public Function StartProcessing(theAction As Action, form As Form, Optional message As Control = Nothing, Optional information As Control = Nothing, Optional asynchronousTerminate As Integer = WM_ASYNCHRONOUSTERMINATE) As Boolean
+	'	Dim res As ActionResult = ActionResult.unknown
+	'	'If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction) AndAlso 0 <> Amount) OrElse
+	'	'(Action.Reversal = theAction) OrElse
+	'	'(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
+	'	'	Dim f As Boolean = True
+	'	'	Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
+	'	'	Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
 
-		'	'test action whether supported or not, eventually setting specific arguments
-		'	Select Case theAction
-		'		Case Action.Login, Action.Logout
-		'		Case Action.Payment, Action.Refund, Action.Reversal
-		'			f = Action.Payment = theAction OrElse
-		'				SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) OrElse
-		'				SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
-		'		Case Action.Reconciliation, Action.Abort
-		'			f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
-		'				SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
-		'		Case Action.ReadCheck, Action.PrintCheck
-		'			f = SupportsAction(Action.ReadCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck) OrElse
-		'				SupportsAction(Action.PrintCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck)
-		'		Case Else
-		'			f = False
-		'	End Select
+	'	'	'test action whether supported or not, eventually setting specific arguments
+	'	'	Select Case theAction
+	'	'		Case Action.Login, Action.Logout
+	'	'		Case Action.Payment, Action.Refund, Action.Reversal
+	'	'			f = Action.Payment = theAction OrElse
+	'	'				SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) OrElse
+	'	'				SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
+	'	'		Case Action.Reconciliation, Action.Abort
+	'	'			f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
+	'	'				SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
+	'	'		Case Action.ReadCheck, Action.PrintCheck
+	'	'			f = SupportsAction(Action.ReadCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck) OrElse
+	'	'				SupportsAction(Action.PrintCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck)
+	'	'		Case Else
+	'	'			f = False
+	'	'	End Select
 
-		'	If Not POIIsOffline Then
-		'		If f AndAlso Not POIIsOffline Then
-		'			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
-		'			'prepare the operation object
-		'			Dim operation As New FProcessing.NexoOperation With
-		'			{
-		'			.Action = theAction,
-		'			.Amount = localAmount,
-		'			.POI = POIInUse
-		'			}
-		'			Dim fp As New FProcessing(Me, operation)
-		'			PrepareNexosaleObject()
-		'			Select Case fp.ShowDialog()
-		'				Case DialogResult.Yes
-		'					res = ActionResult.success
-		'				Case DialogResult.No
-		'					res = ActionResult.decline
-		'				Case DialogResult.Cancel
-		'					res = ActionResult.cancel
-		'				Case DialogResult.Abort
-		'					res = ActionResult.timeout
-		'				Case DialogResult.Retry
-		'					res = ActionResult.incomplete
-		'				Case Else
-		'					res = ActionResult.unknown
-		'			End Select
-		'			fp.Dispose()
-		'		Else
-		'			res = ActionResult.notSupported
-		'		End If
-		'	Else
-		'		'POI is offline, return a timeout result to allow the application take appropriate measures
-		'		res = ActionResult.incomplete
-		'	End If
-		'Else
-		'	StartProcessing = DialogResult.Abort
-		'End If
-		Return res
-	End Function
+	'	'	If Not POIIsOffline Then
+	'	'		If f AndAlso Not POIIsOffline Then
+	'	'			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
+	'	'			'prepare the operation object
+	'	'			Dim operation As New FProcessing.NexoOperation With
+	'	'			{
+	'	'			.Action = theAction,
+	'	'			.Amount = localAmount,
+	'	'			.POI = POIInUse
+	'	'			}
+	'	'			Dim fp As New FProcessing(Me, operation)
+	'	'			PrepareNexosaleObject()
+	'	'			Select Case fp.ShowDialog()
+	'	'				Case DialogResult.Yes
+	'	'					res = ActionResult.success
+	'	'				Case DialogResult.No
+	'	'					res = ActionResult.decline
+	'	'				Case DialogResult.Cancel
+	'	'					res = ActionResult.cancel
+	'	'				Case DialogResult.Abort
+	'	'					res = ActionResult.timeout
+	'	'				Case DialogResult.Retry
+	'	'					res = ActionResult.incomplete
+	'	'				Case Else
+	'	'					res = ActionResult.unknown
+	'	'			End Select
+	'	'			fp.Dispose()
+	'	'		Else
+	'	'			res = ActionResult.notSupported
+	'	'		End If
+	'	'	Else
+	'	'		'POI is offline, return a timeout result to allow the application take appropriate measures
+	'	'		res = ActionResult.incomplete
+	'	'	End If
+	'	'Else
+	'	'	StartProcessing = DialogResult.Abort
+	'	'End If
+	'	Return res
+	'End Function
 	''' <summary>
 	''' request confirmation of a purchase final result
 	''' </summary>
@@ -1005,7 +1045,8 @@ Public Class NEXOSALE
 						.StreamClientSettings = New CStreamClientSettings With {
 						.IP = POIInUse.ServerIP,
 						.Port = POIInUse.ServerPort,
-						.ReceiveTimeout = _poiinuse.GeneralTimer}}
+						.ReceiveTimeout = _poiinuse.GeneralTimer,
+						.ConnectTimeout = 5}}
 				End If
 				Return NexoClient.Connect(clientSettings)
 			End If
@@ -1024,7 +1065,7 @@ Public Class NEXOSALE
 	''' <returns>The current settings file name</returns>
 	<DispId(500)>
 	Public Function SettingsFileName() As String
-		Return SettingsFileNameEx()
+		Return SettingsFileNameEx(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, Settings.DEFAULT_SETTINGS_FILE_NAME, False)
 	End Function
 	''' <summary>
 	''' Returns the text associated to a DocumentQualifierEnumeration enumeration
@@ -1062,13 +1103,11 @@ Public Class NEXOSALE
 #End Region
 
 #Region "private methods"
-	Friend Shared Function SettingsFileNameEx() As String
+	Friend Shared Function SettingsFileNameEx(registryKey As String, defaultFileName As String, saveRegistry As Boolean) As String
 		Dim fileName As String = String.Empty
-		''return settings file name if it exsists nd has been read
-		'If Not IsNothing(Settings) AndAlso Not IsNothing(Settings.SettingsFileName) Then
-		'	Return Settings.SettingsFileName
-		'End If
 
+		Dim fi As FileInfo
+		Dim dir As String
 		Dim o As Object
 		'if it doesn't let's search for it inside the registry
 		Dim key As RegistryKey
@@ -1076,10 +1115,18 @@ Public Class NEXOSALE
 			key = Registry.CurrentUser.CreateSubKey(Settings.REGISTRY_SECTION)
 			If Not IsNothing(key) Then
 				Try
-					o = key.GetValue(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME)
-					If Not o Is Nothing AndAlso NEXOSALE.TestDir(o.ToString) Then
-						'folder exsists and is writeable, we use that file name
-						fileName = o.ToString
+					o = key.GetValue(registryKey)
+					If o IsNot Nothing Then
+						Try
+							fi = New FileInfo(o.ToString)
+							dir = CMisc.VerifyDirectory(fi.DirectoryName, True)
+							If fi.Exists AndAlso Not String.IsNullOrEmpty(dir) Then
+								'folder exsists and is writeable, we use that file name
+								fileName = o.ToString
+							End If
+						Catch ex As Exception
+							'invalid file specified
+						End Try
 					End If
 				Catch ex As Exception
 				End Try
@@ -1087,53 +1134,63 @@ Public Class NEXOSALE
 		Catch ex As Exception
 		End Try
 
-		'if not inside the registry let's try Documents folder
+		'let's try current folder
+		If String.IsNullOrEmpty(fileName) Then
+			Try
+				dir = CMisc.VerifyDirectory(".\", True, True)
+				If Not String.IsNullOrEmpty(dir) Then
+					fileName = dir & defaultFileName
+				End If
+			Catch ex As Exception
+			End Try
+		End If
+
+		'let's try Documents folder
 		If String.IsNullOrEmpty(fileName) Then
 			Try
 				o = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-				'if invalid try to access the TEMP folder
-				If Not o Is Nothing AndAlso Not String.IsNullOrEmpty(o.ToString) Then
-					If o.ToString.EndsWith("\") Then
-						fileName = o.ToString & Settings.DEFAULT_SETTINGS_FILE_NAME
-					Else
-						fileName = o.ToString & "\" & Settings.DEFAULT_SETTINGS_FILE_NAME
+				If o IsNot Nothing AndAlso Not String.IsNullOrEmpty(o.ToString) Then
+					dir = CMisc.VerifyDirectory(o.ToString, True, True)
+					If Not String.IsNullOrEmpty(dir) Then
+						fileName = dir & defaultFileName
 					End If
 				End If
 			Catch ex As Exception
 			End Try
 		End If
 
-		'if not inside Documents let's try TEMP folder
+		'let's try TEMP folder
 		If String.IsNullOrEmpty(fileName) Then
 			Try
 				o = Path.GetTempPath
 				'if invalid try to access the TEMP folder
 				If Not o Is Nothing AndAlso Not String.IsNullOrEmpty(o.ToString) Then
-					If o.ToString.EndsWith("\") Then
-						fileName = o.ToString & Settings.DEFAULT_SETTINGS_FILE_NAME
-					Else
-						fileName = o.ToString & "\" & Settings.DEFAULT_SETTINGS_FILE_NAME
+					dir = CMisc.VerifyDirectory(o.ToString, True, True)
+					If Not String.IsNullOrEmpty(dir) Then
+						fileName = dir & defaultFileName
 					End If
 				End If
 			Catch ex As Exception
 			End Try
 		End If
 
-		'final default is current directory
-		If String.IsNullOrEmpty(fileName) Then
-			fileName = Settings.DEFAULT_SETTINGS_FILE_NAME_FOLDER & Settings.DEFAULT_SETTINGS_FILE_NAME
+		If Not String.IsNullOrEmpty(fileName) AndAlso saveRegistry Then
+			SaveInRegistry(registryKey, fileName)
 		End If
 
-		''save file name to registry
-		'Try
-		'	key = Registry.CurrentUser.CreateSubKey(Settings.REGISTRY_SECTION)
-		'	If Not IsNothing(key) Then
-		'		key.SetValue(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, fileName)
-		'	End If
-		'Catch ex As Exception
-		'End Try
 		Return fileName
 	End Function
+
+	Friend Shared Sub SaveInRegistry(registryKey As String, value As String)
+		Dim key As RegistryKey
+		Try
+			key = Registry.CurrentUser.CreateSubKey(Settings.REGISTRY_SECTION)
+			If Not IsNothing(key) Then
+				key.SetValue(registryKey, value)
+			End If
+		Catch ex As Exception
+		End Try
+	End Sub
 
 	Private Shared Function TestDir(fileNamed As String) As Boolean
 		Try
@@ -1247,69 +1304,94 @@ Public Class NEXOSALE
 	'''  2/ analysing all receipts looking for a scheme name
 	''' </summary>
 	''' <param name="nxo">The <see cref="NexoPayment"/> object to analyse</param>
-	''' <returns>The scheme if one found or <see cref="Scheme.card"/> if no scheme could be found</returns>
-	Friend Function GetSchemeFromAvailableData(nxo As NexoPayment) As Scheme
+	''' <returns>The scheme if one found or a default value <see cref="DEFAULT_BRAND"/> if no scheme could be found</returns>
+	Friend Function GetSchemeFromAvailableData(nxo As NexoPayment) As String
 		Dim sz As String = Nothing
-		GetSchemeFromAvailableData = Scheme.card
+		GetSchemeFromAvailableData = Nothing
 		'look for brand returned by nexo
 		If Not String.IsNullOrEmpty(nxo.ReplyPaymentBrand) Then
 			sz = nxo.ReplyPaymentBrand
 			GetSchemeFromAvailableData = TryDeterminingScheme(sz)
 		End If
 		'if no scheme look inside the receipts
-		If Scheme.card = GetSchemeFromAvailableData And 0 <> nxo.ReplyData.PaymentReceiptSize Then
+		If IsNothing(GetSchemeFromAvailableData) And 0 <> nxo.ReplyData.PaymentReceiptLength Then
 			'loop on all available receipts
-			For i As Integer = 0 To nxo.ReplyData.PaymentReceiptSize - 1
+			For i As Integer = 0 To nxo.ReplyData.PaymentReceiptLength - 1
 				Dim receipt = nxo.ReplyData.PaymentReceiptGetItem(i)
-				If Not IsNothing(receipt) AndAlso Not IsNothing(receipt.OutputContent) AndAlso 0 <> receipt.OutputContent.OutputTextSize Then
+				If Not IsNothing(receipt) AndAlso Not IsNothing(receipt.OutputContent) AndAlso 0 <> receipt.OutputContent.OutputTextLength Then
 					'loop on all available lines inside the receipt
-					For j As Integer = 0 To receipt.OutputContent.OutputTextSize - 1
+					For j As Integer = 0 To receipt.OutputContent.OutputTextLength - 1
 						Dim outputtext = receipt.OutputContent.OutputTextGetItem(j)
 						'try to determine the scheme
 						If Not IsNothing(outputtext) AndAlso Not IsNothing(outputtext.Value) Then
 							GetSchemeFromAvailableData = TryDeterminingScheme(outputtext.Value)
-							If Scheme.card <> GetSchemeFromAvailableData Then Return GetSchemeFromAvailableData
+							If Not IsNothing(GetSchemeFromAvailableData) Then Exit For
 						End If
 					Next
 				End If
+				If 0 <> String.Compare(GetSchemeFromAvailableData, DEFAULT_BRAND, True) Then Exit For
 			Next
 		End If
+
+		If IsNothing(GetSchemeFromAvailableData) Then
+			GetSchemeFromAvailableData = DEFAULT_BRAND
+		End If
+
+		CLog.Add($"Transaction brand: {GetSchemeFromAvailableData}")
 		Return GetSchemeFromAvailableData
 	End Function
 
-	''' <summary>
-	''' Returns the scheme name if available (defined in <see cref="Scheme"/> enum
-	''' </summary>
-	''' <param name="scheme">The scheme to look for</param>
-	''' <returns>The name of the scheme in lowercase if found, <see cref="Scheme.card"/> if not found</returns>
-	Friend Function SchemeToString(scheme As Scheme) As String
-		Dim sz As String = CMisc.GetEnumName(GetType(Scheme), scheme)
-		If String.IsNullOrEmpty(sz) Then Return Scheme.card.ToString.ToLower
-		Return sz.ToLower
-	End Function
+	'''' <summary>
+	'''' Returns the scheme name if available (defined in <see cref="Scheme"/> enum
+	'''' </summary>
+	'''' <param name="scheme">The scheme to look for</param>
+	'''' <returns>The name of the scheme in lowercase if found, <see cref="Scheme.card"/> if not found</returns>
+	'Friend Function SchemeToString(scheme As Scheme) As String
+	'	Dim sz As String = CMisc.GetEnumName(GetType(Scheme), scheme)
+	'	If String.IsNullOrEmpty(sz) Then Return scheme.card.ToString.ToLower
+	'	Return sz.ToLower
+	'End Function
 
 	''' <summary>
 	''' Determines the scheme based on a string
 	''' Determination is made by analysing the beginning of the string, looking for identifiable data which may give way to determine the scheme
 	''' </summary>
 	''' <param name="sz">The string to analyse to determine the scheme</param>
-	''' <returns>The scheme as determined or <see cref="Scheme.card"/> if unable to determine it</returns>
-	Friend Function TryDeterminingScheme(sz As String) As Scheme
+	''' <returns>The scheme as determined or a default value <see cref="DEFAULT_BRAND"/> if unable to determine it</returns>
+	Friend Function TryDeterminingScheme(sz As String) As String
 		TryDeterminingScheme = Nothing
-		For Each cs As KeyValuePair(Of String, List(Of String)) In Settings.CardSchemes
-			For Each tag As String In cs.Value
-				If sz.StartsWith(tag) Then
-					TryDeterminingScheme = cs.Key
+		Try
+			sz = CMisc.Trimmed(sz)
+			For Each cs As KeyValuePair(Of String, List(Of String)) In Settings.CardSchemes
+				For Each tag As String In cs.Value
+					If 0 = String.Compare(sz, CMisc.Trimmed(tag), True) Then
+						TryDeterminingScheme = cs.Key
+						Exit For
+					End If
+				Next
+				If Not IsNothing(TryDeterminingScheme) Then
 					Exit For
 				End If
 			Next
-			If Not IsNothing(TryDeterminingScheme) Then
-				Exit For
+
+			If IsNothing(TryDeterminingScheme) Then
+				Dim sc As StringComparison = StringComparison.CurrentCultureIgnoreCase
+				For Each cs As KeyValuePair(Of String, List(Of String)) In Settings.CardSchemes
+					For Each tag As String In cs.Value
+						If sz.StartsWith(CMisc.Trimmed(tag), sc) Then
+							TryDeterminingScheme = cs.Key
+							Exit For
+						End If
+					Next
+					If Not IsNothing(TryDeterminingScheme) Then
+						Exit For
+					End If
+				Next
 			End If
-		Next
-		If IsNothing(TryDeterminingScheme) Then
-			TryDeterminingScheme = "Card"
-		End If
+		Catch ex As Exception
+
+		End Try
+		Return TryDeterminingScheme
 	End Function
 #End Region
 

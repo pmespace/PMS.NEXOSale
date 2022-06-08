@@ -59,5 +59,23 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Card brand:.
+        '''</summary>
+        Friend ReadOnly Property Main_Brand() As String
+            Get
+                Return ResourceManager.GetString("Main.Brand", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Final result:.
+        '''</summary>
+        Friend ReadOnly Property Main_FinalResult() As String
+            Get
+                Return ResourceManager.GetString("Main.FinalResult", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

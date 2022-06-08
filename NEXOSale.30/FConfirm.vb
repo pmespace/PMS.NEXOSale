@@ -35,7 +35,7 @@ Public Class FConfirm
 			s = DateTime.Now.ToString("yyyyMMdd")
 		End If
 		If TextBox1.Text = s Then
-			Dim asx As String = "Confirmation given using "
+			Dim asx As String = "Confirmation given "
 			If ShouldUseDate() Then
 				asx &= "using Date"
 			Else
