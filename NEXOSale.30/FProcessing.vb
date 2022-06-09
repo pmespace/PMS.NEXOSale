@@ -509,13 +509,13 @@ Public Class FProcessing
 							t = RealPaymentTimer()
 							ms = WM_REFUND
 						Case Action.Reversal
-							t = requestedOperation.POI.GeneralTimer
+							t = RealPaymentTimer()
 							ms = WM_REVERSAL
 						Case Action.Reconciliation
-							t = requestedOperation.POI.GeneralTimer
+							t = RealPaymentTimer()
 							ms = WM_RECONCILIATION
 						Case Action.Abort
-							t = RealPaymentTimer() 'requestedOperation.POI.GeneralTimer
+							t = RealPaymentTimer()
 							ms = WM_ABORT
 
 							'Case Action.readcheck

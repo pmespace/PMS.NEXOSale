@@ -26,7 +26,9 @@ Partial Class Main
 		Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
 		Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
 		Me.Label1 = New System.Windows.Forms.Label()
+		Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
+		Me.cbUseAmount = New System.Windows.Forms.CheckBox()
 		Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
 		Me.lblBrand = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
@@ -39,14 +41,12 @@ Partial Class Main
 		Me.CheckBox1 = New System.Windows.Forms.CheckBox()
 		Me.cbUseBackup = New System.Windows.Forms.CheckBox()
 		Me.cbInternalPrinting = New System.Windows.Forms.CheckBox()
-		Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-		Me.cbUseAmount = New System.Windows.Forms.CheckBox()
 		Me.TableLayoutPanel1.SuspendLayout()
 		Me.TableLayoutPanel2.SuspendLayout()
+		Me.FlowLayoutPanel2.SuspendLayout()
 		Me.TableLayoutPanel3.SuspendLayout()
 		Me.TableLayoutPanel4.SuspendLayout()
 		Me.FlowLayoutPanel1.SuspendLayout()
-		Me.FlowLayoutPanel2.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'TableLayoutPanel1
@@ -69,10 +69,23 @@ Partial Class Main
 		resources.ApplyResources(Me.Label1, "Label1")
 		Me.Label1.Name = "Label1"
 		'
+		'FlowLayoutPanel2
+		'
+		resources.ApplyResources(Me.FlowLayoutPanel2, "FlowLayoutPanel2")
+		Me.FlowLayoutPanel2.Controls.Add(Me.TextBox1)
+		Me.FlowLayoutPanel2.Controls.Add(Me.cbUseAmount)
+		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+		'
 		'TextBox1
 		'
 		resources.ApplyResources(Me.TextBox1, "TextBox1")
 		Me.TextBox1.Name = "TextBox1"
+		'
+		'cbUseAmount
+		'
+		resources.ApplyResources(Me.cbUseAmount, "cbUseAmount")
+		Me.cbUseAmount.Name = "cbUseAmount"
+		Me.cbUseAmount.UseVisualStyleBackColor = True
 		'
 		'TableLayoutPanel3
 		'
@@ -153,19 +166,6 @@ Partial Class Main
 		Me.cbInternalPrinting.Name = "cbInternalPrinting"
 		Me.cbInternalPrinting.UseVisualStyleBackColor = True
 		'
-		'FlowLayoutPanel2
-		'
-		resources.ApplyResources(Me.FlowLayoutPanel2, "FlowLayoutPanel2")
-		Me.FlowLayoutPanel2.Controls.Add(Me.TextBox1)
-		Me.FlowLayoutPanel2.Controls.Add(Me.cbUseAmount)
-		Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-		'
-		'cbUseAmount
-		'
-		resources.ApplyResources(Me.cbUseAmount, "cbUseAmount")
-		Me.cbUseAmount.Name = "cbUseAmount"
-		Me.cbUseAmount.UseVisualStyleBackColor = True
-		'
 		'Main
 		'
 		resources.ApplyResources(Me, "$this")
@@ -179,14 +179,14 @@ Partial Class Main
 		Me.TableLayoutPanel1.PerformLayout()
 		Me.TableLayoutPanel2.ResumeLayout(False)
 		Me.TableLayoutPanel2.PerformLayout()
+		Me.FlowLayoutPanel2.ResumeLayout(False)
+		Me.FlowLayoutPanel2.PerformLayout()
 		Me.TableLayoutPanel3.ResumeLayout(False)
 		Me.TableLayoutPanel3.PerformLayout()
 		Me.TableLayoutPanel4.ResumeLayout(False)
 		Me.TableLayoutPanel4.PerformLayout()
 		Me.FlowLayoutPanel1.ResumeLayout(False)
 		Me.FlowLayoutPanel1.PerformLayout()
-		Me.FlowLayoutPanel2.ResumeLayout(False)
-		Me.FlowLayoutPanel2.PerformLayout()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 

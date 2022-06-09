@@ -1039,14 +1039,15 @@ Public Class NEXOSALE
 						.Port = Settings.GatewayPort,
 						.ServerName = Settings.ServerName,
 						.AllowedSslErrors = Settings.AllowedSslErrors,
-						.ReceiveTimeout = _poiinuse.GeneralTimer}}
+						.ReceiveTimeout = _poiinuse.GeneralTimer,
+						.ConnectTimeout = _poiinuse.GeneralTimer}}
 				Else
 					clientSettings = New NexoRetailerClientSettings With {
 						.StreamClientSettings = New CStreamClientSettings With {
 						.IP = POIInUse.ServerIP,
 						.Port = POIInUse.ServerPort,
 						.ReceiveTimeout = _poiinuse.GeneralTimer,
-						.ConnectTimeout = 5}}
+						.ConnectTimeout = _poiinuse.GeneralTimer}}
 				End If
 				Return NexoClient.Connect(clientSettings)
 			End If

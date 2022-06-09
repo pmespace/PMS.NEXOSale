@@ -2,11 +2,13 @@
 Imports NEXO.Client
 Imports COMMON
 Imports NEXOSALE
+Imports System.Globalization
 
 Public Class Main
 	Private Nxo As New NEXOSALE.NEXOSALE
 
 	Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		CLog.LogFileName = "nexosale.test.log"
 		cbxServices.Items.Clear()
 		For i As Action = Action._begin + 1 To Action._end - 1
 			If Not i.ToString.StartsWith("_") Then
@@ -33,9 +35,12 @@ Public Class Main
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 		If cbUseAmount.Checked OrElse Action.Payment = cbxServices.SelectedItem OrElse Action.Refund = cbxServices.SelectedItem Then
 			Try
+				TextBox1.Text = TextBox1.Text.Replace(".", NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator).Replace(",", NumberFormatInfo.CurrentInfo.CurrencyDecimalSeparator)
 				Nxo.Amount = Double.Parse(TextBox1.Text)
+				TextBox1.BackColor = SystemColors.Window
 			Catch ex As Exception
 				Nxo.Amount = 0.1
+				TextBox1.BackColor = Color.Red
 				TextBox1.Text = Nxo.Amount.ToString
 			End Try
 		Else
@@ -47,8 +52,8 @@ Public Class Main
 				Nxo.OriginalPOITransactionID = Nothing
 				Nxo.OriginalPOITransactionTimestamp = Nothing
 			Case Action.Reversal
-				Nxo.OriginalPOITransactionID = "00000000"
-				Nxo.OriginalPOITransactionTimestamp = NexoISODateTime.CurrentDateTime
+				'Nxo.OriginalPOITransactionID = "00000000"
+				'Nxo.OriginalPOITransactionTimestamp = NexoISODateTime.CurrentDateTime
 			Case Action.Reconciliation
 		End Select
 		Nxo.UseInternalPrinting = cbInternalPrinting.Checked
