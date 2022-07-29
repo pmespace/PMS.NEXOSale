@@ -839,16 +839,20 @@ Public Class NEXOSALE
 	''' </summary>
 	<DispId(100)>
 	Public Sub DisplaySettings(useAdvancedSettings As Boolean)
-		Dim f As New FSettings(Me, useAdvancedSettings)
-		f.UseBackup = UseBackup
-		Select Case f.ShowDialog()
-			Case DialogResult.OK
-				Disconnect()
-				Settings = f.Settings
-				CLog.LogFileName = Settings.LogFileName
-				UseBackup = f.UseBackup
-		End Select
-		f.Dispose()
+		Try
+			Dim f As New FSettings(Me, useAdvancedSettings)
+			f.UseBackup = UseBackup
+			Select Case f.ShowDialog()
+				Case DialogResult.OK
+					Disconnect()
+					Settings = f.Settings
+					CLog.LogFileName = Settings.LogFileName
+					UseBackup = f.UseBackup
+			End Select
+			f.Dispose()
+		Catch ex As Exception
+			CLog.EXCEPT(ex)
+		End Try
 	End Sub
 	''' <summary>
 	''' Display processing window
@@ -858,77 +862,83 @@ Public Class NEXOSALE
 	<DispId(101)>
 	Public Function DisplayProcessing(theAction As Action) As ActionResult
 		Dim res As ActionResult = ActionResult.unknown
-		If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction) AndAlso 0 <> Amount) OrElse
-		(Action.Reversal = theAction) OrElse
-		(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
-			Dim f As Boolean = True
+		Try
+			If ((Action.PrintCheck = theAction OrElse Action.Payment = theAction OrElse Action.Refund = theAction) AndAlso 0 <> Amount) OrElse
+					(Action.Reversal = theAction) OrElse
+					(Action.Payment <> theAction AndAlso Action.Refund <> theAction AndAlso Action.Reversal <> theAction) Then
+				Dim f As Boolean = True
 
-			'Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
-			'Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
+				'Dim localCurrency As New NexoCurrency With {.DecimalPlaces = Settings.Decimals, .Value = Settings.Currency}
+				'Dim localAmount As Double = Amount / 10 ^ localCurrency.DecimalPlaces
 
-			'test action whether supported or not, eventually setting specific arguments
-			Select Case theAction
-				Case Action.Login, Action.Logout
-				Case Action.Payment, Action.Refund, Action.Reversal
-					Dim supportsRefund = SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund)
-					Dim supportsReversal = SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
-					If Action.Reversal = theAction AndAlso supportsReversal Then
-						If Settings.UseRefundForCancel Then
-							If SupportsAction(Action.Refund, Action.Refund, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) Then
-								theAction = Action.Refund
-							Else
-								supportsReversal = False
+				'test action whether supported or not, eventually setting specific arguments
+				Select Case theAction
+					Case Action.Login, Action.Logout
+					Case Action.Payment, Action.Refund, Action.Reversal
+						Dim supportsRefund = SupportsAction(Action.Refund, theAction, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund)
+						Dim supportsReversal = SupportsAction(Action.Reversal, theAction, Settings.Primary.SupportsCancel, Settings.Backup.SupportsCancel)
+						If Action.Reversal = theAction AndAlso supportsReversal Then
+							If Settings.UseRefundForCancel Then
+								If SupportsAction(Action.Refund, Action.Refund, Settings.Primary.SupportsRefund, Settings.Backup.SupportsRefund) Then
+									theAction = Action.Refund
+								Else
+									supportsReversal = False
+								End If
 							End If
 						End If
-					End If
-					f = Action.Payment = theAction OrElse supportsReversal OrElse supportsRefund
-				Case Action.Reconciliation, Action.Abort
-					f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
-						SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
-				Case Action.ReadCheck, Action.PrintCheck
-					f = SupportsAction(Action.ReadCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck) OrElse
-						SupportsAction(Action.PrintCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck)
-				Case Else
-					f = False
-			End Select
+						f = Action.Payment = theAction OrElse supportsReversal OrElse supportsRefund
+					Case Action.Reconciliation, Action.Abort
+						f = SupportsAction(Action.Reconciliation, theAction, Settings.Primary.SupportsReconciliation, Settings.Backup.SupportsReconciliation) OrElse
+							SupportsAction(Action.Abort, theAction, Settings.Primary.SupportsAbort, Settings.Backup.SupportsAbort)
+					Case Action.ReadCheck, Action.PrintCheck
+						f = SupportsAction(Action.ReadCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck) OrElse
+							SupportsAction(Action.PrintCheck, theAction, Settings.Primary.SupportsCheck, Settings.Backup.SupportsCheck)
+					Case Else
+						f = False
+				End Select
 
-			'If Not POIIsOffline Then
-			'	If f AndAlso Not POIIsOffline Then
-			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
-			'prepare the operation object
-			Dim operation As New FProcessing.NexoOperation With
-			{
-			.Action = theAction,
-			.Amount = Amount,
-			.POI = POIInUse
-			}
-			Dim fp As New FProcessing(Me, operation)
-			PrepareNexosaleObject()
-			Select Case fp.ShowDialog()
-				Case DialogResult.Yes
-					res = ActionResult.success
-				Case DialogResult.No
-					res = ActionResult.decline
-				Case DialogResult.Cancel
-					res = ActionResult.cancel
-				Case DialogResult.Abort
-					res = ActionResult.timeout
-				Case DialogResult.Retry
-					res = ActionResult.incomplete
-				Case Else
-					res = ActionResult.unknown
-			End Select
-			fp.Dispose()
-		Else
-			res = ActionResult.notSupported
-		End If
-		'	Else
-		'		'POI is offline, return a timeout result to allow the application take appropriate measures
-		'		res = ActionResult.incomplete
-		'	End If
-		'Else
-		'	DisplayProcessing = DialogResult.Abort
-		'End If
+				'If Not POIIsOffline Then
+				'	If f AndAlso Not POIIsOffline Then
+				If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
+				'prepare the operation object
+				Dim operation As New FProcessing.NexoOperation With
+				{
+				.Action = theAction,
+				.Amount = Amount,
+				.POI = POIInUse
+				}
+				Dim fp As New FProcessing(Me, operation)
+				PrepareNexosaleObject()
+				Select Case fp.ShowDialog()
+					Case DialogResult.Yes
+						res = ActionResult.success
+					Case DialogResult.No
+						res = ActionResult.decline
+					Case DialogResult.Cancel
+						res = ActionResult.cancel
+					Case DialogResult.Abort
+						res = ActionResult.timeout
+					Case DialogResult.Retry
+						res = ActionResult.incomplete
+					Case Else
+						res = ActionResult.unknown
+				End Select
+				CLog.DEBUG($"Before Dispose")
+				fp.Dispose()
+			Else
+				res = ActionResult.notSupported
+			End If
+			CLog.DEBUG($"Result: {res}")
+			'	Else
+			'		'POI is offline, return a timeout result to allow the application take appropriate measures
+			'		res = ActionResult.incomplete
+			'	End If
+			'Else
+			'	DisplayProcessing = DialogResult.Abort
+			'End If
+		Catch ex As Exception
+			CLog.EXCEPT(ex)
+		End Try
 		Return res
 	End Function
 	Private Sub PrepareNexosaleObject()

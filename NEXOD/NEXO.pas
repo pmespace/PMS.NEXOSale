@@ -25,7 +25,6 @@ type
 	TNexo = class(TNexoPluginBase, IMC_PluginCAT)
 	private
 		myNexo: NEXOSALE;
-		fCanPrintDuplicate: boolean;
 
 		szLastPurchaseTransactionID: string;
 		LastPrintedTransaction: TLastTxn;
@@ -101,39 +100,39 @@ end;
 function TNexo.doInitDevice: boolean;
 begin
 	_F('TNexo.doInitDevice');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := TRUE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doInitLink(): boolean;
 begin
 	_F('TNexo.doInitLink');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	// Do something to initialize the communication
 	result := TRUE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doInitDeviceCheckHealth: boolean;
 begin
 	_F('TNexo.doInitDeviceCheckHealth');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	// result := myNexo.Connected;
 	result := TRUE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doGetCapabilities(aiCapability: TMC_Capabilities; const asOptArgs: widestring): widestring;
 begin
 	_F('TNexo.doGetCapabilities');
-	AddLogVerbose(CFB + ' - aiCapability: ' + inttostr(ord(aiCapability)) + ' - asOptArgs: ' + asOptArgs);
+	AddLogVerbose(CFB, 'aiCapability: ' + inttostr(ord(aiCapability)) + ' - asOptArgs: ' + asOptArgs);
 
 	result := '';
 	case aiCapability of
@@ -209,13 +208,13 @@ begin
 			result := inherited doGetCapabilities(aiCapability, asOptArgs);
 	end;
 
-	AddLogVerbose(CFER + result);
+	AddLogVerbose(CFER, result);
 end;
 
 function TNexo.doConnect(const asConnectString: widestring): boolean;
 begin
 	_F('TNexo.doConnect');
-	AddLogVerbose(CFB + ' - asConnectString: ' + asConnectString);
+	AddLogVerbose(CFB, 'asConnectString: ' + asConnectString);
 
 	fePrinterDevice := StrToIntDef(WideExtractValue(asConnectString, 'PrinterDeviceNum'), -1);
 	fcReceiptNature := WideExtractValue(asConnectString, 'PrinterReceiptNature');
@@ -224,53 +223,53 @@ begin
 
 	result := TRUE; // myNexo.Connect();
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doDisconnect(): boolean;
 begin
 	_F('TNexo.doDisconnect');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	// disconnecting from device
 	// myNexo.Disconnect();
 	result := TRUE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doOpen(): boolean;
 begin
 	_F('TNexo.doOpen');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	// Connecting to device
 	result := TRUE;
 	// result := myNexo.Connect();
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doClose(): boolean;
 begin
 	_F('TNexo.doClose');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	// Closing device
 	// myNexo.Disconnect();
 	result := TRUE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doOpenDay(acParamsIn: IMC_CATParamsIn): boolean;
 begin
 	_F('TNexo.doOpenDay');
-	AddLogVerbose(CFB + ' - acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
+	AddLogVerbose(CFB, 'acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
 
 	result := TRUE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 constructor TNexo.create(const asLangID: widestring; theNexoSaleObject: NEXOSALE);
@@ -285,23 +284,23 @@ end;
 function TNexo.doCheckHealth(const asConnectString: widestring; out zsAnswer: widestring): boolean;
 begin
 	_F('TNexo.doCheckHealth');
-	AddLogVerbose(CFB + ' - asConnectString: ' + asConnectString);
+	AddLogVerbose(CFB, 'asConnectString: ' + asConnectString);
 
 	// Do something to check the health of the device
 	result := doInitDeviceCheckHealth;
 
-	AddLogVerbose(CFER + booltostr_(result) + ' - zsAnswer: ' + zsAnswer);
+	AddLogVerbose(CFER, booltostr_(result) + ' - zsAnswer: ' + zsAnswer);
 end;
 
 function TNexo.doDirectCommand(const asCommand: widestring; acDataIn: IStream; out zcDataOut: IStream): boolean;
 begin
 	_F('TNexo.doDirectCommand');
-	AddLogVerbose(CFB + ' - asCommand: ' + asCommand + ' - acData.assigned: ' + booltostr_(assigned(acDataIn)));
+	AddLogVerbose(CFB, 'asCommand: ' + asCommand + ' - acData.assigned: ' + booltostr_(assigned(acDataIn)));
 
 	result := false;
 	setError(TMC_Error.create(DRIVER_ERROR_INVALID_COMMAND));
 
-	AddLogVerbose(CFER + booltostr_(result) + ' - zcDataOuta.assigned: ' + booltostr_(assigned(zcDataOut)));
+	AddLogVerbose(CFER, booltostr_(result) + ' - zcDataOuta.assigned: ' + booltostr_(assigned(zcDataOut)));
 end;
 
 function TNexo.TranslateCommand(aeCommand: TMC_CATCommand): widestring;
@@ -340,7 +339,7 @@ end;
 function TNexo.command(aeCommand: TMC_CATCommand; acParamsIn: IMC_CATParamsIn; out zcParamsOut: IMC_CATParamsOut): boolean;
 begin
 	_F('TNexo.command');
-	AddLogVerbose(CFB + ' - aeCommand: ' + TranslateCommand(aeCommand) + ' - acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
+	AddLogVerbose(CFB, 'aeCommand: ' + TranslateCommand(aeCommand) + ' - acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
 
 	case aeCommand of
 		coInitLink:
@@ -392,14 +391,13 @@ begin
 			end;
 	end;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doTransaction(acParamsIn: IMC_CATParamsIn; out zcParamsOut: IMC_CATParamsOut): boolean;
 var
-	extend: extended;
 	leTransactionResult: TMC_CATResultTransaction;
-	lsTrace, lsMessage: widestring;
+	lsTrace { , lsMessage } : widestring;
 	lcTransac: IMC_CATPOTransac;
 	lcTransacV2: IMC_CATPITransacV2;
 	dlgp: Action;
@@ -418,8 +416,8 @@ var
 
 	function RebuildID(original: string): string;
 	var
-		i, j: Integer;
-		MerchantReferenceID: string;
+		{ i, } j: Integer;
+		// MerchantReferenceID: string;
 	begin
 		_F('TNexo.doTransaction.RebuildID');
 		// i := AnsiPos('#', original);
@@ -439,39 +437,41 @@ var
 		_F('TNexo.doTransaction.CreateID');
 		// result := myNexo.MerchantReferenceID + '#' + myNexo.POITransactionID + '@' + myNexo.POITransactionTimestamp;
 		result := myNexo.POITransactionID + '@' + myNexo.POITransactionTimestamp;
-		AddLogVerbose(CF + ' - generated txn ID: ' + result);
+		AddLogVerbose(CF, 'generated txn ID: ' + result);
 	end;
 
 begin
 	_F('TNexo.doTransaction');
-	AddLogVerbose(CFB + ' - acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
+	AddLogVerbose(CFB, 'acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
 
 	result := TRUE;
 	lsTrace := '';
-	lsMessage := '';
+	// lsMessage := 'UNKNOWN TRANSACTION';
 	lcTransac := nil;
+	zcParamsOut := nil;
 	leTransactionResult := rtUnknown;
 
 	// process a transaction
 	if assigned(acParamsIn) then
 	begin
 		lsTrace := 'RecordVersion: ' + inttostr(acParamsIn.recordVersion);
+		// lsMessage := 'UNKNOWN TRANSACTION TYPE';
 
 		// verify currency, whether it matches the one declared in Nexo retailer
 		if result and assigned(acParamsIn.currency) then
 		begin
 			lsTrace := lsTrace + #13 + ' currency currency: ' + acParamsIn.currency.currency + ' currencyISOA: ' + acParamsIn.currency.currencyISOA + ' currencyISON: ' + acParamsIn.currency.currencyISON + ' currencyDec: ' +
 				inttostr(acParamsIn.currency.currencyDec);
-			AddLogVerbose(CF + ' - ' + lsTrace);
+			AddLogVerbose(CF, lsTrace);
 
 			// check currency against NEXO settings
 			if not(myNexo.Settings.currency = acParamsIn.currency.currencyISOA) or not(myNexo.Settings.Decimals = acParamsIn.currency.currencyDec) then
 			begin
-				AddLogWarning(CF + ' - ' + GetErrorDescription(DRIVER_ERROR_CURRENCY_DOES_NOT_MATCH) + ' - Received: ' + acParamsIn.currency.currencyISOA + ' (' + inttostr(acParamsIn.currency.currencyDec) + ')' + ' - Expected (and will be used): ' +
+				AddLogWarning(CF, GetErrorDescription(DRIVER_ERROR_CURRENCY_DOES_NOT_MATCH) + ' - Received: ' + acParamsIn.currency.currencyISOA + ' (' + inttostr(acParamsIn.currency.currencyDec) + ')' + ' - Expected (and will be used): ' +
 					myNexo.Settings.currency + ' (' + inttostr(myNexo.Settings.Decimals) + ')');
 			end;
 		end else begin
-			AddLogWarning(CF + ' - ' + GetErrorDescription(DRIVER_ERROR_CURRENCY_IS_MISSING) + ' yet using expected currency: ' + myNexo.Settings.currency + ' (' + inttostr(myNexo.Settings.Decimals) + ')');
+			AddLogWarning(CF, GetErrorDescription(DRIVER_ERROR_CURRENCY_IS_MISSING) + ' yet using expected currency: ' + myNexo.Settings.currency + ' (' + inttostr(myNexo.Settings.Decimals) + ')');
 		end;
 
 		// start processing transaction
@@ -486,9 +486,7 @@ begin
 				lsTrace := lsTrace + #13 + ' RefundTransacToken="' + lcTransacV2.RefundTransacToken + '"' + ' StoreId="' + lcTransacV2.StoreId + '"';
 			end;
 
-			AddLogVerbose(CF + ' - ' + lsTrace);
-
-			dlgp := Action__none;
+			AddLogVerbose(CF, lsTrace);
 
 			// verify whether transaction is authorised or not
 			canProceed := (acParamsIn.Transac.transacType = ttpurchase) or (acParamsIn.Transac.transacType = ttRefund) or (acParamsIn.Transac.transacType = ttVoidPurchase)
@@ -504,7 +502,7 @@ begin
 				// reset last txn ID as it's been overwritten no matter what happens next
 				szLastPurchaseTransactionID := '';
 
-				lsTrace := '';
+				lsTrace := 'UNKNOWN TRANSACTION';
 				// save merchant reference inside the transaction
 				case acParamsIn.Transac.transacType of
 					ttpurchase:
@@ -513,9 +511,8 @@ begin
 							dlgp := Action_payment;
 							dlgpText := TXN_TYPE_PURCHASE;
 							myNexo.MerchantReferenceID := acParamsIn.Transac.receiptRef;
-							lsTrace := lsTrace + 'PURCHASE';
-							lsMessage := lsTrace + ' - amount: ' + formatFloat('#,##0.00', myNexo.amount) + ' - merchant reference ID: ' + myNexo.MerchantReferenceID;
-							AddLogVerbose(CF + ' - ' + lsMessage);
+							lsTrace := 'PURCHASE - amount: ' + formatFloat('#,##0.00', myNexo.amount) + ' - merchant reference ID: ' + myNexo.MerchantReferenceID;
+							AddLogInformation(CF, lsTrace);
 						end;
 					ttVoidPurchase:
 						begin
@@ -524,9 +521,8 @@ begin
 							myNexo.MerchantReferenceID := '';
 							// txnReference := RebuildID(acParamsIn.Transac.refundRef);
 							RebuildID(acParamsIn.Transac.refundRef);
-							lsTrace := lsTrace + 'REVERSAL';
-							lsMessage := lsTrace + ' - ' + RebuildID(acParamsIn.Transac.refundRef);
-							AddLogVerbose(CF + lsMessage);
+							lsTrace := 'REVERSAL - ' + RebuildID(acParamsIn.Transac.refundRef);
+							AddLogInformation(CF, lsTrace);
 						end;
 					ttRefund:
 						begin
@@ -536,24 +532,24 @@ begin
 							// txnReference := RebuildID(acParamsIn.Transac.refundRef);
 							myNexo.OriginalPOITransactionID := '';
 							myNexo.OriginalPOITransactionTimestamp := '';
-							lsTrace := lsTrace + 'REFUND';
-							lsMessage := lsTrace + ' - amount: ' + formatFloat('#,##0.00', myNexo.amount) + ' - merchant reference ID: ' + myNexo.MerchantReferenceID;
-							AddLogVerbose(CF + lsMessage);
+							lsTrace := 'REFUND - amount: ' + formatFloat('#,##0.00', myNexo.amount) + ' - merchant reference ID: ' + myNexo.MerchantReferenceID;
+							AddLogInformation(CF, lsTrace);
 						end
 					else
 						begin
 							dlgp := Action__none;
 							verr := DRIVER_ERROR_INVALID_TRANSACTION;
-							setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+							lsTrace := lsTrace + ' - processing will stop';
+							result := false;
+							setError(TMC_Error.create(verr, CF, lsTrace));
 						end;
 				end;
 
 				// process transaction
-				if (Action__none <> dlgp) then
+				if result and (Action__none <> dlgp) then
 				begin
 					LastPrintedTransaction.dlgp := Action__none;
 					LastPrintedTransaction.receipt := nil;
-					result := TRUE;
 					txnBrand := 'txnBrand';
 					txnAuthNumber := 'txnAuthNumber';
 					txnSignature := msNO;
@@ -574,15 +570,23 @@ begin
 						ActionResult_success:
 							begin
 								dlgpresText := TXN_RESULT_ACCEPTED;
-								processedAmount := myNexo.Payment.ReplyAuthorizedAmount;
 								verr := DRIVER_NO_ERROR;
 								leTransactionResult := rtAccepted;
 								lsTrace := lsTrace + ' - result: OK';
 								if ttpurchase = acParamsIn.Transac.transacType then
 								begin
+									processedAmount := myNexo.Payment.ReplyAuthorizedAmount;
 									txnBrand := myNexo.Brand;
 									txnAuthNumber := myNexo.Payment.ReplyData.PaymentResult.PaymentAcquirerData.ApprovalCode;
 									txnSignature := msNO;
+									// for i := 0 to myNexo.Payment.ReplyData.PaymentReceiptLength do
+									// begin
+									// if myNexo.Payment.ReplyData.PaymentReceiptGetItem(i).RequiredSignatureFlag then
+									// begin
+									// txnSignature := msCustomerSign;
+									// break;
+									// end;
+									// end;
 									if myNexo.Payment.ReplyData.PaymentResult.OnlineFlag then
 										txnMode := TXN_MODE_ONLINE
 									else
@@ -590,10 +594,11 @@ begin
 									txnCard := myNexo.Payment.ReplyData.PaymentResult.PaymentInstrumentData.CardData.MaskedPAN;
 									txnReference := CreateID();
 									szLastPurchaseTransactionID := txnReference;
-									lsMessage := lsTrace + ' - authorised amount: ' + formatFloat('#,##0.00', processedAmount) + ' - txn ID: ' + txnReference + ' - authorisation number: ' + txnAuthNumber;
-									AddLogVerbose(CF + lsMessage);
+									lsTrace := lsTrace + ' - authorised amount: ' + formatFloat('#,##0.00', processedAmount) + ' - txn ID: ' + txnReference + ' - authorisation number: ' + txnAuthNumber;
+									AddLogInformation(CF, lsTrace);
 								end else if ttRefund = acParamsIn.Transac.transacType then
 								begin
+									processedAmount := myNexo.Refund.ReplyAuthorizedAmount;
 									txnBrand := myNexo.Brand;
 									txnAuthNumber := myNexo.Refund.ReplyData.PaymentResult.PaymentAcquirerData.ApprovalCode;
 									if myNexo.Refund.ReplyData.PaymentResult.OnlineFlag then
@@ -602,26 +607,35 @@ begin
 										txnMode := TXN_MODE_OFFLINE;
 									txnCard := myNexo.Refund.ReplyData.PaymentResult.PaymentInstrumentData.CardData.MaskedPAN;
 									txnReference := CreateID();
-									lsMessage := lsTrace + ' - authorised amount: ' + formatFloat('#,##0.00', processedAmount) + ' - txn ID: ' + txnReference + ' - authorisation number: ' + txnAuthNumber;
-									AddLogVerbose(CF + lsMessage);
+									lsTrace := lsTrace + ' - authorised amount: ' + formatFloat('#,##0.00', processedAmount) + ' - txn ID: ' + txnReference + ' - authorisation number: ' + txnAuthNumber;
+									AddLogInformation(CF, lsTrace);
 								end
 								else // reversal
 								begin
-									lsMessage := lsTrace;
-									lsMessage := AddLogVerbose(CF + lsMessage);
+									processedAmount := acParamsIn.Transac.totalAmount;
+									lsTrace := lsTrace + ' - txn ID: ' + txnReference;
+									AddLogInformation(CF, lsTrace);
 								end;
 							end;
 						else
 							begin
-								leTransactionResult := rtError;
-								processedAmount := myNexo.Payment.RequestRequestedAmount;
+								lsTrace := lsTrace + ' - result: ';
+								leTransactionResult := rtRefussed;
+								if ttpurchase = acParamsIn.Transac.transacType then
+								begin
+									processedAmount := myNexo.Payment.RequestRequestedAmount;
+								end else if ttRefund = acParamsIn.Transac.transacType then
+								begin
+									processedAmount := myNexo.Refund.RequestRequestedAmount;
+								end else begin
+									processedAmount := acParamsIn.Transac.totalAmount;
+								end;
 								case dlgpres of
 									ActionResult_decline:
 										begin
 											dlgpresText := TXN_RESULT_DECLINED;
-											leTransactionResult := rtRefussed;
 											verr := DRIVER_ERROR_TRANSACTION_DECLINED;
-											setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+											lsTrace := lsTrace + 'KO - declined';
 										end;
 									ActionResult_cancel, ActionResult_timeout, ActionResult_exception:
 										begin
@@ -636,31 +650,34 @@ begin
 												txnMode := TXN_MODE_UNKOWN;
 												txnCard := '';
 												txnReference := '';
-												lsMessage := lsTrace + ' - result OK manually validated';
-												AddLogVerbose(CF + lsMessage);
+												lsTrace := lsTrace + 'OK - MANUALLY VALIDATED';
+												AddLogInformation(CF, lsTrace);
 											end else begin
-												leTransactionResult := rtRefussed;
+												lsTrace := lsTrace + 'KO';
 												if ActionResult_cancel = dlgpres then
 												begin
 													dlgpresText := TXN_RESULT_CANCELLED_BY_USER;
 													verr := DRIVER_ERROR_TRANSACTION_CANCELLED_BY_USER;
+													lsTrace := lsTrace + ' - cancelled';
 												end else if ActionResult_timeout = dlgpres then
 												begin
 													dlgpresText := TXN_RESULT_TIMEOUT;
 													verr := DRIVER_ERROR_TRANSACTION_TIMEOUT;
+													lsTrace := lsTrace + ' - timed out';
 												end else begin
 													dlgpresText := TXN_RESULT_EXCEPTION;
 													verr := DRIVER_ERROR_EXCEPTION;
-													result := false;
+													lsTrace := lsTrace + ' - unknown error';
 												end;
-												setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+												setError(TMC_Error.create(verr, CF, lsTrace));
 											end;
 										end;
 									ActionResult_incomplete:
 										begin
+											lsTrace := lsTrace + 'KO - incomplete';
 											dlgpresText := TXN_RESULT_INCOMPLETE;
 											verr := DRIVER_ERROR_TRANSACTION_INCOMPLETE;
-											setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+											setError(TMC_Error.create(verr, CF, lsTrace));
 											// end;
 											// ActionResult_timeout:
 											// begin
@@ -679,21 +696,21 @@ begin
 										begin
 											dlgpresText := TXN_RESULT_UNKNOWN_ERROR;
 											verr := DRIVER_ERROR_TRANSACTION_UNKNOWN_ERROR;
-											leTransactionResult := rtUnknown;
+											lsTrace := lsTrace + 'KO - unknown transaction result';
 											result := false;
-											setError(TMC_Error.create(verr, inttostr(acParamsIn.Transac.transacType)));
+											setError(TMC_Error.create(verr, CF, lsTrace));
 										end;
 								end;
 							end;
 					end;
 
-					lcTransac := TNexoCATPOTransac.create(dlgpresText, txnMode, txnReference, processedAmount, txnCurrency, ckcISOAlpha, txnCard, '', '', txnAuthNumber, txnBrand, '', dxNotEvaluate, txnSignature, '123', 1, nil, 0, '456', ckcUnknown);
+					lcTransac := TNexoCATPOTransac.create(dlgpresText, txnMode, txnReference, processedAmount, txnCurrency, ckcISOAlpha, txnCard, '', '', txnAuthNumber, txnBrand, '', dxNotEvaluate, txnSignature, '', 1, nil, 0, '', ckcUnknown);
 
 					// préparation de l'enregistrement de la transaction
-					if (rtAccepted = leTransactionResult) then
+					// if (rtAccepted = leTransactionResult) then
 					begin
 						// Préparation de l'enregistrement en sortie
-						zcParamsOut := TNexoCATParamsOut.create(myNexo.SaleID, myNexo.POIID, leTransactionResult, lsMessage, nil);
+						zcParamsOut := TNexoCATParamsOut.create(myNexo.SaleID, myNexo.POIID, leTransactionResult, lsTrace, nil);
 						zcParamsOut.transacList.TotalApprovedAmount := lcTransac.approvedAmount;
 						zcParamsOut.transacList.add(lcTransac);
 					end;
@@ -726,12 +743,21 @@ begin
 				end;
 			end;
 		end else begin
-			setError(TMC_Error.create(DRIVER_ERROR_REQUIRED_PARAMSIN_MISSING, ' acParamsIn.Transac'));
 			result := false;
+			lsTrace := lsTrace + 'missing parameter';
+			setError(TMC_Error.create(DRIVER_ERROR_REQUIRED_PARAMSIN_MISSING, CF, 'acParamsIn.Transac - ' + lsTrace));
 		end
 	end else begin
-		setError(TMC_Error.create(DRIVER_ERROR_REQUIRED_PARAMSIN_MISSING, ' acParamsIn'));
 		result := false;
+		setError(TMC_Error.create(DRIVER_ERROR_REQUIRED_PARAMSIN_MISSING, CF, 'acParamsIn'));
+	end;
+	if (nil = zcParamsOut) then
+	begin
+		zcParamsOut := TNexoCATParamsOut.create(myNexo.SaleID, myNexo.POIID, rtError, 'no message to return', nil);
+		zcParamsOut.transacList.TotalApprovedAmount := lcTransac.approvedAmount;
+		zcParamsOut.transacList.add(lcTransac);
+		result := false;
+		setError(TMC_Error.create(DRIVER_ERROR_TRANSACTION_UNKNOWN_ERROR, CF, 'no message to return'));
 	end;
 end;
 
@@ -740,35 +766,35 @@ function TNexo.doTransactionReport: boolean;
 // opt: sDialogSelect;
 begin
 	_F('TNexo.doTransactionReport');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := false;
 
 	// lsTrace := lsTrace + #13 + ' Init ExecID: ' + acParamsIn.Init.ExecID + ' ExecVersion: ' + acParamsIn.Init.ExecVersion;
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doPrintDuplicate: boolean;
 begin
 	_F('TNexo.doPrintDuplicate');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	if (LastPrintedTransaction.dlgp <> Action__none) and (nil <> LastPrintedTransaction.receipt) then
 		PrintTransactionReceipt(LastPrintedTransaction.dlgp, LastPrintedTransaction.receipt, TRUE, TRUE);
 	result := TRUE;
 
 	// lsTrace := lsTrace + #13 + ' Init ExecID: ' + acParamsIn.Init.ExecID + ' ExecVersion: ' + acParamsIn.Init.ExecVersion;
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.doSettlement(acParamsIn: IMC_CATParamsIn): boolean;
 begin
 	_F('TNexo.doSettlement');
-	AddLogVerbose(CFB + ' - acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
+	AddLogVerbose(CFB, 'acParamsIn assigned: ' + booltostr_(assigned(acParamsIn)));
 
 	result := TRUE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexo.PrintReceipt(acXmlReceipt: IXMLDocument; aeCommand: TMC_CATCommand; aeReportType: TMC_ReportType): TMC_CallbackResult;
@@ -782,7 +808,7 @@ var
 	lcError: IMC_Error;
 begin
 	_F('TNexo.PrintReceipt');
-	AddLogVerbose(CFB + ' - aeCommand: ' + inttostr(aeCommand) + ' aePrintMode: ' + inttostr(aeReportType));
+	AddLogVerbose(CFB, 'aeCommand: ' + inttostr(aeCommand) + ' aePrintMode: ' + inttostr(aeReportType));
 
 	// Display message : Printing in progress
 	lcParamIn := TMC_UICallbackPIMessage.create('Printing in progress', -1);
@@ -824,7 +850,7 @@ begin
 		lcError // acErr
 		);
 
-	AddLogVerbose(CFER + inttostr(result));
+	AddLogVerbose(CFER, inttostr(result));
 end;
 
 procedure TNexo.PrintTransactionReceipt(request: Action; receipts: PSafeArray; fCustomerReceipt: boolean; fDuplicate: boolean);
@@ -845,7 +871,7 @@ begin
 		receiptType := TXN_RECEIPT_CUSTOMER
 	else
 		receiptType := TXN_RECEIPT_MERCHANT;
-	AddLogVerbose(CFB + ' - ' + receiptType);
+	AddLogVerbose(CFB, receiptType);
 
 	// prepare receipt to print
 	lcReceiptData := TXMLDocument.create(nil) as IXMLDocument;
@@ -932,7 +958,7 @@ begin
 	// finally print the prepared receipt
 	PrintReceipt(lcReceiptData, coTransaction, pptReportType1);
 
-	AddLogVerbose(CFE);
+	AddLogVerbose(CFE, '');
 end;
 
 procedure TNexo.PrintTransactionShortReceipt(const ope, result, msg: widestring; const amount: double; const currency: widestring);
@@ -966,7 +992,7 @@ begin
 	// finally print the prepared receipt
 	PrintReceipt(lcReceiptData, coTransaction, pptReportType1);
 
-	AddLogVerbose(CFE);
+	AddLogVerbose(CFE, '');
 end;
 
 procedure TNexo.AddLine(lcReceiptData: IXMLDocument; S: widestring; align: enumAlign; fBold: boolean; fUnderline: boolean; fDoubleWidth: boolean; fDoubleHeight: boolean);

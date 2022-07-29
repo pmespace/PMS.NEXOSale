@@ -12,11 +12,11 @@ unit PMS_COMMON_TLB;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 07/06/2022 17:58:47 depuis la bibliothèque de types ci-dessous.
+// Fichier généré le 28/07/2022 21:37:37 depuis la bibliothèque de types ci-dessous.
 
 // ************************************************************************  //
 // Biblio. types : C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb (1)
-// LIBID : {F9890070-FED2-37F6-8A04-03186ACFB2E4}
+// LIBID : {E27DBA99-626F-3B00-B9CB-00A08F84D5EC}
 // LCID : 0
 // Fichier d'aide : 
 // Chaîne d'aide : 
@@ -24,7 +24,7 @@ unit PMS_COMMON_TLB;
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 //   (2) v2.4 mscorlib, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb)
 // Bibliothèque de types parent :
-//   (0) v1.4 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+//   (0) v1.5 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN64
 // ************************************************************************ //
 {$TYPEDADDRESS OFF} // L'unité doit être compilée sans pointeur à type contrôlé.  
@@ -50,7 +50,7 @@ const
   PMS_COMMONMajorVersion = 6;
   PMS_COMMONMinorVersion = 1;
 
-  LIBID_PMS_COMMON: TGUID = '{F9890070-FED2-37F6-8A04-03186ACFB2E4}';
+  LIBID_PMS_COMMON: TGUID = '{E27DBA99-626F-3B00-B9CB-00A08F84D5EC}';
 
   IID__EDisconnected: TGUID = '{CA0B69CD-764A-304C-B429-626DB65562CD}';
   IID__EInvalidFormat: TGUID = '{C55F93A5-C250-3CE4-8CEC-040BA84D26B9}';
@@ -94,27 +94,27 @@ const
   IID__TimerCompleteDelegate: TGUID = '{FD39B2A3-27C1-3253-A87B-B214CC3325F6}';
   IID__Win32UIActivityDelegate: TGUID = '{362514F5-AE98-3E9F-9729-E67E58A3D5D7}';
   IID__FeedRecordDelegate: TGUID = '{7E09070D-FD2E-3546-9F9D-676E61B63B16}';
-  CLASS_EDisconnected: TGUID = '{D81C148B-9567-3F6C-8708-48E9323E71A5}';
-  CLASS_EInvalidFormat: TGUID = '{F21F0CA5-7575-3E11-A105-49CF28BC5169}';
-  CLASS_EOutOfRange: TGUID = '{18C6B258-E89A-31B0-8DEB-0025DE1C58DC}';
-  CLASS_CMiscExtensions: TGUID = '{000C78EB-9EC8-3766-A1D0-9EA8AB398024}';
-  CLASS_ENotImplemented: TGUID = '{60127840-74E8-306C-A824-7CDA1557F0E2}';
-  CLASS_CStreamParameters: TGUID = '{143A2F38-F2B7-362E-9503-B9E4DF3036C0}';
-  CLASS_SendAsyncType: TGUID = '{0614DC1D-F41C-34E9-A349-66E57352279F}';
-  CLASS_ServerOnStartDelegate: TGUID = '{A92D989A-D04F-3B2E-BB73-1CC1229B922B}';
-  CLASS_ServerOnConnectDelegate: TGUID = '{87A73F2E-D308-30FE-BDBF-A36D1110A2F9}';
-  CLASS_ServerOnMessageDelegate: TGUID = '{DD305876-5D64-3416-A840-2AD875CC6D8C}';
-  CLASS_ServerOnDisconnectDelegate: TGUID = '{441B80AA-8DA1-30BB-9792-6902D14DAB25}';
-  CLASS_ServerOnStopDelegate: TGUID = '{77E3E340-E870-3469-9106-19B07356F9E9}';
-  CLASS_ClientOnReceivedMessageDelegate: TGUID = '{FB9AF0A5-5CB7-342E-94B7-BBB67EBC43E9}';
-  CLASS_ClientOnSendMessageDelegate: TGUID = '{13E6FA35-DA15-3167-B32A-A065072AFA93}';
-  CLASS_ClientOnReplyDelegate: TGUID = '{3229C616-4539-36B0-A06D-DBAA6FF7C785}';
-  CLASS_ClientServerOnMessageToLog: TGUID = '{22EA05C4-8530-31FA-B787-58465228E099}';
-  CLASS_ThreadFunction: TGUID = '{73076F7F-6DB9-3562-A5AB-6A0D1348080E}';
-  CLASS_ThreadTerminates: TGUID = '{EFD98508-BEF6-325C-B23D-CA21A366B418}';
-  CLASS_TimerCompleteDelegate: TGUID = '{062E3BB8-E465-3558-97E7-534396CD7B03}';
-  CLASS_Win32UIActivityDelegate: TGUID = '{4A73412D-AA93-3BE1-925C-76AD37342D66}';
-  CLASS_FeedRecordDelegate: TGUID = '{B3D67760-B7FE-3085-8C51-E3269C57E829}';
+  CLASS_EDisconnected: TGUID = '{66ACBFF9-6D1B-3A49-A671-253B1B31A565}';
+  CLASS_EInvalidFormat: TGUID = '{1939DC7A-CD6B-3C43-AB04-21CE6824F8FD}';
+  CLASS_EOutOfRange: TGUID = '{3BB5672A-A89B-3CC1-8658-8B36CD36FC92}';
+  CLASS_CMiscExtensions: TGUID = '{44252353-FA68-3305-8345-526492B417EC}';
+  CLASS_ENotImplemented: TGUID = '{15FE91D9-335F-3FDF-AE66-B22127F7F3D0}';
+  CLASS_CStreamParameters: TGUID = '{87B04C88-716D-3471-9DE8-0B10CEFF7BE6}';
+  CLASS_SendAsyncType: TGUID = '{3DF6A411-F43E-3CE7-B695-AFDCD93FF984}';
+  CLASS_ServerOnStartDelegate: TGUID = '{DC6DDFBB-0108-3036-99D0-E25E5A57DA32}';
+  CLASS_ServerOnConnectDelegate: TGUID = '{A74C058E-4601-3485-A65B-65215C824CCD}';
+  CLASS_ServerOnMessageDelegate: TGUID = '{C238AB90-84B1-394D-94B4-392136A0A6B5}';
+  CLASS_ServerOnDisconnectDelegate: TGUID = '{E541F2DE-8ADA-3700-874E-730A26A8B465}';
+  CLASS_ServerOnStopDelegate: TGUID = '{F285A45F-B566-31B4-8549-16366DCFBB69}';
+  CLASS_ClientOnReceivedMessageDelegate: TGUID = '{9610089B-EC7B-3CCE-8A85-6125B8AECCA7}';
+  CLASS_ClientOnSendMessageDelegate: TGUID = '{F2023B04-B377-3A84-85E3-A55C86A67177}';
+  CLASS_ClientOnReplyDelegate: TGUID = '{FDD2FA72-B873-3445-BF5A-3537B5B16170}';
+  CLASS_ClientServerOnMessageToLog: TGUID = '{03E4EEDD-9EE6-3F8C-AE2E-007FD17F0137}';
+  CLASS_ThreadFunction: TGUID = '{A944F0F6-E736-3C7D-A870-DE082D912BB5}';
+  CLASS_ThreadTerminates: TGUID = '{74A40684-8C97-38E0-AC3C-5B758E5FEFE0}';
+  CLASS_TimerCompleteDelegate: TGUID = '{96032755-67D4-359A-8B97-3919D50F24F5}';
+  CLASS_Win32UIActivityDelegate: TGUID = '{537CA00D-F538-33D1-B0DF-7EA10EAFE184}';
+  CLASS_FeedRecordDelegate: TGUID = '{E69AC4A0-E6EF-3750-A833-1F1B02CBA548}';
 
 // *********************************************************************//
 // Déclaration d'énumérations définies dans la bibliothèque de types                    

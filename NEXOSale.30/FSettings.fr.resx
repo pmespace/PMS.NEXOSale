@@ -1062,4 +1062,7 @@
   <data name="cbUseRefundForCancel.Text" xml:space="preserve">
     <value>Utiliser le remboursement au lieu de l'annulation de transaction</value>
   </data>
+  <data name="Label15.Text" xml:space="preserve">
+    <value>Niveau de trace:</value>
+  </data>
 </root>

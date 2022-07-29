@@ -12,7 +12,7 @@ unit System_Windows_Forms_TLB;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 07/06/2022 17:58:47 depuis la bibliothèque de types ci-dessous.
+// Fichier généré le 28/07/2022 21:37:37 depuis la bibliothèque de types ci-dessous.
 
 // ************************************************************************  //
 // Biblio. types : C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Windows.Forms.tlb (1)
@@ -26,7 +26,7 @@ unit System_Windows_Forms_TLB;
 //   (3) v1.1 Accessibility, (C:\Windows\SysWOW64\oleacc.dll)
 //   (4) v2.4 System, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.tlb)
 // Bibliothèque de types parent :
-//   (0) v1.4 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+//   (0) v1.5 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN32
 // Errors:
 //   Remarque : le typeInfo 'Label' a été changé en 'Label_'

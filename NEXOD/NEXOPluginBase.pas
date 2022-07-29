@@ -78,12 +78,12 @@ type
 
 	protected
 		// EDEL
-		function AddLog(fTest: boolean; level: integer; szMessage: widestring): widestring;
-		function AddLogInformation(szMessage: widestring): widestring;
-		function AddLogVerbose(szMessage: widestring): widestring;
-		function AddLogWarning(szMessage: widestring): widestring;
-		function AddLogError(szMessage: widestring): widestring;
-		function AddLogX(level: integer; szMessage: widestring): widestring;
+		function AddLog(fTest: boolean; level: integer; func: widestring; szMessage: widestring): widestring;
+		function AddLogInformation(func: widestring; szMessage: widestring): widestring;
+		function AddLogVerbose(func: widestring; szMessage: widestring): widestring;
+		function AddLogWarning(func: widestring; szMessage: widestring): widestring;
+		function AddLogError(func: widestring; szMessage: widestring): widestring;
+		function AddLogX(level: integer; func: widestring; szMessage: widestring): widestring;
 	end;
 
 implementation
@@ -101,29 +101,29 @@ begin
 	fsSendTraceAsUICallback := CEGID_STRING_FALSE;
 end;
 
-function TNexoPluginBase.AddLogError(szMessage: widestring): widestring;
+function TNexoPluginBase.AddLogError(func: widestring; szMessage: widestring): widestring;
 begin
-	result := AddLogX(lsError, szMessage);
+	result := AddLogX(lsError, func, szMessage);
 end;
 
-function TNexoPluginBase.AddLogInformation(szMessage: widestring): widestring;
+function TNexoPluginBase.AddLogInformation(func: widestring; szMessage: widestring): widestring;
 begin
-	result := AddLogX(lsInformation, szMessage);
+	result := AddLogX(lsInformation, func, szMessage);
 end;
 
-function TNexoPluginBase.AddLogVerbose(szMessage: widestring): widestring;
+function TNexoPluginBase.AddLogVerbose(func: widestring; szMessage: widestring): widestring;
 begin
-	result := AddLogX(lsVerbose, szMessage);
+	result := AddLogX(lsVerbose, func, szMessage);
 end;
 
-function TNexoPluginBase.AddLogWarning(szMessage: widestring): widestring;
+function TNexoPluginBase.AddLogWarning(func: widestring; szMessage: widestring): widestring;
 begin
-	result := AddLogX(lsWarning, szMessage);
+	result := AddLogX(lsWarning, func, szMessage);
 end;
 
-function TNexoPluginBase.AddLogX(level: integer; szMessage: widestring): widestring;
+function TNexoPluginBase.AddLogX(level: integer; func: widestring; szMessage: widestring): widestring;
 begin
-	result := AddLog(doManageLog(level) = cbrOk, level, szMessage);
+	result := AddLog(doManageLog(level) = cbrOk, level, func, szMessage);
 end;
 
 function TNexoPluginBase.CFB: widestring;
@@ -146,35 +146,43 @@ begin
 	result := _FUNCTION;
 end;
 
-function TNexoPluginBase.AddLog(fTest: boolean; level: integer; szMessage: widestring): widestring;
+function TNexoPluginBase.AddLog(fTest: boolean; level: integer; func: widestring; szMessage: widestring): widestring;
 begin
+	result := '';
 	if fTest then
-		doAddLog(level, szMessage);
-	result := szMessage;
+		if ('' <> func) then
+			if '' <> szMessage then
+				result := func + ' - ' + szMessage
+			else
+				result := func
+		else if '' <> szMessage then
+			result := szMessage;
+	if '' <> result then
+		doAddLog(level, result);
 end;
 
 function TNexoPluginBase.doUICallback(aeType: TMC_UICallbackType; acParamsIn: IMC_UICallbackParamsIn; out zcParamOut: IMC_UICallbackResult): TMC_CallbackResult;
 begin
 	_F('TNexoPluginBase.doUICallback');
-	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose, CFB + ' - aeType: ' + inttostr(aeType) + ' - acParamsIn.assigned: ' + booltostr_(assigned(acParamsIn)));
+	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose, CFB, 'aeType: ' + inttostr(aeType) + ' - acParamsIn.assigned: ' + booltostr_(assigned(acParamsIn)));
 
 	result := cbrNoAnswer;
 	if assigned(callback) then
 		result := callback.onMC_UICallback((self as IMC_PluginBase), aeType, acParamsIn, zcParamOut);
 
-	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose, CFER + inttostr(result) + ' - zcParams.assigned: ' + booltostr_(assigned(zcParamOut)));
+	AddLog((fsSendTraceAsUICallback = CEGID_STRING_FALSE) and (doManageLog(lsVerbose) = cbrOk), lsVerbose, CFER, inttostr(result) + ' - zcParams.assigned: ' + booltostr_(assigned(zcParamOut)));
 end;
 
 function TNexoPluginBase.doMC_Callback(aeDeviceType: TMC_DeviceType; aiDeviceNum: integer; acInput: IStream; out zcAnswer: IStream; out zcErr: IMC_Error): TMC_CallbackResult;
 begin
 	_F('TNexoPluginBase.doMC_Callback');
-	AddLogVerbose(CFB + ' aeDeviceType: ' + inttostr(aeDeviceType) + ' - aiDeviceNum: ' + inttostr(aiDeviceNum) + ' - acInput.assigned: ' + booltostr_(assigned(acInput)));
+	AddLogVerbose(CFB, 'aeDeviceType: ' + inttostr(aeDeviceType) + ' - aiDeviceNum: ' + inttostr(aiDeviceNum) + ' - acInput.assigned: ' + booltostr_(assigned(acInput)));
 
 	result := cbrNoAnswer;
 	if assigned(callback) then
 		result := callback.onMC_Callback((self as IMC_PluginBase), aeDeviceType, aiDeviceNum, acInput, zcAnswer, zcErr);
 
-	AddLogVerbose(CFER + inttostr(result) + ' - zcanswer.assigned: ' + booltostr_(assigned(zcAnswer)));
+	AddLogVerbose(CFER, inttostr(result) + ' - zcanswer.assigned: ' + booltostr_(assigned(zcAnswer)));
 end;
 
 procedure TNexoPluginBase.doAddLog(aeSeverity: TMC_LogSeverity; const asMessage: widestring);
@@ -209,29 +217,29 @@ end;
 function TNexoPluginBase.get_PluginInformations: IMC_PluginInformations;
 begin
 	_F('TNexoPluginBase.get_PluginInformations');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := doGetPluginInformations;
 
-	AddLogVerbose(CFER + booltostr_(assigned(result)));
+	AddLogVerbose(CFER, booltostr_(assigned(result)));
 end;
 
 function TNexoPluginBase.get_State: TMC_StateDevice;
 begin
 	_F('TNexoPluginBase.get_State');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 	result := doGetState;
-	AddLogVerbose(CFER + inttostr(result));
+	AddLogVerbose(CFER, inttostr(result));
 end;
 
 procedure TNexoPluginBase.setState(aeState: TMC_StateDevice);
 begin
 	_F('TNexoPluginBase.setState');
-	AddLogVerbose(CFB + ' - aeState: ' + inttostr(aeState));
+	AddLogVerbose(CFB, 'aeState: ' + inttostr(aeState));
 
 	feState := aeState;
 
-	AddLogVerbose(CFER);
+	AddLogVerbose(CFER, '');
 end;
 
 function TNexoPluginBase.notError: boolean;
@@ -242,11 +250,11 @@ end;
 function TNexoPluginBase.doGetState: TMC_StateDevice;
 begin
 	_F('TNexoPluginBase.doGetState');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := feState;
 
-	AddLogVerbose(CFER + inttostr(result));
+	AddLogVerbose(CFER, inttostr(result));
 end;
 
 function TNexoPluginBase.setError(acError: IMC_Error): widestring;
@@ -256,8 +264,8 @@ begin
 	if assigned(fcError) then
 	begin
 		_F('TNexoPluginBase.setError');
-		result := CF + ' - Error code: ' + inttostr(fcError.code) + ' - message: ' + fcError.message + ' - extraInfo: ' + inttostr(fcError.extraInfo);
-		AddLogError(result);
+		result := 'Error code: ' + inttostr(fcError.code) + ' - message: ' + fcError.message + ' - extraInfo: ' + inttostr(fcError.extraInfo);
+		AddLogError('', result);
 	end;
 end;
 
@@ -281,7 +289,7 @@ var
 	lcDetailedError: IMC_DetailedError;
 begin
 	_F('TNexoPluginBase.getLastError');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := nil;
 	if assigned(fcError) then
@@ -292,7 +300,7 @@ begin
 			result := TMC_Error.create(fcError.code, fcError.message, fcError.extraInfo);
 	end;
 
-	AddLogVerbose(CFER + booltostr_(assigned(result)));
+	AddLogVerbose(CFER, booltostr_(assigned(result)));
 end;
 
 function TNexoPluginBase.clearLastError: IMC_Error;
@@ -302,7 +310,7 @@ begin
 	if doManageLog(lsVerbose) = cbrOk then
 	begin
 		lcErr := getLastError;
-		AddLog(true, lsVerbose, CFB + ' - getLastError.assigned: ' + booltostr_(assigned(lcErr)));
+		AddLog(true, lsVerbose, CFB, 'getLastError.assigned: ' + booltostr_(assigned(lcErr)));
 	end;
 
 	result := getLastError;
@@ -311,14 +319,14 @@ begin
 	if doManageLog(lsVerbose) = cbrOk then
 	begin
 		lcErr := getLastError;
-		AddLog(true, lsVerbose, CFE + ' - result.assigned: ' + booltostr_(assigned(result)) + ' - getLastError.assigned: ' + booltostr_(assigned(lcErr)));
+		AddLog(true, lsVerbose, CFE, 'result.assigned: ' + booltostr_(assigned(result)) + ' - getLastError.assigned: ' + booltostr_(assigned(lcErr)));
 	end;
 end;
 
 function TNexoPluginBase.doGetCapabilities(aiCapability: TMC_Capabilities; const asOptArgs: widestring): widestring;
 begin
 	_F('TNexoPluginBase.doGetCapabilities');
-	AddLogVerbose(CFB + ' - aiCapability: ' + inttostr(ord(aiCapability)) + ' - asOptArgs: ' + asOptArgs);
+	AddLogVerbose(CFB, 'aiCapability: ' + inttostr(ord(aiCapability)) + ' - asOptArgs: ' + asOptArgs);
 
 	result := '';
 	case aiCapability of
@@ -331,16 +339,16 @@ begin
 		caMC_CallbackID:
 			result := CEGID_STRING_FALSE;
 		else
-			AddLogError(CF + ' - Capability #' + inttostr(aiCapability) + ' out of index');
+			AddLogError(CF, 'Capability #' + inttostr(aiCapability) + ' out of index');
 	end;
 
-	AddLogVerbose(CFER + result);
+	AddLogVerbose(CFER, result);
 end;
 
 function TNexoPluginBase.getCapabilities(aiCapability: TMC_Capabilities; const asOptArgs: widestring): widestring;
 begin
 	_F('TNexoPluginBase.getCapabilities');
-	AddLogVerbose(CFB + ' - aiCapability: ' + inttostr(aiCapability) + ' - asOptArgs: ' + asOptArgs);
+	AddLogVerbose(CFB, 'aiCapability: ' + inttostr(aiCapability) + ' - asOptArgs: ' + asOptArgs);
 
 	setError(nil);
 	result := CEGID_STRING_FALSE;
@@ -349,37 +357,37 @@ begin
 	else
 		setError(TMC_Error.create(28, 'Capability out of index', 0));
 
-	AddLogVerbose(CFER + result);
+	AddLogVerbose(CFER, result);
 end;
 
 function TNexoPluginBase.connect(const asConnectString: widestring): boolean;
 begin
 	_F('TNexoPluginBase.connect');
-	AddLogVerbose(CFB + ' - asConnectString: ' + asConnectString);
+	AddLogVerbose(CFB, 'asConnectString: ' + asConnectString);
 
 	result := doConnect(asConnectString);
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexoPluginBase.open(): boolean;
 begin
 	_F('TNexoPluginBase.open');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := true; // FALSE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexoPluginBase.close(): boolean;
 begin
 	_F('TNexoPluginBase.close');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := true; // (state = dsOnLine);
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 // procedure TNexoPluginBase._C(s: widestring);
@@ -390,32 +398,32 @@ end;
 function TNexoPluginBase.disconnect(): boolean;
 begin
 	_F('TNexoPluginBase.disconnect');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := true; // (state in [dsConnect, dsOnLine]);
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexoPluginBase.checkHealth(const asConnectString: widestring; out zsAnswer: widestring): boolean;
 begin
 	_F('TNexoPluginBase.checkHealth');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	setError(nil);
 	result := doCheckHealth(asConnectString, zsAnswer);
 
-	AddLogVerbose(CFER + booltostr_(result) + ' - zsAnswer: ' + zsAnswer);
+	AddLogVerbose(CFER, booltostr_(result) + ' - zsAnswer: ' + zsAnswer);
 end;
 
 function TNexoPluginBase.InitDevice(): boolean;
 begin
 	_F('TNexoPluginBase.InitDevice');
-	AddLogVerbose(CFB);
+	AddLogVerbose(CFB, '');
 
 	result := doInitDevice(); // FALSE;
 
-	AddLogVerbose(CFER + booltostr_(result));
+	AddLogVerbose(CFER, booltostr_(result));
 end;
 
 function TNexoPluginBase.directCommand(const asCommand: widestring; acDataIn: IStream; out zcDataOut: IStream): boolean; stdcall;
@@ -423,7 +431,7 @@ var
 	lcErr: IMC_Error;
 begin
 	_F('TNexoPluginBase.directCommand');
-	AddLogVerbose(CFB + ' - asCommand: ' + asCommand + ' - acDataIn.assigned: ' + booltostr_(assigned(acDataIn)));
+	AddLogVerbose(CFB, 'asCommand: ' + asCommand + ' - acDataIn.assigned: ' + booltostr_(assigned(acDataIn)));
 
 	result := False;
 	if notError then
@@ -435,10 +443,10 @@ begin
 			setError(TMC_Error.create(30, 'No command to execute', 0));
 	end else begin
 		lcErr := getLastError;
-		AddLogWarning(CF + ' - A previous error exists: ' + inttostr(lcErr.code) + ' - message: ' + lcErr.message + ' - extraInfo: ' + inttostr(lcErr.extraInfo));
+		AddLogWarning(CF, 'A previous error exists: ' + inttostr(lcErr.code) + ' - message: ' + lcErr.message + ' - extraInfo: ' + inttostr(lcErr.extraInfo));
 	end;
 
-	AddLogVerbose(CFER + booltostr_(result) + ' - zcDataOut.assigned: ' + booltostr_(assigned(zcDataOut)));
+	AddLogVerbose(CFER, booltostr_(result) + ' - zcDataOut.assigned: ' + booltostr_(assigned(zcDataOut)));
 end;
 
 end.

@@ -256,6 +256,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Error.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_Error() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.Error", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Failed to connect to POI.
         '''</summary>
         Friend Shared ReadOnly Property FProcessing_FailedToConnectToPOI() As String

@@ -12,7 +12,7 @@ unit mscorlib_TLB;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 07/06/2022 17:58:47 depuis la bibliothèque de types ci-dessous.
+// Fichier généré le 28/07/2022 21:37:36 depuis la bibliothèque de types ci-dessous.
 
 // ************************************************************************  //
 // Biblio. types : C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb (5)
@@ -23,7 +23,7 @@ unit mscorlib_TLB;
 // DepndLst : 
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 // Bibliothèque de types parent :
-//   (0) v1.4 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+//   (0) v1.5 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN32
 // Errors:
 //   Remarque : le symbole 'Object' a été renommé en 'CLRObject'

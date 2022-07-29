@@ -52,8 +52,10 @@ Public Class Main
 				Nxo.OriginalPOITransactionID = Nothing
 				Nxo.OriginalPOITransactionTimestamp = Nothing
 			Case Action.Reversal
-				'Nxo.OriginalPOITransactionID = "00000000"
-				'Nxo.OriginalPOITransactionTimestamp = NexoISODateTime.CurrentDateTime
+				'If String.IsNullOrEmpty(Nxo.OriginalPOITransactionID) Then
+				'	Nxo.OriginalPOITransactionID = "00000000"
+				'	Nxo.OriginalPOITransactionTimestamp = NexoISODateTime.CurrentDateTime
+				'End If
 			Case Action.Reconciliation
 		End Select
 		Nxo.UseInternalPrinting = cbInternalPrinting.Checked

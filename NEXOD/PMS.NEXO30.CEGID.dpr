@@ -24,13 +24,13 @@ uses
   ED_EFTBinding in 'ED_EFTBinding.pas',
   MC_Binding in 'MC_Binding.pas',
   MC_UICallbackParamsIn in 'MC_UICallbackParamsIn.pas',
+  PMS_NEXOSALE30_TLB in 'COM\PMS_NEXOSALE30_TLB.pas',
   Accessibility_TLB in 'COM\Accessibility_TLB.pas',
+  mscorlib_TLB in 'COM\mscorlib_TLB.pas',
   PMS_COMMON_TLB in 'COM\PMS_COMMON_TLB.pas',
   PMS_NEXO30_TLB in 'COM\PMS_NEXO30_TLB.pas',
-  PMS_NEXOSALE30_TLB in 'COM\PMS_NEXOSALE30_TLB.pas',
   System_TLB in 'COM\System_TLB.pas',
-  System_Windows_Forms_TLB in 'COM\System_Windows_Forms_TLB.pas',
-  mscorlib_TLB in 'COM\mscorlib_TLB.pas';
+  System_Windows_Forms_TLB in 'COM\System_Windows_Forms_TLB.pas';
 
 // DLL exports
 

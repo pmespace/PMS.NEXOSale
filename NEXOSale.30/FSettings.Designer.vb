@@ -153,9 +153,11 @@ Partial Class FSettings
 		Me.cbResuseMerchantReferenceID = New System.Windows.Forms.CheckBox()
 		Me.cbReturnBrand = New System.Windows.Forms.CheckBox()
 		Me.cbAllowOfflinePOI = New System.Windows.Forms.CheckBox()
+		Me.cbUseRefundForCancel = New System.Windows.Forms.CheckBox()
+		Me.Label15 = New System.Windows.Forms.Label()
+		Me.cbxTraceLevel = New System.Windows.Forms.ComboBox()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-		Me.cbUseRefundForCancel = New System.Windows.Forms.CheckBox()
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -1042,6 +1044,8 @@ Partial Class FSettings
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbReturnBrand)
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbAllowOfflinePOI)
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbUseRefundForCancel)
+		Me.FlowLayoutPanel5.Controls.Add(Me.Label15)
+		Me.FlowLayoutPanel5.Controls.Add(Me.cbxTraceLevel)
 		Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
 		'
 		'cbResuseMerchantReferenceID
@@ -1064,17 +1068,29 @@ Partial Class FSettings
 		Me.cbAllowOfflinePOI.Name = "cbAllowOfflinePOI"
 		Me.cbAllowOfflinePOI.UseVisualStyleBackColor = True
 		'
-		'OpenFileDialog1
-		'
-		Me.OpenFileDialog1.CheckFileExists = False
-		Me.OpenFileDialog1.CheckPathExists = False
-		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-		'
 		'cbUseRefundForCancel
 		'
 		resources.ApplyResources(Me.cbUseRefundForCancel, "cbUseRefundForCancel")
 		Me.cbUseRefundForCancel.Name = "cbUseRefundForCancel"
 		Me.cbUseRefundForCancel.UseVisualStyleBackColor = True
+		'
+		'Label15
+		'
+		resources.ApplyResources(Me.Label15, "Label15")
+		Me.Label15.Name = "Label15"
+		'
+		'cbxTraceLevel
+		'
+		resources.ApplyResources(Me.cbxTraceLevel, "cbxTraceLevel")
+		Me.cbxTraceLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cbxTraceLevel.FormattingEnabled = True
+		Me.cbxTraceLevel.Name = "cbxTraceLevel"
+		'
+		'OpenFileDialog1
+		'
+		Me.OpenFileDialog1.CheckFileExists = False
+		Me.OpenFileDialog1.CheckPathExists = False
+		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
 		'
 		'FSettings
 		'
@@ -1306,4 +1322,6 @@ Partial Class FSettings
 	Friend WithEvents cbHideInformation As Windows.Forms.CheckBox
 	Friend WithEvents cbAlwaysLogToPOI As Windows.Forms.CheckBox
 	Friend WithEvents cbUseRefundForCancel As Windows.Forms.CheckBox
+	Friend WithEvents Label15 As Windows.Forms.Label
+	Friend WithEvents cbxTraceLevel As Windows.Forms.ComboBox
 End Class

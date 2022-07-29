@@ -3,7 +3,9 @@ unit NEXOTypes;
 interface
 
 uses
-	Classes, MC_PluginInterface, PMS_NEXOSale30_TLB;
+	Classes,
+	MC_PluginInterface,
+	PMS_NEXOSale30_TLB;
 
 const
 	DRIVER_VERSION_MAJOR = 1;
@@ -38,8 +40,11 @@ type
 		constructor create(const asExtra: wideString); virtual;
 		procedure dispose; stdcall;
 		procedure Assign(acSource: IMC_Assignable); stdcall;
-		property recordVersion: integer read get_RecordVersion;
-		property extra: wideString read getExtra write setExtra;
+		property recordVersion: integer
+			read get_RecordVersion;
+		property extra: wideString
+			read getExtra
+			write setExtra;
 	end;
 
 	TMC_VersionedListBase = class(TInterfaceList, IMC_Interface, IMC_Assignable, IMC_ListVersionedInterface)
@@ -61,8 +66,11 @@ type
 		procedure beginUpdate; virtual; stdcall;
 		procedure endUpdate; virtual; stdcall;
 
-		property recordVersion: integer read get_RecordVersion;
-		property extra: wideString read getExtra write setExtra;
+		property recordVersion: integer
+			read get_RecordVersion;
+		property extra: wideString
+			read getExtra
+			write setExtra;
 	end;
 
 	TMC_Error = class(TNexoVersionedObjectBase, IMC_Error)
@@ -77,12 +85,16 @@ type
 		function getextraInfo: integer; stdcall;
 	public
 		constructor create(aiCode: integer; const asMessage: wideString; aiExtraInfo: integer); reintroduce; overload;
-		property code: integer read getCode;
-		property message: wideString read getMessage;
-		property extraInfo: integer read getextraInfo;
+		property code: integer
+			read getCode;
+		property message: wideString
+			read getMessage;
+		property extraInfo: integer
+			read getextraInfo;
 	public
 		constructor create(aiCode: integer; data: wideString); reintroduce; overload;
 		constructor create(aiCode: integer); reintroduce; overload;
+		constructor create(aiCode: integer; func: wideString; data: wideString); reintroduce; overload;
 	end;
 
 	TMC_DetailedError = class(TMC_Error, IMC_DetailedError)
@@ -97,11 +109,13 @@ type
 		function getAdviceMessage: wideString; stdcall;
 		function getCritical: boolean; stdcall;
 	public
-		constructor create(aiCode: integer; const asMessage: wideString; aiExtraInfo: integer; const asTechnicalMessage, asAdviceMessage: wideString;
-			abCritical: boolean); reintroduce;
-		property technicalMessage: wideString read getTechnicalMessage;
-		property adviceMessage: wideString read getAdviceMessage;
-		property critical: boolean read getCritical;
+		constructor create(aiCode: integer; const asMessage: wideString; aiExtraInfo: integer; const asTechnicalMessage, asAdviceMessage: wideString; abCritical: boolean); reintroduce;
+		property technicalMessage: wideString
+			read getTechnicalMessage;
+		property adviceMessage: wideString
+			read getAdviceMessage;
+		property critical: boolean
+			read getCritical;
 	end;
 
 	TMC_PluginVersion = class(TNexoVersionedObjectBase, IMC_PluginVersion)
@@ -119,10 +133,14 @@ type
 	public
 		constructor create(aimajorVersion, aiminorVersion, aireleaseVersion, aibuildVersion: integer); reintroduce;
 		function wholeVersionString: wideString; stdcall;
-		property majorVersion: integer read get_MajorVersion;
-		property minorVersion: integer read get_MinorVersion;
-		property releaseVersion: integer read get_ReleaseVersion;
-		property buildVersion: integer read get_BuildVersion;
+		property majorVersion: integer
+			read get_MajorVersion;
+		property minorVersion: integer
+			read get_MinorVersion;
+		property releaseVersion: integer
+			read get_ReleaseVersion;
+		property buildVersion: integer
+			read get_BuildVersion;
 	end;
 
 	TMC_PluginInformations = class(TNexoVersionedObjectBase, IMC_PluginInformations)
@@ -140,13 +158,17 @@ type
 		function get_version: IMC_PluginVersion; stdcall;
 		function get_Description: wideString; stdcall;
 	public
-		constructor create(aiDeviceType: integer; const asInternalName, asCreator: wideString; acVersion: IMC_PluginVersion;
-			const asDescription: wideString); reintroduce;
-		property deviceType: integer read get_DeviceType;
-		property internalName: wideString read get_InternalName;
-		property creator: wideString read get_Creator;
-		property version: IMC_PluginVersion read get_version;
-		property description: wideString read get_Description;
+		constructor create(aiDeviceType: integer; const asInternalName, asCreator: wideString; acVersion: IMC_PluginVersion; const asDescription: wideString); reintroduce;
+		property deviceType: integer
+			read get_DeviceType;
+		property internalName: wideString
+			read get_InternalName;
+		property creator: wideString
+			read get_Creator;
+		property version: IMC_PluginVersion
+			read get_version;
+		property description: wideString
+			read get_Description;
 	end;
 
 	TMC_PluginList = class(TMC_VersionedListBase, IMC_PluginList)
@@ -166,13 +188,18 @@ type
 		procedure insert(aiIndex: integer; acItem: IMC_PluginInformations); stdcall;
 		function last(): IMC_PluginInformations; stdcall;
 		procedure remove(acItem: IMC_PluginInformations); stdcall;
-		property Items[index: integer]: IMC_PluginInformations read Get_Item write Set_Item; default;
+		property Items[index: integer]: IMC_PluginInformations
+			read Get_Item
+			write Set_Item;
+			default;
 	end;
 
 implementation
 
 uses
-	sysutils, rtlConsts, NEXOLib;
+	sysutils,
+	rtlConsts,
+	NEXOLib;
 
 // TNexoVersionedObjectBase
 constructor TNexoVersionedObjectBase.create(const asExtra: wideString);
@@ -339,6 +366,17 @@ begin
 	fiextraInfo := 0;
 end;
 
+constructor TMC_Error.create(aiCode: integer; func: wideString; data: wideString);
+begin
+	inherited create('');
+	fiCode := aiCode;
+	if '' <> func then
+		fsMessage := func + ' - ' + GetErrorDescription(aiCode) + ': ' + data
+	else
+		fsMessage := GetErrorDescription(aiCode) + ': ' + data;
+	fiextraInfo := 0;
+end;
+
 constructor TMC_Error.create(aiCode: integer);
 begin
 	inherited create('');
@@ -377,8 +415,7 @@ begin
 end;
 
 // TMC_DetailedError
-constructor TMC_DetailedError.create(aiCode: integer; const asMessage: wideString; aiExtraInfo: integer;
-	const asTechnicalMessage, asAdviceMessage: wideString; abCritical: boolean);
+constructor TMC_DetailedError.create(aiCode: integer; const asMessage: wideString; aiExtraInfo: integer; const asTechnicalMessage, asAdviceMessage: wideString; abCritical: boolean);
 begin
 	inherited create(aiCode, asMessage, aiExtraInfo);
 
@@ -467,8 +504,7 @@ begin
 end;
 
 // TMC_PluginInformations
-constructor TMC_PluginInformations.create(aiDeviceType: integer; const asInternalName, asCreator: wideString; acVersion: IMC_PluginVersion;
-	const asDescription: wideString);
+constructor TMC_PluginInformations.create(aiDeviceType: integer; const asInternalName, asCreator: wideString; acVersion: IMC_PluginVersion; const asDescription: wideString);
 begin
 	inherited create('');
 
@@ -488,8 +524,7 @@ begin
 		fideviceType := lcSource.deviceType;
 		fsinternalName := lcSource.internalName;
 		fscreator := lcSource.creator;
-		fcversion := TMC_PluginVersion.create(lcSource.version.majorVersion, lcSource.version.minorVersion, lcSource.version.releaseVersion,
-			lcSource.version.buildVersion);
+		fcversion := TMC_PluginVersion.create(lcSource.version.majorVersion, lcSource.version.minorVersion, lcSource.version.releaseVersion, lcSource.version.buildVersion);
 		fsdescription := lcSource.description;
 	end
 	else

@@ -183,8 +183,8 @@ Public Class POISettings
 
 End Class
 
-'<ComClass(CardScheme.ClassId, CardScheme.InterfaceId, CardScheme.EventsId)>
-Public Class CardScheme
+<ComClass(CardSchemes.ClassId, CardSchemes.InterfaceId, CardSchemes.EventsId)>
+Public Class CardSchemes
 	Inherits Dictionary(Of String, List(Of String))
 
 #Region "GUID"
@@ -217,6 +217,10 @@ Public Class CardScheme
 	'	End Set
 	'End Property
 	'Private _tags As New List(Of String)
+
+	Public Overrides Function ToString() As String
+		Return MyBase.ToString()
+	End Function
 End Class
 
 <ComClass(Settings.ClassId, Settings.InterfaceId, Settings.EventsId)>
@@ -568,6 +572,21 @@ Public Class Settings
 	End Property
 	Private _merchanttexttoprint As String
 
+	<JsonIgnore>
+	Public DefaultTraceLevel As TLog = TLog.TRACE
+	<DispId(204)>
+	Public Property TraceLevel As String
+		Get
+			Return _tracelevel
+		End Get
+		Set(value As String)
+			Dim severity As TLog = CMisc.GetEnumValue(GetType(TLog), value, DefaultTraceLevel)
+			_tracelevel = severity.ToString
+			CLog.SeverityToLog = severity
+		End Set
+	End Property
+	Private _tracelevel As String = DefaultTraceLevel.ToString
+
 	<DispId(250)>
 	Public Property SaveReceipts As Boolean
 		Get
@@ -654,19 +673,19 @@ Public Class Settings
 	Private _userefundforcancel As Boolean = False
 
 	<DispId(300)>
-	Public Property CardSchemes As CardScheme
+	Public Property CardSchemes As CardSchemes
 		Get
-			Return _cardscheme
+			Return _cardschemes
 		End Get
-		Set(value As CardScheme)
+		Set(value As CardSchemes)
 			If Not IsNothing(value) Then
-				_cardscheme = value
+				_cardschemes = value
 			Else
-				_cardscheme.Clear()
+				_cardschemes.Clear()
 			End If
 		End Set
 	End Property
-	Private _cardscheme As New CardScheme
+	Private _cardschemes As New CardSchemes
 
 	'usable only inside the component
 	''' <summary>

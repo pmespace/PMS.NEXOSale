@@ -13,6 +13,7 @@ Imports System.IO
 Imports System.Drawing.Printing
 Imports System.Xml.Serialization
 Imports System.Xml
+Imports System.Reflection
 
 #Const NOCOLOR = True
 
@@ -40,6 +41,8 @@ Public Class FProcessing
 	Private Const ONE_SECOND As Integer = 1000
 	Private myLock As Object = New Object
 	Private lastMessageHeader As MessageHeaderType
+	Private currentactiontext As String
+	Private notificationerror As String
 
 	Private Property Caption As String
 		Get
@@ -288,6 +291,8 @@ Public Class FProcessing
 					pbCancel.Text = CANCEL_BUTTON_TEXT
 				Case ActivityEvent.resetCloseButton
 					pbCancel.Text = CLOSE_BUTTON_TEXT
+				Case ActivityEvent.notificationReceived
+					CLog.Add(HEADER & activity.Message)
 			End Select
 		End If
 	End Sub
@@ -296,44 +301,54 @@ Public Class FProcessing
 #Region "constructor"
 	Public Sub New(ByRef a As NEXOSALE, ope As NexoOperation)
 		MyBase.New
-		CLog.Add($"{HEADER} - Parameters: {JsonConvert.SerializeObject(ope, Newtonsoft.Json.Formatting.None, New JsonSerializerSettings() With {.NullValueHandling = NullValueHandling.Include, .MissingMemberHandling = MissingMemberHandling.Ignore})}", TLog.INFOR)
+		CLog.Add($"{HEADER} Parameters: {JsonConvert.SerializeObject(ope, Newtonsoft.Json.Formatting.None, New JsonSerializerSettings() With {.NullValueHandling = NullValueHandling.Include, .MissingMemberHandling = MissingMemberHandling.Ignore})}", TLog.INFOR)
 		nexoSale = a
+		CLog.DEBUG($"{HEADER} Before InitializeComponenents")
+		CLog.DEBUG($"{HEADER} assembly: {Assembly.GetAssembly(GetType(Activity))}")
 		InitializeComponent()
+		CLog.DEBUG($"{HEADER} After InitializeComponenents")
 		clientSettings = New NexoRetailerClientSettings With
+		{
+		.OnSentRequestStatusChanged = AddressOf OnSentRequestStatusChanged,
+		.OnReceivedNotification = AddressOf OnReceivedNotification,
+		.OnReceivedRequest = AddressOf OnReceivedRequest,
+		.OnReceivedReply = AddressOf OnReceivedReply,
+		.OnSend = AddressOf OnSend,
+		.StreamClientSettings = New CStreamClientSettings With
 			{
-			.OnSentRequestStatusChanged = AddressOf OnSentRequestStatusChanged,
-			.OnReceivedNotification = AddressOf OnReceivedNotification,
-			.OnReceivedRequest = AddressOf OnReceivedRequest,
-			.OnReceivedReply = AddressOf OnReceivedReply,
-			.OnSend = AddressOf OnSend,
-			.StreamClientSettings = New CStreamClientSettings With
-				{
-				.IP = nexoSale.Settings.Primary.ServerIP,
-				.Port = nexoSale.Settings.Primary.ServerPort
-				}
+			.IP = nexoSale.Settings.Primary.ServerIP,
+			.Port = nexoSale.Settings.Primary.ServerPort
 			}
+		}
 		canBeCancelled = Not ope.POI.Synchronous AndAlso ope.POI.SupportsCancel
+		CLog.DEBUG($"{HEADER} After clientSettings")
 
 		If (Action._begin < ope.Action AndAlso Action._end > ope.Action) AndAlso
-			(Action.Refund <> ope.Action OrElse ope.POI.SupportsRefund) AndAlso
-			(Action.Reversal <> ope.Action OrElse ope.POI.SupportsCancel) AndAlso
-			(Action.Reconciliation <> ope.Action OrElse ope.POI.SupportsReconciliation) AndAlso
-			(Action.Abort <> ope.Action OrElse ope.POI.SupportsAbort) Then 'AndAlso
+		(Action.Refund <> ope.Action OrElse ope.POI.SupportsRefund) AndAlso
+		(Action.Reversal <> ope.Action OrElse ope.POI.SupportsCancel) AndAlso
+		(Action.Reconciliation <> ope.Action OrElse ope.POI.SupportsReconciliation) AndAlso
+		(Action.Abort <> ope.Action OrElse ope.POI.SupportsAbort) Then 'AndAlso
 			'(Action.readcheck <> ope.action OrElse ope.POI.SupportsCheck) AndAlso
 			'(Action.printcheck <> ope.action OrElse ope.POI.SupportsCheck) Then
 			'the action is known and can be processed
+			CLog.DEBUG($"{HEADER} Action has been validated")
 			stackOfActions.Push(ope.Action)
+			CLog.DEBUG($"{HEADER} stackOfActions: {stackOfActions}")
 			If Action.Login = ope.Action Then
 			ElseIf Action.Logout = ope.Action Then
 			Else
 				If Not nexoSale.IsLogged OrElse nexoSale.Settings.AlwaysLogToPOI Then
+					CLog.DEBUG($"{HEADER} Adding Login to stackOfActions")
 					stackOfActions.Push(Action.Login)
 				End If
 			End If
 		End If
 
 		canStart = 0 <> stackOfActions.Count
+		CLog.DEBUG($"{HEADER} stackOfActions count: {stackOfActions.Count}")
+		stackOfActions.Push(Action.Login)
 		requestedOperation = ope
+		CLog.DEBUG($"{HEADER} requestedOperation: {ope}")
 	End Sub
 #End Region
 
@@ -385,7 +400,7 @@ Public Class FProcessing
 	End Sub
 
 	Private Function RealPaymentTimer() As Integer
-		If requestedOperation.POI.SupportsCancel Then
+		If requestedOperation.POI.SupportsAbort Then
 			Return requestedOperation.POI.PaymentTimer
 		Else
 			Return 0
@@ -545,6 +560,7 @@ Public Class FProcessing
 
 			Case WM_LOGIN
 				CLog.Add(HEADER & "WM_LOGIN")
+				currentactiontext = My.Resources.CommonResources.FProcessing_LoginToPOI
 				Me.Text = Caption = $"{My.Resources.CommonResources.FProcessing_LoginSale} {nexoSale.Settings.SaleID} {My.Resources.CommonResources.FProcessing_TO} {nexoSale.Settings.POIID}"
 				pbCancel.Enabled = canBeCancelled
 				nexoSale._login = New NexoLogin()
@@ -558,7 +574,7 @@ Public Class FProcessing
 				o.RequestSoftwareVersion = nexoSale.Settings.SoftwareVersion
 				'timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, My.Resources.CommonResources.FProcessing_LoginToPOI)
+				TestSendResult(result, o.MessageCategory.ToString, currentactiontext)
 
 			Case WM_LOGOUT
 				CLog.Add(HEADER & "WM_LOGOUT")
@@ -592,9 +608,11 @@ Public Class FProcessing
 					o.RequestSaleTransactionTimestamp = nexoSale.SaleTransactionTimestamp
 					o.RequestCurrency = nexoSale.Currency.Value
 					o.RequestRequestedAmount = requestedOperation.Amount
+					o.RequestData.PaymentDataSpecified = True
 					'timerBeforeTimeout.Tag = RealPaymentTimer()
 					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-					TestSendResult(result, o.MessageCategory.ToString, My.Resources.CommonResources.FProcessing_PaymentInProgress & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
+					currentactiontext = My.Resources.CommonResources.FProcessing_PaymentInProgress
+					TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
 				End If
 
 			Case WM_REFUND
@@ -621,7 +639,8 @@ Public Class FProcessing
 					o.RequestRequestedAmount = requestedOperation.Amount
 					'timerBeforeTimeout.Tag = RealPaymentTimer()
 					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-					TestSendResult(result, o.MessageCategory.ToString, My.Resources.CommonResources.FProcessing_RefundInProgress & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
+					currentactiontext = My.Resources.CommonResources.FProcessing_RefundInProgress
+					TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
 				End If
 
 			Case WM_REVERSAL
@@ -636,17 +655,24 @@ Public Class FProcessing
 				If Not CMisc.IsEnumValue(GetType(ReversalReasonEnumeration), o.RequestReversalReason) Then
 					o.RequestReversalReason = ReversalReasonEnumeration.MerchantCancel
 				End If
-				If 0 = requestedOperation.Amount Then
-					o.RequestData.ReversedAmountSpecified = False
-				Else
-					o.RequestReversedAmount = requestedOperation.Amount
-					o.RequestSaleReferenceID = nexoSale.MerchantReferenceID
-				End If
+				'If 0 = requestedOperation.Amount Then
+
+				'#If Not DEBUG Then
+				o.RequestData.ReversedAmountSpecified = False
+				'#Else
+				'				o.RequestReversedAmount = requestedOperation.Amount
+				'#End If
+
+				'Else
+				'	o.RequestReversedAmount = requestedOperation.Amount
+				'	o.RequestSaleReferenceID = nexoSale.MerchantReferenceID
+				'End If
 				o.RequestOriginalPOITransactionID = nexoSale.OriginalPOITransactionID
 				o.RequestOriginalPOITransactionTimestamp = nexoSale.OriginalPOITransactionTimestamp
 				'timerBeforeTimeout.Tag = RealPaymentTimer()
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, My.Resources.CommonResources.FProcessing_ReversalInProgress & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
+				currentactiontext = My.Resources.CommonResources.FProcessing_ReversalInProgress
+				TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
 
 			Case WM_RECONCILIATION
 				CLog.Add(HEADER & "WM_RECONCILIATION")
@@ -663,7 +689,8 @@ Public Class FProcessing
 				End If
 				'timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, $"{My.Resources.CommonResources.FProcessing_ReconciliationInProgress} [{nexoSale.ReconciliationType}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...")
+				currentactiontext = My.Resources.CommonResources.FProcessing_ReconciliationInProgress
+				TestSendResult(result, o.MessageCategory.ToString, $"{currentactiontext} [{nexoSale.ReconciliationType}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...")
 
 			Case WM_ABORT
 				CLog.Add(HEADER & "WM_ABORT")
@@ -678,7 +705,8 @@ Public Class FProcessing
 				o.AbortMessageCategory = nexoSale.AbortMessageCategory
 				timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, $"{My.Resources.CommonResources.FProcessing_AbortInProgress} [{nexoSale.AbortReason}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...")
+				currentactiontext = My.Resources.CommonResources.FProcessing_AbortInProgress
+				TestSendResult(result, o.MessageCategory.ToString, $"{currentactiontext} [{nexoSale.AbortReason}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...")
 
 			Case WM_CHECK_READ
 				CLog.Add(HEADER & "WM_CHECK_READ")
@@ -693,7 +721,8 @@ Public Class FProcessing
 				o.RequestInputCommand = InputCommandEnumeration.TextString
 				timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, My.Resources.CommonResources.FProcessing_ReadCheckInProgress & vbCrLf & My.Resources.CommonResources.PleaseWait)
+				currentactiontext = My.Resources.CommonResources.FProcessing_ReadCheckInProgress
+				TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait)
 
 			Case WM_CHECK_PRINT
 				CLog.Add(HEADER & "WM_CHECK_PRINT")
@@ -711,11 +740,19 @@ Public Class FProcessing
 				o.RequestData.PrintOutput.OutputContent.OutputTextAddItem(texttoprint)
 				timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
-				TestSendResult(result, o.MessageCategory.ToString, My.Resources.CommonResources.FProcessing_PrintCheckInProgress & vbCrLf & My.Resources.CommonResources.PleaseWait)
+				currentactiontext = My.Resources.CommonResources.FProcessing_PrintCheckInProgress
+				TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait)
 				If 0 < nexoSale.CheckIndex Then nexoSale.CheckIndex += 1
 
 			Case WM_RECEIVED_NOTIFICATION
 				CLog.Add(HEADER & "WM_RECEIVED_NOTIFICATION")
+				'a notification has been received, dismiss the current transaction with an error message
+				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = $"{currentactiontext}{vbCrLf}{My.Resources.CommonResources.FProcessing_AnErrorHasOccurred}{vbCrLf}{My.Resources.CommonResources.FProcessing_Error}: {notificationerror}"})
+				'after a logout no more actions to start
+				stackOfActions.Clear()
+				isInError = True
+				nexoSale.NexoClient.Error = True
+				PostMessage(WM_AUTOCLOSE_START)
 
 			Case WM_RECEIVED_REQUEST
 
@@ -934,6 +971,18 @@ Public Class FProcessing
 	End Sub
 
 	Public Sub OnReceivedNotification(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, thread As CThread, o As Object)
+		Try
+			Dim nxo As NexoEvent = obj.CurrentObject
+			notificationerror = $"[{nxo.EventToNotify}] {nxo.EventDetails}"
+			'For i As Integer = 0 To nxo.RequestData.DisplayOutput.OutputContent.OutputTextLength - 1
+			'	notificationerror = $"{notificationerror} {nxo.RequestData.DisplayOutput.OutputContent.OutputTextGetItem(i).Value}"
+			'	If (nxo.RequestData.DisplayOutput.OutputContent.OutputTextLength - 1 <> i) Then
+			'		notificationerror &= vbCrLf
+			'	End If
+			'Next
+		Catch ex As Exception
+			notificationerror = Nothing
+		End Try
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.notificationReceived, .Message = $"{My.Resources.CommonResources.Received} {MessageDescription(obj.Item, xml)}"})
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_NOTIFICATION, .wParam = RESULT_OK})
 	End Sub

@@ -51,7 +51,7 @@ Public Class FSettings
 		useAdvancedSettings = advanced
 	End Sub
 
-	Private Sub TextBox_TextChanged(sender As Object, e As EventArgs) Handles efPOIID.TextChanged, efSaleID.TextChanged, efServerIP.TextChanged, efSettingsFileName.TextChanged, efSoftwareVersion.TextChanged, efManufacturerName.TextChanged, efCertificationCode.TextChanged, efApplicationName.TextChanged, efLogFileName.TextChanged, efUser.TextChanged, efPWD.TextChanged, efICCD.TextChanged, efGatewayIP.TextChanged, efPicture.TextChanged, efReceiptsDirectory.TextChanged, efServerName.TextChanged
+	Private Sub TextBox_TextChanged(sender As Object, e As EventArgs) Handles efPOIID.TextChanged, efSaleID.TextChanged, efServerIP.TextChanged, efSettingsFileName.TextChanged, efSoftwareVersion.TextChanged, efManufacturerName.TextChanged, efCertificationCode.TextChanged, efApplicationName.TextChanged, efLogFileName.TextChanged, efUser.TextChanged, efPWD.TextChanged, efICCD.TextChanged, efGatewayIP.TextChanged, efPicture.TextChanged, efReceiptsDirectory.TextChanged, efServerName.TextChanged, cbxTraceLevel.SelectedIndexChanged
 		If _initialised Then
 			'If sender Is efServerIP orelse sender Is efServerIPBackup OrElse sender Then
 			SetServerColors(efServerIP, udServerPort, SystemColors.Window)
@@ -156,6 +156,11 @@ Public Class FSettings
 		End Try
 #End If
 
+		For i As TLog = TLog._begin + 1 To TLog._end - 1
+			cbxTraceLevel.Items.Add(i.ToString)
+		Next
+		cbxTraceLevel.SelectedItem = TLog.TRACE.ToString
+
 		If useAdvancedSettings Then
 			TabControl1.SelectedTab = TabControl1.TabPages(1)
 		Else
@@ -185,6 +190,15 @@ Public Class FSettings
 		Modified = Modified Or False
 	End Sub
 
+	Private Structure Severity
+		Public severity As TLog
+		Public text As String
+		Public Overrides Function ToString() As String
+			Return text
+		End Function
+	End Structure
+
+
 	Private Sub LoadCurrencies()
 		'load available currencies from a json stored inside the same folder
 		Dim json As New CJson(Of Currencies)()
@@ -211,6 +225,7 @@ Public Class FSettings
 	End Function
 
 	Private Sub TestConnection(streamSettings As CStreamClientSettings, ip As Control, port As Control)
+		Cursor = Cursors.WaitCursor
 		Dim streamIO = CStream.Connect(streamSettings)
 		If streamIO Is Nothing Then
 			SetServerColors(ip, port, Color.Crimson)
@@ -218,6 +233,7 @@ Public Class FSettings
 			CStream.Disconnect(streamIO)
 			SetServerColors(ip, port, Color.LightGreen)
 		End If
+		Cursor = Cursors.Default
 	End Sub
 
 	Private Sub pbTestConnection_Click(sender As Object, e As EventArgs) Handles pbTestConnection.Click
@@ -324,6 +340,8 @@ Public Class FSettings
 		Settings.UseRefundForCancel = cbUseRefundForCancel.Checked
 
 		Settings.AlwaysLogToPOI = cbAlwaysLogToPOI.Checked
+
+		Settings.TraceLevel = cbxTraceLevel.SelectedItem
 
 		nexoSale._poiisoffline = POIIsOffline
 
@@ -447,6 +465,12 @@ Public Class FSettings
 			cbAllowOfflinePOI.Checked = Settings.AllowOfflinePOI
 			cbHideInformation.Checked = Settings.HideNexoMessagesWhenProcessing
 			cbUseRefundForCancel.Checked = Settings.UseRefundForCancel
+
+			Try
+				cbxTraceLevel.SelectedItem = Settings.TraceLevel.ToString
+			Catch ex As Exception
+				cbxTraceLevel.SelectedItem = TLog.TRACE.ToString
+			End Try
 
 		Else
 			Settings = New Settings

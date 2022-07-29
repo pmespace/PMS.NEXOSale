@@ -12,7 +12,7 @@
 #define MySettingsFileName "pms.nexo30.cegid.settings.json"
 #define MySimulator "Simulator"
 #define MyLibVersion GetVersionNumbersString("..\Bin\PMS.NEXOSALE30.dll")
-#define MyDriverVersion GetDateTimeString('yyyy/mm/dd', '-', ':');
+#define MyDriverVersion GetDateTimeString('yyyymmddhhnnss', '', '');
 #define MyExeDir "..\bin"
 #define MySimulatorDir "..\..\retailer3x\bin\net47"
 #define MyExeDelphiDir "..\NEXOD\Bin"

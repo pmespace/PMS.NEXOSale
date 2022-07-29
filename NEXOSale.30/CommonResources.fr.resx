@@ -366,4 +366,7 @@
   <data name="FSelectPrinter.DefaultPrinter" xml:space="preserve">
     <value>(imprimante par défaut)</value>
   </data>
+  <data name="FProcessing.Error" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
 </root>
