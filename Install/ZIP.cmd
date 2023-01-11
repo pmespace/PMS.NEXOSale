@@ -2,8 +2,8 @@
 del *.zip /q
 del *.7z /q
 
-if []==[%1] goto :getpwd
-set pwd=%1
+rem if []==[%1] goto :getpwd
+set pwd=nexoSale
 goto :startzipping
 
 :getpwd

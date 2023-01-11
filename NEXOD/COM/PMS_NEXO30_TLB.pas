@@ -12,10 +12,10 @@ unit PMS_NEXO30_TLB;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 28/07/2022 21:37:37 depuis la bibliothèque de types ci-dessous.
+// Fichier généré le 29/11/2022 17:31:23 depuis la bibliothèque de types ci-dessous.
 
 // ************************************************************************  //
-// Biblio. types : C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXO30.tlb (1)
+// Biblio. types : C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.nexo30.tlb (1)
 // LIBID : {99591289-9246-3DDD-A74F-A90DC3E3829D}
 // LCID : 0
 // Fichier d'aide : 
@@ -23,9 +23,9 @@ unit PMS_NEXO30_TLB;
 // DepndLst : 
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 //   (2) v2.4 mscorlib, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb)
-//   (3) v6.1 PMS_COMMON, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb)
+//   (3) v6.3 PMS_COMMON, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb)
 // Bibliothèque de types parent :
-//   (0) v1.5 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+//   (0) v1.6 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN64
 // Errors:
 //   Remarque : le symbole 'Type' a été renommé en 'type_'

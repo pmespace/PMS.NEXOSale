@@ -184,7 +184,7 @@
     <value>GrowAndShrink</value>
   </data>
   <data name="pbSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>698, 3</value>
+    <value>714, 3</value>
   </data>
   <data name="pbSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 23</value>
@@ -214,7 +214,7 @@
     <value>True</value>
   </data>
   <data name="pbCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 3</value>
+    <value>771, 3</value>
   </data>
   <data name="pbCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 23</value>
@@ -244,7 +244,7 @@
     <value>1</value>
   </data>
   <data name="panelButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>808, 29</value>
+    <value>824, 29</value>
   </data>
   <data name="panelButtons.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -454,7 +454,7 @@
     <value>3, 3</value>
   </data>
   <data name="cbUseBackup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 20</value>
+    <value>138, 20</value>
   </data>
   <data name="cbUseBackup.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -640,7 +640,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="settingsPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 377</value>
+    <value>816, 377</value>
   </data>
   <data name="settingsPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -781,7 +781,7 @@
     <value>3, 3</value>
   </data>
   <data name="FlowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>790, 23</value>
+    <value>806, 23</value>
   </data>
   <data name="FlowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -814,7 +814,7 @@
     <value>Left, Right</value>
   </data>
   <data name="efServerIP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 6</value>
+    <value>104, 6</value>
   </data>
   <data name="efServerIP.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 20</value>
@@ -841,7 +841,7 @@
     <value>True</value>
   </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 9</value>
+    <value>35, 9</value>
   </data>
   <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 13</value>
@@ -871,13 +871,13 @@
     <value>True</value>
   </data>
   <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>331, 9</value>
+    <value>332, 9</value>
   </data>
   <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 13</value>
   </data>
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="Label5.Text" xml:space="preserve">
     <value>Terminal port:</value>
@@ -898,13 +898,13 @@
     <value>Left, Right</value>
   </data>
   <data name="udServerPort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 6</value>
+    <value>409, 6</value>
   </data>
   <data name="udServerPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 20</value>
+    <value>101, 20</value>
   </data>
   <data name="udServerPort.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;udServerPort.Name" xml:space="preserve">
     <value>udServerPort</value>
@@ -928,13 +928,13 @@
     <value>GrowAndShrink</value>
   </data>
   <data name="pbTestConnection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 4</value>
+    <value>516, 4</value>
   </data>
   <data name="pbTestConnection.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 23</value>
   </data>
   <data name="pbTestConnection.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="pbTestConnection.Text" xml:space="preserve">
     <value>&amp;Test connection</value>
@@ -1018,16 +1018,16 @@
     <value>1</value>
   </data>
   <data name="panelChecks.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 67</value>
+    <value>628, 67</value>
   </data>
   <data name="panelChecks.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="panelChecks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="panelChecks.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="&gt;&gt;panelChecks.Name" xml:space="preserve">
     <value>panelChecks</value>
@@ -1111,16 +1111,16 @@
     <value>1</value>
   </data>
   <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 3</value>
+    <value>628, 3</value>
   </data>
   <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
     <value>TableLayoutPanel1</value>
@@ -1204,16 +1204,16 @@
     <value>1</value>
   </data>
   <data name="panelPaymentTimer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 35</value>
+    <value>628, 35</value>
   </data>
   <data name="panelPaymentTimer.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="panelPaymentTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="panelPaymentTimer.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;panelPaymentTimer.Name" xml:space="preserve">
     <value>panelPaymentTimer</value>
@@ -1237,13 +1237,13 @@
     <value>True</value>
   </data>
   <data name="cbSupportsCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 71</value>
+    <value>516, 71</value>
   </data>
   <data name="cbSupportsCheck.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 17</value>
   </data>
   <data name="cbSupportsCheck.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="cbSupportsCheck.Text" xml:space="preserve">
     <value>Supports checks</value>
@@ -1260,39 +1260,6 @@
   <data name="&gt;&gt;cbSupportsCheck.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="cbSynchronous.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="cbSynchronous.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbSynchronous.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="cbSynchronous.Location" type="System.Drawing.Point, System.Drawing">
-    <value>509, 39</value>
-  </data>
-  <data name="cbSynchronous.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 17</value>
-  </data>
-  <data name="cbSynchronous.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="cbSynchronous.Text" xml:space="preserve">
-    <value>Synchronous</value>
-  </data>
-  <data name="&gt;&gt;cbSynchronous.Name" xml:space="preserve">
-    <value>cbSynchronous</value>
-  </data>
-  <data name="&gt;&gt;cbSynchronous.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbSynchronous.Parent" xml:space="preserve">
-    <value>panelServerSettings</value>
-  </data>
-  <data name="&gt;&gt;cbSynchronous.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="cbPrintReceipt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
@@ -1306,7 +1273,7 @@
     <value>87, 17</value>
   </data>
   <data name="cbPrintReceipt.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="cbPrintReceipt.Text" xml:space="preserve">
     <value>Print receipts</value>
@@ -1321,67 +1288,7 @@
     <value>panelServerSettings</value>
   </data>
   <data name="&gt;&gt;cbPrintReceipt.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="cbSupportsAbort.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="cbSupportsAbort.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbSupportsAbort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 71</value>
-  </data>
-  <data name="cbSupportsAbort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 17</value>
-  </data>
-  <data name="cbSupportsAbort.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="cbSupportsAbort.Text" xml:space="preserve">
-    <value>Supports abort</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsAbort.Name" xml:space="preserve">
-    <value>cbSupportsAbort</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsAbort.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsAbort.Parent" xml:space="preserve">
-    <value>panelServerSettings</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsAbort.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="cbSupportsRefund.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="cbSupportsRefund.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cbSupportsRefund.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 71</value>
-  </data>
-  <data name="cbSupportsRefund.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 17</value>
-  </data>
-  <data name="cbSupportsRefund.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="cbSupportsRefund.Text" xml:space="preserve">
-    <value>Supports refund</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsRefund.Name" xml:space="preserve">
-    <value>cbSupportsRefund</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsRefund.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsRefund.Parent" xml:space="preserve">
-    <value>panelServerSettings</value>
-  </data>
-  <data name="&gt;&gt;cbSupportsRefund.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>9</value>
   </data>
   <data name="panelReceipts.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -1456,7 +1363,7 @@
     <value>1</value>
   </data>
   <data name="panelReceipts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 35</value>
+    <value>104, 35</value>
   </data>
   <data name="panelReceipts.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1465,7 +1372,7 @@
     <value>153, 26</value>
   </data>
   <data name="panelReceipts.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;panelReceipts.Name" xml:space="preserve">
     <value>panelReceipts</value>
@@ -1477,10 +1384,70 @@
     <value>panelServerSettings</value>
   </data>
   <data name="&gt;&gt;panelReceipts.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>10</value>
   </data>
   <data name="panelReceipts.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="cbCustomer" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cbMerchant" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="cbSupportsAbort.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="cbSupportsAbort.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSupportsAbort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 71</value>
+  </data>
+  <data name="cbSupportsAbort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 17</value>
+  </data>
+  <data name="cbSupportsAbort.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="cbSupportsAbort.Text" xml:space="preserve">
+    <value>Supports abort</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsAbort.Name" xml:space="preserve">
+    <value>cbSupportsAbort</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsAbort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsAbort.Parent" xml:space="preserve">
+    <value>panelServerSettings</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsAbort.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="cbSupportsRefund.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="cbSupportsRefund.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSupportsRefund.Location" type="System.Drawing.Point, System.Drawing">
+    <value>409, 39</value>
+  </data>
+  <data name="cbSupportsRefund.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 17</value>
+  </data>
+  <data name="cbSupportsRefund.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="cbSupportsRefund.Text" xml:space="preserve">
+    <value>Supports refund</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsRefund.Name" xml:space="preserve">
+    <value>cbSupportsRefund</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsRefund.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsRefund.Parent" xml:space="preserve">
+    <value>panelServerSettings</value>
+  </data>
+  <data name="&gt;&gt;cbSupportsRefund.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="cbSupportsReversal.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1489,7 +1456,7 @@
     <value>True</value>
   </data>
   <data name="cbSupportsReversal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 71</value>
+    <value>263, 39</value>
   </data>
   <data name="cbSupportsReversal.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 17</value>
@@ -1510,6 +1477,39 @@
     <value>panelServerSettings</value>
   </data>
   <data name="&gt;&gt;cbSupportsReversal.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="cbSynchronous.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="cbSynchronous.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSynchronous.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="cbSynchronous.Location" type="System.Drawing.Point, System.Drawing">
+    <value>516, 39</value>
+  </data>
+  <data name="cbSynchronous.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 17</value>
+  </data>
+  <data name="cbSynchronous.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="cbSynchronous.Text" xml:space="preserve">
+    <value>Synchronous</value>
+  </data>
+  <data name="&gt;&gt;cbSynchronous.Name" xml:space="preserve">
+    <value>cbSynchronous</value>
+  </data>
+  <data name="&gt;&gt;cbSynchronous.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSynchronous.Parent" xml:space="preserve">
+    <value>panelServerSettings</value>
+  </data>
+  <data name="&gt;&gt;cbSynchronous.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
   <data name="cbSupportsReconciliation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -1519,13 +1519,13 @@
     <value>True</value>
   </data>
   <data name="cbSupportsReconciliation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>269, 71</value>
+    <value>104, 71</value>
   </data>
   <data name="cbSupportsReconciliation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 17</value>
+    <value>153, 17</value>
   </data>
   <data name="cbSupportsReconciliation.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="cbSupportsReconciliation.Text" xml:space="preserve">
     <value>Supports reconciliation</value>
@@ -1542,6 +1542,39 @@
   <data name="&gt;&gt;cbSupportsReconciliation.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
+  <data name="cbSupportDeviceDisplay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="cbSupportDeviceDisplay.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbSupportDeviceDisplay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbSupportDeviceDisplay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>263, 71</value>
+  </data>
+  <data name="cbSupportDeviceDisplay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 17</value>
+  </data>
+  <data name="cbSupportDeviceDisplay.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="cbSupportDeviceDisplay.Text" xml:space="preserve">
+    <value>Supports POI replication</value>
+  </data>
+  <data name="&gt;&gt;cbSupportDeviceDisplay.Name" xml:space="preserve">
+    <value>cbSupportDeviceDisplay</value>
+  </data>
+  <data name="&gt;&gt;cbSupportDeviceDisplay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbSupportDeviceDisplay.Parent" xml:space="preserve">
+    <value>panelServerSettings</value>
+  </data>
+  <data name="&gt;&gt;cbSupportDeviceDisplay.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
   <data name="panelServerSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 32</value>
   </data>
@@ -1549,7 +1582,7 @@
     <value>3</value>
   </data>
   <data name="panelServerSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>790, 96</value>
+    <value>806, 96</value>
   </data>
   <data name="panelServerSettings.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1567,7 +1600,7 @@
     <value>1</value>
   </data>
   <data name="panelServerSettings.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="efServerIP" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Label3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Label5" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="udServerPort" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="pbTestConnection" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="panelChecks" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel1" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="panelPaymentTimer" Row="1" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsCheck" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="cbSynchronous" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="cbPrintReceipt" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsAbort" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsRefund" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelReceipts" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsReversal" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsReconciliation" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20,Absolute,20,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="efServerIP" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Label3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Label5" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="udServerPort" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="pbTestConnection" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="panelChecks" Row="2" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel1" Row="0" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="panelPaymentTimer" Row="1" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsCheck" Row="2" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="cbPrintReceipt" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="panelReceipts" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsAbort" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsRefund" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsReversal" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="cbSynchronous" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportsReconciliation" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="cbSupportDeviceDisplay" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20,Absolute,20,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="TableLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 116</value>
@@ -1576,7 +1609,7 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>796, 131</value>
+    <value>812, 131</value>
   </data>
   <data name="TableLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1717,7 +1750,7 @@
     <value>3, 4</value>
   </data>
   <data name="efSettingsFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>651, 20</value>
+    <value>667, 20</value>
   </data>
   <data name="efSettingsFileName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1750,7 +1783,7 @@
     <value>2</value>
   </data>
   <data name="pbChooseSettingsFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>660, 3</value>
+    <value>676, 3</value>
   </data>
   <data name="pbChooseSettingsFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 23</value>
@@ -1780,7 +1813,7 @@
     <value>1</value>
   </data>
   <data name="pnlSettingsFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>689, 29</value>
+    <value>705, 29</value>
   </data>
   <data name="pnlSettingsFileName.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -1819,7 +1852,7 @@
     <value>3, 4</value>
   </data>
   <data name="efLogFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>651, 20</value>
+    <value>667, 20</value>
   </data>
   <data name="efLogFileName.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1849,7 +1882,7 @@
     <value>Stretch</value>
   </data>
   <data name="pbChooseLogFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>660, 3</value>
+    <value>676, 3</value>
   </data>
   <data name="pbChooseLogFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 23</value>
@@ -1879,7 +1912,7 @@
     <value>1</value>
   </data>
   <data name="pnlLogFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>689, 29</value>
+    <value>705, 29</value>
   </data>
   <data name="pnlLogFileName.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1924,7 +1957,7 @@
     <value>Stretch</value>
   </data>
   <data name="pbReceiptsDirectory.Location" type="System.Drawing.Point, System.Drawing">
-    <value>660, 3</value>
+    <value>676, 3</value>
   </data>
   <data name="pbReceiptsDirectory.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 23</value>
@@ -1954,7 +1987,7 @@
     <value>3, 4</value>
   </data>
   <data name="efReceiptsDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>651, 20</value>
+    <value>667, 20</value>
   </data>
   <data name="efReceiptsDirectory.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -1978,7 +2011,7 @@
     <value>1</value>
   </data>
   <data name="pnlReceipts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>689, 29</value>
+    <value>705, 29</value>
   </data>
   <data name="pnlReceipts.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -2005,7 +2038,7 @@
     <value>3</value>
   </data>
   <data name="panelFileSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>796, 105</value>
+    <value>812, 105</value>
   </data>
   <data name="panelFileSettings.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2056,7 +2089,7 @@
     <value>51, 3</value>
   </data>
   <data name="efSaleID.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 20</value>
+    <value>121, 20</value>
   </data>
   <data name="efSaleID.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2110,7 +2143,7 @@
     <value>True</value>
   </data>
   <data name="cbSaleIDUSeIP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 5</value>
+    <value>178, 5</value>
   </data>
   <data name="cbSaleIDUSeIP.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 17</value>
@@ -2140,7 +2173,7 @@
     <value>1</value>
   </data>
   <data name="panelSaleID.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 27</value>
+    <value>264, 27</value>
   </data>
   <data name="panelSaleID.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2209,7 +2242,7 @@
     <value>True</value>
   </data>
   <data name="cbPOIIDUseIP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 5</value>
+    <value>164, 5</value>
   </data>
   <data name="cbPOIIDUseIP.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 17</value>
@@ -2239,7 +2272,7 @@
     <value>48, 3</value>
   </data>
   <data name="efPOIID.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 20</value>
+    <value>110, 20</value>
   </data>
   <data name="efPOIID.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2257,13 +2290,13 @@
     <value>2</value>
   </data>
   <data name="panelPOIID.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 3</value>
+    <value>273, 3</value>
   </data>
   <data name="panelPOIID.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="panelPOIID.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 27</value>
+    <value>264, 27</value>
   </data>
   <data name="panelPOIID.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2332,7 +2365,7 @@
     <value>100, 3</value>
   </data>
   <data name="efApplicationName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 20</value>
+    <value>161, 20</value>
   </data>
   <data name="efApplicationName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2356,7 +2389,7 @@
     <value>1</value>
   </data>
   <data name="panelApplicationName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 26</value>
+    <value>264, 26</value>
   </data>
   <data name="panelApplicationName.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2425,7 +2458,7 @@
     <value>98, 3</value>
   </data>
   <data name="efSoftwareVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 20</value>
+    <value>165, 20</value>
   </data>
   <data name="efSoftwareVersion.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2443,13 +2476,13 @@
     <value>1</value>
   </data>
   <data name="panelSoftwareVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 36</value>
+    <value>543, 36</value>
   </data>
   <data name="panelSoftwareVersion.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="panelSoftwareVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 26</value>
+    <value>266, 26</value>
   </data>
   <data name="panelSoftwareVersion.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2518,7 +2551,7 @@
     <value>111, 3</value>
   </data>
   <data name="efManufacturerName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 20</value>
+    <value>150, 20</value>
   </data>
   <data name="efManufacturerName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2536,13 +2569,13 @@
     <value>1</value>
   </data>
   <data name="panelManufacturerName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 36</value>
+    <value>273, 36</value>
   </data>
   <data name="panelManufacturerName.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="panelManufacturerName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 26</value>
+    <value>264, 26</value>
   </data>
   <data name="panelManufacturerName.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2614,7 +2647,7 @@
     <value>3</value>
   </data>
   <data name="cbxCurrency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 21</value>
+    <value>202, 21</value>
   </data>
   <data name="cbxCurrency.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2632,13 +2665,13 @@
     <value>1</value>
   </data>
   <data name="panelCurrency.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 3</value>
+    <value>543, 3</value>
   </data>
   <data name="panelCurrency.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="panelCurrency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 27</value>
+    <value>266, 27</value>
   </data>
   <data name="panelCurrency.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2707,7 +2740,7 @@
     <value>101, 3</value>
   </data>
   <data name="efCertificationCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 20</value>
+    <value>160, 20</value>
   </data>
   <data name="efCertificationCode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2731,7 +2764,7 @@
     <value>1</value>
   </data>
   <data name="panelCertificationCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 26</value>
+    <value>264, 26</value>
   </data>
   <data name="panelCertificationCode.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2800,7 +2833,7 @@
     <value>75, 3</value>
   </data>
   <data name="efAdminCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 20</value>
+    <value>113, 20</value>
   </data>
   <data name="efAdminCode.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2824,7 +2857,7 @@
     <value>True</value>
   </data>
   <data name="cbUseDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 4</value>
+    <value>194, 4</value>
   </data>
   <data name="cbUseDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 17</value>
@@ -2848,13 +2881,13 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 68</value>
+    <value>543, 68</value>
   </data>
   <data name="TableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 26</value>
+    <value>266, 26</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2881,7 +2914,7 @@
     <value>3</value>
   </data>
   <data name="panelNexoSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>796, 97</value>
+    <value>812, 97</value>
   </data>
   <data name="panelNexoSettings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2908,7 +2941,7 @@
     <value>6</value>
   </data>
   <data name="panelAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>802, 377</value>
+    <value>818, 377</value>
   </data>
   <data name="panelAdvancedSettings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2935,7 +2968,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="advancedSettingsPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 377</value>
+    <value>816, 377</value>
   </data>
   <data name="advancedSettingsPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3556,7 +3589,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="GPRSPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 377</value>
+    <value>816, 377</value>
   </data>
   <data name="GPRSPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3904,7 +3937,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="printSettingsPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 377</value>
+    <value>816, 377</value>
   </data>
   <data name="printSettingsPage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3929,6 +3962,9 @@
   </data>
   <data name="FlowLayoutPanel5.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
+  </data>
+  <data name="cbResuseMerchantReferenceID.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="cbResuseMerchantReferenceID.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3957,6 +3993,9 @@
   <data name="&gt;&gt;cbResuseMerchantReferenceID.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="cbReturnBrand.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
   <data name="cbReturnBrand.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3983,6 +4022,9 @@
   </data>
   <data name="&gt;&gt;cbReturnBrand.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="cbAllowOfflinePOI.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="cbAllowOfflinePOI.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4011,11 +4053,14 @@
   <data name="&gt;&gt;cbAllowOfflinePOI.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="cbUseRefundForCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
   <data name="cbUseRefundForCancel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="cbUseRefundForCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 26</value>
+    <value>643, 3</value>
   </data>
   <data name="cbUseRefundForCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 17</value>
@@ -4045,7 +4090,7 @@
     <value>True</value>
   </data>
   <data name="Label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 30</value>
+    <value>3, 30</value>
   </data>
   <data name="Label15.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 13</value>
@@ -4075,7 +4120,7 @@
     <value>Left</value>
   </data>
   <data name="cbxTraceLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>240, 26</value>
+    <value>72, 26</value>
   </data>
   <data name="cbxTraceLevel.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -4095,6 +4140,72 @@
   <data name="&gt;&gt;cbxTraceLevel.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="cbNotifAlwaysOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="cbNotifAlwaysOK.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbNotifAlwaysOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbNotifAlwaysOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 28</value>
+  </data>
+  <data name="cbNotifAlwaysOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 17</value>
+  </data>
+  <data name="cbNotifAlwaysOK.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="cbNotifAlwaysOK.Text" xml:space="preserve">
+    <value>Notification always returns Success</value>
+  </data>
+  <data name="&gt;&gt;cbNotifAlwaysOK.Name" xml:space="preserve">
+    <value>cbNotifAlwaysOK</value>
+  </data>
+  <data name="&gt;&gt;cbNotifAlwaysOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbNotifAlwaysOK.Parent" xml:space="preserve">
+    <value>FlowLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;cbNotifAlwaysOK.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>398, 28</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 17</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.Text" xml:space="preserve">
+    <value>Display always returns Success</value>
+  </data>
+  <data name="&gt;&gt;cbDisplayAlwaysReturnsOK.Name" xml:space="preserve">
+    <value>cbDisplayAlwaysReturnsOK</value>
+  </data>
+  <data name="&gt;&gt;cbDisplayAlwaysReturnsOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbDisplayAlwaysReturnsOK.Parent" xml:space="preserve">
+    <value>FlowLayoutPanel5</value>
+  </data>
+  <data name="&gt;&gt;cbDisplayAlwaysReturnsOK.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="FlowLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -4102,7 +4213,7 @@
     <value>3, 3</value>
   </data>
   <data name="FlowLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>794, 371</value>
+    <value>810, 371</value>
   </data>
   <data name="FlowLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4126,7 +4237,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="miscellaneous.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 377</value>
+    <value>816, 377</value>
   </data>
   <data name="miscellaneous.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -4150,7 +4261,7 @@
     <value>3, 3</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>808, 403</value>
+    <value>824, 403</value>
   </data>
   <data name="TabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4174,7 +4285,7 @@
     <value>2</value>
   </data>
   <data name="panelMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>814, 444</value>
+    <value>830, 444</value>
   </data>
   <data name="panelMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4210,7 +4321,7 @@
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>838, 468</value>
+    <value>854, 468</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -4235,5 +4346,8 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbDisplayAlwaysOK.Text" xml:space="preserve">
+    <value>Terminal replication always returns Success</value>
   </data>
 </root>

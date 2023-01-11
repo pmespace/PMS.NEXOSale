@@ -12,11 +12,11 @@ unit PMS_COMMON_TLB;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 28/07/2022 21:37:37 depuis la bibliothèque de types ci-dessous.
+// Fichier généré le 29/11/2022 17:31:23 depuis la bibliothèque de types ci-dessous.
 
 // ************************************************************************  //
 // Biblio. types : C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb (1)
-// LIBID : {E27DBA99-626F-3B00-B9CB-00A08F84D5EC}
+// LIBID : {FEB22871-13FF-3553-B93B-7A34D9EEA114}
 // LCID : 0
 // Fichier d'aide : 
 // Chaîne d'aide : 
@@ -24,7 +24,7 @@ unit PMS_COMMON_TLB;
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 //   (2) v2.4 mscorlib, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb)
 // Bibliothèque de types parent :
-//   (0) v1.5 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+//   (0) v1.6 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN64
 // ************************************************************************ //
 {$TYPEDADDRESS OFF} // L'unité doit être compilée sans pointeur à type contrôlé.  
@@ -48,13 +48,14 @@ uses Winapi.Windows, mscorlib_TLB, System.Classes, System.Variants, System.Win.S
 const
   // Versions mineure et majeure de la bibliothèque de types
   PMS_COMMONMajorVersion = 6;
-  PMS_COMMONMinorVersion = 1;
+  PMS_COMMONMinorVersion = 3;
 
-  LIBID_PMS_COMMON: TGUID = '{E27DBA99-626F-3B00-B9CB-00A08F84D5EC}';
+  LIBID_PMS_COMMON: TGUID = '{FEB22871-13FF-3553-B93B-7A34D9EEA114}';
 
   IID__EDisconnected: TGUID = '{CA0B69CD-764A-304C-B429-626DB65562CD}';
   IID__EInvalidFormat: TGUID = '{C55F93A5-C250-3CE4-8CEC-040BA84D26B9}';
   IID__EOutOfRange: TGUID = '{C793C680-C944-3870-8434-392142B11804}';
+  IID__CJsonTypeExtensions: TGUID = '{463FE163-00A7-36CF-9AFD-52C9AFE957F2}';
   IID__CMiscExtensions: TGUID = '{5FADEBB6-E657-349B-BACF-C130E4657E4D}';
   IID__ENotImplemented: TGUID = '{E7726354-3384-388F-8C31-F104B248E3A7}';
   IID_IStreamClientIO: TGUID = '{8032AC79-8819-4FD3-A4E2-A97D24D318FC}';
@@ -62,6 +63,8 @@ const
   IID_IStreamServerIO: TGUID = '{DBB95FAB-171A-4DFA-BF32-6E0AC64DC506}';
   CLASS_CStreamServerIO: TGUID = '{9D87E461-0320-41E7-B88A-6F9E7D5A95A0}';
   IID__CStreamParameters: TGUID = '{918AC90A-E98B-3FB8-B977-86677DF8B582}';
+  IID_IStreamServerStatistics: TGUID = '{7711DAC5-9223-4760-A93C-D2C993359A61}';
+  CLASS_CStreamServerStatistics: TGUID = '{648A391F-5B00-4E95-90FD-3F5E6E9FEFD4}';
   IID_IStreamServerStartSettings: TGUID = '{8E3BBBB0-F498-47BF-AB18-5C84B80EE4B4}';
   CLASS_CStreamServerStartSettings: TGUID = '{7D25C068-E0B0-4C2E-ADC1-DE726C6E7EE5}';
   IID_IStreamServer: TGUID = '{7E3C2011-C388-4813-B9C5-B24D6A14892F}';
@@ -69,10 +72,6 @@ const
   CLASS_CStreamClientSettings: TGUID = '{990A2D0C-1A1C-4E34-9C9D-75905AC95915}';
   IID_IStreamServerSettings: TGUID = '{F4BC72B2-4375-4723-B59D-809182C8CFDE}';
   CLASS_CStreamServerSettings: TGUID = '{EF1D0636-72B9-4F21-98A2-6F0EE3B048B5}';
-  IID_IStreamClientThreadSettings: TGUID = '{966E7BDC-A560-4988-8AF7-717FF1341E4D}';
-  CLASS_CStreamClientThreadSettings: TGUID = '{1BB1B102-74BC-4795-98A1-14DD94D851B6}';
-  IID_IStreamServerThreadSettings: TGUID = '{FC4ED317-6B75-474A-B51F-4AD71734881F}';
-  CLASS_CStreamServerThreadSettings: TGUID = '{56BF8966-E7FF-4B42-A255-A89EF0226FD1}';
   IID_IThread: TGUID = '{420E0E6B-C6D4-499A-87A7-992FECBFEFC3}';
   CLASS_CThread: TGUID = '{87BB223F-6A59-4592-8A0F-057625532B8C}';
   IID_IThreadEvents: TGUID = '{3FB79C95-70A3-41DA-AEA7-02DFBFD23BB7}';
@@ -94,27 +93,28 @@ const
   IID__TimerCompleteDelegate: TGUID = '{FD39B2A3-27C1-3253-A87B-B214CC3325F6}';
   IID__Win32UIActivityDelegate: TGUID = '{362514F5-AE98-3E9F-9729-E67E58A3D5D7}';
   IID__FeedRecordDelegate: TGUID = '{7E09070D-FD2E-3546-9F9D-676E61B63B16}';
-  CLASS_EDisconnected: TGUID = '{66ACBFF9-6D1B-3A49-A671-253B1B31A565}';
-  CLASS_EInvalidFormat: TGUID = '{1939DC7A-CD6B-3C43-AB04-21CE6824F8FD}';
-  CLASS_EOutOfRange: TGUID = '{3BB5672A-A89B-3CC1-8658-8B36CD36FC92}';
-  CLASS_CMiscExtensions: TGUID = '{44252353-FA68-3305-8345-526492B417EC}';
-  CLASS_ENotImplemented: TGUID = '{15FE91D9-335F-3FDF-AE66-B22127F7F3D0}';
-  CLASS_CStreamParameters: TGUID = '{87B04C88-716D-3471-9DE8-0B10CEFF7BE6}';
-  CLASS_SendAsyncType: TGUID = '{3DF6A411-F43E-3CE7-B695-AFDCD93FF984}';
-  CLASS_ServerOnStartDelegate: TGUID = '{DC6DDFBB-0108-3036-99D0-E25E5A57DA32}';
-  CLASS_ServerOnConnectDelegate: TGUID = '{A74C058E-4601-3485-A65B-65215C824CCD}';
-  CLASS_ServerOnMessageDelegate: TGUID = '{C238AB90-84B1-394D-94B4-392136A0A6B5}';
-  CLASS_ServerOnDisconnectDelegate: TGUID = '{E541F2DE-8ADA-3700-874E-730A26A8B465}';
-  CLASS_ServerOnStopDelegate: TGUID = '{F285A45F-B566-31B4-8549-16366DCFBB69}';
-  CLASS_ClientOnReceivedMessageDelegate: TGUID = '{9610089B-EC7B-3CCE-8A85-6125B8AECCA7}';
-  CLASS_ClientOnSendMessageDelegate: TGUID = '{F2023B04-B377-3A84-85E3-A55C86A67177}';
-  CLASS_ClientOnReplyDelegate: TGUID = '{FDD2FA72-B873-3445-BF5A-3537B5B16170}';
-  CLASS_ClientServerOnMessageToLog: TGUID = '{03E4EEDD-9EE6-3F8C-AE2E-007FD17F0137}';
-  CLASS_ThreadFunction: TGUID = '{A944F0F6-E736-3C7D-A870-DE082D912BB5}';
-  CLASS_ThreadTerminates: TGUID = '{74A40684-8C97-38E0-AC3C-5B758E5FEFE0}';
-  CLASS_TimerCompleteDelegate: TGUID = '{96032755-67D4-359A-8B97-3919D50F24F5}';
-  CLASS_Win32UIActivityDelegate: TGUID = '{537CA00D-F538-33D1-B0DF-7EA10EAFE184}';
-  CLASS_FeedRecordDelegate: TGUID = '{E69AC4A0-E6EF-3750-A833-1F1B02CBA548}';
+  CLASS_EDisconnected: TGUID = '{460C1E2C-0860-337F-BE64-C9CD521F1BB1}';
+  CLASS_EInvalidFormat: TGUID = '{B9825488-697D-389A-830B-FC4AC1DA127C}';
+  CLASS_EOutOfRange: TGUID = '{8276CEA4-4331-36E6-A078-8C1F8D9BE018}';
+  CLASS_CJsonTypeExtensions: TGUID = '{4D20B029-0474-3B60-8FB1-A6B1F554574E}';
+  CLASS_CMiscExtensions: TGUID = '{3D63A0A5-A484-391C-9CED-3F4B4F9EFD83}';
+  CLASS_ENotImplemented: TGUID = '{6CB6328A-6F6D-34EE-B6AE-B88E3AD2C35F}';
+  CLASS_CStreamParameters: TGUID = '{B4E867FD-5CE6-39DA-82F2-39F02B0A5AB4}';
+  CLASS_SendAsyncType: TGUID = '{C67F37B0-E55B-3B30-B751-5FAC221A38B4}';
+  CLASS_ServerOnStartDelegate: TGUID = '{7F942BC9-9BF8-3554-B3B7-F47594A5EF6E}';
+  CLASS_ServerOnConnectDelegate: TGUID = '{DA551792-58EA-3FDF-A576-E28586A7BF6B}';
+  CLASS_ServerOnMessageDelegate: TGUID = '{8C3627C4-5B6E-3D6B-AE48-60C449DBE673}';
+  CLASS_ServerOnDisconnectDelegate: TGUID = '{3AF88361-24DC-334E-BE8F-BB167CA87999}';
+  CLASS_ServerOnStopDelegate: TGUID = '{2441504F-8B11-384F-B024-7648DFA9E5DD}';
+  CLASS_ClientOnReceivedMessageDelegate: TGUID = '{A1460017-971D-39F0-9664-EBA118AAE95C}';
+  CLASS_ClientOnSendMessageDelegate: TGUID = '{35340E99-1AEB-31C8-9081-35E2C087715F}';
+  CLASS_ClientOnReplyDelegate: TGUID = '{85392FA8-F4AA-3455-883B-C58246A3B319}';
+  CLASS_ClientServerOnMessageToLog: TGUID = '{F8999521-E339-3B30-8ABA-6F30843A384B}';
+  CLASS_ThreadFunction: TGUID = '{580D1E69-D679-3662-A4CA-A1F28DFB112B}';
+  CLASS_ThreadTerminates: TGUID = '{9F0A8B58-21C8-353B-9FB6-81A02851296E}';
+  CLASS_TimerCompleteDelegate: TGUID = '{975A189D-7B7C-34A9-AA4B-1DB784C033F1}';
+  CLASS_Win32UIActivityDelegate: TGUID = '{CE0742CB-5E6F-3F9B-AB3B-08102398BD47}';
+  CLASS_FeedRecordDelegate: TGUID = '{7286D360-7635-3C8E-BB29-A0146C7A210B}';
 
 // *********************************************************************//
 // Déclaration d'énumérations définies dans la bibliothèque de types                    
@@ -207,6 +207,8 @@ type
   _EInvalidFormatDisp = dispinterface;
   _EOutOfRange = interface;
   _EOutOfRangeDisp = dispinterface;
+  _CJsonTypeExtensions = interface;
+  _CJsonTypeExtensionsDisp = dispinterface;
   _CMiscExtensions = interface;
   _CMiscExtensionsDisp = dispinterface;
   _ENotImplemented = interface;
@@ -215,12 +217,11 @@ type
   IStreamServerIO = interface;
   _CStreamParameters = interface;
   _CStreamParametersDisp = dispinterface;
+  IStreamServerStatistics = interface;
   IStreamServerStartSettings = interface;
   IStreamServer = interface;
   IStreamClientSettings = interface;
   IStreamServerSettings = interface;
-  IStreamClientThreadSettings = interface;
-  IStreamServerThreadSettings = interface;
   IThread = interface;
   IThreadEvents = interface;
   IThreadData = interface;
@@ -261,17 +262,17 @@ type
 // *********************************************************************//
   CStreamClientIO = IStreamClientIO;
   CStreamServerIO = IStreamServerIO;
+  CStreamServerStatistics = IStreamServerStatistics;
   CStreamServerStartSettings = IStreamServerStartSettings;
   CStreamClientSettings = IStreamClientSettings;
   CStreamServerSettings = IStreamServerSettings;
-  CStreamClientThreadSettings = IStreamClientThreadSettings;
-  CStreamServerThreadSettings = IStreamServerThreadSettings;
   CThread = IThread;
   CThreadEvents = _Object;
   CThreadData = IThreadData;
   EDisconnected = _EDisconnected;
   EInvalidFormat = _EInvalidFormat;
   EOutOfRange = _EOutOfRange;
+  CJsonTypeExtensions = _CJsonTypeExtensions;
   CMiscExtensions = _CMiscExtensions;
   ENotImplemented = _ENotImplemented;
   CStreamParameters = _CStreamParameters;
@@ -344,6 +345,24 @@ type
 // *********************************************************************//
   _EOutOfRangeDisp = dispinterface
     ['{C793C680-C944-3870-8434-392142B11804}']
+  end;
+
+// *********************************************************************//
+// Interface :   _CJsonTypeExtensions
+// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
+// GUID :        {463FE163-00A7-36CF-9AFD-52C9AFE957F2}
+// *********************************************************************//
+  _CJsonTypeExtensions = interface(IDispatch)
+    ['{463FE163-00A7-36CF-9AFD-52C9AFE957F2}']
+  end;
+
+// *********************************************************************//
+// DispIntf :    _CJsonTypeExtensionsDisp
+// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
+// GUID :        {463FE163-00A7-36CF-9AFD-52C9AFE957F2}
+// *********************************************************************//
+  _CJsonTypeExtensionsDisp = dispinterface
+    ['{463FE163-00A7-36CF-9AFD-52C9AFE957F2}']
   end;
 
 // *********************************************************************//
@@ -442,6 +461,22 @@ type
   end;
 
 // *********************************************************************//
+// Interface :   IStreamServerStatistics
+// Indicateurs : (256) OleAutomation
+// GUID :        {7711DAC5-9223-4760-A93C-D2C993359A61}
+// *********************************************************************//
+  IStreamServerStatistics = interface(IUnknown)
+    ['{7711DAC5-9223-4760-A93C-D2C993359A61}']
+    function Get_EndPoint(out pRetVal: IUnknown): HResult; stdcall;
+    function Get_ConnectTimestamp(out pRetVal: TDateTime): HResult; stdcall;
+    function Get_ReceivedMessages(out pRetVal: Integer): HResult; stdcall;
+    function Get_SentMessages(out pRetVal: Integer): HResult; stdcall;
+    function Get_ReceivedBytes(out pRetVal: TDecimal): HResult; stdcall;
+    function Get_SentBytes(out pRetVal: TDecimal): HResult; stdcall;
+    function Get_ToString(out pRetVal: WideString): HResult; stdcall;
+  end;
+
+// *********************************************************************//
 // Interface :   IStreamServerStartSettings
 // Indicateurs : (256) OleAutomation
 // GUID :        {8E3BBBB0-F498-47BF-AB18-5C84B80EE4B4}
@@ -487,8 +522,12 @@ type
     function Get_IsRunning(out pRetVal: WordBool): HResult; stdcall;
     function Get_Description(out pRetVal: WideString): HResult; stdcall;
     function Get_Result(out pRetVal: Integer): HResult; stdcall;
+    function Get_TextMessages(out pRetVal: WordBool): HResult; stdcall;
+    function Set_TextMessages(pRetVal: WordBool): HResult; stdcall;
     function StartServer(const settings: IStreamServerStartSettings; out pRetVal: WordBool): HResult; stdcall;
     function StopServer: HResult; stdcall;
+    function Send1WayNotification(msg: PSafeArray; addBufferSize: WordBool; 
+                                  const process: WideString; o: OleVariant; out pRetVal: WordBool): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -528,6 +567,7 @@ type
     function Get_DefaultServerPort(out pRetVal: LongWord): HResult; stdcall;
     function Get_OnMessageToLog(out pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
     function _Set_OnMessageToLog(const pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
+    function Get_LocalhostV6(out pRetVal: WideString): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -559,42 +599,7 @@ type
     function Get_DefaultServerPort(out pRetVal: LongWord): HResult; stdcall;
     function Get_OnMessageToLog(out pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
     function _Set_OnMessageToLog(const pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
-  end;
-
-// *********************************************************************//
-// Interface :   IStreamClientThreadSettings
-// Indicateurs : (256) OleAutomation
-// GUID :        {966E7BDC-A560-4988-8AF7-717FF1341E4D}
-// *********************************************************************//
-  IStreamClientThreadSettings = interface(IUnknown)
-    ['{966E7BDC-A560-4988-8AF7-717FF1341E4D}']
-    function Get_IsValid(out pRetVal: WordBool): HResult; stdcall;
-    function Get_Parameters(out pRetVal: OleVariant): HResult; stdcall;
-    function _Set_Parameters(pRetVal: OleVariant): HResult; stdcall;
-    function Get_ThreadData(out pRetVal: IThreadData): HResult; stdcall;
-    function _Set_ThreadData(const pRetVal: IThreadData): HResult; stdcall;
-    function Get_OnReply(out pRetVal: _ClientOnReplyDelegate): HResult; stdcall;
-    function _Set_OnReply(const pRetVal: _ClientOnReplyDelegate): HResult; stdcall;
-  end;
-
-// *********************************************************************//
-// Interface :   IStreamServerThreadSettings
-// Indicateurs : (256) OleAutomation
-// GUID :        {FC4ED317-6B75-474A-B51F-4AD71734881F}
-// *********************************************************************//
-  IStreamServerThreadSettings = interface(IUnknown)
-    ['{FC4ED317-6B75-474A-B51F-4AD71734881F}']
-    function Get_IsValid(out pRetVal: WordBool): HResult; stdcall;
-    function Get_Parameters(out pRetVal: OleVariant): HResult; stdcall;
-    function _Set_Parameters(pRetVal: OleVariant): HResult; stdcall;
-    function Get_ThreadData(out pRetVal: IThreadData): HResult; stdcall;
-    function _Set_ThreadData(const pRetVal: IThreadData): HResult; stdcall;
-    function Get_OnStart(out pRetVal: _ServerOnStartDelegate): HResult; stdcall;
-    function _Set_OnStart(const pRetVal: _ServerOnStartDelegate): HResult; stdcall;
-    function Get_OnMessage(out pRetVal: _ServerOnMessageDelegate): HResult; stdcall;
-    function _Set_OnMessage(const pRetVal: _ServerOnMessageDelegate): HResult; stdcall;
-    function Get_OnStop(out pRetVal: _ServerOnStopDelegate): HResult; stdcall;
-    function _Set_OnStop(const pRetVal: _ServerOnStopDelegate): HResult; stdcall;
+    function Get_LocalhostV6(out pRetVal: WideString): HResult; stdcall;
   end;
 
 // *********************************************************************//
@@ -955,6 +960,18 @@ type
   end;
 
 // *********************************************************************//
+// La classe CoCStreamServerStatistics fournit une méthode Create et CreateRemote pour
+// créer des instances de l'interface par défaut IStreamServerStatistics exposée
+// par la CoClasse CStreamServerStatistics. Les fonctions sont destinées à être utilisées par
+// les clients désirant automatiser les objets CoClasse exposés par
+// le serveur de cette bibliothèque de types.
+// *********************************************************************//
+  CoCStreamServerStatistics = class
+    class function Create: IStreamServerStatistics;
+    class function CreateRemote(const MachineName: string): IStreamServerStatistics;
+  end;
+
+// *********************************************************************//
 // La classe CoCStreamServerStartSettings fournit une méthode Create et CreateRemote pour
 // créer des instances de l'interface par défaut IStreamServerStartSettings exposée
 // par la CoClasse CStreamServerStartSettings. Les fonctions sont destinées à être utilisées par
@@ -988,30 +1005,6 @@ type
   CoCStreamServerSettings = class
     class function Create: IStreamServerSettings;
     class function CreateRemote(const MachineName: string): IStreamServerSettings;
-  end;
-
-// *********************************************************************//
-// La classe CoCStreamClientThreadSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamClientThreadSettings exposée
-// par la CoClasse CStreamClientThreadSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
-// *********************************************************************//
-  CoCStreamClientThreadSettings = class
-    class function Create: IStreamClientThreadSettings;
-    class function CreateRemote(const MachineName: string): IStreamClientThreadSettings;
-  end;
-
-// *********************************************************************//
-// La classe CoCStreamServerThreadSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamServerThreadSettings exposée
-// par la CoClasse CStreamServerThreadSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
-// *********************************************************************//
-  CoCStreamServerThreadSettings = class
-    class function Create: IStreamServerThreadSettings;
-    class function CreateRemote(const MachineName: string): IStreamServerThreadSettings;
   end;
 
 // *********************************************************************//
@@ -1084,6 +1077,18 @@ type
   CoEOutOfRange = class
     class function Create: _EOutOfRange;
     class function CreateRemote(const MachineName: string): _EOutOfRange;
+  end;
+
+// *********************************************************************//
+// La classe CoCJsonTypeExtensions fournit une méthode Create et CreateRemote pour
+// créer des instances de l'interface par défaut _CJsonTypeExtensions exposée
+// par la CoClasse CJsonTypeExtensions. Les fonctions sont destinées à être utilisées par
+// les clients désirant automatiser les objets CoClasse exposés par
+// le serveur de cette bibliothèque de types.
+// *********************************************************************//
+  CoCJsonTypeExtensions = class
+    class function Create: _CJsonTypeExtensions;
+    class function CreateRemote(const MachineName: string): _CJsonTypeExtensions;
   end;
 
 // *********************************************************************//
@@ -1326,6 +1331,16 @@ begin
   Result := CreateRemoteComObject(MachineName, CLASS_CStreamServerIO) as IStreamServerIO;
 end;
 
+class function CoCStreamServerStatistics.Create: IStreamServerStatistics;
+begin
+  Result := CreateComObject(CLASS_CStreamServerStatistics) as IStreamServerStatistics;
+end;
+
+class function CoCStreamServerStatistics.CreateRemote(const MachineName: string): IStreamServerStatistics;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_CStreamServerStatistics) as IStreamServerStatistics;
+end;
+
 class function CoCStreamServerStartSettings.Create: IStreamServerStartSettings;
 begin
   Result := CreateComObject(CLASS_CStreamServerStartSettings) as IStreamServerStartSettings;
@@ -1354,26 +1369,6 @@ end;
 class function CoCStreamServerSettings.CreateRemote(const MachineName: string): IStreamServerSettings;
 begin
   Result := CreateRemoteComObject(MachineName, CLASS_CStreamServerSettings) as IStreamServerSettings;
-end;
-
-class function CoCStreamClientThreadSettings.Create: IStreamClientThreadSettings;
-begin
-  Result := CreateComObject(CLASS_CStreamClientThreadSettings) as IStreamClientThreadSettings;
-end;
-
-class function CoCStreamClientThreadSettings.CreateRemote(const MachineName: string): IStreamClientThreadSettings;
-begin
-  Result := CreateRemoteComObject(MachineName, CLASS_CStreamClientThreadSettings) as IStreamClientThreadSettings;
-end;
-
-class function CoCStreamServerThreadSettings.Create: IStreamServerThreadSettings;
-begin
-  Result := CreateComObject(CLASS_CStreamServerThreadSettings) as IStreamServerThreadSettings;
-end;
-
-class function CoCStreamServerThreadSettings.CreateRemote(const MachineName: string): IStreamServerThreadSettings;
-begin
-  Result := CreateRemoteComObject(MachineName, CLASS_CStreamServerThreadSettings) as IStreamServerThreadSettings;
 end;
 
 class function CoCThread.Create: IThread;
@@ -1434,6 +1429,16 @@ end;
 class function CoEOutOfRange.CreateRemote(const MachineName: string): _EOutOfRange;
 begin
   Result := CreateRemoteComObject(MachineName, CLASS_EOutOfRange) as _EOutOfRange;
+end;
+
+class function CoCJsonTypeExtensions.Create: _CJsonTypeExtensions;
+begin
+  Result := CreateComObject(CLASS_CJsonTypeExtensions) as _CJsonTypeExtensions;
+end;
+
+class function CoCJsonTypeExtensions.CreateRemote(const MachineName: string): _CJsonTypeExtensions;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_CJsonTypeExtensions) as _CJsonTypeExtensions;
 end;
 
 class function CoCMiscExtensions.Create: _CMiscExtensions;

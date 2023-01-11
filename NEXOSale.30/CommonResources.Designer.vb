@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Class CommonResources
@@ -220,6 +220,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Miscellaneously modified.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_AdditionalResponseMiscellaneouslyModified() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.AdditionalResponseMiscellaneouslyModified", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to No amount.
         '''</summary>
         Friend Shared ReadOnly Property FProcessing_Amount() As String
@@ -256,6 +265,33 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Displaying barcode on the POI.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_DisplayingBarcode() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.DisplayingBarcode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Displaying predefined message %1.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_DisplayingMessageRef() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.DisplayingMessageRef", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Displaying XHTML text.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_DisplayingXHTML() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.DisplayingXHTML", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Error.
         '''</summary>
         Friend Shared ReadOnly Property FProcessing_Error() As String
@@ -288,6 +324,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property FProcessing_InvalidCancellationProcessing() As String
             Get
                 Return ResourceManager.GetString("FProcessing.InvalidCancellationProcessing", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Device to target is invalid in this context.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_InvalidDisplayDevice() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.InvalidDisplayDevice", resourceCulture)
             End Get
         End Property
         
@@ -342,6 +387,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property FProcessing_LogoutSale() As String
             Get
                 Return ResourceManager.GetString("FProcessing.LogoutSale", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Message displayed on POI.
+        '''</summary>
+        Friend Shared ReadOnly Property FProcessing_MessageOnPOI() As String
+            Get
+                Return ResourceManager.GetString("FProcessing.MessageOnPOI", resourceCulture)
             End Get
         End Property
         

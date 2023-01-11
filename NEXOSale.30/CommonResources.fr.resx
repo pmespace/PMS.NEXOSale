@@ -369,4 +369,19 @@
   <data name="FProcessing.Error" xml:space="preserve">
     <value>Erreur</value>
   </data>
+  <data name="FProcessing.MessageOnPOI" xml:space="preserve">
+    <value>Message affiché sur le terminal</value>
+  </data>
+  <data name="FProcessing.InvalidDisplayDevice" xml:space="preserve">
+    <value>L'équipement sur lequel afficher le message est invalide</value>
+  </data>
+  <data name="FProcessing.DisplayingBarcode" xml:space="preserve">
+    <value>Affichage d'un QRcode ou d'un code barre sur le POI</value>
+  </data>
+  <data name="FProcessing.DisplayingMessageRef" xml:space="preserve">
+    <value>Affichage du message prédéfini %1</value>
+  </data>
+  <data name="FProcessing.DisplayingXHTML" xml:space="preserve">
+    <value>Affichage d'un message XHTML</value>
+  </data>
 </root>

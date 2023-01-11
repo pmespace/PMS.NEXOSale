@@ -20,6 +20,8 @@ Imports System.Reflection
 Public Class FProcessing
 
 #Region "declarations"
+
+#Region "variables"
 	Private f As FConfirm
 	Private priceb, infob, msgb As Boolean
 	Private isInError As Boolean = False
@@ -42,7 +44,6 @@ Public Class FProcessing
 	Private myLock As Object = New Object
 	Private lastMessageHeader As MessageHeaderType
 	Private currentactiontext As String
-	Private notificationerror As String
 
 	Private Property Caption As String
 		Get
@@ -174,9 +175,12 @@ Public Class FProcessing
 		End Set
 	End Property
 	Private _hasbeencancelled As Boolean = False
+#End Region
 
+#Region "constants"
 	Private Const RESULT_OK As Integer = 0
 	Private Const RESULT_KO As Integer = 1
+	Private Const RESULT_NEXT As Integer = 2
 
 	Private Const WM_BASE As UInteger = Win32.WM_USER + 209
 	Private Const WM_START As UInteger = WM_BASE + 1
@@ -211,7 +215,9 @@ Public Class FProcessing
 	Private Const WM_TIMEOUT As UInteger = WM_TIMER + 2
 	Private Const WM_AUTOCLOSE_START As UInteger = WM_TIMER + 3
 	Private Const WM_AUTOCLOSE As UInteger = WM_TIMER + 4
+#End Region
 
+#Region "classes"
 	Public Class CheckToPrint
 		Public AuthorisationType As CheckAuthorisationType
 		Public MerchantName As String
@@ -228,6 +234,8 @@ Public Class FProcessing
 		Public Amount As Double
 		Public CMC7 As String 'check id as being read
 	End Class
+#End Region
+
 #End Region
 
 #Region "print management"
@@ -277,10 +285,10 @@ Public Class FProcessing
 		If ActivityEvent._none <> activity.Evt Then
 			Select Case activity.Evt
 				Case ActivityEvent.message
-					CLog.Add(HEADER & activity.Message)
+					CLog.Add($"{HEADER} [MESSAGE] - {activity.Message}")
 					message.Text = activity.Message
 				Case ActivityEvent.information
-					CLog.Add(HEADER & activity.Message)
+					CLog.Add($"{HEADER} [INFORMATION] - {activity.Message}")
 					information.Text = information.Text & vbCrLf & activity.Message
 				Case ActivityEvent.replyReceived
 				Case ActivityEvent.postMessage
@@ -592,10 +600,10 @@ Public Class FProcessing
 				CLog.Add(HEADER & "WM_PAYMENT")
 				Me.Text = Caption = $"{My.Resources.CommonResources.FProcessing_PaymentRequest} {My.Resources.CommonResources.FromSaleU} {nexoSale.Settings.SaleID}  {My.Resources.CommonResources.FProcessing_TO} {nexoSale.Settings.POIID}"
 				If IsNothing(nexoSale.Currency) OrElse String.IsNullOrEmpty(nexoSale.Currency.Value) Then
-					CLog.Add(My.Resources.CommonResources.FProcessing_MissingCurrency, TLog.ERROR)
+					CLog.Add(HEADER & My.Resources.CommonResources.FProcessing_MissingCurrency, TLog.ERROR)
 					PostMessage(WM_ERROR)
 				ElseIf IsNothing(requestedOperation.Amount) Then
-					CLog.Add(My.Resources.CommonResources.FProcessing_MissingAmount, TLog.ERROR)
+					CLog.Add(HEADER & My.Resources.CommonResources.FProcessing_MissingAmount, TLog.ERROR)
 					PostMessage(WM_ERROR)
 				Else
 					nexoSale._payment = New NexoPayment()
@@ -609,20 +617,27 @@ Public Class FProcessing
 					o.RequestCurrency = nexoSale.Currency.Value
 					o.RequestRequestedAmount = requestedOperation.Amount
 					o.RequestData.PaymentDataSpecified = True
+
 					'timerBeforeTimeout.Tag = RealPaymentTimer()
 					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 					currentactiontext = My.Resources.CommonResources.FProcessing_PaymentInProgress
 					TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
+
+					''if sending is OK and abort is supported the cancel button is made available
+					'If Not IsNothing(result) AndAlso nexoSale.POIInUse.SupportsAbort Then
+					'	canBeCancelled = True
+					'	SetCancelButtonText(False)
+					'End If
 				End If
 
 			Case WM_REFUND
 				CLog.Add(HEADER & "WM_REFUND")
 				Me.Text = Caption = $"{My.Resources.CommonResources.FProcessing_RefundRequest} {My.Resources.CommonResources.FromSaleU} {nexoSale.Settings.SaleID}  {My.Resources.CommonResources.FProcessing_TO} {nexoSale.Settings.POIID}"
 				If IsNothing(nexoSale.Currency) OrElse String.IsNullOrEmpty(nexoSale.Currency.Value) Then
-					CLog.Add(My.Resources.CommonResources.FProcessing_MissingCurrency, TLog.ERROR)
+					CLog.Add(HEADER & My.Resources.CommonResources.FProcessing_MissingCurrency, TLog.ERROR)
 					PostMessage(WM_ERROR)
 				ElseIf IsNothing(requestedOperation.Amount) Then
-					CLog.Add(My.Resources.CommonResources.FProcessing_MissingAmount, TLog.ERROR)
+					CLog.Add(HEADER & My.Resources.CommonResources.FProcessing_MissingAmount, TLog.ERROR)
 					PostMessage(WM_ERROR)
 				Else
 					nexoSale._refund = New NexoPayment(PaymentTypeEnumeration.Refund)
@@ -698,15 +713,18 @@ Public Class FProcessing
 				pbCancel.Enabled = canBeCancelled
 				nexoSale._abort = New NexoAbort()
 				Dim o = nexoSale.Abort
-				o.SaleID = o.AbortSaleID = GetSaleID()
-				o.POIID = o.AbortPOIID = GetPOIID()
+				o.AbortSaleID = GetSaleID()
+				o.SaleID = o.AbortSaleID
+				o.AbortPOIID = GetPOIID()
+				o.POIID = o.AbortPOIID
 				o.AbortReason = nexoSale.AbortReason
-				o.AbortServiceID = nexoSale.AbortServiceID
-				o.AbortMessageCategory = nexoSale.AbortMessageCategory
-				timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
+				o.AbortMessageCategory = nexoSale._payment.MessageCategory
+				o.AbortServiceID = nexoSale._payment.ServiceID
+				o.AbortDeviceID = nexoSale._payment.DeviceID
+				'timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
 				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
 				currentactiontext = My.Resources.CommonResources.FProcessing_AbortInProgress
-				TestSendResult(result, o.MessageCategory.ToString, $"{currentactiontext} [{nexoSale.AbortReason}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...")
+				TestSendResult(result, o.MessageCategory.ToString, $"{currentactiontext} [{nexoSale.AbortReason}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...", True)
 
 			Case WM_CHECK_READ
 				CLog.Add(HEADER & "WM_CHECK_READ")
@@ -745,16 +763,36 @@ Public Class FProcessing
 				If 0 < nexoSale.CheckIndex Then nexoSale.CheckIndex += 1
 
 			Case WM_RECEIVED_NOTIFICATION
+
 				CLog.Add(HEADER & "WM_RECEIVED_NOTIFICATION")
-				'a notification has been received, dismiss the current transaction with an error message
-				message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = $"{currentactiontext}{vbCrLf}{My.Resources.CommonResources.FProcessing_AnErrorHasOccurred}{vbCrLf}{My.Resources.CommonResources.FProcessing_Error}: {notificationerror}"})
-				'after a logout no more actions to start
-				stackOfActions.Clear()
-				isInError = True
-				nexoSale.NexoClient.Error = True
-				PostMessage(WM_AUTOCLOSE_START)
+				If RESULT_OK = m.WParam Then
+					'do nothing and keep ongoing processing
+					CLog.TRACE($"Notification has no impact on current {currentAction}")
+				Else
+					stackOfActions.Clear()
+					'check current action and decide what to do next
+					If nexoSale.POIInUse.SupportsAbort AndAlso
+						(currentAction = Action.Payment OrElse
+						currentAction = Action.Refund OrElse
+						currentAction = Action.Reconciliation) Then
+						'abort current operation
+						CLog.WARNING($"Notification brings to abort current {currentAction}")
+						stackOfActions.Push(Action.Abort)
+						nexoSale.AbortReason = "Abort following notification"
+						'run the next action
+						PostMessage(WM_ACTION)
+					Else
+						'set the text of the close button indicating processing can be cancelled
+						'CLog.WARNING($"Notification brings to stopping processing of current {currentAction} [POI supports abort = {nexoSale.POIInUse.SupportsAbort}]")
+						'pbCancel.Text = CANCEL_BUTTON_TEXT
+						'isInError = True
+						'nexoSale.NexoClient.Error = True
+						'PostMessage(WM_AUTOCLOSE_START)
+					End If
+				End If
 
 			Case WM_RECEIVED_REQUEST
+				CLog.Add(HEADER & "WM_RECEIVED_REQUEST")
 
 			Case WM_RECEIVED_REPLY
 				CLog.Add(HEADER & "WM_RECEIVED_REPLY")
@@ -966,25 +1004,116 @@ Public Class FProcessing
 	End Sub
 
 	Public Sub OnReceivedRequest(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, thread As CThread, o As Object)
+		Dim wParam As Integer = RESULT_OK
+
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.requestReceived, .Message = $"{My.Resources.CommonResources.Received} {MessageDescription(obj.Item, xml)}"})
-		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_REQUEST, .wParam = RESULT_OK})
+
+		Try
+			'Dim res As ResultEnumeration = CMisc.GetEnumValue(GetType(ResultEnumeration), obj.CurrentObject.Response.Result)
+			If MessageCategoryEnumeration.Display = obj.Category Then
+				'processing display message
+				Dim nxo As NexoDeviceDisplay = obj.CurrentObject
+				'fetch the message to display, initialising it to nothing to display and looping on all messages to display
+				Dim s As String = Nothing
+				For i As Integer = 0 To nxo.RequestData.DisplayOutputLength - 1
+					Dim ort As New OutputResultType With {.Device = nxo.RequestData.DisplayOutput(i).Device, .InfoQualify = nxo.RequestData.DisplayOutput(i).InfoQualify, .Response = New ResponseType With {.Result = ResultEnumeration.Success.ToString}}
+					'it has to be a message to display on the cashier's display
+					If 0 = String.Compare(DeviceEnumeration.CashierDisplay.ToString, nxo.RequestData.DisplayOutput(i).Device, True) Then
+						'if it is some text
+						If 0 = String.Compare(OutputFormatEnumeration.Text.ToString, nxo.RequestData.DisplayOutput(i).OutputContent.OutputFormat, True) _
+							AndAlso 0 <> nxo.RequestData.DisplayOutput(i).OutputContent.OutputTextLength Then
+							'loop on all lines to display
+							Dim sq As String = Nothing
+							For j As Integer = 0 To nxo.RequestData.DisplayOutput(i).OutputContent.OutputTextLength - 1
+								If Not nxo.RequestData.DisplayOutput(i).OutputContent.OutputText(j).Value.IsNullOrEmpty() Then
+									sq &= vbCrLf & nxo.RequestData.DisplayOutput(i).OutputContent.OutputText(j).Value.ToUpper
+								End If
+							Next
+							'add the text to display to the current text to display
+							s &= sq
+						ElseIf 0 = String.Compare(OutputFormatEnumeration.BarCode.ToString, nxo.RequestData.DisplayOutput(i).OutputContent.OutputFormat, True) _
+							AndAlso Not IsNothing(nxo.RequestData.DisplayOutput(i).OutputContent.OutputBarcode) Then
+							s &= vbCrLf & My.Resources.CommonResources.FProcessing_DisplayingBarcode
+						ElseIf 0 = String.Compare(OutputFormatEnumeration.MessageRef.ToString, nxo.RequestData.DisplayOutput(i).OutputContent.OutputFormat, True) _
+							AndAlso Not IsNothing(nxo.RequestData.DisplayOutput(i).OutputContent.PredefinedContent) Then
+							Dim sq As String = My.Resources.CommonResources.FProcessing_DisplayingMessageRef.Replace("%1", nxo.RequestData.DisplayOutput(i).OutputContent.PredefinedContent.ReferenceID)
+							s &= vbCrLf & sq
+						ElseIf 0 = String.Compare(OutputFormatEnumeration.XHTML.ToString, nxo.RequestData.DisplayOutput(i).OutputContent.OutputFormat, True) _
+							AndAlso Not IsNothing(nxo.RequestData.DisplayOutput(i).OutputContent.OutputXHTML) Then
+							s &= vbCrLf & My.Resources.CommonResources.FProcessing_DisplayingXHTML
+						Else
+							'the message can't be understood
+							ort.Response.Result = ResultEnumeration.Failure.ToString
+							ort.Response.ErrorCondition = ErrorConditionEnumeration.Refusal.ToString
+							ort.Response.AdditionalResponse = ErrorConditionEnumeration.Refusal.ToString
+						End If
+					Else 'If 0 = String.Compare(DeviceEnumeration.CashierDisplay.ToString, nxo.RequestData.DisplayOutput(i).Device, True) Then
+						'the message won't be displayed
+						ort.Response.Result = ResultEnumeration.Failure.ToString
+						ort.Response.ErrorCondition = ErrorConditionEnumeration.Refusal.ToString
+						ort.Response.AdditionalResponse = My.Resources.CommonResources.FProcessing_InvalidDisplayDevice
+					End If
+
+					'miscellaneous processing
+					If nexoSale.Settings.DeviceDisplayAlwaysReturnsOK Then
+						ort.Response.Result = ResultEnumeration.Success.ToString
+						ort.Response.ErrorCondition = Nothing
+						ort.Response.AdditionalResponse = My.Resources.CommonResources.FProcessing_AdditionalResponseMiscellaneouslyModified
+					End If
+
+					'add the result of displaying this message
+					nxo.ReplyData.OutputResultAddItem(ort)
+				Next
+				'if there's a message to display, let's do it
+				If (Not s.IsNullOrEmpty) Then
+					message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = My.Resources.CommonResources.FProcessing_MessageOnPOI & s})
+				End If
+			End If
+		Catch ex As Exception
+			CLog.EXCEPT(ex)
+		End Try
+
+		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_REQUEST, .wParam = wParam})
 	End Sub
 
 	Public Sub OnReceivedNotification(xml As String, obj As NexoObjectToProcess, tcp As TcpClient, thread As CThread, o As Object)
-		Try
-			Dim nxo As NexoEvent = obj.CurrentObject
-			notificationerror = $"[{nxo.EventToNotify}] {nxo.EventDetails}"
-			'For i As Integer = 0 To nxo.RequestData.DisplayOutput.OutputContent.OutputTextLength - 1
-			'	notificationerror = $"{notificationerror} {nxo.RequestData.DisplayOutput.OutputContent.OutputTextGetItem(i).Value}"
-			'	If (nxo.RequestData.DisplayOutput.OutputContent.OutputTextLength - 1 <> i) Then
-			'		notificationerror &= vbCrLf
-			'	End If
-			'Next
-		Catch ex As Exception
-			notificationerror = Nothing
-		End Try
+		Dim wParam As Integer = RESULT_OK
+
 		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.notificationReceived, .Message = $"{My.Resources.CommonResources.Received} {MessageDescription(obj.Item, xml)}"})
-		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_NOTIFICATION, .wParam = RESULT_OK})
+
+		Try
+			Dim notification As String = Nothing
+			Dim nxo As NexoEvent = obj.CurrentObject
+			notification = $"[{nxo.EventToNotify}] {nxo.EventDetails}"
+			For i As Integer = 0 To nxo.RequestData.DisplayOutput.OutputContent.OutputTextLength - 1
+				If Not nxo.RequestData.DisplayOutput.OutputContent.OutputTextGetItem(i).Value.IsNullOrEmpty() Then
+					notification &= vbCrLf & $"{nxo.RequestData.DisplayOutput.OutputContent.OutputTextGetItem(i).Value}"
+				End If
+			Next
+			CLog.TRACE($"Received an {nxo.EventToNotify} notification - Message: {notification}")
+
+			'decide what to do depending on the received event
+			If EventToNotifyEnumeration.Completed = nxo.EventToNotify Then
+				'an abort message arrived too late to be processed
+				wParam = RESULT_OK
+				CLog.TRACE($"Abort has been cancelled by POI")
+			ElseIf nexoSale.Settings.NotificationAlwaysReturnsOK Then
+				wParam = RESULT_OK
+				CLog.TRACE($"Notification processed through miscellaneous processing")
+			ElseIf 0 = nxo.RequestData.EventToNotify.CompareTo(EventToNotifyEnumeration.OutOfOrder.ToString) OrElse
+					0 = nxo.RequestData.EventToNotify.CompareTo(EventToNotifyEnumeration.Reject.ToString) OrElse
+					0 = nxo.RequestData.EventToNotify.CompareTo(EventToNotifyEnumeration.SecurityAlarm.ToString) Then
+				wParam = RESULT_KO
+				CLog.TRACE($"Stopping processing on {nxo.EventToNotify} notification")
+			Else
+				wParam = RESULT_OK
+				CLog.TRACE($"Notification processed normally")
+			End If
+		Catch ex As Exception
+			CLog.EXCEPT(ex)
+		End Try
+
+		message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.postMessage, .WM = WM_RECEIVED_NOTIFICATION, .wParam = wParam})
 	End Sub
 
 	Private Sub ResetCancelButton()
@@ -1045,13 +1174,15 @@ Public Class FProcessing
 		If nexoSale.Settings.POIIDUseIP AndAlso Not String.IsNullOrEmpty(requestedOperation.POI.ServerIP) Then Return requestedOperation.POI.ServerIP Else Return nexoSale.POIID
 	End Function
 
-	Private Sub TestSendResult(result As NexoRetailerClientHandle, cat As String, msg As String)
+	Private Sub TestSendResult(result As NexoRetailerClientHandle, cat As String, msg As String, Optional wait As Boolean = False)
 		If IsNothing(result) Then
 			message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.information, .Message = CLog.Add($"{My.Resources.CommonResources.FailedToSend} {cat}, {My.Resources.CommonResources.FProcessing_PleaseCheckNetwork}")})
 			PostMessage(WM_ERROR)
-		Else
+		ElseIf Not wait Then
 			message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = CLog.Add(msg)})
 			PostMessage(WM_TIMEOUT_START)
+		Else
+			message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = CLog.Add(msg)})
 		End If
 	End Sub
 
@@ -1125,6 +1256,8 @@ Public Class FProcessing
 	Private Sub SetCancelButtonText(autoclose As Boolean)
 		If autoclose Then
 			pbCancel.Text = $"{My.Resources.CommonResources.Button_AboutToClose} {My.Resources.CommonResources.InWord} {CInt(timerBeforeAutoClose.Tag)} {My.Resources.CommonResources.Seconds}"
+		ElseIf canBeCancelled Then
+			pbCancel.Text = CANCEL_BUTTON_TEXT
 		Else
 			canBeCancelled = False
 			pbCancel.Text = CLOSE_BUTTON_TEXT
@@ -1611,7 +1744,7 @@ Public Class FProcessing
 								End Try
 							End If
 						Catch ex As Exception
-							CLog.Add($"Printing {analysis.target} receipt ({fname}) on {myprinter.PrinterName} has failed", TLog.ERROR)
+							CLog.Add(HEADER & $"Printing {analysis.target} receipt ({fname}) on {myprinter.PrinterName} has failed", TLog.ERROR)
 						End Try
 					End If
 
@@ -1703,9 +1836,9 @@ Public Class FProcessing
 #Region "GPRS processing"
 	Class ConnectRequestData
 		Public Property ICCD As String
-		Public Property user As String
-		Public Property password As String
-		Public Property port As Integer
+		Public Property User As String
+		Public Property Password As String
+		Public Property Port As Integer
 	End Class
 
 	Class ConnectRequest
@@ -1717,16 +1850,16 @@ Public Class FProcessing
 
 	<Serializable, XmlRoot(ElementName:="connect")>
 	Class ConnectReplyData
-		Public Property status As Integer
+		Public Property Status As Integer
 	End Class
 	Private Const CONNECT_STATUS_OK As Integer = 0
 	Private Const CONNECT_STATUS_KO As Integer = -1
 
 	Class ConnectReply
 		Public Sub New()
-			connect = New ConnectReplyData
+			Connect = New ConnectReplyData
 		End Sub
-		Public Property connect As ConnectReplyData
+		Public Property Connect As ConnectReplyData
 	End Class
 
 	'Private Function PrepareGPRSConnection(request As ConnectRequest) As String

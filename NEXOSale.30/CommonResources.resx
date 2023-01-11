@@ -379,4 +379,22 @@
   <data name="FProcessing.Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="FProcessing.MessageOnPOI" xml:space="preserve">
+    <value>Message displayed on POI</value>
+  </data>
+  <data name="FProcessing.DisplayingBarcode" xml:space="preserve">
+    <value>Displaying barcode on the POI</value>
+  </data>
+  <data name="FProcessing.DisplayingMessageRef" xml:space="preserve">
+    <value>Displaying predefined message %1</value>
+  </data>
+  <data name="FProcessing.DisplayingXHTML" xml:space="preserve">
+    <value>Displaying XHTML text</value>
+  </data>
+  <data name="FProcessing.InvalidDisplayDevice" xml:space="preserve">
+    <value>Device to target is invalid in this context</value>
+  </data>
+  <data name="FProcessing.AdditionalResponseMiscellaneouslyModified" xml:space="preserve">
+    <value>Miscellaneously modified</value>
+  </data>
 </root>

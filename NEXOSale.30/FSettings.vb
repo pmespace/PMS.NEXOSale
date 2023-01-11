@@ -59,7 +59,7 @@ Public Class FSettings
 		End If
 	End Sub
 
-	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsReversal.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged, cbSupportsReconciliation.CheckedChanged, cbSupportsAbort.CheckedChanged, cbMerchant.CheckedChanged, cbCustomer.CheckedChanged, cbUseDate.CheckedChanged, cbResuseMerchantReferenceID.CheckedChanged, cbRemoteCertificateNotAvailable.CheckedChanged, cbRemoteCertificateNameMismatch.CheckedChanged, cbRemoteCertificateChainErrors.CheckedChanged, cbNoAutoCloseOnError.CheckedChanged, cbPOIIsOffline.CheckedChanged, cbReturnBrand.CheckedChanged, cbAllowOfflinePOI.CheckedChanged, cbSavePDF.CheckedChanged, cbxCurrency.SelectedIndexChanged, cbUseRefundForCancel.CheckedChanged
+	Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles cbSaleIDUSeIP.CheckedChanged, cbPOIIDUseIP.CheckedChanged, cbSynchronous.CheckedChanged, cbAutoclose.CheckedChanged, cbSupportsReversal.CheckedChanged, cbPrintReceipt.CheckedChanged, cbSupportsCheck.CheckedChanged, cbSupportsRefund.CheckedChanged, cbUseBackup.CheckedChanged, cbSupportsReconciliation.CheckedChanged, cbSupportsAbort.CheckedChanged, cbMerchant.CheckedChanged, cbCustomer.CheckedChanged, cbUseDate.CheckedChanged, cbResuseMerchantReferenceID.CheckedChanged, cbRemoteCertificateNotAvailable.CheckedChanged, cbRemoteCertificateNameMismatch.CheckedChanged, cbRemoteCertificateChainErrors.CheckedChanged, cbNoAutoCloseOnError.CheckedChanged, cbPOIIsOffline.CheckedChanged, cbReturnBrand.CheckedChanged, cbAllowOfflinePOI.CheckedChanged, cbSavePDF.CheckedChanged, cbxCurrency.SelectedIndexChanged, cbUseRefundForCancel.CheckedChanged, cbNotifAlwaysOK.CheckedChanged, cbDisplayAlwaysReturnsOK.CheckedChanged
 		If _initialised Then
 			If sender Is cbUseBackup Then
 				cbPOIIsOffline.Checked = False
@@ -203,8 +203,7 @@ Public Class FSettings
 		'load available currencies from a json stored inside the same folder
 		Dim json As New CJson(Of Currencies)()
 		json.FileName = NEXOSALE.SettingsFileNameEx(Settings.REGISTRY_KEY_CURRENCIES_FILE_NAME, Settings.DEFAULT_CURRENCIES_FILE_NAME, True)
-		Dim except As Boolean
-		currencies = json.ReadSettings(except)
+		currencies = json.ReadSettings()
 		If IsNothing(currencies) OrElse 0 = currencies.Count Then
 			currencies = New Currencies()
 			Dim currency As Currency = GetDefaultCurrency()
@@ -345,10 +344,13 @@ Public Class FSettings
 
 		nexoSale._poiisoffline = POIIsOffline
 
-		If Not json.WriteSettings(Settings, True) Then
+		Settings.DeviceDisplayAlwaysReturnsOK = cbDisplayAlwaysReturnsOK.Checked
+		Settings.NotificationAlwaysReturnsOK = cbNotifAlwaysOK.Checked
+
+		'finally write settings
+		If Not json.WriteSettings(Settings) Then
 			MsgBox($"{My.Resources.CommonResources.FSettings_SettingsFileNotSaved}{vbCrLf}{vbCrLf}{json.FileName}")
 		End If
-
 		Modified = False
 	End Sub
 
@@ -357,8 +359,7 @@ Public Class FSettings
 		Dim json As New CJson(Of Settings)()
 		json.FileName = NEXOSALE.SettingsFileNameEx(Settings.REGISTRY_KEY_SETTINGS_FILE_NAME, Settings.DEFAULT_SETTINGS_FILE_NAME, True)
 		efSettingsFileName.Text = json.FileName
-		Dim except As Boolean
-		Settings = json.ReadSettings(except)
+		Settings = json.ReadSettings()
 		If Not IsNothing(Settings) Then
 
 			efPOIID.Text = Settings.POIID
@@ -471,6 +472,9 @@ Public Class FSettings
 			Catch ex As Exception
 				cbxTraceLevel.SelectedItem = TLog.TRACE.ToString
 			End Try
+
+			cbDisplayAlwaysReturnsOK.Checked = Settings.DeviceDisplayAlwaysReturnsOK
+			cbNotifAlwaysOK.Checked = Settings.NotificationAlwaysReturnsOK
 
 		Else
 			Settings = New Settings

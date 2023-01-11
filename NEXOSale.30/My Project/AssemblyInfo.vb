@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("PMS.NEXOSALE30")>
-<Assembly: AssemblyDescription("client nexo retailer 3.0 [COM compatible]")>
+<Assembly: AssemblyDescription("nexoSale 3.0 [COM compatible]")>
 <Assembly: AssemblyCompany("PMS")>
 <Assembly: AssemblyProduct("PMS.NEXOSALE30")>
 <Assembly: AssemblyCopyright("Copyright ©  2021")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.5.0.0")>
-<Assembly: AssemblyFileVersion("1.5.0.0")>
+<Assembly: AssemblyVersion("1.7.0.0")>
+<Assembly: AssemblyFileVersion("1.7.0.0")>

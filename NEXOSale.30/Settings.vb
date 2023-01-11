@@ -14,7 +14,7 @@ Public Class POISettings
 
 #Region "properties"
 	Private Const DEFAULT_PORT = 2018
-	<DispId(1)>
+	<ComVisible(True), DispId(1)>
 	Public Property ServerIP As String
 		Get
 			Return _serverip
@@ -25,7 +25,7 @@ Public Class POISettings
 	End Property
 	Private _serverip As String
 
-	<DispId(2)>
+	<ComVisible(True), DispId(2)>
 	Public Property ServerPort As Decimal
 		Get
 			Return _serverport
@@ -36,7 +36,7 @@ Public Class POISettings
 	End Property
 	Private _serverport As Decimal = DEFAULT_PORT
 
-	<DispId(10)>
+	<ComVisible(True), DispId(10)>
 	Public Property PrintReceipt As Boolean
 		Get
 			Return _printreceipt
@@ -47,7 +47,7 @@ Public Class POISettings
 	End Property
 	Private _printreceipt As Boolean = True
 
-	<DispId(11)>
+	<ComVisible(True), DispId(11)>
 	Public Property PrintCustomerReceipt As Boolean
 		Get
 			Return _printcustomerreceipt
@@ -58,7 +58,7 @@ Public Class POISettings
 	End Property
 	Private _printcustomerreceipt As Boolean = True
 
-	<DispId(12)>
+	<ComVisible(True), DispId(12)>
 	Public Property PrintMerchantReceipt As Boolean
 		Get
 			Return _printmerchantreceipt
@@ -69,7 +69,7 @@ Public Class POISettings
 	End Property
 	Private _printmerchantreceipt As Boolean = True
 
-	<DispId(20)>
+	<ComVisible(True), DispId(20)>
 	Public Property Synchronous As Boolean
 		Get
 			Return _synchronous
@@ -80,7 +80,7 @@ Public Class POISettings
 	End Property
 	Private _synchronous As Boolean = False
 
-	<DispId(30)>
+	<ComVisible(True), DispId(30)>
 	Public Property SupportsCancel As Boolean
 		Get
 			Return _supportscancel
@@ -91,7 +91,7 @@ Public Class POISettings
 	End Property
 	Private _supportscancel As Boolean = False
 
-	<DispId(31)>
+	<ComVisible(True), DispId(31)>
 	Public Property SupportsAbort As Boolean
 		Get
 			Return _supportsabort
@@ -102,7 +102,7 @@ Public Class POISettings
 	End Property
 	Private _supportsabort As Boolean = False
 
-	<DispId(32)>
+	<ComVisible(True), DispId(32)>
 	Public Property SupportsRefund As Boolean
 		Get
 			Return _supportsrefund
@@ -113,7 +113,7 @@ Public Class POISettings
 	End Property
 	Private _supportsrefund As Boolean = False
 
-	<DispId(33)>
+	<ComVisible(True), DispId(33)>
 	Public Property SupportsReconciliation As Boolean
 		Get
 			Return _supportsreconciliation
@@ -124,7 +124,7 @@ Public Class POISettings
 	End Property
 	Private _supportsreconciliation As Boolean = False
 
-	<DispId(34)>
+	<ComVisible(True), DispId(34)>
 	Public Property SupportsCheck As Boolean
 		Get
 			Return _supportscheck
@@ -135,7 +135,7 @@ Public Class POISettings
 	End Property
 	Private _supportscheck As Boolean = False
 
-	<DispId(50)>
+	<ComVisible(True), DispId(50)>
 	Public Property GeneralTimer As Integer
 		Get
 			Return _generaltimer
@@ -147,7 +147,7 @@ Public Class POISettings
 	Private _generaltimer As Integer = DEFAULT_GENERAL_TIMER
 	Private Const DEFAULT_GENERAL_TIMER As UInteger = 15
 
-	<DispId(51)>
+	<ComVisible(True), DispId(51)>
 	Public Property PaymentTimer As Integer
 		Get
 			Return _maxtimer
@@ -158,7 +158,7 @@ Public Class POISettings
 	End Property
 	Private _maxtimer As Integer = CStreamClientSettings.NO_TIMEOUT
 
-	<DispId(52)>
+	<ComVisible(True), DispId(52)>
 	Public Property CheckTimer As Integer
 		Get
 			Return _checktimer
@@ -170,7 +170,7 @@ Public Class POISettings
 	Private _checktimer As Integer = DEFAULT_CHECK_TIMER
 	Private Const DEFAULT_CHECK_TIMER As UInteger = 30
 
-	<DispId(53)>
+	<ComVisible(True), DispId(53)>
 	Public ReadOnly Property IsValid As Boolean
 		Get
 			Return Not String.IsNullOrEmpty(ServerIP) AndAlso 0 <> ServerPort
@@ -193,7 +193,7 @@ Public Class CardSchemes
 	Public Shadows Const EventsId As String = "E88593D2-D655-41F4-BEEA-2AD595EDB811"
 #End Region
 
-	'<DispId(1)>
+	'<ComVisible(true),DispId(1)>
 	'Public Property Name As String
 	'	Get
 	'		Return _name
@@ -203,7 +203,7 @@ Public Class CardSchemes
 	'	End Set
 	'End Property
 	'Private _name As String = Nothing
-	'<DispId(2)>
+	'<ComVisible(true),DispId(2)>
 	'Public Property Tags As List(Of String)
 	'	Get
 	'		Return _tags
@@ -239,7 +239,7 @@ Public Class Settings
 #End Region
 
 #Region "properties"
-	<DispId(1)>
+	<ComVisible(True), DispId(1)>
 	Public Property SaleID As String
 		Get
 			Return _saleid
@@ -250,7 +250,7 @@ Public Class Settings
 	End Property
 	Private _saleid As String
 
-	<DispId(2)>
+	<ComVisible(True), DispId(2)>
 	Public Property SaleIDUseIP As Boolean
 		Get
 			Return _saleiduseip
@@ -261,7 +261,7 @@ Public Class Settings
 	End Property
 	Private _saleiduseip As Boolean
 
-	<DispId(3)>
+	<ComVisible(True), DispId(3)>
 	Public Property POIID As String
 		Get
 			Return _poiid
@@ -272,7 +272,7 @@ Public Class Settings
 	End Property
 	Private _poiid As String
 
-	<DispId(4)>
+	<ComVisible(True), DispId(4)>
 	Public Property POIIDUseIP As Boolean
 		Get
 			Return _poiiduseip
@@ -283,7 +283,7 @@ Public Class Settings
 	End Property
 	Private _poiiduseip As Boolean
 
-	<DispId(10)>
+	<ComVisible(True), DispId(10)>
 	Public Property ApplicationName As String
 		Get
 			Return _applicationname
@@ -294,7 +294,7 @@ Public Class Settings
 	End Property
 	Private _applicationname As String
 
-	<DispId(11)>
+	<ComVisible(True), DispId(11)>
 	Public Property ManufacturerName As String
 		Get
 			Return _manufacturername
@@ -305,7 +305,7 @@ Public Class Settings
 	End Property
 	Private _manufacturername As String
 
-	<DispId(12)>
+	<ComVisible(True), DispId(12)>
 	Public Property SoftwareVersion As String
 		Get
 			Return _softwareversion
@@ -316,7 +316,7 @@ Public Class Settings
 	End Property
 	Private _softwareversion As String
 
-	<DispId(13)>
+	<ComVisible(True), DispId(13)>
 	Public Property CertificationCode As String
 		Get
 			Return _certificationcode
@@ -327,7 +327,7 @@ Public Class Settings
 	End Property
 	Private _certificationcode As String
 
-	<DispId(20)>
+	<ComVisible(True), DispId(20)>
 	Public Property Currency As String
 		Get
 			Return _currency
@@ -338,7 +338,7 @@ Public Class Settings
 	End Property
 	Private _currency As String
 
-	<DispId(21)>
+	<ComVisible(True), DispId(21)>
 	Public Property Decimals As UInteger
 		Get
 			Return _decimals
@@ -349,7 +349,7 @@ Public Class Settings
 	End Property
 	Private _decimals As UInteger
 
-	<DispId(30)>
+	<ComVisible(True), DispId(30)>
 	Public Property NoAutocloseOnError As Boolean
 		Get
 			Return _noautocloseonerror
@@ -360,7 +360,7 @@ Public Class Settings
 	End Property
 	Private _noautocloseonerror As Boolean = True
 
-	<DispId(31)>
+	<ComVisible(True), DispId(31)>
 	Public Property LogFileName As String
 		Get
 			Return _logfilename
@@ -371,7 +371,7 @@ Public Class Settings
 	End Property
 	Private _logfilename As String
 
-	<DispId(50)>
+	<ComVisible(True), DispId(50)>
 	Public Property Autoclose As Boolean
 		Get
 			Return _autoclose
@@ -382,7 +382,7 @@ Public Class Settings
 	End Property
 	Private _autoclose As Boolean = True
 
-	<DispId(51)>
+	<ComVisible(True), DispId(51)>
 	Public Property AutocloseDelay As UInteger
 		Get
 			Return _autoclosedelay
@@ -393,7 +393,7 @@ Public Class Settings
 	End Property
 	Private _autoclosedelay As UInteger = 2
 
-	<DispId(60)>
+	<ComVisible(True), DispId(60)>
 	Public Property Primary As POISettings
 		Get
 			Return _primary
@@ -404,7 +404,7 @@ Public Class Settings
 	End Property
 	Private _primary As POISettings = Nothing
 
-	<DispId(61)>
+	<ComVisible(True), DispId(61)>
 	Public Property Backup As POISettings
 		Get
 			Return _backup
@@ -415,7 +415,7 @@ Public Class Settings
 	End Property
 	Private _backup As POISettings = Nothing
 
-	<DispId(65)>
+	<ComVisible(True), DispId(65)>
 	Public Property AdminCode As String
 		Get
 			Return _admincode
@@ -426,7 +426,7 @@ Public Class Settings
 	End Property
 	Private _admincode As String
 
-	<DispId(66)>
+	<ComVisible(True), DispId(66)>
 	Public Property UseDate As Boolean
 		Get
 			Return _usedate
@@ -437,7 +437,7 @@ Public Class Settings
 	End Property
 	Private _usedate As Boolean
 
-	<DispId(100)>
+	<ComVisible(True), DispId(100)>
 	Public Property GatewayIP As String
 		Get
 			Return _gatewayip
@@ -449,7 +449,7 @@ Public Class Settings
 	Private _gatewayip As String = DEFAULT_GATEWAY_IP
 	Public Const DEFAULT_GATEWAY_IP As String = "194.50.38.6"
 
-	<DispId(101)>
+	<ComVisible(True), DispId(101)>
 	Public Property UserID As String
 		Get
 			Return _userid
@@ -460,7 +460,7 @@ Public Class Settings
 	End Property
 	Private _userid As String
 
-	<DispId(102)>
+	<ComVisible(True), DispId(102)>
 	Public Property PWD As String
 		Get
 			Return _pwd
@@ -471,7 +471,7 @@ Public Class Settings
 	End Property
 	Private _pwd As String
 
-	<DispId(103)>
+	<ComVisible(True), DispId(103)>
 	Public Property ICCD As String
 		Get
 			Return _iccd
@@ -482,7 +482,7 @@ Public Class Settings
 	End Property
 	Private _iccd As String
 
-	<DispId(104)>
+	<ComVisible(True), DispId(104)>
 	Public Property POIPort As Decimal
 		Get
 			Return _poiport
@@ -494,7 +494,7 @@ Public Class Settings
 	Private _poiport As Decimal = DEFAULT_PORT
 	Private Const DEFAULT_PORT = 2018
 
-	<DispId(105)>
+	<ComVisible(True), DispId(105)>
 	Public Property GatewayPort As Decimal
 		Get
 			Return _gatewayport
@@ -506,7 +506,7 @@ Public Class Settings
 	Private _gatewayport As Decimal = DEFAULT_GATEWAY_PORT
 	Public Const DEFAULT_GATEWAY_PORT As Decimal = 3470
 
-	<DispId(106)>
+	<ComVisible(True), DispId(106)>
 	Public Property AllowedSslErrors As SslPolicyErrors
 		Get
 			Return _allowedsslerrors
@@ -517,7 +517,7 @@ Public Class Settings
 	End Property
 	Private _allowedsslerrors As SslPolicyErrors = SslPolicyErrors.None
 
-	<DispId(107)>
+	<ComVisible(True), DispId(107)>
 	Public Property ServerName As String
 		Get
 			Return _servername
@@ -528,7 +528,7 @@ Public Class Settings
 	End Property
 	Private _servername As String = "sslstca.lyra-network.com"
 
-	<DispId(200)>
+	<ComVisible(True), DispId(200)>
 	Public Property Picture As String
 		Get
 			Return _picture
@@ -539,7 +539,7 @@ Public Class Settings
 	End Property
 	Private _picture As String
 
-	<DispId(201)>
+	<ComVisible(True), DispId(201)>
 	Public Property Printer As String
 		Get
 			Return _printer
@@ -550,7 +550,7 @@ Public Class Settings
 	End Property
 	Private _printer As String
 
-	<DispId(202)>
+	<ComVisible(True), DispId(202)>
 	Public Property ReceiptFolder As String
 		Get
 			Return _receiptfolder
@@ -561,7 +561,7 @@ Public Class Settings
 	End Property
 	Private _receiptfolder As String
 
-	<DispId(203)>
+	<ComVisible(True), DispId(203)>
 	Public Property MerchantTextToPrint As String
 		Get
 			Return _merchanttexttoprint
@@ -574,7 +574,7 @@ Public Class Settings
 
 	<JsonIgnore>
 	Public DefaultTraceLevel As TLog = TLog.TRACE
-	<DispId(204)>
+	<ComVisible(True), DispId(204)>
 	Public Property TraceLevel As String
 		Get
 			Return _tracelevel
@@ -587,7 +587,7 @@ Public Class Settings
 	End Property
 	Private _tracelevel As String = DefaultTraceLevel.ToString
 
-	<DispId(250)>
+	<ComVisible(True), DispId(250)>
 	Public Property SaveReceipts As Boolean
 		Get
 			Return _savereceipts
@@ -598,7 +598,7 @@ Public Class Settings
 	End Property
 	Private _savereceipts As Boolean
 
-	<DispId(251)>
+	<ComVisible(True), DispId(251)>
 	Public Property ReuseMerchantReferenceIDAsTransactionID As Boolean
 		Get
 			Return _reusemerchantreferenceidastransactionid
@@ -609,7 +609,7 @@ Public Class Settings
 	End Property
 	Private _reusemerchantreferenceidastransactionid As Boolean = True
 
-	<DispId(252)>
+	<ComVisible(True), DispId(252)>
 	Public Property IndicateBrand As Boolean
 		Get
 			Return _indicatebrand
@@ -620,7 +620,7 @@ Public Class Settings
 	End Property
 	Private _indicatebrand As Boolean = True
 
-	<DispId(253)>
+	<ComVisible(True), DispId(253)>
 	Public Property AllowOfflinePOI As Boolean
 		Get
 			Return _allowofflinepoi
@@ -635,7 +635,7 @@ Public Class Settings
 	''' Allows hiding the nexo messages while processing an operation
 	''' </summary>
 	''' <returns></returns>
-	<DispId(254)>
+	<ComVisible(True), DispId(254)>
 	Public Property HideNexoMessagesWhenProcessing As Boolean
 		Get
 			Return _hidenexomessageswhenprocessing
@@ -650,7 +650,7 @@ Public Class Settings
 	''' Allows indicating a Login must always be performed before performing running the service
 	''' </summary>
 	''' <returns></returns>
-	<DispId(255)>
+	<ComVisible(True), DispId(255)>
 	Public Property AlwaysLogToPOI As Boolean
 		Get
 			Return _alwayslogtopoi
@@ -661,7 +661,7 @@ Public Class Settings
 	End Property
 	Private _alwayslogtopoi As Boolean = True
 
-	<DispId(256)>
+	<ComVisible(True), DispId(256)>
 	Public Property UseRefundForCancel As Boolean
 		Get
 			Return _userefundforcancel
@@ -672,7 +672,7 @@ Public Class Settings
 	End Property
 	Private _userefundforcancel As Boolean = False
 
-	<DispId(300)>
+	<ComVisible(True), DispId(300)>
 	Public Property CardSchemes As CardSchemes
 		Get
 			Return _cardschemes
@@ -686,6 +686,28 @@ Public Class Settings
 		End Set
 	End Property
 	Private _cardschemes As New CardSchemes
+
+	<ComVisible(True), DispId(301)>
+	Public Property NotificationAlwaysReturnsOK As Boolean
+		Get
+			Return _notificationalwaysreturnsok
+		End Get
+		Set(value As Boolean)
+			_notificationalwaysreturnsok = value
+		End Set
+	End Property
+	Private _notificationalwaysreturnsok As Boolean = True
+
+	<ComVisible(True), DispId(302)>
+	Public Property DeviceDisplayAlwaysReturnsOK As Boolean
+		Get
+			Return _displayalwaysreturnsok
+		End Get
+		Set(value As Boolean)
+			_displayalwaysreturnsok = value
+		End Set
+	End Property
+	Private _displayalwaysreturnsok As Boolean = True
 
 	'usable only inside the component
 	''' <summary>
@@ -703,37 +725,37 @@ Public Class Settings
 
 #Region "methods"
 	Public Const REGISTRY_SECTION As String = "Software\PMS\NexoSale\"
-	<DispId(500)>
+	<ComVisible(True), DispId(500)>
 	Public Function RegistryEntry() As String
 		Return REGISTRY_SECTION
 	End Function
 
 	Public Const REGISTRY_KEY_SETTINGS_FILE_NAME As String = "SettingsFileName"
-	<DispId(501)>
+	<ComVisible(True), DispId(501)>
 	Public Function RegistryKeySettingsFileName() As String
 		Return REGISTRY_KEY_SETTINGS_FILE_NAME
 	End Function
 
 	Public Const DEFAULT_SETTINGS_FILE_NAME As String = "nexosale.settings.json"
-	<DispId(502)>
+	<ComVisible(True), DispId(502)>
 	Public Function DefaultSettingsFileName() As String
 		Return DEFAULT_SETTINGS_FILE_NAME
 	End Function
 
 	Public Const DEFAULT_SETTINGS_FILE_NAME_FOLDER As String = ".\"
-	<DispId(503)>
+	<ComVisible(True), DispId(503)>
 	Public Function DefaultSettingsFolder() As String
 		Return DEFAULT_SETTINGS_FILE_NAME_FOLDER
 	End Function
 
 	Public Const REGISTRY_KEY_CURRENCIES_FILE_NAME As String = "CurrenciesFileName"
-	<DispId(504)>
+	<ComVisible(True), DispId(504)>
 	Public Function RegistryKeyCurrenciesFileName() As String
 		Return REGISTRY_KEY_CURRENCIES_FILE_NAME
 	End Function
 
 	Public Const DEFAULT_CURRENCIES_FILE_NAME As String = "nexosale.currencies.json"
-	<DispId(505)>
+	<ComVisible(True), DispId(505)>
 	Public Function DefaultCurrenciesFileName() As String
 		Return DEFAULT_CURRENCIES_FILE_NAME
 	End Function

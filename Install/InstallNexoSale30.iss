@@ -56,9 +56,15 @@ Name: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: uninsalwaysuninstall
 Source: "{#MyExeDir}\PMS.NEXO30.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\PMS.COMMON.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\PMS.HPDF.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\libhpdf.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "{#MyExeDir}\PMS.NEXOSALE30.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\fr\PMS.NEXOSALE30.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
+
+Source: "{#MyExeDir}\System.*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\Microsoft.*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyExeDir}\netstandard.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "{#MyExeDir}\nexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\fr\nexoSaleTest.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion

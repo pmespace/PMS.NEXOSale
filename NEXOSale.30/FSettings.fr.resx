@@ -1065,4 +1065,16 @@
   <data name="Label15.Text" xml:space="preserve">
     <value>Niveau de trace:</value>
   </data>
+  <data name="cbDisplayAlwaysOK.Text" xml:space="preserve">
+    <value>Les commandes de réplication du terminal renvoie toujours Success</value>
+  </data>
+  <data name="cbNotifAlwaysOK.Text" xml:space="preserve">
+    <value>Les notifications renvoient toujours Success</value>
+  </data>
+  <data name="cbSupportDeviceDisplay.Text" xml:space="preserve">
+    <value>Support réplication POI</value>
+  </data>
+  <data name="cbDisplayAlwaysReturnsOK.Text" xml:space="preserve">
+    <value>Les commendes d'affichage renvoient toujours Success</value>
+  </data>
 </root>

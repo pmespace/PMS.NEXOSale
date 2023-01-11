@@ -65,15 +65,16 @@ Partial Class FSettings
 		Me.udPaymentTimer = New System.Windows.Forms.NumericUpDown()
 		Me.Label11 = New System.Windows.Forms.Label()
 		Me.cbSupportsCheck = New System.Windows.Forms.CheckBox()
-		Me.cbSynchronous = New System.Windows.Forms.CheckBox()
 		Me.cbPrintReceipt = New System.Windows.Forms.CheckBox()
-		Me.cbSupportsAbort = New System.Windows.Forms.CheckBox()
-		Me.cbSupportsRefund = New System.Windows.Forms.CheckBox()
 		Me.panelReceipts = New System.Windows.Forms.TableLayoutPanel()
 		Me.cbCustomer = New System.Windows.Forms.CheckBox()
 		Me.cbMerchant = New System.Windows.Forms.CheckBox()
+		Me.cbSupportsAbort = New System.Windows.Forms.CheckBox()
+		Me.cbSupportsRefund = New System.Windows.Forms.CheckBox()
 		Me.cbSupportsReversal = New System.Windows.Forms.CheckBox()
+		Me.cbSynchronous = New System.Windows.Forms.CheckBox()
 		Me.cbSupportsReconciliation = New System.Windows.Forms.CheckBox()
+		Me.cbSupportDeviceDisplay = New System.Windows.Forms.CheckBox()
 		Me.panelFileSettings = New System.Windows.Forms.TableLayoutPanel()
 		Me.lblReceiptsFolder = New System.Windows.Forms.Label()
 		Me.Label13 = New System.Windows.Forms.Label()
@@ -158,6 +159,8 @@ Partial Class FSettings
 		Me.cbxTraceLevel = New System.Windows.Forms.ComboBox()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+		Me.cbDisplayAlwaysReturnsOK = New System.Windows.Forms.CheckBox()
+		Me.cbNotifAlwaysOK = New System.Windows.Forms.CheckBox()
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -403,13 +406,14 @@ Partial Class FSettings
 		Me.panelServerSettings.Controls.Add(Me.TableLayoutPanel1, 5, 0)
 		Me.panelServerSettings.Controls.Add(Me.panelPaymentTimer, 5, 1)
 		Me.panelServerSettings.Controls.Add(Me.cbSupportsCheck, 4, 2)
-		Me.panelServerSettings.Controls.Add(Me.cbSynchronous, 4, 1)
 		Me.panelServerSettings.Controls.Add(Me.cbPrintReceipt, 0, 1)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsAbort, 3, 2)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsRefund, 0, 2)
 		Me.panelServerSettings.Controls.Add(Me.panelReceipts, 1, 1)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsReversal, 1, 2)
-		Me.panelServerSettings.Controls.Add(Me.cbSupportsReconciliation, 2, 2)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsAbort, 0, 2)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsRefund, 3, 1)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsReversal, 2, 1)
+		Me.panelServerSettings.Controls.Add(Me.cbSynchronous, 4, 1)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportsReconciliation, 1, 2)
+		Me.panelServerSettings.Controls.Add(Me.cbSupportDeviceDisplay, 2, 2)
 		Me.panelServerSettings.Name = "panelServerSettings"
 		'
 		'efServerIP
@@ -504,29 +508,11 @@ Partial Class FSettings
 		Me.cbSupportsCheck.Name = "cbSupportsCheck"
 		Me.cbSupportsCheck.UseVisualStyleBackColor = True
 		'
-		'cbSynchronous
-		'
-		resources.ApplyResources(Me.cbSynchronous, "cbSynchronous")
-		Me.cbSynchronous.Name = "cbSynchronous"
-		Me.cbSynchronous.UseVisualStyleBackColor = True
-		'
 		'cbPrintReceipt
 		'
 		resources.ApplyResources(Me.cbPrintReceipt, "cbPrintReceipt")
 		Me.cbPrintReceipt.Name = "cbPrintReceipt"
 		Me.cbPrintReceipt.UseVisualStyleBackColor = True
-		'
-		'cbSupportsAbort
-		'
-		resources.ApplyResources(Me.cbSupportsAbort, "cbSupportsAbort")
-		Me.cbSupportsAbort.Name = "cbSupportsAbort"
-		Me.cbSupportsAbort.UseVisualStyleBackColor = True
-		'
-		'cbSupportsRefund
-		'
-		resources.ApplyResources(Me.cbSupportsRefund, "cbSupportsRefund")
-		Me.cbSupportsRefund.Name = "cbSupportsRefund"
-		Me.cbSupportsRefund.UseVisualStyleBackColor = True
 		'
 		'panelReceipts
 		'
@@ -547,17 +533,41 @@ Partial Class FSettings
 		Me.cbMerchant.Name = "cbMerchant"
 		Me.cbMerchant.UseVisualStyleBackColor = True
 		'
+		'cbSupportsAbort
+		'
+		resources.ApplyResources(Me.cbSupportsAbort, "cbSupportsAbort")
+		Me.cbSupportsAbort.Name = "cbSupportsAbort"
+		Me.cbSupportsAbort.UseVisualStyleBackColor = True
+		'
+		'cbSupportsRefund
+		'
+		resources.ApplyResources(Me.cbSupportsRefund, "cbSupportsRefund")
+		Me.cbSupportsRefund.Name = "cbSupportsRefund"
+		Me.cbSupportsRefund.UseVisualStyleBackColor = True
+		'
 		'cbSupportsReversal
 		'
 		resources.ApplyResources(Me.cbSupportsReversal, "cbSupportsReversal")
 		Me.cbSupportsReversal.Name = "cbSupportsReversal"
 		Me.cbSupportsReversal.UseVisualStyleBackColor = True
 		'
+		'cbSynchronous
+		'
+		resources.ApplyResources(Me.cbSynchronous, "cbSynchronous")
+		Me.cbSynchronous.Name = "cbSynchronous"
+		Me.cbSynchronous.UseVisualStyleBackColor = True
+		'
 		'cbSupportsReconciliation
 		'
 		resources.ApplyResources(Me.cbSupportsReconciliation, "cbSupportsReconciliation")
 		Me.cbSupportsReconciliation.Name = "cbSupportsReconciliation"
 		Me.cbSupportsReconciliation.UseVisualStyleBackColor = True
+		'
+		'cbSupportDeviceDisplay
+		'
+		resources.ApplyResources(Me.cbSupportDeviceDisplay, "cbSupportDeviceDisplay")
+		Me.cbSupportDeviceDisplay.Name = "cbSupportDeviceDisplay"
+		Me.cbSupportDeviceDisplay.UseVisualStyleBackColor = True
 		'
 		'panelFileSettings
 		'
@@ -1046,6 +1056,8 @@ Partial Class FSettings
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbUseRefundForCancel)
 		Me.FlowLayoutPanel5.Controls.Add(Me.Label15)
 		Me.FlowLayoutPanel5.Controls.Add(Me.cbxTraceLevel)
+		Me.FlowLayoutPanel5.Controls.Add(Me.cbNotifAlwaysOK)
+		Me.FlowLayoutPanel5.Controls.Add(Me.cbDisplayAlwaysReturnsOK)
 		Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
 		'
 		'cbResuseMerchantReferenceID
@@ -1091,6 +1103,18 @@ Partial Class FSettings
 		Me.OpenFileDialog1.CheckFileExists = False
 		Me.OpenFileDialog1.CheckPathExists = False
 		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+		'
+		'cbDisplayAlwaysReturnsOK
+		'
+		resources.ApplyResources(Me.cbDisplayAlwaysReturnsOK, "cbDisplayAlwaysReturnsOK")
+		Me.cbDisplayAlwaysReturnsOK.Name = "cbDisplayAlwaysReturnsOK"
+		Me.cbDisplayAlwaysReturnsOK.UseVisualStyleBackColor = True
+		'
+		'cbNotifAlwaysOK
+		'
+		resources.ApplyResources(Me.cbNotifAlwaysOK, "cbNotifAlwaysOK")
+		Me.cbNotifAlwaysOK.Name = "cbNotifAlwaysOK"
+		Me.cbNotifAlwaysOK.UseVisualStyleBackColor = True
 		'
 		'FSettings
 		'
@@ -1324,4 +1348,7 @@ Partial Class FSettings
 	Friend WithEvents cbUseRefundForCancel As Windows.Forms.CheckBox
 	Friend WithEvents Label15 As Windows.Forms.Label
 	Friend WithEvents cbxTraceLevel As Windows.Forms.ComboBox
+	Friend WithEvents cbSupportDeviceDisplay As Windows.Forms.CheckBox
+	Friend WithEvents cbNotifAlwaysOK As Windows.Forms.CheckBox
+	Friend WithEvents cbDisplayAlwaysReturnsOK As Windows.Forms.CheckBox
 End Class

@@ -1219,8 +1219,7 @@ Public Class NEXOSALE
 	Private Sub LoadSettings()
 		Dim json As New CJson(Of Settings)()
 		json.FileName = SettingsFileName()
-		Dim except As Boolean
-		Settings = json.ReadSettings(except)
+		Settings = json.ReadSettings()
 		If IsNothing(Settings) Then
 			Settings = New Settings
 			'Settings.SettingsFileName = json.FileName
@@ -1231,7 +1230,7 @@ Public Class NEXOSALE
 	Private Sub SaveSettings()
 		Dim json As New CJson(Of Settings)()
 		json.FileName = SettingsFileName()
-		json.WriteSettings(Settings, True)
+		json.WriteSettings(Settings)
 	End Sub
 
 	Private Function SupportsAction(actionToTest As Action, actionSelected As Action, primarySupport As Boolean, backupSupport As Boolean) As Boolean
