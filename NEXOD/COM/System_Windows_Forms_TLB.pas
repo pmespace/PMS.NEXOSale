@@ -1,37 +1,37 @@
 unit System_Windows_Forms_TLB;
 
 // ************************************************************************ //
-// AVERTISSEMENT
-// -------
-// Les types déclarés dans ce fichier ont été générés à partir de données lues
-// depuis la bibliothèque de types. Si cette dernière (via une autre bibliothèque de types
-// s'y référant) est explicitement ou indirectement ré-importée, ou la commande "Actualiser"
-// de l'éditeur de bibliothèque de types est activée lors de la modification de la bibliothèque
-// de types, le contenu de ce fichier sera régénéré et toutes les modifications
-// manuellement apportées seront perdues.
+// WARNING                                                                    
+// -------                                                                    
+// The types declared in this file were generated from data read from a       
+// Type Library. If this type library is explicitly or indirectly (via        
+// another type library referring to this type library) re-imported, or the   
+// 'Refresh' command of the Type Library Editor activated while editing the   
+// Type Library, the contents of this file will be regenerated and all        
+// manual modifications will be lost.                                         
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 29/11/2022 17:31:23 depuis la bibliothèque de types ci-dessous.
+// File generated on 11/05/2023 18:08:18 from Type Library described below.
 
 // ************************************************************************  //
-// Biblio. types : C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Windows.Forms.tlb (1)
-// LIBID : {215D64D2-031C-33C7-96E3-61794CD1EE61}
-// LCID : 0
-// Fichier d'aide : 
-// Chaîne d'aide : 
-// DepndLst : 
+// Type Lib: C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Windows.Forms.tlb (1)
+// LIBID: {215D64D2-031C-33C7-96E3-61794CD1EE61}
+// LCID: 0
+// Helpfile: 
+// HelpString: 
+// DepndLst: 
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 //   (2) v2.4 mscorlib, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb)
 //   (3) v1.1 Accessibility, (C:\Windows\SysWOW64\oleacc.dll)
 //   (4) v2.4 System, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.tlb)
-// Bibliothèque de types parent :
-//   (0) v1.6 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+// Parent TypeLibrary:
+//   (0) v1.8 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN32
 // Errors:
-//   Remarque : le typeInfo 'Label' a été changé en 'Label_'
+//   Hint: TypeInfo 'Label' changed to 'Label_'
 // ************************************************************************ //
-{$TYPEDADDRESS OFF} // L'unité doit être compilée sans pointeur à type contrôlé.  
+{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
 {$WARN SYMBOL_PLATFORM OFF}
 {$WRITEABLECONST ON}
 {$VARPROPSETTER ON}
@@ -42,15 +42,16 @@ interface
 uses Winapi.Windows, Accessibility_TLB, mscorlib_TLB, System.Classes, System.Variants, System.Win.StdVCL, System_TLB, Vcl.Graphics, 
 Vcl.OleServer, Winapi.ActiveX;
   
+
 // *********************************************************************//
-// GUIDS déclarés dans la bibliothèque de types. Préfixes utilisés:        
-//   Bibliothèques de types : LIBID_xxxx                                      
-//   CoClasses              : CLASS_xxxx                                      
-//   Interfaces DISP        : DIID_xxxx                                       
-//   Interfaces Non-DISP    : IID_xxxx                                        
+// GUIDS declared in the TypeLibrary. Following prefixes are used:        
+//   Type Libraries     : LIBID_xxxx                                      
+//   CoClasses          : CLASS_xxxx                                      
+//   DISPInterfaces     : DIID_xxxx                                       
+//   Non-DISP interfaces: IID_xxxx                                        
 // *********************************************************************//
 const
-  // Versions mineure et majeure de la bibliothèque de types
+  // TypeLibrary Major and minor versions
   System_Windows_FormsMajorVersion = 2;
   System_Windows_FormsMinorVersion = 4;
 
@@ -262,16 +263,16 @@ const
   CLASS_ComponentEditorPage: TGUID = '{D621B2A0-D07D-301E-8204-A33F0242EC8F}';
 
 // *********************************************************************//
-// Déclaration d'énumérations définies dans la bibliothèque de types                    
+// Declaration of Enumerations defined in Type Library                    
 // *********************************************************************//
-// Constantes pour enum Appearance
+// Constants for enum Appearance
 type
   Appearance = TOleEnum;
 const
   Appearance_Button = $00000001;
   Appearance_Normal = $00000000;
 
-// Constantes pour enum ArrangeDirection
+// Constants for enum ArrangeDirection
 type
   ArrangeDirection = TOleEnum;
 const
@@ -280,7 +281,7 @@ const
   ArrangeDirection_Right = $00000000;
   ArrangeDirection_Up = $00000004;
 
-// Constantes pour enum ImeMode
+// Constants for enum ImeMode
 type
   ImeMode = TOleEnum;
 const
@@ -299,7 +300,7 @@ const
   ImeMode_On = $00000001;
   ImeMode_OnHalf = $0000000C;
 
-// Constantes pour enum Keys
+// Constants for enum Keys
 type
   Keys = TOleEnum;
 const
@@ -498,7 +499,7 @@ const
   Keys_Z = $0000005A;
   Keys_Zoom = $000000FB;
 
-// Constantes pour enum Border3DSide
+// Constants for enum Border3DSide
 type
   Border3DSide = TOleEnum;
 const
@@ -509,7 +510,7 @@ const
   Border3DSide_Right = $00000004;
   Border3DSide_Top = $00000002;
 
-// Constantes pour enum Border3DStyle
+// Constants for enum Border3DStyle
 type
   Border3DStyle = TOleEnum;
 const
@@ -524,7 +525,7 @@ const
   Border3DStyle_SunkenInner = $00000008;
   Border3DStyle_SunkenOuter = $00000002;
 
-// Constantes pour enum BorderStyle
+// Constants for enum BorderStyle
 type
   BorderStyle = TOleEnum;
 const
@@ -532,7 +533,7 @@ const
   BorderStyle_FixedSingle = $00000001;
   BorderStyle_None = $00000000;
 
-// Constantes pour enum DialogResult
+// Constants for enum DialogResult
 type
   DialogResult = TOleEnum;
 const
@@ -545,7 +546,7 @@ const
   DialogResult_Retry = $00000004;
   DialogResult_Yes = $00000006;
 
-// Constantes pour enum SelectionMode
+// Constants for enum SelectionMode
 type
   SelectionMode = TOleEnum;
 const
@@ -554,7 +555,7 @@ const
   SelectionMode_None = $00000000;
   SelectionMode_One = $00000001;
 
-// Constantes pour enum HorizontalAlignment
+// Constants for enum HorizontalAlignment
 type
   HorizontalAlignment = TOleEnum;
 const
@@ -562,14 +563,14 @@ const
   HorizontalAlignment_Left = $00000000;
   HorizontalAlignment_Right = $00000001;
 
-// Constantes pour enum LeftRightAlignment
+// Constants for enum LeftRightAlignment
 type
   LeftRightAlignment = TOleEnum;
 const
   LeftRightAlignment_Left = $00000000;
   LeftRightAlignment_Right = $00000001;
 
-// Constantes pour enum MouseButtons
+// Constants for enum MouseButtons
 type
   MouseButtons = TOleEnum;
 const
@@ -580,7 +581,7 @@ const
   MouseButtons_XButton1 = $00800000;
   MouseButtons_XButton2 = $01000000;
 
-// Constantes pour enum DataGridViewElementStates
+// Constants for enum DataGridViewElementStates
 type
   DataGridViewElementStates = TOleEnum;
 const
@@ -593,7 +594,7 @@ const
   DataGridViewElementStates_Selected = $00000020;
   DataGridViewElementStates_Visible = $00000040;
 
-// Constantes pour enum DragAction
+// Constants for enum DragAction
 type
   DragAction = TOleEnum;
 const
@@ -601,7 +602,7 @@ const
   DragAction_Continue = $00000000;
   DragAction_Drop = $00000001;
 
-// Constantes pour enum FormBorderStyle
+// Constants for enum FormBorderStyle
 type
   FormBorderStyle = TOleEnum;
 const
@@ -613,7 +614,7 @@ const
   FormBorderStyle_Sizable = $00000004;
   FormBorderStyle_SizableToolWindow = $00000006;
 
-// Constantes pour enum FormStartPosition
+// Constants for enum FormStartPosition
 type
   FormStartPosition = TOleEnum;
 const
@@ -623,7 +624,7 @@ const
   FormStartPosition_WindowsDefaultBounds = $00000003;
   FormStartPosition_WindowsDefaultLocation = $00000002;
 
-// Constantes pour enum FormWindowState
+// Constants for enum FormWindowState
 type
   FormWindowState = TOleEnum;
 const
@@ -631,7 +632,7 @@ const
   FormWindowState_Minimized = $00000001;
   FormWindowState_Normal = $00000000;
 
-// Constantes pour enum Shortcut
+// Constants for enum Shortcut
 type
   Shortcut = TOleEnum;
 const
@@ -790,7 +791,7 @@ const
   Shortcut_ShiftF9 = $00010078;
   Shortcut_ShiftIns = $0001002D;
 
-// Constantes pour enum SystemParameter
+// Constants for enum SystemParameter
 type
   SystemParameter = TOleEnum;
 const
@@ -806,7 +807,7 @@ const
   SystemParameter_UIEffects = $00000007;
   SystemParameter_VerticalFocusThicknessMetric = $00000009;
 
-// Constantes pour enum PropertySort
+// Constants for enum PropertySort
 type
   PropertySort = TOleEnum;
 const
@@ -815,7 +816,7 @@ const
   PropertySort_CategorizedAlphabetical = $00000003;
   PropertySort_NoSort = $00000000;
 
-// Constantes pour enum ScrollEventType
+// Constants for enum ScrollEventType
 type
   ScrollEventType = TOleEnum;
 const
@@ -829,7 +830,7 @@ const
   ScrollEventType_ThumbPosition = $00000004;
   ScrollEventType_ThumbTrack = $00000005;
 
-// Constantes pour enum ToolStripStatusLabelBorderSides
+// Constants for enum ToolStripStatusLabelBorderSides
 type
   ToolStripStatusLabelBorderSides = TOleEnum;
 const
@@ -840,7 +841,7 @@ const
   ToolStripStatusLabelBorderSides_Right = $00000004;
   ToolStripStatusLabelBorderSides_Top = $00000002;
 
-// Constantes pour enum TreeViewHitTestLocations
+// Constants for enum TreeViewHitTestLocations
 type
   TreeViewHitTestLocations = TOleEnum;
 const
@@ -859,7 +860,7 @@ const
 type
 
 // *********************************************************************//
-// Déclaration Forward des types définis dans la bibliothèque de types                     
+// Forward declaration of types defined in TypeLibrary                    
 // *********************************************************************//
   _AccessibleObject = interface;
   _AccessibleObjectDisp = dispinterface;
@@ -1068,8 +1069,8 @@ type
   _ComponentEditorPageDisp = dispinterface;
 
 // *********************************************************************//
-// Déclaration de CoClasses définies dans la bibliothèque de types        
-// (REMARQUE: On affecte chaque CoClasse à son Interface par défaut)      
+// Declaration of CoClasses defined in Type Library                       
+// (NOTE: Here we map each CoClass to its Default Interface)              
 // *********************************************************************//
   AccessibleObject = _AccessibleObject;
   Form = _Form;
@@ -1175,81 +1176,81 @@ type
 
 
 // *********************************************************************//
-// Interface :   _AccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {399C0499-29D3-3D95-AF77-111DCDB92177}
+// Interface: _AccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {399C0499-29D3-3D95-AF77-111DCDB92177}
 // *********************************************************************//
   _AccessibleObject = interface(IDispatch)
     ['{399C0499-29D3-3D95-AF77-111DCDB92177}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _AccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {399C0499-29D3-3D95-AF77-111DCDB92177}
+// DispIntf:  _AccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {399C0499-29D3-3D95-AF77-111DCDB92177}
 // *********************************************************************//
   _AccessibleObjectDisp = dispinterface
     ['{399C0499-29D3-3D95-AF77-111DCDB92177}']
   end;
 
 // *********************************************************************//
-// Interface :   _Form
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {AD0C79DB-37BE-3B61-9C53-2E4857237227}
+// Interface: _Form
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {AD0C79DB-37BE-3B61-9C53-2E4857237227}
 // *********************************************************************//
   _Form = interface(IDispatch)
     ['{AD0C79DB-37BE-3B61-9C53-2E4857237227}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _FormDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {AD0C79DB-37BE-3B61-9C53-2E4857237227}
+// DispIntf:  _FormDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {AD0C79DB-37BE-3B61-9C53-2E4857237227}
 // *********************************************************************//
   _FormDisp = dispinterface
     ['{AD0C79DB-37BE-3B61-9C53-2E4857237227}']
   end;
 
 // *********************************************************************//
-// Interface :   _AxHost
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {548054D5-75C5-3A72-A87B-D6F305254065}
+// Interface: _AxHost
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {548054D5-75C5-3A72-A87B-D6F305254065}
 // *********************************************************************//
   _AxHost = interface(IDispatch)
     ['{548054D5-75C5-3A72-A87B-D6F305254065}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _AxHostDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {548054D5-75C5-3A72-A87B-D6F305254065}
+// DispIntf:  _AxHostDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {548054D5-75C5-3A72-A87B-D6F305254065}
 // *********************************************************************//
   _AxHostDisp = dispinterface
     ['{548054D5-75C5-3A72-A87B-D6F305254065}']
   end;
 
 // *********************************************************************//
-// Interface :   _Control
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {83ACBFAE-1A16-33EB-ABA0-BA8DF0B206D7}
+// Interface: _Control
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {83ACBFAE-1A16-33EB-ABA0-BA8DF0B206D7}
 // *********************************************************************//
   _Control = interface(IDispatch)
     ['{83ACBFAE-1A16-33EB-ABA0-BA8DF0B206D7}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {83ACBFAE-1A16-33EB-ABA0-BA8DF0B206D7}
+// DispIntf:  _ControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {83ACBFAE-1A16-33EB-ABA0-BA8DF0B206D7}
 // *********************************************************************//
   _ControlDisp = dispinterface
     ['{83ACBFAE-1A16-33EB-ABA0-BA8DF0B206D7}']
   end;
 
 // *********************************************************************//
-// Interface :   IWin32Window
-// Indicateurs : (256) OleAutomation
-// GUID :        {458AB8A2-A1EA-4D7B-8EBE-DEE5D3D9442C}
+// Interface: IWin32Window
+// Flags:     (256) OleAutomation
+// GUID:      {458AB8A2-A1EA-4D7B-8EBE-DEE5D3D9442C}
 // *********************************************************************//
   IWin32Window = interface(IUnknown)
     ['{458AB8A2-A1EA-4D7B-8EBE-DEE5D3D9442C}']
@@ -1257,279 +1258,279 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _ContainerControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A5AF2165-C1BE-39AF-AB35-CD950D01A701}
+// Interface: _ContainerControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A5AF2165-C1BE-39AF-AB35-CD950D01A701}
 // *********************************************************************//
   _ContainerControl = interface(IDispatch)
     ['{A5AF2165-C1BE-39AF-AB35-CD950D01A701}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ContainerControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A5AF2165-C1BE-39AF-AB35-CD950D01A701}
+// DispIntf:  _ContainerControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A5AF2165-C1BE-39AF-AB35-CD950D01A701}
 // *********************************************************************//
   _ContainerControlDisp = dispinterface
     ['{A5AF2165-C1BE-39AF-AB35-CD950D01A701}']
   end;
 
 // *********************************************************************//
-// Interface :   _BindingNavigator
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E3FF0D90-9E82-3736-A253-3B2F41EF981A}
+// Interface: _BindingNavigator
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E3FF0D90-9E82-3736-A253-3B2F41EF981A}
 // *********************************************************************//
   _BindingNavigator = interface(IDispatch)
     ['{E3FF0D90-9E82-3736-A253-3B2F41EF981A}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _BindingNavigatorDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E3FF0D90-9E82-3736-A253-3B2F41EF981A}
+// DispIntf:  _BindingNavigatorDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E3FF0D90-9E82-3736-A253-3B2F41EF981A}
 // *********************************************************************//
   _BindingNavigatorDisp = dispinterface
     ['{E3FF0D90-9E82-3736-A253-3B2F41EF981A}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStrip
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A81676FD-EAA3-39C3-9354-A58951270EB6}
+// Interface: _ToolStrip
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A81676FD-EAA3-39C3-9354-A58951270EB6}
 // *********************************************************************//
   _ToolStrip = interface(IDispatch)
     ['{A81676FD-EAA3-39C3-9354-A58951270EB6}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A81676FD-EAA3-39C3-9354-A58951270EB6}
+// DispIntf:  _ToolStripDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A81676FD-EAA3-39C3-9354-A58951270EB6}
 // *********************************************************************//
   _ToolStripDisp = dispinterface
     ['{A81676FD-EAA3-39C3-9354-A58951270EB6}']
   end;
 
 // *********************************************************************//
-// Interface :   _Button
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9486855D-B3A4-32E8-AF74-EC881982E3FF}
+// Interface: _Button
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9486855D-B3A4-32E8-AF74-EC881982E3FF}
 // *********************************************************************//
   _Button = interface(IDispatch)
     ['{9486855D-B3A4-32E8-AF74-EC881982E3FF}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ButtonDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9486855D-B3A4-32E8-AF74-EC881982E3FF}
+// DispIntf:  _ButtonDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9486855D-B3A4-32E8-AF74-EC881982E3FF}
 // *********************************************************************//
   _ButtonDisp = dispinterface
     ['{9486855D-B3A4-32E8-AF74-EC881982E3FF}']
   end;
 
 // *********************************************************************//
-// Interface :   _ButtonBase
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {D14C1282-8647-317E-A549-D2CBCC264C3A}
+// Interface: _ButtonBase
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {D14C1282-8647-317E-A549-D2CBCC264C3A}
 // *********************************************************************//
   _ButtonBase = interface(IDispatch)
     ['{D14C1282-8647-317E-A549-D2CBCC264C3A}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ButtonBaseDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {D14C1282-8647-317E-A549-D2CBCC264C3A}
+// DispIntf:  _ButtonBaseDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {D14C1282-8647-317E-A549-D2CBCC264C3A}
 // *********************************************************************//
   _ButtonBaseDisp = dispinterface
     ['{D14C1282-8647-317E-A549-D2CBCC264C3A}']
   end;
 
 // *********************************************************************//
-// Interface :   _MouseEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {276A1A21-AAEF-3378-8902-01F695868FF9}
+// Interface: _MouseEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {276A1A21-AAEF-3378-8902-01F695868FF9}
 // *********************************************************************//
   _MouseEventArgs = interface(IDispatch)
     ['{276A1A21-AAEF-3378-8902-01F695868FF9}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _MouseEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {276A1A21-AAEF-3378-8902-01F695868FF9}
+// DispIntf:  _MouseEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {276A1A21-AAEF-3378-8902-01F695868FF9}
 // *********************************************************************//
   _MouseEventArgsDisp = dispinterface
     ['{276A1A21-AAEF-3378-8902-01F695868FF9}']
   end;
 
 // *********************************************************************//
-// Interface :   _ButtonBaseAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4343B837-6EC8-3E43-8A59-046C35024677}
+// Interface: _ButtonBaseAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4343B837-6EC8-3E43-8A59-046C35024677}
 // *********************************************************************//
   _ButtonBaseAccessibleObject = interface(IDispatch)
     ['{4343B837-6EC8-3E43-8A59-046C35024677}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ButtonBaseAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4343B837-6EC8-3E43-8A59-046C35024677}
+// DispIntf:  _ButtonBaseAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4343B837-6EC8-3E43-8A59-046C35024677}
 // *********************************************************************//
   _ButtonBaseAccessibleObjectDisp = dispinterface
     ['{4343B837-6EC8-3E43-8A59-046C35024677}']
   end;
 
 // *********************************************************************//
-// Interface :   _ControlAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7496E5C0-90D3-372E-885F-BDD1A0316856}
+// Interface: _ControlAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7496E5C0-90D3-372E-885F-BDD1A0316856}
 // *********************************************************************//
   _ControlAccessibleObject = interface(IDispatch)
     ['{7496E5C0-90D3-372E-885F-BDD1A0316856}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ControlAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7496E5C0-90D3-372E-885F-BDD1A0316856}
+// DispIntf:  _ControlAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7496E5C0-90D3-372E-885F-BDD1A0316856}
 // *********************************************************************//
   _ControlAccessibleObjectDisp = dispinterface
     ['{7496E5C0-90D3-372E-885F-BDD1A0316856}']
   end;
 
 // *********************************************************************//
-// Interface :   _KeyEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4AAA99AA-77B1-3CF7-85D8-D9CF69271AC6}
+// Interface: _KeyEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4AAA99AA-77B1-3CF7-85D8-D9CF69271AC6}
 // *********************************************************************//
   _KeyEventArgs = interface(IDispatch)
     ['{4AAA99AA-77B1-3CF7-85D8-D9CF69271AC6}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _KeyEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4AAA99AA-77B1-3CF7-85D8-D9CF69271AC6}
+// DispIntf:  _KeyEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4AAA99AA-77B1-3CF7-85D8-D9CF69271AC6}
 // *********************************************************************//
   _KeyEventArgsDisp = dispinterface
     ['{4AAA99AA-77B1-3CF7-85D8-D9CF69271AC6}']
   end;
 
 // *********************************************************************//
-// Interface :   _CheckBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {1C7817C6-6A49-301E-B20A-05FF053C3D56}
+// Interface: _CheckBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {1C7817C6-6A49-301E-B20A-05FF053C3D56}
 // *********************************************************************//
   _CheckBox = interface(IDispatch)
     ['{1C7817C6-6A49-301E-B20A-05FF053C3D56}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _CheckBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {1C7817C6-6A49-301E-B20A-05FF053C3D56}
+// DispIntf:  _CheckBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {1C7817C6-6A49-301E-B20A-05FF053C3D56}
 // *********************************************************************//
   _CheckBoxDisp = dispinterface
     ['{1C7817C6-6A49-301E-B20A-05FF053C3D56}']
   end;
 
 // *********************************************************************//
-// Interface :   _CheckBoxAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5D9FCE71-04C3-395E-B972-F1205E8DE615}
+// Interface: _CheckBoxAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5D9FCE71-04C3-395E-B972-F1205E8DE615}
 // *********************************************************************//
   _CheckBoxAccessibleObject = interface(IDispatch)
     ['{5D9FCE71-04C3-395E-B972-F1205E8DE615}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _CheckBoxAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5D9FCE71-04C3-395E-B972-F1205E8DE615}
+// DispIntf:  _CheckBoxAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5D9FCE71-04C3-395E-B972-F1205E8DE615}
 // *********************************************************************//
   _CheckBoxAccessibleObjectDisp = dispinterface
     ['{5D9FCE71-04C3-395E-B972-F1205E8DE615}']
   end;
 
 // *********************************************************************//
-// Interface :   _CheckedListBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {1833C4C9-4E61-3D96-AEB5-65B43DE96A01}
+// Interface: _CheckedListBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {1833C4C9-4E61-3D96-AEB5-65B43DE96A01}
 // *********************************************************************//
   _CheckedListBox = interface(IDispatch)
     ['{1833C4C9-4E61-3D96-AEB5-65B43DE96A01}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _CheckedListBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {1833C4C9-4E61-3D96-AEB5-65B43DE96A01}
+// DispIntf:  _CheckedListBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {1833C4C9-4E61-3D96-AEB5-65B43DE96A01}
 // *********************************************************************//
   _CheckedListBoxDisp = dispinterface
     ['{1833C4C9-4E61-3D96-AEB5-65B43DE96A01}']
   end;
 
 // *********************************************************************//
-// Interface :   _ListBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E36590E6-CFD5-340E-9650-73500A802C43}
+// Interface: _ListBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E36590E6-CFD5-340E-9650-73500A802C43}
 // *********************************************************************//
   _ListBox = interface(IDispatch)
     ['{E36590E6-CFD5-340E-9650-73500A802C43}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ListBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E36590E6-CFD5-340E-9650-73500A802C43}
+// DispIntf:  _ListBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E36590E6-CFD5-340E-9650-73500A802C43}
 // *********************************************************************//
   _ListBoxDisp = dispinterface
     ['{E36590E6-CFD5-340E-9650-73500A802C43}']
   end;
 
 // *********************************************************************//
-// Interface :   _KeyPressEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B8755BC8-51FE-3D19-A3EC-5A5A5CF120E0}
+// Interface: _KeyPressEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B8755BC8-51FE-3D19-A3EC-5A5A5CF120E0}
 // *********************************************************************//
   _KeyPressEventArgs = interface(IDispatch)
     ['{B8755BC8-51FE-3D19-A3EC-5A5A5CF120E0}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _KeyPressEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B8755BC8-51FE-3D19-A3EC-5A5A5CF120E0}
+// DispIntf:  _KeyPressEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B8755BC8-51FE-3D19-A3EC-5A5A5CF120E0}
 // *********************************************************************//
   _KeyPressEventArgsDisp = dispinterface
     ['{B8755BC8-51FE-3D19-A3EC-5A5A5CF120E0}']
   end;
 
 // *********************************************************************//
-// Interface :   _ItemCheckEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {29BDF32D-E055-38E7-8DCB-920A3038FEF7}
+// Interface: _ItemCheckEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {29BDF32D-E055-38E7-8DCB-920A3038FEF7}
 // *********************************************************************//
   _ItemCheckEventArgs = interface(IDispatch)
     ['{29BDF32D-E055-38E7-8DCB-920A3038FEF7}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ItemCheckEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {29BDF32D-E055-38E7-8DCB-920A3038FEF7}
+// DispIntf:  _ItemCheckEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {29BDF32D-E055-38E7-8DCB-920A3038FEF7}
 // *********************************************************************//
   _ItemCheckEventArgsDisp = dispinterface
     ['{29BDF32D-E055-38E7-8DCB-920A3038FEF7}']
   end;
 
 // *********************************************************************//
-// Interface :   IDataObject
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3CEE8CC1-1ADB-327F-9B97-7A9C8089BFB3}
+// Interface: IDataObject
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3CEE8CC1-1ADB-327F-9B97-7A9C8089BFB3}
 // *********************************************************************//
   IDataObject = interface(IDispatch)
     ['{3CEE8CC1-1ADB-327F-9B97-7A9C8089BFB3}']
@@ -1548,9 +1549,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IDataObjectDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3CEE8CC1-1ADB-327F-9B97-7A9C8089BFB3}
+// DispIntf:  IDataObjectDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3CEE8CC1-1ADB-327F-9B97-7A9C8089BFB3}
 // *********************************************************************//
   IDataObjectDisp = dispinterface
     ['{3CEE8CC1-1ADB-327F-9B97-7A9C8089BFB3}']
@@ -1569,1487 +1570,1487 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _ListView
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A87AED55-DDA4-3668-BEFA-1A776496DD3E}
+// Interface: _ListView
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A87AED55-DDA4-3668-BEFA-1A776496DD3E}
 // *********************************************************************//
   _ListView = interface(IDispatch)
     ['{A87AED55-DDA4-3668-BEFA-1A776496DD3E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ListViewDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A87AED55-DDA4-3668-BEFA-1A776496DD3E}
+// DispIntf:  _ListViewDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A87AED55-DDA4-3668-BEFA-1A776496DD3E}
 // *********************************************************************//
   _ListViewDisp = dispinterface
     ['{A87AED55-DDA4-3668-BEFA-1A776496DD3E}']
   end;
 
 // *********************************************************************//
-// Interface :   _ComboBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2EFEC16E-EEC9-39A3-9D8A-5E72B5C14F78}
+// Interface: _ComboBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2EFEC16E-EEC9-39A3-9D8A-5E72B5C14F78}
 // *********************************************************************//
   _ComboBox = interface(IDispatch)
     ['{2EFEC16E-EEC9-39A3-9D8A-5E72B5C14F78}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ComboBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2EFEC16E-EEC9-39A3-9D8A-5E72B5C14F78}
+// DispIntf:  _ComboBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2EFEC16E-EEC9-39A3-9D8A-5E72B5C14F78}
 // *********************************************************************//
   _ComboBoxDisp = dispinterface
     ['{2EFEC16E-EEC9-39A3-9D8A-5E72B5C14F78}']
   end;
 
 // *********************************************************************//
-// Interface :   _ListControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {D58DFF0C-34C3-3D1E-8251-5F83EE7367C9}
+// Interface: _ListControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {D58DFF0C-34C3-3D1E-8251-5F83EE7367C9}
 // *********************************************************************//
   _ListControl = interface(IDispatch)
     ['{D58DFF0C-34C3-3D1E-8251-5F83EE7367C9}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ListControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {D58DFF0C-34C3-3D1E-8251-5F83EE7367C9}
+// DispIntf:  _ListControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {D58DFF0C-34C3-3D1E-8251-5F83EE7367C9}
 // *********************************************************************//
   _ListControlDisp = dispinterface
     ['{D58DFF0C-34C3-3D1E-8251-5F83EE7367C9}']
   end;
 
 // *********************************************************************//
-// Interface :   _ChildAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {518F00C6-2AAB-3B25-A76A-F62883781E18}
+// Interface: _ChildAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {518F00C6-2AAB-3B25-A76A-F62883781E18}
 // *********************************************************************//
   _ChildAccessibleObject = interface(IDispatch)
     ['{518F00C6-2AAB-3B25-A76A-F62883781E18}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ChildAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {518F00C6-2AAB-3B25-A76A-F62883781E18}
+// DispIntf:  _ChildAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {518F00C6-2AAB-3B25-A76A-F62883781E18}
 // *********************************************************************//
   _ChildAccessibleObjectDisp = dispinterface
     ['{518F00C6-2AAB-3B25-A76A-F62883781E18}']
   end;
 
 // *********************************************************************//
-// Interface :   _ScrollableControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {812A8B20-CB02-3483-8A29-424C6CDAC4B7}
+// Interface: _ScrollableControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {812A8B20-CB02-3483-8A29-424C6CDAC4B7}
 // *********************************************************************//
   _ScrollableControl = interface(IDispatch)
     ['{812A8B20-CB02-3483-8A29-424C6CDAC4B7}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ScrollableControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {812A8B20-CB02-3483-8A29-424C6CDAC4B7}
+// DispIntf:  _ScrollableControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {812A8B20-CB02-3483-8A29-424C6CDAC4B7}
 // *********************************************************************//
   _ScrollableControlDisp = dispinterface
     ['{812A8B20-CB02-3483-8A29-424C6CDAC4B7}']
   end;
 
 // *********************************************************************//
-// Interface :   _ContextMenuStrip
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4B4939AF-61C1-378F-BDF0-68B9B3EE48E3}
+// Interface: _ContextMenuStrip
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4B4939AF-61C1-378F-BDF0-68B9B3EE48E3}
 // *********************************************************************//
   _ContextMenuStrip = interface(IDispatch)
     ['{4B4939AF-61C1-378F-BDF0-68B9B3EE48E3}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ContextMenuStripDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4B4939AF-61C1-378F-BDF0-68B9B3EE48E3}
+// DispIntf:  _ContextMenuStripDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4B4939AF-61C1-378F-BDF0-68B9B3EE48E3}
 // *********************************************************************//
   _ContextMenuStripDisp = dispinterface
     ['{4B4939AF-61C1-378F-BDF0-68B9B3EE48E3}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripDropDownMenu
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8E07FA2C-B44B-3818-BA44-D88F2A69E8B6}
+// Interface: _ToolStripDropDownMenu
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8E07FA2C-B44B-3818-BA44-D88F2A69E8B6}
 // *********************************************************************//
   _ToolStripDropDownMenu = interface(IDispatch)
     ['{8E07FA2C-B44B-3818-BA44-D88F2A69E8B6}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripDropDownMenuDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8E07FA2C-B44B-3818-BA44-D88F2A69E8B6}
+// DispIntf:  _ToolStripDropDownMenuDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8E07FA2C-B44B-3818-BA44-D88F2A69E8B6}
 // *********************************************************************//
   _ToolStripDropDownMenuDisp = dispinterface
     ['{8E07FA2C-B44B-3818-BA44-D88F2A69E8B6}']
   end;
 
 // *********************************************************************//
-// Interface :   _DragEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {AEDF37AB-9041-3D55-9ACA-BDEDE24566D2}
+// Interface: _DragEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {AEDF37AB-9041-3D55-9ACA-BDEDE24566D2}
 // *********************************************************************//
   _DragEventArgs = interface(IDispatch)
     ['{AEDF37AB-9041-3D55-9ACA-BDEDE24566D2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DragEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {AEDF37AB-9041-3D55-9ACA-BDEDE24566D2}
+// DispIntf:  _DragEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {AEDF37AB-9041-3D55-9ACA-BDEDE24566D2}
 // *********************************************************************//
   _DragEventArgsDisp = dispinterface
     ['{AEDF37AB-9041-3D55-9ACA-BDEDE24566D2}']
   end;
 
 // *********************************************************************//
-// Interface :   _GiveFeedbackEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {77AD1D22-59C4-3634-9D55-50291CDA49F6}
+// Interface: _GiveFeedbackEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {77AD1D22-59C4-3634-9D55-50291CDA49F6}
 // *********************************************************************//
   _GiveFeedbackEventArgs = interface(IDispatch)
     ['{77AD1D22-59C4-3634-9D55-50291CDA49F6}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _GiveFeedbackEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {77AD1D22-59C4-3634-9D55-50291CDA49F6}
+// DispIntf:  _GiveFeedbackEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {77AD1D22-59C4-3634-9D55-50291CDA49F6}
 // *********************************************************************//
   _GiveFeedbackEventArgsDisp = dispinterface
     ['{77AD1D22-59C4-3634-9D55-50291CDA49F6}']
   end;
 
 // *********************************************************************//
-// Interface :   _HelpEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7FA2B402-744D-34F5-AD8B-BD7C018B31F5}
+// Interface: _HelpEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7FA2B402-744D-34F5-AD8B-BD7C018B31F5}
 // *********************************************************************//
   _HelpEventArgs = interface(IDispatch)
     ['{7FA2B402-744D-34F5-AD8B-BD7C018B31F5}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _HelpEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7FA2B402-744D-34F5-AD8B-BD7C018B31F5}
+// DispIntf:  _HelpEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7FA2B402-744D-34F5-AD8B-BD7C018B31F5}
 // *********************************************************************//
   _HelpEventArgsDisp = dispinterface
     ['{7FA2B402-744D-34F5-AD8B-BD7C018B31F5}']
   end;
 
 // *********************************************************************//
-// Interface :   _QueryContinueDragEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9FD0D341-0808-3A17-A978-ADB5ED517F59}
+// Interface: _QueryContinueDragEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9FD0D341-0808-3A17-A978-ADB5ED517F59}
 // *********************************************************************//
   _QueryContinueDragEventArgs = interface(IDispatch)
     ['{9FD0D341-0808-3A17-A978-ADB5ED517F59}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _QueryContinueDragEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9FD0D341-0808-3A17-A978-ADB5ED517F59}
+// DispIntf:  _QueryContinueDragEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9FD0D341-0808-3A17-A978-ADB5ED517F59}
 // *********************************************************************//
   _QueryContinueDragEventArgsDisp = dispinterface
     ['{9FD0D341-0808-3A17-A978-ADB5ED517F59}']
   end;
 
 // *********************************************************************//
-// Interface :   _DataGrid
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {518A56E2-FBCE-3386-BB15-4A0F67872BDC}
+// Interface: _DataGrid
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {518A56E2-FBCE-3386-BB15-4A0F67872BDC}
 // *********************************************************************//
   _DataGrid = interface(IDispatch)
     ['{518A56E2-FBCE-3386-BB15-4A0F67872BDC}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DataGridDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {518A56E2-FBCE-3386-BB15-4A0F67872BDC}
+// DispIntf:  _DataGridDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {518A56E2-FBCE-3386-BB15-4A0F67872BDC}
 // *********************************************************************//
   _DataGridDisp = dispinterface
     ['{518A56E2-FBCE-3386-BB15-4A0F67872BDC}']
   end;
 
 // *********************************************************************//
-// Interface :   _ScrollBar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59C5A9AD-941B-3279-BED8-EDCC2951CADC}
+// Interface: _ScrollBar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59C5A9AD-941B-3279-BED8-EDCC2951CADC}
 // *********************************************************************//
   _ScrollBar = interface(IDispatch)
     ['{59C5A9AD-941B-3279-BED8-EDCC2951CADC}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ScrollBarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59C5A9AD-941B-3279-BED8-EDCC2951CADC}
+// DispIntf:  _ScrollBarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59C5A9AD-941B-3279-BED8-EDCC2951CADC}
 // *********************************************************************//
   _ScrollBarDisp = dispinterface
     ['{59C5A9AD-941B-3279-BED8-EDCC2951CADC}']
   end;
 
 // *********************************************************************//
-// Interface :   _NavigateEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {42959ECE-0606-3758-9679-A48E88F9BAF8}
+// Interface: _NavigateEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {42959ECE-0606-3758-9679-A48E88F9BAF8}
 // *********************************************************************//
   _NavigateEventArgs = interface(IDispatch)
     ['{42959ECE-0606-3758-9679-A48E88F9BAF8}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NavigateEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {42959ECE-0606-3758-9679-A48E88F9BAF8}
+// DispIntf:  _NavigateEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {42959ECE-0606-3758-9679-A48E88F9BAF8}
 // *********************************************************************//
   _NavigateEventArgsDisp = dispinterface
     ['{42959ECE-0606-3758-9679-A48E88F9BAF8}']
   end;
 
 // *********************************************************************//
-// Interface :   _ScrollEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CCD8C82C-DFBF-3E14-BE9B-38555F6221F2}
+// Interface: _ScrollEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CCD8C82C-DFBF-3E14-BE9B-38555F6221F2}
 // *********************************************************************//
   _ScrollEventArgs = interface(IDispatch)
     ['{CCD8C82C-DFBF-3E14-BE9B-38555F6221F2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ScrollEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CCD8C82C-DFBF-3E14-BE9B-38555F6221F2}
+// DispIntf:  _ScrollEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CCD8C82C-DFBF-3E14-BE9B-38555F6221F2}
 // *********************************************************************//
   _ScrollEventArgsDisp = dispinterface
     ['{CCD8C82C-DFBF-3E14-BE9B-38555F6221F2}']
   end;
 
 // *********************************************************************//
-// Interface :   _DataGridTextBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2780E0D4-2B06-3E1F-ADDF-D8DBBB3FB960}
+// Interface: _DataGridTextBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2780E0D4-2B06-3E1F-ADDF-D8DBBB3FB960}
 // *********************************************************************//
   _DataGridTextBox = interface(IDispatch)
     ['{2780E0D4-2B06-3E1F-ADDF-D8DBBB3FB960}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DataGridTextBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2780E0D4-2B06-3E1F-ADDF-D8DBBB3FB960}
+// DispIntf:  _DataGridTextBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2780E0D4-2B06-3E1F-ADDF-D8DBBB3FB960}
 // *********************************************************************//
   _DataGridTextBoxDisp = dispinterface
     ['{2780E0D4-2B06-3E1F-ADDF-D8DBBB3FB960}']
   end;
 
 // *********************************************************************//
-// Interface :   _TextBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {EAEF4300-9FB3-306F-8F67-180DEB8DDFB7}
+// Interface: _TextBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {EAEF4300-9FB3-306F-8F67-180DEB8DDFB7}
 // *********************************************************************//
   _TextBox = interface(IDispatch)
     ['{EAEF4300-9FB3-306F-8F67-180DEB8DDFB7}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TextBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {EAEF4300-9FB3-306F-8F67-180DEB8DDFB7}
+// DispIntf:  _TextBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {EAEF4300-9FB3-306F-8F67-180DEB8DDFB7}
 // *********************************************************************//
   _TextBoxDisp = dispinterface
     ['{EAEF4300-9FB3-306F-8F67-180DEB8DDFB7}']
   end;
 
 // *********************************************************************//
-// Interface :   _DataGridView
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5968374C-8F43-353B-8F0A-780A0A7DDB79}
+// Interface: _DataGridView
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5968374C-8F43-353B-8F0A-780A0A7DDB79}
 // *********************************************************************//
   _DataGridView = interface(IDispatch)
     ['{5968374C-8F43-353B-8F0A-780A0A7DDB79}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DataGridViewDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5968374C-8F43-353B-8F0A-780A0A7DDB79}
+// DispIntf:  _DataGridViewDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5968374C-8F43-353B-8F0A-780A0A7DDB79}
 // *********************************************************************//
   _DataGridViewDisp = dispinterface
     ['{5968374C-8F43-353B-8F0A-780A0A7DDB79}']
   end;
 
 // *********************************************************************//
-// Interface :   _Panel
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {549A3DD8-D85F-3D08-87E2-49B08490008B}
+// Interface: _Panel
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {549A3DD8-D85F-3D08-87E2-49B08490008B}
 // *********************************************************************//
   _Panel = interface(IDispatch)
     ['{549A3DD8-D85F-3D08-87E2-49B08490008B}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _PanelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {549A3DD8-D85F-3D08-87E2-49B08490008B}
+// DispIntf:  _PanelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {549A3DD8-D85F-3D08-87E2-49B08490008B}
 // *********************************************************************//
   _PanelDisp = dispinterface
     ['{549A3DD8-D85F-3D08-87E2-49B08490008B}']
   end;
 
 // *********************************************************************//
-// Interface :   _DataGridViewComboBoxEditingControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C6615083-0A23-3997-A54B-F618EB824AF0}
+// Interface: _DataGridViewComboBoxEditingControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C6615083-0A23-3997-A54B-F618EB824AF0}
 // *********************************************************************//
   _DataGridViewComboBoxEditingControl = interface(IDispatch)
     ['{C6615083-0A23-3997-A54B-F618EB824AF0}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DataGridViewComboBoxEditingControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C6615083-0A23-3997-A54B-F618EB824AF0}
+// DispIntf:  _DataGridViewComboBoxEditingControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C6615083-0A23-3997-A54B-F618EB824AF0}
 // *********************************************************************//
   _DataGridViewComboBoxEditingControlDisp = dispinterface
     ['{C6615083-0A23-3997-A54B-F618EB824AF0}']
   end;
 
 // *********************************************************************//
-// Interface :   _DataGridViewTextBoxEditingControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A7750701-44A2-353A-923A-7BA68A8E22AF}
+// Interface: _DataGridViewTextBoxEditingControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A7750701-44A2-353A-923A-7BA68A8E22AF}
 // *********************************************************************//
   _DataGridViewTextBoxEditingControl = interface(IDispatch)
     ['{A7750701-44A2-353A-923A-7BA68A8E22AF}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DataGridViewTextBoxEditingControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A7750701-44A2-353A-923A-7BA68A8E22AF}
+// DispIntf:  _DataGridViewTextBoxEditingControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A7750701-44A2-353A-923A-7BA68A8E22AF}
 // *********************************************************************//
   _DataGridViewTextBoxEditingControlDisp = dispinterface
     ['{A7750701-44A2-353A-923A-7BA68A8E22AF}']
   end;
 
 // *********************************************************************//
-// Interface :   _DateTimePicker
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2BAD7D35-895F-3D4A-B883-0B3CD324B8BD}
+// Interface: _DateTimePicker
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2BAD7D35-895F-3D4A-B883-0B3CD324B8BD}
 // *********************************************************************//
   _DateTimePicker = interface(IDispatch)
     ['{2BAD7D35-895F-3D4A-B883-0B3CD324B8BD}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DateTimePickerDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2BAD7D35-895F-3D4A-B883-0B3CD324B8BD}
+// DispIntf:  _DateTimePickerDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2BAD7D35-895F-3D4A-B883-0B3CD324B8BD}
 // *********************************************************************//
   _DateTimePickerDisp = dispinterface
     ['{2BAD7D35-895F-3D4A-B883-0B3CD324B8BD}']
   end;
 
 // *********************************************************************//
-// Interface :   _DateTimePickerAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5BEF6F14-89F8-3AD5-BE92-0649CFA5ABB1}
+// Interface: _DateTimePickerAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5BEF6F14-89F8-3AD5-BE92-0649CFA5ABB1}
 // *********************************************************************//
   _DateTimePickerAccessibleObject = interface(IDispatch)
     ['{5BEF6F14-89F8-3AD5-BE92-0649CFA5ABB1}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DateTimePickerAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5BEF6F14-89F8-3AD5-BE92-0649CFA5ABB1}
+// DispIntf:  _DateTimePickerAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5BEF6F14-89F8-3AD5-BE92-0649CFA5ABB1}
 // *********************************************************************//
   _DateTimePickerAccessibleObjectDisp = dispinterface
     ['{5BEF6F14-89F8-3AD5-BE92-0649CFA5ABB1}']
   end;
 
 // *********************************************************************//
-// Interface :   _DomainUpDown
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {44792A74-5DD8-3410-A897-F568E4E58161}
+// Interface: _DomainUpDown
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {44792A74-5DD8-3410-A897-F568E4E58161}
 // *********************************************************************//
   _DomainUpDown = interface(IDispatch)
     ['{44792A74-5DD8-3410-A897-F568E4E58161}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DomainUpDownDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {44792A74-5DD8-3410-A897-F568E4E58161}
+// DispIntf:  _DomainUpDownDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {44792A74-5DD8-3410-A897-F568E4E58161}
 // *********************************************************************//
   _DomainUpDownDisp = dispinterface
     ['{44792A74-5DD8-3410-A897-F568E4E58161}']
   end;
 
 // *********************************************************************//
-// Interface :   _UpDownBase
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C26446AC-E09B-3545-B01A-5575923636C3}
+// Interface: _UpDownBase
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C26446AC-E09B-3545-B01A-5575923636C3}
 // *********************************************************************//
   _UpDownBase = interface(IDispatch)
     ['{C26446AC-E09B-3545-B01A-5575923636C3}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _UpDownBaseDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C26446AC-E09B-3545-B01A-5575923636C3}
+// DispIntf:  _UpDownBaseDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C26446AC-E09B-3545-B01A-5575923636C3}
 // *********************************************************************//
   _UpDownBaseDisp = dispinterface
     ['{C26446AC-E09B-3545-B01A-5575923636C3}']
   end;
 
 // *********************************************************************//
-// Interface :   _DomainItemAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {0D46DA02-69FB-3A29-9AC6-395925C38479}
+// Interface: _DomainItemAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {0D46DA02-69FB-3A29-9AC6-395925C38479}
 // *********************************************************************//
   _DomainItemAccessibleObject = interface(IDispatch)
     ['{0D46DA02-69FB-3A29-9AC6-395925C38479}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DomainItemAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {0D46DA02-69FB-3A29-9AC6-395925C38479}
+// DispIntf:  _DomainItemAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {0D46DA02-69FB-3A29-9AC6-395925C38479}
 // *********************************************************************//
   _DomainItemAccessibleObjectDisp = dispinterface
     ['{0D46DA02-69FB-3A29-9AC6-395925C38479}']
   end;
 
 // *********************************************************************//
-// Interface :   _DomainUpDownAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {131B8005-94C2-37D5-B738-CD2337635E73}
+// Interface: _DomainUpDownAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {131B8005-94C2-37D5-B738-CD2337635E73}
 // *********************************************************************//
   _DomainUpDownAccessibleObject = interface(IDispatch)
     ['{131B8005-94C2-37D5-B738-CD2337635E73}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _DomainUpDownAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {131B8005-94C2-37D5-B738-CD2337635E73}
+// DispIntf:  _DomainUpDownAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {131B8005-94C2-37D5-B738-CD2337635E73}
 // *********************************************************************//
   _DomainUpDownAccessibleObjectDisp = dispinterface
     ['{131B8005-94C2-37D5-B738-CD2337635E73}']
   end;
 
 // *********************************************************************//
-// Interface :   _FlowLayoutPanel
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B55C4C83-1F69-3D93-9C4E-2AA5619E0C68}
+// Interface: _FlowLayoutPanel
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B55C4C83-1F69-3D93-9C4E-2AA5619E0C68}
 // *********************************************************************//
   _FlowLayoutPanel = interface(IDispatch)
     ['{B55C4C83-1F69-3D93-9C4E-2AA5619E0C68}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _FlowLayoutPanelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B55C4C83-1F69-3D93-9C4E-2AA5619E0C68}
+// DispIntf:  _FlowLayoutPanelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B55C4C83-1F69-3D93-9C4E-2AA5619E0C68}
 // *********************************************************************//
   _FlowLayoutPanelDisp = dispinterface
     ['{B55C4C83-1F69-3D93-9C4E-2AA5619E0C68}']
   end;
 
 // *********************************************************************//
-// Interface :   _MenuStrip
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {EB5A3078-05D9-3F32-9045-89F756938A3D}
+// Interface: _MenuStrip
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {EB5A3078-05D9-3F32-9045-89F756938A3D}
 // *********************************************************************//
   _MenuStrip = interface(IDispatch)
     ['{EB5A3078-05D9-3F32-9045-89F756938A3D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _MenuStripDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {EB5A3078-05D9-3F32-9045-89F756938A3D}
+// DispIntf:  _MenuStripDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {EB5A3078-05D9-3F32-9045-89F756938A3D}
 // *********************************************************************//
   _MenuStripDisp = dispinterface
     ['{EB5A3078-05D9-3F32-9045-89F756938A3D}']
   end;
 
 // *********************************************************************//
-// Interface :   _GroupBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {11B0B536-2F72-3A3F-B2A3-0420A9F5041F}
+// Interface: _GroupBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {11B0B536-2F72-3A3F-B2A3-0420A9F5041F}
 // *********************************************************************//
   _GroupBox = interface(IDispatch)
     ['{11B0B536-2F72-3A3F-B2A3-0420A9F5041F}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _GroupBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {11B0B536-2F72-3A3F-B2A3-0420A9F5041F}
+// DispIntf:  _GroupBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {11B0B536-2F72-3A3F-B2A3-0420A9F5041F}
 // *********************************************************************//
   _GroupBoxDisp = dispinterface
     ['{11B0B536-2F72-3A3F-B2A3-0420A9F5041F}']
   end;
 
 // *********************************************************************//
-// Interface :   _HScrollBar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7BC4A820-B20F-3ECE-BDD6-EE7E14EB7E0D}
+// Interface: _HScrollBar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7BC4A820-B20F-3ECE-BDD6-EE7E14EB7E0D}
 // *********************************************************************//
   _HScrollBar = interface(IDispatch)
     ['{7BC4A820-B20F-3ECE-BDD6-EE7E14EB7E0D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _HScrollBarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7BC4A820-B20F-3ECE-BDD6-EE7E14EB7E0D}
+// DispIntf:  _HScrollBarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7BC4A820-B20F-3ECE-BDD6-EE7E14EB7E0D}
 // *********************************************************************//
   _HScrollBarDisp = dispinterface
     ['{7BC4A820-B20F-3ECE-BDD6-EE7E14EB7E0D}']
   end;
 
 // *********************************************************************//
-// Interface :   _ItemDragEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7FA2A2C6-276C-3F23-AF2A-800CCD05CFF2}
+// Interface: _ItemDragEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7FA2A2C6-276C-3F23-AF2A-800CCD05CFF2}
 // *********************************************************************//
   _ItemDragEventArgs = interface(IDispatch)
     ['{7FA2A2C6-276C-3F23-AF2A-800CCD05CFF2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ItemDragEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7FA2A2C6-276C-3F23-AF2A-800CCD05CFF2}
+// DispIntf:  _ItemDragEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7FA2A2C6-276C-3F23-AF2A-800CCD05CFF2}
 // *********************************************************************//
   _ItemDragEventArgsDisp = dispinterface
     ['{7FA2A2C6-276C-3F23-AF2A-800CCD05CFF2}']
   end;
 
 // *********************************************************************//
-// Interface :   _Label
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {00AE8203-987D-3B7E-9448-5B3393282D7F}
+// Interface: _Label
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {00AE8203-987D-3B7E-9448-5B3393282D7F}
 // *********************************************************************//
   _Label = interface(IDispatch)
     ['{00AE8203-987D-3B7E-9448-5B3393282D7F}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _LabelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {00AE8203-987D-3B7E-9448-5B3393282D7F}
+// DispIntf:  _LabelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {00AE8203-987D-3B7E-9448-5B3393282D7F}
 // *********************************************************************//
   _LabelDisp = dispinterface
     ['{00AE8203-987D-3B7E-9448-5B3393282D7F}']
   end;
 
 // *********************************************************************//
-// Interface :   _LinkClickedEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {93194740-9A53-3D3E-902C-240FBE0C90E4}
+// Interface: _LinkClickedEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {93194740-9A53-3D3E-902C-240FBE0C90E4}
 // *********************************************************************//
   _LinkClickedEventArgs = interface(IDispatch)
     ['{93194740-9A53-3D3E-902C-240FBE0C90E4}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _LinkClickedEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {93194740-9A53-3D3E-902C-240FBE0C90E4}
+// DispIntf:  _LinkClickedEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {93194740-9A53-3D3E-902C-240FBE0C90E4}
 // *********************************************************************//
   _LinkClickedEventArgsDisp = dispinterface
     ['{93194740-9A53-3D3E-902C-240FBE0C90E4}']
   end;
 
 // *********************************************************************//
-// Interface :   _LinkLabel
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4EE61C0D-D2D5-3A50-972B-C0A957D3A541}
+// Interface: _LinkLabel
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4EE61C0D-D2D5-3A50-972B-C0A957D3A541}
 // *********************************************************************//
   _LinkLabel = interface(IDispatch)
     ['{4EE61C0D-D2D5-3A50-972B-C0A957D3A541}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _LinkLabelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4EE61C0D-D2D5-3A50-972B-C0A957D3A541}
+// DispIntf:  _LinkLabelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4EE61C0D-D2D5-3A50-972B-C0A957D3A541}
 // *********************************************************************//
   _LinkLabelDisp = dispinterface
     ['{4EE61C0D-D2D5-3A50-972B-C0A957D3A541}']
   end;
 
 // *********************************************************************//
-// Interface :   _LinkLabelLinkClickedEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CB38AE7B-5208-351D-8B84-3ECA81DE0F34}
+// Interface: _LinkLabelLinkClickedEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CB38AE7B-5208-351D-8B84-3ECA81DE0F34}
 // *********************************************************************//
   _LinkLabelLinkClickedEventArgs = interface(IDispatch)
     ['{CB38AE7B-5208-351D-8B84-3ECA81DE0F34}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _LinkLabelLinkClickedEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CB38AE7B-5208-351D-8B84-3ECA81DE0F34}
+// DispIntf:  _LinkLabelLinkClickedEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CB38AE7B-5208-351D-8B84-3ECA81DE0F34}
 // *********************************************************************//
   _LinkLabelLinkClickedEventArgsDisp = dispinterface
     ['{CB38AE7B-5208-351D-8B84-3ECA81DE0F34}']
   end;
 
 // *********************************************************************//
-// Interface :   _ListViewItemMouseHoverEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A2F121D8-4775-3FB2-93A3-C5862AE8C359}
+// Interface: _ListViewItemMouseHoverEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A2F121D8-4775-3FB2-93A3-C5862AE8C359}
 // *********************************************************************//
   _ListViewItemMouseHoverEventArgs = interface(IDispatch)
     ['{A2F121D8-4775-3FB2-93A3-C5862AE8C359}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ListViewItemMouseHoverEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A2F121D8-4775-3FB2-93A3-C5862AE8C359}
+// DispIntf:  _ListViewItemMouseHoverEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A2F121D8-4775-3FB2-93A3-C5862AE8C359}
 // *********************************************************************//
   _ListViewItemMouseHoverEventArgsDisp = dispinterface
     ['{A2F121D8-4775-3FB2-93A3-C5862AE8C359}']
   end;
 
 // *********************************************************************//
-// Interface :   _MaskedTextBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {22B0C1A9-E74E-381A-BABB-66BEF71FF08E}
+// Interface: _MaskedTextBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {22B0C1A9-E74E-381A-BABB-66BEF71FF08E}
 // *********************************************************************//
   _MaskedTextBox = interface(IDispatch)
     ['{22B0C1A9-E74E-381A-BABB-66BEF71FF08E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _MaskedTextBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {22B0C1A9-E74E-381A-BABB-66BEF71FF08E}
+// DispIntf:  _MaskedTextBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {22B0C1A9-E74E-381A-BABB-66BEF71FF08E}
 // *********************************************************************//
   _MaskedTextBoxDisp = dispinterface
     ['{22B0C1A9-E74E-381A-BABB-66BEF71FF08E}']
   end;
 
 // *********************************************************************//
-// Interface :   _TextBoxBase
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {ABC30865-8929-3F02-9D70-6C3D68C83837}
+// Interface: _TextBoxBase
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {ABC30865-8929-3F02-9D70-6C3D68C83837}
 // *********************************************************************//
   _TextBoxBase = interface(IDispatch)
     ['{ABC30865-8929-3F02-9D70-6C3D68C83837}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TextBoxBaseDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {ABC30865-8929-3F02-9D70-6C3D68C83837}
+// DispIntf:  _TextBoxBaseDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {ABC30865-8929-3F02-9D70-6C3D68C83837}
 // *********************************************************************//
   _TextBoxBaseDisp = dispinterface
     ['{ABC30865-8929-3F02-9D70-6C3D68C83837}']
   end;
 
 // *********************************************************************//
-// Interface :   _MdiClient
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6AB0BB67-4A4B-32F9-A18A-6481916C946F}
+// Interface: _MdiClient
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6AB0BB67-4A4B-32F9-A18A-6481916C946F}
 // *********************************************************************//
   _MdiClient = interface(IDispatch)
     ['{6AB0BB67-4A4B-32F9-A18A-6481916C946F}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _MdiClientDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6AB0BB67-4A4B-32F9-A18A-6481916C946F}
+// DispIntf:  _MdiClientDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6AB0BB67-4A4B-32F9-A18A-6481916C946F}
 // *********************************************************************//
   _MdiClientDisp = dispinterface
     ['{6AB0BB67-4A4B-32F9-A18A-6481916C946F}']
   end;
 
 // *********************************************************************//
-// Interface :   _MonthCalendar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C3FA9EA8-275E-35E9-89DA-18B1FCA593EE}
+// Interface: _MonthCalendar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C3FA9EA8-275E-35E9-89DA-18B1FCA593EE}
 // *********************************************************************//
   _MonthCalendar = interface(IDispatch)
     ['{C3FA9EA8-275E-35E9-89DA-18B1FCA593EE}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _MonthCalendarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C3FA9EA8-275E-35E9-89DA-18B1FCA593EE}
+// DispIntf:  _MonthCalendarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C3FA9EA8-275E-35E9-89DA-18B1FCA593EE}
 // *********************************************************************//
   _MonthCalendarDisp = dispinterface
     ['{C3FA9EA8-275E-35E9-89DA-18B1FCA593EE}']
   end;
 
 // *********************************************************************//
-// Interface :   _NumericUpDown
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2AD9F14A-0097-3C69-9F8E-5DDB52F3878B}
+// Interface: _NumericUpDown
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2AD9F14A-0097-3C69-9F8E-5DDB52F3878B}
 // *********************************************************************//
   _NumericUpDown = interface(IDispatch)
     ['{2AD9F14A-0097-3C69-9F8E-5DDB52F3878B}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NumericUpDownDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2AD9F14A-0097-3C69-9F8E-5DDB52F3878B}
+// DispIntf:  _NumericUpDownDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2AD9F14A-0097-3C69-9F8E-5DDB52F3878B}
 // *********************************************************************//
   _NumericUpDownDisp = dispinterface
     ['{2AD9F14A-0097-3C69-9F8E-5DDB52F3878B}']
   end;
 
 // *********************************************************************//
-// Interface :   _PictureBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BB1C5180-87D0-330C-B698-EE2132DF362E}
+// Interface: _PictureBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BB1C5180-87D0-330C-B698-EE2132DF362E}
 // *********************************************************************//
   _PictureBox = interface(IDispatch)
     ['{BB1C5180-87D0-330C-B698-EE2132DF362E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _PictureBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BB1C5180-87D0-330C-B698-EE2132DF362E}
+// DispIntf:  _PictureBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BB1C5180-87D0-330C-B698-EE2132DF362E}
 // *********************************************************************//
   _PictureBoxDisp = dispinterface
     ['{BB1C5180-87D0-330C-B698-EE2132DF362E}']
   end;
 
 // *********************************************************************//
-// Interface :   _PrintPreviewControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {FA3B8143-ECB8-3A38-9DE5-DB0EEA708B5F}
+// Interface: _PrintPreviewControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {FA3B8143-ECB8-3A38-9DE5-DB0EEA708B5F}
 // *********************************************************************//
   _PrintPreviewControl = interface(IDispatch)
     ['{FA3B8143-ECB8-3A38-9DE5-DB0EEA708B5F}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _PrintPreviewControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {FA3B8143-ECB8-3A38-9DE5-DB0EEA708B5F}
+// DispIntf:  _PrintPreviewControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {FA3B8143-ECB8-3A38-9DE5-DB0EEA708B5F}
 // *********************************************************************//
   _PrintPreviewControlDisp = dispinterface
     ['{FA3B8143-ECB8-3A38-9DE5-DB0EEA708B5F}']
   end;
 
 // *********************************************************************//
-// Interface :   _PrintPreviewDialog
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {57C090D5-80BC-33B8-B782-706A8D833767}
+// Interface: _PrintPreviewDialog
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {57C090D5-80BC-33B8-B782-706A8D833767}
 // *********************************************************************//
   _PrintPreviewDialog = interface(IDispatch)
     ['{57C090D5-80BC-33B8-B782-706A8D833767}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _PrintPreviewDialogDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {57C090D5-80BC-33B8-B782-706A8D833767}
+// DispIntf:  _PrintPreviewDialogDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {57C090D5-80BC-33B8-B782-706A8D833767}
 // *********************************************************************//
   _PrintPreviewDialogDisp = dispinterface
     ['{57C090D5-80BC-33B8-B782-706A8D833767}']
   end;
 
 // *********************************************************************//
-// Interface :   _ProgressBar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8E935BCB-21E1-377C-A59F-89F7BA5A4E0F}
+// Interface: _ProgressBar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8E935BCB-21E1-377C-A59F-89F7BA5A4E0F}
 // *********************************************************************//
   _ProgressBar = interface(IDispatch)
     ['{8E935BCB-21E1-377C-A59F-89F7BA5A4E0F}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ProgressBarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8E935BCB-21E1-377C-A59F-89F7BA5A4E0F}
+// DispIntf:  _ProgressBarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8E935BCB-21E1-377C-A59F-89F7BA5A4E0F}
 // *********************************************************************//
   _ProgressBarDisp = dispinterface
     ['{8E935BCB-21E1-377C-A59F-89F7BA5A4E0F}']
   end;
 
 // *********************************************************************//
-// Interface :   _PropertyGrid
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {0C831618-60D7-32B2-9790-1EBDC5ADEFE5}
+// Interface: _PropertyGrid
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {0C831618-60D7-32B2-9790-1EBDC5ADEFE5}
 // *********************************************************************//
   _PropertyGrid = interface(IDispatch)
     ['{0C831618-60D7-32B2-9790-1EBDC5ADEFE5}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _PropertyGridDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {0C831618-60D7-32B2-9790-1EBDC5ADEFE5}
+// DispIntf:  _PropertyGridDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {0C831618-60D7-32B2-9790-1EBDC5ADEFE5}
 // *********************************************************************//
   _PropertyGridDisp = dispinterface
     ['{0C831618-60D7-32B2-9790-1EBDC5ADEFE5}']
   end;
 
 // *********************************************************************//
-// Interface :   _PropertyTabChangedEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DB6FE495-8F5B-3C66-9A17-4C40D5593906}
+// Interface: _PropertyTabChangedEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DB6FE495-8F5B-3C66-9A17-4C40D5593906}
 // *********************************************************************//
   _PropertyTabChangedEventArgs = interface(IDispatch)
     ['{DB6FE495-8F5B-3C66-9A17-4C40D5593906}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _PropertyTabChangedEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DB6FE495-8F5B-3C66-9A17-4C40D5593906}
+// DispIntf:  _PropertyTabChangedEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DB6FE495-8F5B-3C66-9A17-4C40D5593906}
 // *********************************************************************//
   _PropertyTabChangedEventArgsDisp = dispinterface
     ['{DB6FE495-8F5B-3C66-9A17-4C40D5593906}']
   end;
 
 // *********************************************************************//
-// Interface :   _PropertyValueChangedEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6D43DF59-7EA8-300F-ACB2-760A070CFCF2}
+// Interface: _PropertyValueChangedEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6D43DF59-7EA8-300F-ACB2-760A070CFCF2}
 // *********************************************************************//
   _PropertyValueChangedEventArgs = interface(IDispatch)
     ['{6D43DF59-7EA8-300F-ACB2-760A070CFCF2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _PropertyValueChangedEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6D43DF59-7EA8-300F-ACB2-760A070CFCF2}
+// DispIntf:  _PropertyValueChangedEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6D43DF59-7EA8-300F-ACB2-760A070CFCF2}
 // *********************************************************************//
   _PropertyValueChangedEventArgsDisp = dispinterface
     ['{6D43DF59-7EA8-300F-ACB2-760A070CFCF2}']
   end;
 
 // *********************************************************************//
-// Interface :   _QueryAccessibilityHelpEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2FE9F084-1511-3052-BE7C-9010B522C10E}
+// Interface: _QueryAccessibilityHelpEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2FE9F084-1511-3052-BE7C-9010B522C10E}
 // *********************************************************************//
   _QueryAccessibilityHelpEventArgs = interface(IDispatch)
     ['{2FE9F084-1511-3052-BE7C-9010B522C10E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _QueryAccessibilityHelpEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2FE9F084-1511-3052-BE7C-9010B522C10E}
+// DispIntf:  _QueryAccessibilityHelpEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2FE9F084-1511-3052-BE7C-9010B522C10E}
 // *********************************************************************//
   _QueryAccessibilityHelpEventArgsDisp = dispinterface
     ['{2FE9F084-1511-3052-BE7C-9010B522C10E}']
   end;
 
 // *********************************************************************//
-// Interface :   _RadioButton
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3E431682-BBDE-31B1-AE7F-9D8DD582BD0D}
+// Interface: _RadioButton
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3E431682-BBDE-31B1-AE7F-9D8DD582BD0D}
 // *********************************************************************//
   _RadioButton = interface(IDispatch)
     ['{3E431682-BBDE-31B1-AE7F-9D8DD582BD0D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _RadioButtonDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3E431682-BBDE-31B1-AE7F-9D8DD582BD0D}
+// DispIntf:  _RadioButtonDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3E431682-BBDE-31B1-AE7F-9D8DD582BD0D}
 // *********************************************************************//
   _RadioButtonDisp = dispinterface
     ['{3E431682-BBDE-31B1-AE7F-9D8DD582BD0D}']
   end;
 
 // *********************************************************************//
-// Interface :   _RadioButtonAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {EDC3C736-47FD-3F25-90E4-123234D64FD4}
+// Interface: _RadioButtonAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {EDC3C736-47FD-3F25-90E4-123234D64FD4}
 // *********************************************************************//
   _RadioButtonAccessibleObject = interface(IDispatch)
     ['{EDC3C736-47FD-3F25-90E4-123234D64FD4}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _RadioButtonAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {EDC3C736-47FD-3F25-90E4-123234D64FD4}
+// DispIntf:  _RadioButtonAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {EDC3C736-47FD-3F25-90E4-123234D64FD4}
 // *********************************************************************//
   _RadioButtonAccessibleObjectDisp = dispinterface
     ['{EDC3C736-47FD-3F25-90E4-123234D64FD4}']
   end;
 
 // *********************************************************************//
-// Interface :   _RichTextBox
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {1B264763-A1C7-3441-9D61-7EDAEC2D0C44}
+// Interface: _RichTextBox
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {1B264763-A1C7-3441-9D61-7EDAEC2D0C44}
 // *********************************************************************//
   _RichTextBox = interface(IDispatch)
     ['{1B264763-A1C7-3441-9D61-7EDAEC2D0C44}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _RichTextBoxDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {1B264763-A1C7-3441-9D61-7EDAEC2D0C44}
+// DispIntf:  _RichTextBoxDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {1B264763-A1C7-3441-9D61-7EDAEC2D0C44}
 // *********************************************************************//
   _RichTextBoxDisp = dispinterface
     ['{1B264763-A1C7-3441-9D61-7EDAEC2D0C44}']
   end;
 
 // *********************************************************************//
-// Interface :   _SplitContainer
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C1DA069E-4C0B-3664-BBA1-F81864825085}
+// Interface: _SplitContainer
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C1DA069E-4C0B-3664-BBA1-F81864825085}
 // *********************************************************************//
   _SplitContainer = interface(IDispatch)
     ['{C1DA069E-4C0B-3664-BBA1-F81864825085}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _SplitContainerDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C1DA069E-4C0B-3664-BBA1-F81864825085}
+// DispIntf:  _SplitContainerDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C1DA069E-4C0B-3664-BBA1-F81864825085}
 // *********************************************************************//
   _SplitContainerDisp = dispinterface
     ['{C1DA069E-4C0B-3664-BBA1-F81864825085}']
   end;
 
 // *********************************************************************//
-// Interface :   _SplitterPanel
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3A4C8B1A-4AF9-344A-BC88-DFE863328C86}
+// Interface: _SplitterPanel
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3A4C8B1A-4AF9-344A-BC88-DFE863328C86}
 // *********************************************************************//
   _SplitterPanel = interface(IDispatch)
     ['{3A4C8B1A-4AF9-344A-BC88-DFE863328C86}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _SplitterPanelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3A4C8B1A-4AF9-344A-BC88-DFE863328C86}
+// DispIntf:  _SplitterPanelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3A4C8B1A-4AF9-344A-BC88-DFE863328C86}
 // *********************************************************************//
   _SplitterPanelDisp = dispinterface
     ['{3A4C8B1A-4AF9-344A-BC88-DFE863328C86}']
   end;
 
 // *********************************************************************//
-// Interface :   _SplitterEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8E61AD1D-76AE-3501-9B36-481BFEBD3E3E}
+// Interface: _SplitterEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8E61AD1D-76AE-3501-9B36-481BFEBD3E3E}
 // *********************************************************************//
   _SplitterEventArgs = interface(IDispatch)
     ['{8E61AD1D-76AE-3501-9B36-481BFEBD3E3E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _SplitterEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8E61AD1D-76AE-3501-9B36-481BFEBD3E3E}
+// DispIntf:  _SplitterEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8E61AD1D-76AE-3501-9B36-481BFEBD3E3E}
 // *********************************************************************//
   _SplitterEventArgsDisp = dispinterface
     ['{8E61AD1D-76AE-3501-9B36-481BFEBD3E3E}']
   end;
 
 // *********************************************************************//
-// Interface :   _Splitter
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C318A56D-0B03-3A5A-93F6-7DF0B3268237}
+// Interface: _Splitter
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C318A56D-0B03-3A5A-93F6-7DF0B3268237}
 // *********************************************************************//
   _Splitter = interface(IDispatch)
     ['{C318A56D-0B03-3A5A-93F6-7DF0B3268237}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _SplitterDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C318A56D-0B03-3A5A-93F6-7DF0B3268237}
+// DispIntf:  _SplitterDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C318A56D-0B03-3A5A-93F6-7DF0B3268237}
 // *********************************************************************//
   _SplitterDisp = dispinterface
     ['{C318A56D-0B03-3A5A-93F6-7DF0B3268237}']
   end;
 
 // *********************************************************************//
-// Interface :   _StatusBar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {93409DA8-FE37-3D4E-9A08-B35B34122C64}
+// Interface: _StatusBar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {93409DA8-FE37-3D4E-9A08-B35B34122C64}
 // *********************************************************************//
   _StatusBar = interface(IDispatch)
     ['{93409DA8-FE37-3D4E-9A08-B35B34122C64}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _StatusBarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {93409DA8-FE37-3D4E-9A08-B35B34122C64}
+// DispIntf:  _StatusBarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {93409DA8-FE37-3D4E-9A08-B35B34122C64}
 // *********************************************************************//
   _StatusBarDisp = dispinterface
     ['{93409DA8-FE37-3D4E-9A08-B35B34122C64}']
   end;
 
 // *********************************************************************//
-// Interface :   _StatusStrip
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {71CA209D-40D3-3409-B341-DA9B922CCA45}
+// Interface: _StatusStrip
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {71CA209D-40D3-3409-B341-DA9B922CCA45}
 // *********************************************************************//
   _StatusStrip = interface(IDispatch)
     ['{71CA209D-40D3-3409-B341-DA9B922CCA45}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _StatusStripDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {71CA209D-40D3-3409-B341-DA9B922CCA45}
+// DispIntf:  _StatusStripDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {71CA209D-40D3-3409-B341-DA9B922CCA45}
 // *********************************************************************//
   _StatusStripDisp = dispinterface
     ['{71CA209D-40D3-3409-B341-DA9B922CCA45}']
   end;
 
 // *********************************************************************//
-// Interface :   _TabControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {470DE738-5261-302A-B205-4744652D2FD3}
+// Interface: _TabControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {470DE738-5261-302A-B205-4744652D2FD3}
 // *********************************************************************//
   _TabControl = interface(IDispatch)
     ['{470DE738-5261-302A-B205-4744652D2FD3}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TabControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {470DE738-5261-302A-B205-4744652D2FD3}
+// DispIntf:  _TabControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {470DE738-5261-302A-B205-4744652D2FD3}
 // *********************************************************************//
   _TabControlDisp = dispinterface
     ['{470DE738-5261-302A-B205-4744652D2FD3}']
   end;
 
 // *********************************************************************//
-// Interface :   _TabPage
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59183431-BD56-33D2-A2ED-FA414ADF8DCB}
+// Interface: _TabPage
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59183431-BD56-33D2-A2ED-FA414ADF8DCB}
 // *********************************************************************//
   _TabPage = interface(IDispatch)
     ['{59183431-BD56-33D2-A2ED-FA414ADF8DCB}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TabPageDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59183431-BD56-33D2-A2ED-FA414ADF8DCB}
+// DispIntf:  _TabPageDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59183431-BD56-33D2-A2ED-FA414ADF8DCB}
 // *********************************************************************//
   _TabPageDisp = dispinterface
     ['{59183431-BD56-33D2-A2ED-FA414ADF8DCB}']
   end;
 
 // *********************************************************************//
-// Interface :   _TableLayoutPanel
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {05CBE5B2-0292-37DE-BE51-5B7599CA5A11}
+// Interface: _TableLayoutPanel
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {05CBE5B2-0292-37DE-BE51-5B7599CA5A11}
 // *********************************************************************//
   _TableLayoutPanel = interface(IDispatch)
     ['{05CBE5B2-0292-37DE-BE51-5B7599CA5A11}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TableLayoutPanelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {05CBE5B2-0292-37DE-BE51-5B7599CA5A11}
+// DispIntf:  _TableLayoutPanelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {05CBE5B2-0292-37DE-BE51-5B7599CA5A11}
 // *********************************************************************//
   _TableLayoutPanelDisp = dispinterface
     ['{05CBE5B2-0292-37DE-BE51-5B7599CA5A11}']
   end;
 
 // *********************************************************************//
-// Interface :   _ThreadExceptionDialog
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B00AA2F6-4D83-3937-B4AC-4C2C2C3F6C70}
+// Interface: _ThreadExceptionDialog
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B00AA2F6-4D83-3937-B4AC-4C2C2C3F6C70}
 // *********************************************************************//
   _ThreadExceptionDialog = interface(IDispatch)
     ['{B00AA2F6-4D83-3937-B4AC-4C2C2C3F6C70}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ThreadExceptionDialogDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B00AA2F6-4D83-3937-B4AC-4C2C2C3F6C70}
+// DispIntf:  _ThreadExceptionDialogDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B00AA2F6-4D83-3937-B4AC-4C2C2C3F6C70}
 // *********************************************************************//
   _ThreadExceptionDialogDisp = dispinterface
     ['{B00AA2F6-4D83-3937-B4AC-4C2C2C3F6C70}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolBar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {F6AB38B6-1C02-3B01-A7F8-510ED1C0B253}
+// Interface: _ToolBar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {F6AB38B6-1C02-3B01-A7F8-510ED1C0B253}
 // *********************************************************************//
   _ToolBar = interface(IDispatch)
     ['{F6AB38B6-1C02-3B01-A7F8-510ED1C0B253}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolBarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {F6AB38B6-1C02-3B01-A7F8-510ED1C0B253}
+// DispIntf:  _ToolBarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {F6AB38B6-1C02-3B01-A7F8-510ED1C0B253}
 // *********************************************************************//
   _ToolBarDisp = dispinterface
     ['{F6AB38B6-1C02-3B01-A7F8-510ED1C0B253}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6F7A7383-2ABE-39D6-85F6-7117ED41979C}
+// Interface: _ToolStripAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6F7A7383-2ABE-39D6-85F6-7117ED41979C}
 // *********************************************************************//
   _ToolStripAccessibleObject = interface(IDispatch)
     ['{6F7A7383-2ABE-39D6-85F6-7117ED41979C}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6F7A7383-2ABE-39D6-85F6-7117ED41979C}
+// DispIntf:  _ToolStripAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6F7A7383-2ABE-39D6-85F6-7117ED41979C}
 // *********************************************************************//
   _ToolStripAccessibleObjectDisp = dispinterface
     ['{6F7A7383-2ABE-39D6-85F6-7117ED41979C}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripContainer
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2A42F137-D50D-3D62-AF58-4DF7A4F57C9B}
+// Interface: _ToolStripContainer
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2A42F137-D50D-3D62-AF58-4DF7A4F57C9B}
 // *********************************************************************//
   _ToolStripContainer = interface(IDispatch)
     ['{2A42F137-D50D-3D62-AF58-4DF7A4F57C9B}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripContainerDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {2A42F137-D50D-3D62-AF58-4DF7A4F57C9B}
+// DispIntf:  _ToolStripContainerDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {2A42F137-D50D-3D62-AF58-4DF7A4F57C9B}
 // *********************************************************************//
   _ToolStripContainerDisp = dispinterface
     ['{2A42F137-D50D-3D62-AF58-4DF7A4F57C9B}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripPanel
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {FB97C26A-FB56-3F71-BBC4-B1377E7B142D}
+// Interface: _ToolStripPanel
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {FB97C26A-FB56-3F71-BBC4-B1377E7B142D}
 // *********************************************************************//
   _ToolStripPanel = interface(IDispatch)
     ['{FB97C26A-FB56-3F71-BBC4-B1377E7B142D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripPanelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {FB97C26A-FB56-3F71-BBC4-B1377E7B142D}
+// DispIntf:  _ToolStripPanelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {FB97C26A-FB56-3F71-BBC4-B1377E7B142D}
 // *********************************************************************//
   _ToolStripPanelDisp = dispinterface
     ['{FB97C26A-FB56-3F71-BBC4-B1377E7B142D}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripContentPanel
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6EE3853E-DDEF-3F29-8F1B-1ED7180D9229}
+// Interface: _ToolStripContentPanel
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6EE3853E-DDEF-3F29-8F1B-1ED7180D9229}
 // *********************************************************************//
   _ToolStripContentPanel = interface(IDispatch)
     ['{6EE3853E-DDEF-3F29-8F1B-1ED7180D9229}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripContentPanelDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6EE3853E-DDEF-3F29-8F1B-1ED7180D9229}
+// DispIntf:  _ToolStripContentPanelDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6EE3853E-DDEF-3F29-8F1B-1ED7180D9229}
 // *********************************************************************//
   _ToolStripContentPanelDisp = dispinterface
     ['{6EE3853E-DDEF-3F29-8F1B-1ED7180D9229}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripDropDown
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C2322B43-25B3-3B30-B3DB-67E4DA2E6533}
+// Interface: _ToolStripDropDown
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C2322B43-25B3-3B30-B3DB-67E4DA2E6533}
 // *********************************************************************//
   _ToolStripDropDown = interface(IDispatch)
     ['{C2322B43-25B3-3B30-B3DB-67E4DA2E6533}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripDropDownDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C2322B43-25B3-3B30-B3DB-67E4DA2E6533}
+// DispIntf:  _ToolStripDropDownDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C2322B43-25B3-3B30-B3DB-67E4DA2E6533}
 // *********************************************************************//
   _ToolStripDropDownDisp = dispinterface
     ['{C2322B43-25B3-3B30-B3DB-67E4DA2E6533}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripDropDownAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DF0D9304-0E85-3FFC-8283-6F291F32EE61}
+// Interface: _ToolStripDropDownAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DF0D9304-0E85-3FFC-8283-6F291F32EE61}
 // *********************************************************************//
   _ToolStripDropDownAccessibleObject = interface(IDispatch)
     ['{DF0D9304-0E85-3FFC-8283-6F291F32EE61}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripDropDownAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DF0D9304-0E85-3FFC-8283-6F291F32EE61}
+// DispIntf:  _ToolStripDropDownAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DF0D9304-0E85-3FFC-8283-6F291F32EE61}
 // *********************************************************************//
   _ToolStripDropDownAccessibleObjectDisp = dispinterface
     ['{DF0D9304-0E85-3FFC-8283-6F291F32EE61}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripDropDownItemAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8CA39678-9A2A-3D9A-8B0F-8D2DBA310960}
+// Interface: _ToolStripDropDownItemAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8CA39678-9A2A-3D9A-8B0F-8D2DBA310960}
 // *********************************************************************//
   _ToolStripDropDownItemAccessibleObject = interface(IDispatch)
     ['{8CA39678-9A2A-3D9A-8B0F-8D2DBA310960}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripDropDownItemAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8CA39678-9A2A-3D9A-8B0F-8D2DBA310960}
+// DispIntf:  _ToolStripDropDownItemAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8CA39678-9A2A-3D9A-8B0F-8D2DBA310960}
 // *********************************************************************//
   _ToolStripDropDownItemAccessibleObjectDisp = dispinterface
     ['{8CA39678-9A2A-3D9A-8B0F-8D2DBA310960}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripItemAccessibleObject
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8FD9748A-D04F-3DFB-96A8-5624290F4554}
+// Interface: _ToolStripItemAccessibleObject
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8FD9748A-D04F-3DFB-96A8-5624290F4554}
 // *********************************************************************//
   _ToolStripItemAccessibleObject = interface(IDispatch)
     ['{8FD9748A-D04F-3DFB-96A8-5624290F4554}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripItemAccessibleObjectDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8FD9748A-D04F-3DFB-96A8-5624290F4554}
+// DispIntf:  _ToolStripItemAccessibleObjectDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8FD9748A-D04F-3DFB-96A8-5624290F4554}
 // *********************************************************************//
   _ToolStripItemAccessibleObjectDisp = dispinterface
     ['{8FD9748A-D04F-3DFB-96A8-5624290F4554}']
   end;
 
 // *********************************************************************//
-// Interface :   _ToolStripOverflow
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {75781CE7-317D-3C54-95D4-3E4DC04B4D3F}
+// Interface: _ToolStripOverflow
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {75781CE7-317D-3C54-95D4-3E4DC04B4D3F}
 // *********************************************************************//
   _ToolStripOverflow = interface(IDispatch)
     ['{75781CE7-317D-3C54-95D4-3E4DC04B4D3F}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ToolStripOverflowDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {75781CE7-317D-3C54-95D4-3E4DC04B4D3F}
+// DispIntf:  _ToolStripOverflowDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {75781CE7-317D-3C54-95D4-3E4DC04B4D3F}
 // *********************************************************************//
   _ToolStripOverflowDisp = dispinterface
     ['{75781CE7-317D-3C54-95D4-3E4DC04B4D3F}']
   end;
 
 // *********************************************************************//
-// Interface :   _TrackBar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7A8CC9AD-4E8D-3AAF-941A-1511C9C1372A}
+// Interface: _TrackBar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7A8CC9AD-4E8D-3AAF-941A-1511C9C1372A}
 // *********************************************************************//
   _TrackBar = interface(IDispatch)
     ['{7A8CC9AD-4E8D-3AAF-941A-1511C9C1372A}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TrackBarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7A8CC9AD-4E8D-3AAF-941A-1511C9C1372A}
+// DispIntf:  _TrackBarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7A8CC9AD-4E8D-3AAF-941A-1511C9C1372A}
 // *********************************************************************//
   _TrackBarDisp = dispinterface
     ['{7A8CC9AD-4E8D-3AAF-941A-1511C9C1372A}']
   end;
 
 // *********************************************************************//
-// Interface :   _TreeView
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BA97ED62-9EBD-34E8-94AD-F71AEF67DEFF}
+// Interface: _TreeView
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BA97ED62-9EBD-34E8-94AD-F71AEF67DEFF}
 // *********************************************************************//
   _TreeView = interface(IDispatch)
     ['{BA97ED62-9EBD-34E8-94AD-F71AEF67DEFF}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TreeViewDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BA97ED62-9EBD-34E8-94AD-F71AEF67DEFF}
+// DispIntf:  _TreeViewDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BA97ED62-9EBD-34E8-94AD-F71AEF67DEFF}
 // *********************************************************************//
   _TreeViewDisp = dispinterface
     ['{BA97ED62-9EBD-34E8-94AD-F71AEF67DEFF}']
   end;
 
 // *********************************************************************//
-// Interface :   _TreeNodeMouseHoverEventArgs
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {F51EDF6C-9E49-334A-8AAE-B0C7C631ABE4}
+// Interface: _TreeNodeMouseHoverEventArgs
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {F51EDF6C-9E49-334A-8AAE-B0C7C631ABE4}
 // *********************************************************************//
   _TreeNodeMouseHoverEventArgs = interface(IDispatch)
     ['{F51EDF6C-9E49-334A-8AAE-B0C7C631ABE4}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TreeNodeMouseHoverEventArgsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {F51EDF6C-9E49-334A-8AAE-B0C7C631ABE4}
+// DispIntf:  _TreeNodeMouseHoverEventArgsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {F51EDF6C-9E49-334A-8AAE-B0C7C631ABE4}
 // *********************************************************************//
   _TreeNodeMouseHoverEventArgsDisp = dispinterface
     ['{F51EDF6C-9E49-334A-8AAE-B0C7C631ABE4}']
   end;
 
 // *********************************************************************//
-// Interface :   _UserControl
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6BEEDF4B-B688-3C0D-8B16-D53290790DFB}
+// Interface: _UserControl
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6BEEDF4B-B688-3C0D-8B16-D53290790DFB}
 // *********************************************************************//
   _UserControl = interface(IDispatch)
     ['{6BEEDF4B-B688-3C0D-8B16-D53290790DFB}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _UserControlDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6BEEDF4B-B688-3C0D-8B16-D53290790DFB}
+// DispIntf:  _UserControlDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6BEEDF4B-B688-3C0D-8B16-D53290790DFB}
 // *********************************************************************//
   _UserControlDisp = dispinterface
     ['{6BEEDF4B-B688-3C0D-8B16-D53290790DFB}']
   end;
 
 // *********************************************************************//
-// Interface :   _VScrollBar
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {469D64EC-EB30-3462-A93B-E01BAA5CAF83}
+// Interface: _VScrollBar
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {469D64EC-EB30-3462-A93B-E01BAA5CAF83}
 // *********************************************************************//
   _VScrollBar = interface(IDispatch)
     ['{469D64EC-EB30-3462-A93B-E01BAA5CAF83}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _VScrollBarDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {469D64EC-EB30-3462-A93B-E01BAA5CAF83}
+// DispIntf:  _VScrollBarDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {469D64EC-EB30-3462-A93B-E01BAA5CAF83}
 // *********************************************************************//
   _VScrollBarDisp = dispinterface
     ['{469D64EC-EB30-3462-A93B-E01BAA5CAF83}']
   end;
 
 // *********************************************************************//
-// Interface :   _WebBrowser
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BB134D18-9643-3862-AA3B-17EBDB1A0DEF}
+// Interface: _WebBrowser
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BB134D18-9643-3862-AA3B-17EBDB1A0DEF}
 // *********************************************************************//
   _WebBrowser = interface(IDispatch)
     ['{BB134D18-9643-3862-AA3B-17EBDB1A0DEF}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _WebBrowserDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BB134D18-9643-3862-AA3B-17EBDB1A0DEF}
+// DispIntf:  _WebBrowserDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BB134D18-9643-3862-AA3B-17EBDB1A0DEF}
 // *********************************************************************//
   _WebBrowserDisp = dispinterface
     ['{BB134D18-9643-3862-AA3B-17EBDB1A0DEF}']
   end;
 
 // *********************************************************************//
-// Interface :   _WebBrowserBase
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {764905A9-B10E-3C61-96DD-FA6F4BF8648D}
+// Interface: _WebBrowserBase
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {764905A9-B10E-3C61-96DD-FA6F4BF8648D}
 // *********************************************************************//
   _WebBrowserBase = interface(IDispatch)
     ['{764905A9-B10E-3C61-96DD-FA6F4BF8648D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _WebBrowserBaseDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {764905A9-B10E-3C61-96DD-FA6F4BF8648D}
+// DispIntf:  _WebBrowserBaseDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {764905A9-B10E-3C61-96DD-FA6F4BF8648D}
 // *********************************************************************//
   _WebBrowserBaseDisp = dispinterface
     ['{764905A9-B10E-3C61-96DD-FA6F4BF8648D}']
   end;
 
 // *********************************************************************//
-// Interface :   _ComponentEditorForm
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A7006EFC-6E21-3B74-A9D7-9A2F12E46C8E}
+// Interface: _ComponentEditorForm
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A7006EFC-6E21-3B74-A9D7-9A2F12E46C8E}
 // *********************************************************************//
   _ComponentEditorForm = interface(IDispatch)
     ['{A7006EFC-6E21-3B74-A9D7-9A2F12E46C8E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ComponentEditorFormDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A7006EFC-6E21-3B74-A9D7-9A2F12E46C8E}
+// DispIntf:  _ComponentEditorFormDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A7006EFC-6E21-3B74-A9D7-9A2F12E46C8E}
 // *********************************************************************//
   _ComponentEditorFormDisp = dispinterface
     ['{A7006EFC-6E21-3B74-A9D7-9A2F12E46C8E}']
   end;
 
 // *********************************************************************//
-// Interface :   _ComponentEditorPage
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C858A49A-FDCB-395D-BBB8-9B2B66DC0FB5}
+// Interface: _ComponentEditorPage
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C858A49A-FDCB-395D-BBB8-9B2B66DC0FB5}
 // *********************************************************************//
   _ComponentEditorPage = interface(IDispatch)
     ['{C858A49A-FDCB-395D-BBB8-9B2B66DC0FB5}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ComponentEditorPageDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C858A49A-FDCB-395D-BBB8-9B2B66DC0FB5}
+// DispIntf:  _ComponentEditorPageDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C858A49A-FDCB-395D-BBB8-9B2B66DC0FB5}
 // *********************************************************************//
   _ComponentEditorPageDisp = dispinterface
     ['{C858A49A-FDCB-395D-BBB8-9B2B66DC0FB5}']
   end;
 
 // *********************************************************************//
-// La classe CoAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _AccessibleObject exposée
-// par la CoClasse AccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _AccessibleObject exposed by              
+// the CoClass AccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAccessibleObject = class
     class function Create: _AccessibleObject;
@@ -3057,11 +3058,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoForm fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Form exposée
-// par la CoClasse Form. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoForm provides a Create and CreateRemote method to          
+// create instances of the default interface _Form exposed by              
+// the CoClass Form. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoForm = class
     class function Create: _Form;
@@ -3069,11 +3070,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAxHost fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _AxHost exposée
-// par la CoClasse AxHost. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAxHost provides a Create and CreateRemote method to          
+// create instances of the default interface _AxHost exposed by              
+// the CoClass AxHost. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAxHost = class
     class function Create: _AxHost;
@@ -3081,11 +3082,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Control exposée
-// par la CoClasse Control. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoControl provides a Create and CreateRemote method to          
+// create instances of the default interface _Control exposed by              
+// the CoClass Control. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoControl = class
     class function Create: _Control;
@@ -3093,11 +3094,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoContainerControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ContainerControl exposée
-// par la CoClasse ContainerControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoContainerControl provides a Create and CreateRemote method to          
+// create instances of the default interface _ContainerControl exposed by              
+// the CoClass ContainerControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoContainerControl = class
     class function Create: _ContainerControl;
@@ -3105,11 +3106,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoBindingNavigator fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _BindingNavigator exposée
-// par la CoClasse BindingNavigator. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoBindingNavigator provides a Create and CreateRemote method to          
+// create instances of the default interface _BindingNavigator exposed by              
+// the CoClass BindingNavigator. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoBindingNavigator = class
     class function Create: _BindingNavigator;
@@ -3117,11 +3118,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStrip fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStrip exposée
-// par la CoClasse ToolStrip. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStrip provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStrip exposed by              
+// the CoClass ToolStrip. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStrip = class
     class function Create: _ToolStrip;
@@ -3129,11 +3130,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoButton fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Button exposée
-// par la CoClasse Button. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoButton provides a Create and CreateRemote method to          
+// create instances of the default interface _Button exposed by              
+// the CoClass Button. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoButton = class
     class function Create: _Button;
@@ -3141,11 +3142,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoButtonBase fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ButtonBase exposée
-// par la CoClasse ButtonBase. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoButtonBase provides a Create and CreateRemote method to          
+// create instances of the default interface _ButtonBase exposed by              
+// the CoClass ButtonBase. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoButtonBase = class
     class function Create: _ButtonBase;
@@ -3153,11 +3154,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMouseEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _MouseEventArgs exposée
-// par la CoClasse MouseEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMouseEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _MouseEventArgs exposed by              
+// the CoClass MouseEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMouseEventArgs = class
     class function Create: _MouseEventArgs;
@@ -3165,11 +3166,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoButtonBaseAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ButtonBaseAccessibleObject exposée
-// par la CoClasse ButtonBaseAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoButtonBaseAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _ButtonBaseAccessibleObject exposed by              
+// the CoClass ButtonBaseAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoButtonBaseAccessibleObject = class
     class function Create: _ButtonBaseAccessibleObject;
@@ -3177,11 +3178,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoControlAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ControlAccessibleObject exposée
-// par la CoClasse ControlAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoControlAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _ControlAccessibleObject exposed by              
+// the CoClass ControlAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoControlAccessibleObject = class
     class function Create: _ControlAccessibleObject;
@@ -3189,11 +3190,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoKeyEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _KeyEventArgs exposée
-// par la CoClasse KeyEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoKeyEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _KeyEventArgs exposed by              
+// the CoClass KeyEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoKeyEventArgs = class
     class function Create: _KeyEventArgs;
@@ -3201,11 +3202,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCheckBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _CheckBox exposée
-// par la CoClasse CheckBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCheckBox provides a Create and CreateRemote method to          
+// create instances of the default interface _CheckBox exposed by              
+// the CoClass CheckBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCheckBox = class
     class function Create: _CheckBox;
@@ -3213,11 +3214,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCheckBoxAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _CheckBoxAccessibleObject exposée
-// par la CoClasse CheckBoxAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCheckBoxAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _CheckBoxAccessibleObject exposed by              
+// the CoClass CheckBoxAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCheckBoxAccessibleObject = class
     class function Create: _CheckBoxAccessibleObject;
@@ -3225,11 +3226,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCheckedListBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _CheckedListBox exposée
-// par la CoClasse CheckedListBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCheckedListBox provides a Create and CreateRemote method to          
+// create instances of the default interface _CheckedListBox exposed by              
+// the CoClass CheckedListBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCheckedListBox = class
     class function Create: _CheckedListBox;
@@ -3237,11 +3238,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoListBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ListBox exposée
-// par la CoClasse ListBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoListBox provides a Create and CreateRemote method to          
+// create instances of the default interface _ListBox exposed by              
+// the CoClass ListBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoListBox = class
     class function Create: _ListBox;
@@ -3249,11 +3250,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoKeyPressEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _KeyPressEventArgs exposée
-// par la CoClasse KeyPressEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoKeyPressEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _KeyPressEventArgs exposed by              
+// the CoClass KeyPressEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoKeyPressEventArgs = class
     class function Create: _KeyPressEventArgs;
@@ -3261,11 +3262,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoItemCheckEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ItemCheckEventArgs exposée
-// par la CoClasse ItemCheckEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoItemCheckEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _ItemCheckEventArgs exposed by              
+// the CoClass ItemCheckEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoItemCheckEventArgs = class
     class function Create: _ItemCheckEventArgs;
@@ -3273,11 +3274,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoListView fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ListView exposée
-// par la CoClasse ListView. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoListView provides a Create and CreateRemote method to          
+// create instances of the default interface _ListView exposed by              
+// the CoClass ListView. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoListView = class
     class function Create: _ListView;
@@ -3285,11 +3286,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoComboBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ComboBox exposée
-// par la CoClasse ComboBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoComboBox provides a Create and CreateRemote method to          
+// create instances of the default interface _ComboBox exposed by              
+// the CoClass ComboBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoComboBox = class
     class function Create: _ComboBox;
@@ -3297,11 +3298,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoListControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ListControl exposée
-// par la CoClasse ListControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoListControl provides a Create and CreateRemote method to          
+// create instances of the default interface _ListControl exposed by              
+// the CoClass ListControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoListControl = class
     class function Create: _ListControl;
@@ -3309,11 +3310,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoChildAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ChildAccessibleObject exposée
-// par la CoClasse ChildAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoChildAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _ChildAccessibleObject exposed by              
+// the CoClass ChildAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoChildAccessibleObject = class
     class function Create: _ChildAccessibleObject;
@@ -3321,11 +3322,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoScrollableControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ScrollableControl exposée
-// par la CoClasse ScrollableControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoScrollableControl provides a Create and CreateRemote method to          
+// create instances of the default interface _ScrollableControl exposed by              
+// the CoClass ScrollableControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoScrollableControl = class
     class function Create: _ScrollableControl;
@@ -3333,11 +3334,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoContextMenuStrip fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ContextMenuStrip exposée
-// par la CoClasse ContextMenuStrip. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoContextMenuStrip provides a Create and CreateRemote method to          
+// create instances of the default interface _ContextMenuStrip exposed by              
+// the CoClass ContextMenuStrip. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoContextMenuStrip = class
     class function Create: _ContextMenuStrip;
@@ -3345,11 +3346,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripDropDownMenu fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripDropDownMenu exposée
-// par la CoClasse ToolStripDropDownMenu. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripDropDownMenu provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripDropDownMenu exposed by              
+// the CoClass ToolStripDropDownMenu. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripDropDownMenu = class
     class function Create: _ToolStripDropDownMenu;
@@ -3357,11 +3358,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDragEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DragEventArgs exposée
-// par la CoClasse DragEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDragEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _DragEventArgs exposed by              
+// the CoClass DragEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDragEventArgs = class
     class function Create: _DragEventArgs;
@@ -3369,11 +3370,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoGiveFeedbackEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _GiveFeedbackEventArgs exposée
-// par la CoClasse GiveFeedbackEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoGiveFeedbackEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _GiveFeedbackEventArgs exposed by              
+// the CoClass GiveFeedbackEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoGiveFeedbackEventArgs = class
     class function Create: _GiveFeedbackEventArgs;
@@ -3381,11 +3382,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoHelpEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _HelpEventArgs exposée
-// par la CoClasse HelpEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoHelpEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _HelpEventArgs exposed by              
+// the CoClass HelpEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoHelpEventArgs = class
     class function Create: _HelpEventArgs;
@@ -3393,11 +3394,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoQueryContinueDragEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _QueryContinueDragEventArgs exposée
-// par la CoClasse QueryContinueDragEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoQueryContinueDragEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _QueryContinueDragEventArgs exposed by              
+// the CoClass QueryContinueDragEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoQueryContinueDragEventArgs = class
     class function Create: _QueryContinueDragEventArgs;
@@ -3405,11 +3406,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDataGrid fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DataGrid exposée
-// par la CoClasse DataGrid. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDataGrid provides a Create and CreateRemote method to          
+// create instances of the default interface _DataGrid exposed by              
+// the CoClass DataGrid. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDataGrid = class
     class function Create: _DataGrid;
@@ -3417,11 +3418,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoScrollBar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ScrollBar exposée
-// par la CoClasse ScrollBar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoScrollBar provides a Create and CreateRemote method to          
+// create instances of the default interface _ScrollBar exposed by              
+// the CoClass ScrollBar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoScrollBar = class
     class function Create: _ScrollBar;
@@ -3429,11 +3430,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNavigateEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NavigateEventArgs exposée
-// par la CoClasse NavigateEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNavigateEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _NavigateEventArgs exposed by              
+// the CoClass NavigateEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNavigateEventArgs = class
     class function Create: _NavigateEventArgs;
@@ -3441,11 +3442,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoScrollEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ScrollEventArgs exposée
-// par la CoClasse ScrollEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoScrollEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _ScrollEventArgs exposed by              
+// the CoClass ScrollEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoScrollEventArgs = class
     class function Create: _ScrollEventArgs;
@@ -3453,11 +3454,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDataGridTextBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DataGridTextBox exposée
-// par la CoClasse DataGridTextBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDataGridTextBox provides a Create and CreateRemote method to          
+// create instances of the default interface _DataGridTextBox exposed by              
+// the CoClass DataGridTextBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDataGridTextBox = class
     class function Create: _DataGridTextBox;
@@ -3465,11 +3466,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTextBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TextBox exposée
-// par la CoClasse TextBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTextBox provides a Create and CreateRemote method to          
+// create instances of the default interface _TextBox exposed by              
+// the CoClass TextBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTextBox = class
     class function Create: _TextBox;
@@ -3477,11 +3478,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDataGridView fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DataGridView exposée
-// par la CoClasse DataGridView. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDataGridView provides a Create and CreateRemote method to          
+// create instances of the default interface _DataGridView exposed by              
+// the CoClass DataGridView. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDataGridView = class
     class function Create: _DataGridView;
@@ -3489,11 +3490,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPanel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Panel exposée
-// par la CoClasse Panel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPanel provides a Create and CreateRemote method to          
+// create instances of the default interface _Panel exposed by              
+// the CoClass Panel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPanel = class
     class function Create: _Panel;
@@ -3501,11 +3502,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDataGridViewComboBoxEditingControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DataGridViewComboBoxEditingControl exposée
-// par la CoClasse DataGridViewComboBoxEditingControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDataGridViewComboBoxEditingControl provides a Create and CreateRemote method to          
+// create instances of the default interface _DataGridViewComboBoxEditingControl exposed by              
+// the CoClass DataGridViewComboBoxEditingControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDataGridViewComboBoxEditingControl = class
     class function Create: _DataGridViewComboBoxEditingControl;
@@ -3513,11 +3514,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDataGridViewTextBoxEditingControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DataGridViewTextBoxEditingControl exposée
-// par la CoClasse DataGridViewTextBoxEditingControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDataGridViewTextBoxEditingControl provides a Create and CreateRemote method to          
+// create instances of the default interface _DataGridViewTextBoxEditingControl exposed by              
+// the CoClass DataGridViewTextBoxEditingControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDataGridViewTextBoxEditingControl = class
     class function Create: _DataGridViewTextBoxEditingControl;
@@ -3525,11 +3526,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDateTimePicker fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DateTimePicker exposée
-// par la CoClasse DateTimePicker. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDateTimePicker provides a Create and CreateRemote method to          
+// create instances of the default interface _DateTimePicker exposed by              
+// the CoClass DateTimePicker. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDateTimePicker = class
     class function Create: _DateTimePicker;
@@ -3537,11 +3538,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDateTimePickerAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DateTimePickerAccessibleObject exposée
-// par la CoClasse DateTimePickerAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDateTimePickerAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _DateTimePickerAccessibleObject exposed by              
+// the CoClass DateTimePickerAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDateTimePickerAccessibleObject = class
     class function Create: _DateTimePickerAccessibleObject;
@@ -3549,11 +3550,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDomainUpDown fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DomainUpDown exposée
-// par la CoClasse DomainUpDown. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDomainUpDown provides a Create and CreateRemote method to          
+// create instances of the default interface _DomainUpDown exposed by              
+// the CoClass DomainUpDown. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDomainUpDown = class
     class function Create: _DomainUpDown;
@@ -3561,11 +3562,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoUpDownBase fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _UpDownBase exposée
-// par la CoClasse UpDownBase. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoUpDownBase provides a Create and CreateRemote method to          
+// create instances of the default interface _UpDownBase exposed by              
+// the CoClass UpDownBase. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoUpDownBase = class
     class function Create: _UpDownBase;
@@ -3573,11 +3574,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDomainItemAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DomainItemAccessibleObject exposée
-// par la CoClasse DomainItemAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDomainItemAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _DomainItemAccessibleObject exposed by              
+// the CoClass DomainItemAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDomainItemAccessibleObject = class
     class function Create: _DomainItemAccessibleObject;
@@ -3585,11 +3586,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDomainUpDownAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _DomainUpDownAccessibleObject exposée
-// par la CoClasse DomainUpDownAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDomainUpDownAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _DomainUpDownAccessibleObject exposed by              
+// the CoClass DomainUpDownAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDomainUpDownAccessibleObject = class
     class function Create: _DomainUpDownAccessibleObject;
@@ -3597,11 +3598,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoFlowLayoutPanel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _FlowLayoutPanel exposée
-// par la CoClasse FlowLayoutPanel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoFlowLayoutPanel provides a Create and CreateRemote method to          
+// create instances of the default interface _FlowLayoutPanel exposed by              
+// the CoClass FlowLayoutPanel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoFlowLayoutPanel = class
     class function Create: _FlowLayoutPanel;
@@ -3609,11 +3610,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMenuStrip fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _MenuStrip exposée
-// par la CoClasse MenuStrip. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMenuStrip provides a Create and CreateRemote method to          
+// create instances of the default interface _MenuStrip exposed by              
+// the CoClass MenuStrip. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMenuStrip = class
     class function Create: _MenuStrip;
@@ -3621,11 +3622,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoGroupBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _GroupBox exposée
-// par la CoClasse GroupBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoGroupBox provides a Create and CreateRemote method to          
+// create instances of the default interface _GroupBox exposed by              
+// the CoClass GroupBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoGroupBox = class
     class function Create: _GroupBox;
@@ -3633,11 +3634,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoHScrollBar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _HScrollBar exposée
-// par la CoClasse HScrollBar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoHScrollBar provides a Create and CreateRemote method to          
+// create instances of the default interface _HScrollBar exposed by              
+// the CoClass HScrollBar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoHScrollBar = class
     class function Create: _HScrollBar;
@@ -3645,11 +3646,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoItemDragEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ItemDragEventArgs exposée
-// par la CoClasse ItemDragEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoItemDragEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _ItemDragEventArgs exposed by              
+// the CoClass ItemDragEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoItemDragEventArgs = class
     class function Create: _ItemDragEventArgs;
@@ -3657,11 +3658,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLabel_ fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Label exposée
-// par la CoClasse Label_. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLabel_ provides a Create and CreateRemote method to          
+// create instances of the default interface _Label exposed by              
+// the CoClass Label_. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLabel_ = class
     class function Create: _Label;
@@ -3669,11 +3670,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLinkClickedEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _LinkClickedEventArgs exposée
-// par la CoClasse LinkClickedEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLinkClickedEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _LinkClickedEventArgs exposed by              
+// the CoClass LinkClickedEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLinkClickedEventArgs = class
     class function Create: _LinkClickedEventArgs;
@@ -3681,11 +3682,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLinkLabel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _LinkLabel exposée
-// par la CoClasse LinkLabel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLinkLabel provides a Create and CreateRemote method to          
+// create instances of the default interface _LinkLabel exposed by              
+// the CoClass LinkLabel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLinkLabel = class
     class function Create: _LinkLabel;
@@ -3693,11 +3694,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLinkLabelLinkClickedEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _LinkLabelLinkClickedEventArgs exposée
-// par la CoClasse LinkLabelLinkClickedEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLinkLabelLinkClickedEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _LinkLabelLinkClickedEventArgs exposed by              
+// the CoClass LinkLabelLinkClickedEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLinkLabelLinkClickedEventArgs = class
     class function Create: _LinkLabelLinkClickedEventArgs;
@@ -3705,11 +3706,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoListViewItemMouseHoverEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ListViewItemMouseHoverEventArgs exposée
-// par la CoClasse ListViewItemMouseHoverEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoListViewItemMouseHoverEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _ListViewItemMouseHoverEventArgs exposed by              
+// the CoClass ListViewItemMouseHoverEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoListViewItemMouseHoverEventArgs = class
     class function Create: _ListViewItemMouseHoverEventArgs;
@@ -3717,11 +3718,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMaskedTextBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _MaskedTextBox exposée
-// par la CoClasse MaskedTextBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMaskedTextBox provides a Create and CreateRemote method to          
+// create instances of the default interface _MaskedTextBox exposed by              
+// the CoClass MaskedTextBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMaskedTextBox = class
     class function Create: _MaskedTextBox;
@@ -3729,11 +3730,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTextBoxBase fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TextBoxBase exposée
-// par la CoClasse TextBoxBase. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTextBoxBase provides a Create and CreateRemote method to          
+// create instances of the default interface _TextBoxBase exposed by              
+// the CoClass TextBoxBase. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTextBoxBase = class
     class function Create: _TextBoxBase;
@@ -3741,11 +3742,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMdiClient fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _MdiClient exposée
-// par la CoClasse MdiClient. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMdiClient provides a Create and CreateRemote method to          
+// create instances of the default interface _MdiClient exposed by              
+// the CoClass MdiClient. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMdiClient = class
     class function Create: _MdiClient;
@@ -3753,11 +3754,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMonthCalendar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _MonthCalendar exposée
-// par la CoClasse MonthCalendar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMonthCalendar provides a Create and CreateRemote method to          
+// create instances of the default interface _MonthCalendar exposed by              
+// the CoClass MonthCalendar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMonthCalendar = class
     class function Create: _MonthCalendar;
@@ -3765,11 +3766,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNumericUpDown fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NumericUpDown exposée
-// par la CoClasse NumericUpDown. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNumericUpDown provides a Create and CreateRemote method to          
+// create instances of the default interface _NumericUpDown exposed by              
+// the CoClass NumericUpDown. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNumericUpDown = class
     class function Create: _NumericUpDown;
@@ -3777,11 +3778,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPictureBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _PictureBox exposée
-// par la CoClasse PictureBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPictureBox provides a Create and CreateRemote method to          
+// create instances of the default interface _PictureBox exposed by              
+// the CoClass PictureBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPictureBox = class
     class function Create: _PictureBox;
@@ -3789,11 +3790,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPrintPreviewControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _PrintPreviewControl exposée
-// par la CoClasse PrintPreviewControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPrintPreviewControl provides a Create and CreateRemote method to          
+// create instances of the default interface _PrintPreviewControl exposed by              
+// the CoClass PrintPreviewControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPrintPreviewControl = class
     class function Create: _PrintPreviewControl;
@@ -3801,11 +3802,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPrintPreviewDialog fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _PrintPreviewDialog exposée
-// par la CoClasse PrintPreviewDialog. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPrintPreviewDialog provides a Create and CreateRemote method to          
+// create instances of the default interface _PrintPreviewDialog exposed by              
+// the CoClass PrintPreviewDialog. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPrintPreviewDialog = class
     class function Create: _PrintPreviewDialog;
@@ -3813,11 +3814,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoProgressBar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ProgressBar exposée
-// par la CoClasse ProgressBar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoProgressBar provides a Create and CreateRemote method to          
+// create instances of the default interface _ProgressBar exposed by              
+// the CoClass ProgressBar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoProgressBar = class
     class function Create: _ProgressBar;
@@ -3825,11 +3826,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPropertyGrid fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _PropertyGrid exposée
-// par la CoClasse PropertyGrid. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPropertyGrid provides a Create and CreateRemote method to          
+// create instances of the default interface _PropertyGrid exposed by              
+// the CoClass PropertyGrid. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPropertyGrid = class
     class function Create: _PropertyGrid;
@@ -3837,11 +3838,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPropertyTabChangedEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _PropertyTabChangedEventArgs exposée
-// par la CoClasse PropertyTabChangedEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPropertyTabChangedEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _PropertyTabChangedEventArgs exposed by              
+// the CoClass PropertyTabChangedEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPropertyTabChangedEventArgs = class
     class function Create: _PropertyTabChangedEventArgs;
@@ -3849,11 +3850,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPropertyValueChangedEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _PropertyValueChangedEventArgs exposée
-// par la CoClasse PropertyValueChangedEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPropertyValueChangedEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _PropertyValueChangedEventArgs exposed by              
+// the CoClass PropertyValueChangedEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPropertyValueChangedEventArgs = class
     class function Create: _PropertyValueChangedEventArgs;
@@ -3861,11 +3862,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoQueryAccessibilityHelpEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _QueryAccessibilityHelpEventArgs exposée
-// par la CoClasse QueryAccessibilityHelpEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoQueryAccessibilityHelpEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _QueryAccessibilityHelpEventArgs exposed by              
+// the CoClass QueryAccessibilityHelpEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoQueryAccessibilityHelpEventArgs = class
     class function Create: _QueryAccessibilityHelpEventArgs;
@@ -3873,11 +3874,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoRadioButton fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _RadioButton exposée
-// par la CoClasse RadioButton. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoRadioButton provides a Create and CreateRemote method to          
+// create instances of the default interface _RadioButton exposed by              
+// the CoClass RadioButton. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoRadioButton = class
     class function Create: _RadioButton;
@@ -3885,11 +3886,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoRadioButtonAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _RadioButtonAccessibleObject exposée
-// par la CoClasse RadioButtonAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoRadioButtonAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _RadioButtonAccessibleObject exposed by              
+// the CoClass RadioButtonAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoRadioButtonAccessibleObject = class
     class function Create: _RadioButtonAccessibleObject;
@@ -3897,11 +3898,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoRichTextBox fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _RichTextBox exposée
-// par la CoClasse RichTextBox. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoRichTextBox provides a Create and CreateRemote method to          
+// create instances of the default interface _RichTextBox exposed by              
+// the CoClass RichTextBox. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoRichTextBox = class
     class function Create: _RichTextBox;
@@ -3909,11 +3910,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSplitContainer fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _SplitContainer exposée
-// par la CoClasse SplitContainer. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSplitContainer provides a Create and CreateRemote method to          
+// create instances of the default interface _SplitContainer exposed by              
+// the CoClass SplitContainer. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSplitContainer = class
     class function Create: _SplitContainer;
@@ -3921,11 +3922,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSplitterPanel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _SplitterPanel exposée
-// par la CoClasse SplitterPanel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSplitterPanel provides a Create and CreateRemote method to          
+// create instances of the default interface _SplitterPanel exposed by              
+// the CoClass SplitterPanel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSplitterPanel = class
     class function Create: _SplitterPanel;
@@ -3933,11 +3934,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSplitterEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _SplitterEventArgs exposée
-// par la CoClasse SplitterEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSplitterEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _SplitterEventArgs exposed by              
+// the CoClass SplitterEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSplitterEventArgs = class
     class function Create: _SplitterEventArgs;
@@ -3945,11 +3946,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSplitter fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Splitter exposée
-// par la CoClasse Splitter. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSplitter provides a Create and CreateRemote method to          
+// create instances of the default interface _Splitter exposed by              
+// the CoClass Splitter. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSplitter = class
     class function Create: _Splitter;
@@ -3957,11 +3958,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStatusBar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _StatusBar exposée
-// par la CoClasse StatusBar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStatusBar provides a Create and CreateRemote method to          
+// create instances of the default interface _StatusBar exposed by              
+// the CoClass StatusBar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStatusBar = class
     class function Create: _StatusBar;
@@ -3969,11 +3970,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStatusStrip fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _StatusStrip exposée
-// par la CoClasse StatusStrip. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStatusStrip provides a Create and CreateRemote method to          
+// create instances of the default interface _StatusStrip exposed by              
+// the CoClass StatusStrip. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStatusStrip = class
     class function Create: _StatusStrip;
@@ -3981,11 +3982,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTabControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TabControl exposée
-// par la CoClasse TabControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTabControl provides a Create and CreateRemote method to          
+// create instances of the default interface _TabControl exposed by              
+// the CoClass TabControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTabControl = class
     class function Create: _TabControl;
@@ -3993,11 +3994,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTabPage fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TabPage exposée
-// par la CoClasse TabPage. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTabPage provides a Create and CreateRemote method to          
+// create instances of the default interface _TabPage exposed by              
+// the CoClass TabPage. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTabPage = class
     class function Create: _TabPage;
@@ -4005,11 +4006,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTableLayoutPanel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TableLayoutPanel exposée
-// par la CoClasse TableLayoutPanel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTableLayoutPanel provides a Create and CreateRemote method to          
+// create instances of the default interface _TableLayoutPanel exposed by              
+// the CoClass TableLayoutPanel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTableLayoutPanel = class
     class function Create: _TableLayoutPanel;
@@ -4017,11 +4018,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoThreadExceptionDialog fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ThreadExceptionDialog exposée
-// par la CoClasse ThreadExceptionDialog. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoThreadExceptionDialog provides a Create and CreateRemote method to          
+// create instances of the default interface _ThreadExceptionDialog exposed by              
+// the CoClass ThreadExceptionDialog. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoThreadExceptionDialog = class
     class function Create: _ThreadExceptionDialog;
@@ -4029,11 +4030,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolBar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolBar exposée
-// par la CoClasse ToolBar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolBar provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolBar exposed by              
+// the CoClass ToolBar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolBar = class
     class function Create: _ToolBar;
@@ -4041,11 +4042,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripAccessibleObject exposée
-// par la CoClasse ToolStripAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripAccessibleObject exposed by              
+// the CoClass ToolStripAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripAccessibleObject = class
     class function Create: _ToolStripAccessibleObject;
@@ -4053,11 +4054,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripContainer fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripContainer exposée
-// par la CoClasse ToolStripContainer. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripContainer provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripContainer exposed by              
+// the CoClass ToolStripContainer. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripContainer = class
     class function Create: _ToolStripContainer;
@@ -4065,11 +4066,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripPanel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripPanel exposée
-// par la CoClasse ToolStripPanel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripPanel provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripPanel exposed by              
+// the CoClass ToolStripPanel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripPanel = class
     class function Create: _ToolStripPanel;
@@ -4077,11 +4078,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripContentPanel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripContentPanel exposée
-// par la CoClasse ToolStripContentPanel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripContentPanel provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripContentPanel exposed by              
+// the CoClass ToolStripContentPanel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripContentPanel = class
     class function Create: _ToolStripContentPanel;
@@ -4089,11 +4090,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripDropDown fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripDropDown exposée
-// par la CoClasse ToolStripDropDown. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripDropDown provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripDropDown exposed by              
+// the CoClass ToolStripDropDown. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripDropDown = class
     class function Create: _ToolStripDropDown;
@@ -4101,11 +4102,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripDropDownAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripDropDownAccessibleObject exposée
-// par la CoClasse ToolStripDropDownAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripDropDownAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripDropDownAccessibleObject exposed by              
+// the CoClass ToolStripDropDownAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripDropDownAccessibleObject = class
     class function Create: _ToolStripDropDownAccessibleObject;
@@ -4113,11 +4114,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripDropDownItemAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripDropDownItemAccessibleObject exposée
-// par la CoClasse ToolStripDropDownItemAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripDropDownItemAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripDropDownItemAccessibleObject exposed by              
+// the CoClass ToolStripDropDownItemAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripDropDownItemAccessibleObject = class
     class function Create: _ToolStripDropDownItemAccessibleObject;
@@ -4125,11 +4126,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripItemAccessibleObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripItemAccessibleObject exposée
-// par la CoClasse ToolStripItemAccessibleObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripItemAccessibleObject provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripItemAccessibleObject exposed by              
+// the CoClass ToolStripItemAccessibleObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripItemAccessibleObject = class
     class function Create: _ToolStripItemAccessibleObject;
@@ -4137,11 +4138,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoToolStripOverflow fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ToolStripOverflow exposée
-// par la CoClasse ToolStripOverflow. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoToolStripOverflow provides a Create and CreateRemote method to          
+// create instances of the default interface _ToolStripOverflow exposed by              
+// the CoClass ToolStripOverflow. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoToolStripOverflow = class
     class function Create: _ToolStripOverflow;
@@ -4149,11 +4150,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTrackBar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TrackBar exposée
-// par la CoClasse TrackBar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTrackBar provides a Create and CreateRemote method to          
+// create instances of the default interface _TrackBar exposed by              
+// the CoClass TrackBar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTrackBar = class
     class function Create: _TrackBar;
@@ -4161,11 +4162,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTreeView fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TreeView exposée
-// par la CoClasse TreeView. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTreeView provides a Create and CreateRemote method to          
+// create instances of the default interface _TreeView exposed by              
+// the CoClass TreeView. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTreeView = class
     class function Create: _TreeView;
@@ -4173,11 +4174,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTreeNodeMouseHoverEventArgs fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TreeNodeMouseHoverEventArgs exposée
-// par la CoClasse TreeNodeMouseHoverEventArgs. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTreeNodeMouseHoverEventArgs provides a Create and CreateRemote method to          
+// create instances of the default interface _TreeNodeMouseHoverEventArgs exposed by              
+// the CoClass TreeNodeMouseHoverEventArgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTreeNodeMouseHoverEventArgs = class
     class function Create: _TreeNodeMouseHoverEventArgs;
@@ -4185,11 +4186,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoUserControl fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _UserControl exposée
-// par la CoClasse UserControl. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoUserControl provides a Create and CreateRemote method to          
+// create instances of the default interface _UserControl exposed by              
+// the CoClass UserControl. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoUserControl = class
     class function Create: _UserControl;
@@ -4197,11 +4198,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoVScrollBar fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _VScrollBar exposée
-// par la CoClasse VScrollBar. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoVScrollBar provides a Create and CreateRemote method to          
+// create instances of the default interface _VScrollBar exposed by              
+// the CoClass VScrollBar. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoVScrollBar = class
     class function Create: _VScrollBar;
@@ -4209,11 +4210,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoWebBrowser fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _WebBrowser exposée
-// par la CoClasse WebBrowser. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoWebBrowser provides a Create and CreateRemote method to          
+// create instances of the default interface _WebBrowser exposed by              
+// the CoClass WebBrowser. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoWebBrowser = class
     class function Create: _WebBrowser;
@@ -4221,11 +4222,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoWebBrowserBase fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _WebBrowserBase exposée
-// par la CoClasse WebBrowserBase. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoWebBrowserBase provides a Create and CreateRemote method to          
+// create instances of the default interface _WebBrowserBase exposed by              
+// the CoClass WebBrowserBase. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoWebBrowserBase = class
     class function Create: _WebBrowserBase;
@@ -4233,11 +4234,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoComponentEditorForm fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ComponentEditorForm exposée
-// par la CoClasse ComponentEditorForm. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoComponentEditorForm provides a Create and CreateRemote method to          
+// create instances of the default interface _ComponentEditorForm exposed by              
+// the CoClass ComponentEditorForm. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoComponentEditorForm = class
     class function Create: _ComponentEditorForm;
@@ -4245,11 +4246,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoComponentEditorPage fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ComponentEditorPage exposée
-// par la CoClasse ComponentEditorPage. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoComponentEditorPage provides a Create and CreateRemote method to          
+// create instances of the default interface _ComponentEditorPage exposed by              
+// the CoClass ComponentEditorPage. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoComponentEditorPage = class
     class function Create: _ComponentEditorPage;

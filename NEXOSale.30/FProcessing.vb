@@ -14,6 +14,8 @@ Imports System.Drawing.Printing
 Imports System.Xml.Serialization
 Imports System.Xml
 Imports System.Reflection
+Imports Microsoft
+
 
 #Const NOCOLOR = True
 
@@ -27,7 +29,7 @@ Public Class FProcessing
 	Private isInError As Boolean = False
 	Private MyDialogResult As DialogResult = DialogResult.None
 	Private cancelButtonText As String
-	Private clientSettings As NexoRetailerClientSettings
+	'Private clientSettings As NexoRetailerClientSettings
 	Private requestedOperation As NexoOperation = Nothing
 	Private Const HEADER As String = "PROCESSING WINDOW - "
 	Private nexoSale As NEXOSALE
@@ -315,19 +317,21 @@ Public Class FProcessing
 		CLog.DEBUG($"{HEADER} assembly: {Assembly.GetAssembly(GetType(Activity))}")
 		InitializeComponent()
 		CLog.DEBUG($"{HEADER} After InitializeComponenents")
-		clientSettings = New NexoRetailerClientSettings With
-		{
-		.OnSentRequestStatusChanged = AddressOf OnSentRequestStatusChanged,
-		.OnReceivedNotification = AddressOf OnReceivedNotification,
-		.OnReceivedRequest = AddressOf OnReceivedRequest,
-		.OnReceivedReply = AddressOf OnReceivedReply,
-		.OnSend = AddressOf OnSend,
-		.StreamClientSettings = New CStreamClientSettings With
-			{
-			.IP = nexoSale.Settings.Primary.ServerIP,
-			.Port = nexoSale.Settings.Primary.ServerPort
-			}
-		}
+
+		'clientSettings = New NexoRetailerClientSettings With
+		'	{
+		'	.OnSentRequestStatusChanged = AddressOf OnSentRequestStatusChanged,
+		'	.OnReceivedNotification = AddressOf OnReceivedNotification,
+		'	.OnReceivedRequest = AddressOf OnReceivedRequest,
+		'	.OnReceivedReply = AddressOf OnReceivedReply,
+		'	.OnSend = AddressOf OnSend,
+		'	.StreamClientSettings = New CStreamClientSettings With
+		'		{
+		'		.IP = nexoSale.Settings.Primary.ServerIP,
+		'		.Port = nexoSale.Settings.Primary.ServerPort
+		'		}
+		'	}
+
 		canBeCancelled = Not ope.POI.Synchronous AndAlso ope.POI.SupportsCancel
 		CLog.DEBUG($"{HEADER} After clientSettings")
 
@@ -354,7 +358,6 @@ Public Class FProcessing
 
 		canStart = 0 <> stackOfActions.Count
 		CLog.DEBUG($"{HEADER} stackOfActions count: {stackOfActions.Count}")
-		stackOfActions.Push(Action.Login)
 		requestedOperation = ope
 		CLog.DEBUG($"{HEADER} requestedOperation: {ope}")
 	End Sub
@@ -367,7 +370,7 @@ Public Class FProcessing
 		Win32.PostMessage(hwnd, msg, wparam, lparam)
 	End Sub
 
-	Private Sub SendMessage(msg As UInteger, Optional wparam As Integer = 0, Optional lparam As Integer = 0)
+	Private Sub SendMessage(msg As Integer, Optional wparam As Integer = 0, Optional lparam As Integer = 0)
 		Win32.SendMessage(Me.Handle, msg, wparam, lparam)
 	End Sub
 
@@ -427,11 +430,12 @@ Public Class FProcessing
 				timerGlobal = New Windows.Forms.Timer
 				timerGlobal.Interval = ONE_SECOND
 				timerGlobal.Start()
-				If nexoSale.Connected Then
-					PostMessage(WM_ACTION)
-				Else
-					PostMessage(WM_CONNECT)
-				End If
+				'If nexoSale.Connected Then
+				'	PostMessage(WM_ACTION)
+				'Else
+				'	PostMessage(WM_CONNECT)
+				'End If
+				PostMessage(WM_CONNECT)
 
 			Case WM_STOP
 				CLog.Add(HEADER & "WM_STOP")
@@ -449,31 +453,44 @@ Public Class FProcessing
 
 			Case WM_CONNECT
 				CLog.Add(HEADER & "WM_CONNECT")
-				'If nexoSale.UseBackup Then
-				'	Caption = "CONNECTING TO POI (USING BACKUP)"
-				'Else
-				'	Caption = "CONNECTING TO POI"
-				'End If
-				'If Not nexoSale.Connect() Then
-				'	isInError = True
-				'	message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = "Failed to connect to POI"})
-				'	PostMessage(WM_AUTOCLOSE_START)
-				'Else
-				'	PostMessage(WM_ACTION)
-				'End If
 
-				Dim frm As New FWait(nexoSale)
-				Select Case frm.ShowDialog()
-					Case DialogResult.Yes
-						PostMessage(WM_ACTION)
+				Dim clientSettings = New NexoRetailerClientSettings With
+				{
+				.OnSentRequestStatusChanged = AddressOf OnSentRequestStatusChanged,
+				.OnReceivedNotification = AddressOf OnReceivedNotification,
+				.OnReceivedRequest = AddressOf OnReceivedRequest,
+				.OnReceivedReply = AddressOf OnReceivedReply,
+				.OnSend = AddressOf OnSend
+				}
+				'clientSettings.StreamClientSettings = New CStreamClientSettings With
+				'{
+				'.IP = nexoSale.Settings.Primary.ServerIP,
+				'.Port = nexoSale.Settings.Primary.ServerPort
+				'}
 
-					Case Else
-						nexoSale._poiisoffline = True
-						isInError = True
-						message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = My.Resources.CommonResources.FProcessing_FailedToConnectToPOI})
-						PostMessage(WM_AUTOCLOSE_START)
-				End Select
-				frm.Dispose()
+				If nexoSale.Connected Then
+					With nexoSale.NexoClient.Settings
+						.OnSentRequestStatusChanged = clientSettings.OnSentRequestStatusChanged
+						.OnReceivedNotification = clientSettings.OnReceivedNotification
+						.OnReceivedRequest = clientSettings.OnReceivedRequest
+						.OnReceivedReply = clientSettings.OnReceivedReply
+						.OnSend = clientSettings.OnSend
+					End With
+					PostMessage(WM_ACTION)
+				Else
+					Dim frm As New FWait(nexoSale, clientSettings)
+					Select Case frm.ShowDialog()
+						Case DialogResult.Yes
+							PostMessage(WM_ACTION)
+
+						Case Else
+							nexoSale._poiisoffline = True
+							isInError = True
+							message.Invoke(myDelegate, New Activity() With {.Evt = ActivityEvent.message, .Message = My.Resources.CommonResources.FProcessing_FailedToConnectToPOI})
+							PostMessage(WM_AUTOCLOSE_START)
+					End Select
+					frm.Dispose()
+				End If
 
 			Case WM_DISCONNECT
 				CLog.Add(HEADER & "WM_DISCONNECT")
@@ -581,7 +598,7 @@ Public Class FProcessing
 				o.RequestCertificationCode = nexoSale.Settings.CertificationCode
 				o.RequestSoftwareVersion = nexoSale.Settings.SoftwareVersion
 				'timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 				TestSendResult(result, o.MessageCategory.ToString, currentactiontext)
 
 			Case WM_LOGOUT
@@ -593,7 +610,7 @@ Public Class FProcessing
 				o.SaleID = GetSaleID()
 				o.POIID = GetPOIID()
 				'timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 				TestSendResult(result, o.MessageCategory.ToString, My.Resources.CommonResources.FProcessing_LogoutFromPOI)
 
 			Case WM_PAYMENT
@@ -619,7 +636,7 @@ Public Class FProcessing
 					o.RequestData.PaymentDataSpecified = True
 
 					'timerBeforeTimeout.Tag = RealPaymentTimer()
-					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 					currentactiontext = My.Resources.CommonResources.FProcessing_PaymentInProgress
 					TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
 
@@ -653,7 +670,7 @@ Public Class FProcessing
 					o.RequestCurrency = nexoSale.Currency.Value
 					o.RequestRequestedAmount = requestedOperation.Amount
 					'timerBeforeTimeout.Tag = RealPaymentTimer()
-					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+					Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 					currentactiontext = My.Resources.CommonResources.FProcessing_RefundInProgress
 					TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
 				End If
@@ -685,7 +702,7 @@ Public Class FProcessing
 				o.RequestOriginalPOITransactionID = nexoSale.OriginalPOITransactionID
 				o.RequestOriginalPOITransactionTimestamp = nexoSale.OriginalPOITransactionTimestamp
 				'timerBeforeTimeout.Tag = RealPaymentTimer()
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 				currentactiontext = My.Resources.CommonResources.FProcessing_ReversalInProgress
 				TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait & "...")
 
@@ -703,7 +720,7 @@ Public Class FProcessing
 					o.RequestData.AcquirerIDAddItem(New NexoDigitString(nexoSale.ReconciliationAcquirerID).Value)
 				End If
 				'timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 				currentactiontext = My.Resources.CommonResources.FProcessing_ReconciliationInProgress
 				TestSendResult(result, o.MessageCategory.ToString, $"{currentactiontext} [{nexoSale.ReconciliationType}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...")
 
@@ -722,7 +739,7 @@ Public Class FProcessing
 				o.AbortServiceID = nexoSale._payment.ServiceID
 				o.AbortDeviceID = nexoSale._payment.DeviceID
 				'timerBeforeTimeout.Tag = requestedOperation.POI.GeneralTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 				currentactiontext = My.Resources.CommonResources.FProcessing_AbortInProgress
 				TestSendResult(result, o.MessageCategory.ToString, $"{currentactiontext} [{nexoSale.AbortReason}] {vbCrLf} {My.Resources.CommonResources.PleaseWait}...", True)
 
@@ -738,7 +755,7 @@ Public Class FProcessing
 				o.RequestInfoQualify = InfoQualifyEnumeration.Document
 				o.RequestInputCommand = InputCommandEnumeration.TextString
 				timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 				currentactiontext = My.Resources.CommonResources.FProcessing_ReadCheckInProgress
 				TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait)
 
@@ -757,7 +774,7 @@ Public Class FProcessing
 				Dim texttoprint As New OutputTextType() With {.Value = Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(PrepareStringToPrint(New CheckToPrint With {.MerchantName = nexoSale.MerchantName, .MerchantAddress = nexoSale.MerchantAddress, .CheckIndex = nexoSale.CheckIndex, .Signature = nexoSale.CheckAuthorisationSignature, .ResponseCode = nexoSale.CheckAuthorisationResponseCode}, requestedOperation.Amount).ToUpper))}
 				o.RequestData.PrintOutput.OutputContent.OutputTextAddItem(texttoprint)
 				timerBeforeTimeout.Tag = requestedOperation.POI.CheckTimer
-				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag, clientSettings)
+				Dim result As NexoRetailerClientHandle = nexoSale.NexoClient.SendRequest(o, timerBeforeTimeout.Tag) ', clientSettings)
 				currentactiontext = My.Resources.CommonResources.FProcessing_PrintCheckInProgress
 				TestSendResult(result, o.MessageCategory.ToString, currentactiontext & vbCrLf & My.Resources.CommonResources.PleaseWait)
 				If 0 < nexoSale.CheckIndex Then nexoSale.CheckIndex += 1
@@ -885,6 +902,7 @@ Public Class FProcessing
 						nexoSale._poitransactiontimestamp = nxo.ReplyPOITransactionTimestamp
 						printReceipts = requestedOperation.POI.PrintReceipt
 						nexoSale.Brand = nexoSale.GetSchemeFromAvailableData(nxo)
+						nexoSale.MaskedPAN = nexoSale.GetPANFromAvailableData(nxo)
 					Else
 						'test reason of failure
 						If nxo.Refusal AndAlso nxo.LoggedOut Then
@@ -912,6 +930,7 @@ Public Class FProcessing
 						nexoSale._poitransactionid = nxo.ReplyPOITransactionID
 						nexoSale._poitransactiontimestamp = nxo.ReplyPOITransactionTimestamp
 						nexoSale.Brand = nexoSale.GetSchemeFromAvailableData(nxo)
+						nexoSale.MaskedPAN = nexoSale.GetPANFromAvailableData(nxo)
 					Else
 						'test reason of failure
 						If nxo.Refusal AndAlso nxo.LoggedOut Then
@@ -1426,150 +1445,6 @@ Public Class FProcessing
 	End Function
 
 	Private Function CreateReceiptPDF(analysis As ReceiptAnalysis, receipts As Receipts) As Boolean
-		'Try
-		'			'if no receipt to print return immediately
-		'			If 0 = analysis.receipt.OutputContent.OutputTextLength Then Return False
-
-		'			Dim titleFontSize = 14
-		'			Dim receiptFontSize = 12
-		'			Dim rectangleMargin = 10.0F
-		'			Dim upperPageBorderToTitle = 50.0F
-		'			Dim numberOfEmptyLines = 2
-
-		'			'create the PDF document and load fonts
-		'			Dim document As New HPDFDocument
-		'			Dim receiptFont As HPDFFont = document.GetFont(StandardFonts.Courier, HPDFSingleByteEncoders.WinAnsiEncoding.ToString)
-		'			Dim titleFont As HPDFFont = document.GetFont(StandardFonts.CourierBold, HPDFSingleByteEncoders.WinAnsiEncoding.ToString)
-
-		'			'create the pdf page to write the receipt into
-		'			Dim page = document.AddPage()
-		'			page.SetSize(HPDFPageSizes.A4, HPDFPageDirections.Portrait)
-
-		'			'prepare title
-		'			Dim title As String
-		'			If DocumentQualifierEnumeration.CustomerReceipt = analysis.target Then
-		'				title = My.Resources.CommonResources.FPrint_CustomerReceipt
-		'			Else
-		'				title = My.Resources.CommonResources.FPrint_MerchantReceipt
-		'			End If
-		'			page.SetFont(titleFont, titleFontSize)
-		'			Dim textWidth = page.GetTextWidth(title)
-		'			Dim titlePos As New HPDFPointStruct() With {.x = (page.Width - textWidth) / 2, .y = page.Height - upperPageBorderToTitle - titleFontSize}
-
-		'			'prepare receipt itself
-		'			page.SetFont(receiptFont, receiptFontSize)
-		'			Dim receiptPos As New HPDFPointStruct(titlePos)
-		'			Dim receiptRect = GetReceiptRect(analysis.receipt, page)
-		'			If Not receiptRect.IsNull Then
-		'				'get final text width for outline
-		'				textWidth = Math.Max(textWidth, receiptRect.Width)
-		'			End If
-
-		'			'arrived here we can determine the position and size of the logo (if any)
-		'			'print the logo
-		'			If DocumentQualifierEnumeration.CustomerReceipt = analysis.target AndAlso Not String.IsNullOrEmpty(nexoSale.Settings.Picture) Then
-		'				Dim fi As New FileInfo(nexoSale.Settings.Picture)
-		'				If fi.Exists Then
-		'					Dim image As HPDFImage = Nothing
-		'					Select Case fi.Extension.ToLower
-		'						Case ".png"
-		'							image = document.LoadPNGImageFromFile(nexoSale.Settings.Picture)
-		'						Case ".jpg", ".jpeg"
-		'							image = document.LoadJpegImageFromFile(nexoSale.Settings.Picture)
-		'							'Case ".bmp"
-		'							'	image = document.LoadRawImageFromFile(nexoSale.Settings.Picture)
-		'					End Select
-		'					If Not IsNothing(image) Then
-		'						Dim size As New HPDFSizeStruct
-		'						'determine ratio between width and size of the image
-		'						Dim imagewidth As Single = textWidth + rectangleMargin * 2
-		'						Dim f As Single = imagewidth / image.GetWidth
-		'						Dim imageheight As Single = f * image.GetHeight
-		'						page.DrawImage(image, New HPDFPointStruct With {.x = (page.Width - imagewidth) / 2, .y = page.Height - upperPageBorderToTitle - imageheight}, New HPDFSizeStruct With {.Width = imagewidth, .Height = imageheight})
-		'						'move all subsequent text by the height of the image
-		'						page.TextRaise = -imageheight - rectangleMargin * 2
-		'					End If
-		'				End If
-		'			End If
-
-		'			'prepare positions and sizes to use
-		'			Dim lowerLeftCorner As New HPDFPointStruct(titlePos)
-		'			Dim upperLeftCorner As New HPDFPointStruct() With {.x = titlePos.x, .y = titlePos.y + titleFontSize}
-		'			Dim sizeRectangle As New HPDFSizeStruct() With {.Width = textWidth, .Height = titleFontSize}
-
-		'			'print the title
-		'			page.SetFont(titleFont, titleFontSize)
-		'			page.BeginText()
-		'			page.ShowTextAt(title, titlePos)
-		'			page.EndText()
-
-		'			'leave empty lines
-		'			Dim titleReceiptSpacing = receiptFontSize * numberOfEmptyLines
-		'			sizeRectangle.Width = textWidth
-		'			sizeRectangle.Height += titleReceiptSpacing + receiptRect.Height
-
-		'			'print the receipt
-		'			If Not receiptRect.IsNull Then
-		'				page.SetFont(receiptFont, receiptFontSize)
-		'				page.BeginText()
-		'				'Set position on the page to start printing the receipt
-		'				Dim receiptCurrentPos As New HPDFPointStruct() With {.x = (page.Width - receiptRect.Width) / 2, .y = titlePos.y - titleReceiptSpacing - receiptFontSize}
-		'				receiptPos = New HPDFPointStruct(receiptCurrentPos)
-		'				page.MoveTextPos(receiptCurrentPos)
-		'				receiptCurrentPos.Reset()
-		'				'print the receipt 
-		'				For i As Integer = 0 To analysis.receipt.OutputContent.OutputTextLength - 1
-		'					page.MoveTextPos(receiptCurrentPos)
-		'					page.ShowText(analysis.receipt.OutputContent.OutputText(i).Value)
-		'					'page.ShowTextAt(analysis.receipt.OutputContent.OutputText(i).Value, receiptPos)
-		'					receiptCurrentPos.y = -receiptFontSize
-		'				Next
-		'				'get the final lower left point
-		'				lowerLeftCorner.x = Math.Min(lowerLeftCorner.x, receiptPos.x)
-		'				lowerLeftCorner.y = page.CurrentTextPos.y
-		'				page.EndText()
-		'			End If
-
-		'			'add a rectangle around the whole receipt
-		'			page.SetLineWidth(1)
-		'			lowerLeftCorner.AddY(page.TextRaise)
-		'			lowerLeftCorner.DimX(rectangleMargin)
-		'			lowerLeftCorner.DimY(rectangleMargin)
-		'			sizeRectangle.AddWidth(rectangleMargin * 2)
-		'			sizeRectangle.AddHeight(rectangleMargin * 2)
-		'			page.Rectangle(lowerLeftCorner, sizeRectangle)
-		'			page.Stroke()
-
-		'			'save file
-		'			Dim dt As DateTime = Now
-		'			'Dim fname As String = $"{title}-{receipts.POITimestamp}-{receipts.SaleTransactionID}-{receipts.POITransactionID}"
-		'			Dim fname As String = $"{analysis.target}-{dt.ToString("yyyyMMdd HHmmss")}"
-		'			Dim exists As Boolean
-		'			Dim created As Boolean = document.SaveToFile(fname, exists, False)
-
-		'#If DEBUG Then
-		'			Try
-		'				If DocumentQualifierEnumeration.CustomerReceipt = analysis.target Then
-		'					If created Then
-		'						Dim fi As New FileInfo(fname)
-		'						Dim si As New ProcessStartInfo()
-		'						si.UseShellExecute = True
-		'						si.FileName = fi.FullName
-		'						si.Verb = "Open"
-		'						Dim prsok = Process.Start(si)
-		'					End If
-		'				End If
-		'			Catch ex As Exception
-
-		'			End Try
-		'#End If
-
-		'			Return created
-		'		Catch ex As Exception
-		'			Return False
-		'		End Try
-		'		Return False
-
 		Try
 			'if no receipt to print return immediately
 			If 0 = analysis.receipt.OutputContent.OutputTextLength Then Return False

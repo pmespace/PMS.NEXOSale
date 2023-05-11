@@ -1,14 +1,11 @@
-﻿Imports NEXO
-Imports NEXO.Client
-Imports COMMON
-Imports NEXOSALE
+﻿Imports NEXOSALE
 Imports System.Globalization
 
 Public Class Main
 	Private Nxo As New NEXOSALE.NEXOSALE
 
 	Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		CLog.LogFileName = "nexosale.test.log"
+		'CLog.LogFileName = "nexosale.test.log"
 		cbxServices.Items.Clear()
 		For i As Action = Action._begin + 1 To Action._end - 1
 			If Not i.ToString.StartsWith("_") Then

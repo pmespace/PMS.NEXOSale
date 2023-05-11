@@ -1,33 +1,33 @@
 unit PMS_COMMON_TLB;
 
 // ************************************************************************ //
-// AVERTISSEMENT
-// -------
-// Les types déclarés dans ce fichier ont été générés à partir de données lues
-// depuis la bibliothèque de types. Si cette dernière (via une autre bibliothèque de types
-// s'y référant) est explicitement ou indirectement ré-importée, ou la commande "Actualiser"
-// de l'éditeur de bibliothèque de types est activée lors de la modification de la bibliothèque
-// de types, le contenu de ce fichier sera régénéré et toutes les modifications
-// manuellement apportées seront perdues.
+// WARNING                                                                    
+// -------                                                                    
+// The types declared in this file were generated from data read from a       
+// Type Library. If this type library is explicitly or indirectly (via        
+// another type library referring to this type library) re-imported, or the   
+// 'Refresh' command of the Type Library Editor activated while editing the   
+// Type Library, the contents of this file will be regenerated and all        
+// manual modifications will be lost.                                         
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 29/11/2022 17:31:23 depuis la bibliothèque de types ci-dessous.
+// File generated on 11/05/2023 18:08:18 from Type Library described below.
 
 // ************************************************************************  //
-// Biblio. types : C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb (1)
-// LIBID : {FEB22871-13FF-3553-B93B-7A34D9EEA114}
-// LCID : 0
-// Fichier d'aide : 
-// Chaîne d'aide : 
-// DepndLst : 
+// Type Lib: C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb (1)
+// LIBID: {9FB10ADB-2F33-3CE0-A35B-326C388ECCC4}
+// LCID: 0
+// Helpfile: 
+// HelpString: 
+// DepndLst: 
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 //   (2) v2.4 mscorlib, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb)
-// Bibliothèque de types parent :
-//   (0) v1.6 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+// Parent TypeLibrary:
+//   (0) v1.8 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN64
 // ************************************************************************ //
-{$TYPEDADDRESS OFF} // L'unité doit être compilée sans pointeur à type contrôlé.  
+{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
 {$WARN SYMBOL_PLATFORM OFF}
 {$WRITEABLECONST ON}
 {$VARPROPSETTER ON}
@@ -38,26 +38,30 @@ interface
 uses Winapi.Windows, mscorlib_TLB, System.Classes, System.Variants, System.Win.StdVCL, Vcl.Graphics, Vcl.OleServer, Winapi.ActiveX;
   
 
+
 // *********************************************************************//
-// GUIDS déclarés dans la bibliothèque de types. Préfixes utilisés:        
-//   Bibliothèques de types : LIBID_xxxx                                      
-//   CoClasses              : CLASS_xxxx                                      
-//   Interfaces DISP        : DIID_xxxx                                       
-//   Interfaces Non-DISP    : IID_xxxx                                        
+// GUIDS declared in the TypeLibrary. Following prefixes are used:        
+//   Type Libraries     : LIBID_xxxx                                      
+//   CoClasses          : CLASS_xxxx                                      
+//   DISPInterfaces     : DIID_xxxx                                       
+//   Non-DISP interfaces: IID_xxxx                                        
 // *********************************************************************//
 const
-  // Versions mineure et majeure de la bibliothèque de types
-  PMS_COMMONMajorVersion = 6;
-  PMS_COMMONMinorVersion = 3;
+  // TypeLibrary Major and minor versions
+  PMS_COMMONMajorVersion = 7;
+  PMS_COMMONMinorVersion = 5;
 
-  LIBID_PMS_COMMON: TGUID = '{FEB22871-13FF-3553-B93B-7A34D9EEA114}';
+  LIBID_PMS_COMMON: TGUID = '{9FB10ADB-2F33-3CE0-A35B-326C388ECCC4}';
 
   IID__EDisconnected: TGUID = '{CA0B69CD-764A-304C-B429-626DB65562CD}';
   IID__EInvalidFormat: TGUID = '{C55F93A5-C250-3CE4-8CEC-040BA84D26B9}';
   IID__EOutOfRange: TGUID = '{C793C680-C944-3870-8434-392142B11804}';
-  IID__CJsonTypeExtensions: TGUID = '{463FE163-00A7-36CF-9AFD-52C9AFE957F2}';
+  IID__CLogMsg: TGUID = '{03941062-3C82-3785-9DF1-E912334E2594}';
+  CLASS_CLogMsgs: TGUID = '{89BF28D1-044E-3727-B846-8A467150BEE5}';
   IID__CMiscExtensions: TGUID = '{5FADEBB6-E657-349B-BACF-C130E4657E4D}';
   IID__ENotImplemented: TGUID = '{E7726354-3384-388F-8C31-F104B248E3A7}';
+  IID__CSafeBase: TGUID = '{7B1E15C6-06CE-3647-A83B-C64D44346340}';
+  CLASS_CSafeStringList: TGUID = '{36E77450-B165-4F64-9B67-280D4986FCB8}';
   IID_IStreamClientIO: TGUID = '{8032AC79-8819-4FD3-A4E2-A97D24D318FC}';
   CLASS_CStreamClientIO: TGUID = '{26BB1F7D-211E-4CCA-A8B1-A99A091C3176}';
   IID_IStreamServerIO: TGUID = '{DBB95FAB-171A-4DFA-BF32-6E0AC64DC506}';
@@ -72,6 +76,8 @@ const
   CLASS_CStreamClientSettings: TGUID = '{990A2D0C-1A1C-4E34-9C9D-75905AC95915}';
   IID_IStreamServerSettings: TGUID = '{F4BC72B2-4375-4723-B59D-809182C8CFDE}';
   CLASS_CStreamServerSettings: TGUID = '{EF1D0636-72B9-4F21-98A2-6F0EE3B048B5}';
+  IID_ISynchronize: TGUID = '{0D6D4011-3542-4192-97B8-7B67358F6DBE}';
+  CLASS_CSynchronize: TGUID = '{C6E23741-18B2-4770-AF0F-D654B98562FF}';
   IID_IThread: TGUID = '{420E0E6B-C6D4-499A-87A7-992FECBFEFC3}';
   CLASS_CThread: TGUID = '{87BB223F-6A59-4592-8A0F-057625532B8C}';
   IID_IThreadEvents: TGUID = '{3FB79C95-70A3-41DA-AEA7-02DFBFD23BB7}';
@@ -93,36 +99,38 @@ const
   IID__TimerCompleteDelegate: TGUID = '{FD39B2A3-27C1-3253-A87B-B214CC3325F6}';
   IID__Win32UIActivityDelegate: TGUID = '{362514F5-AE98-3E9F-9729-E67E58A3D5D7}';
   IID__FeedRecordDelegate: TGUID = '{7E09070D-FD2E-3546-9F9D-676E61B63B16}';
-  CLASS_EDisconnected: TGUID = '{460C1E2C-0860-337F-BE64-C9CD521F1BB1}';
-  CLASS_EInvalidFormat: TGUID = '{B9825488-697D-389A-830B-FC4AC1DA127C}';
-  CLASS_EOutOfRange: TGUID = '{8276CEA4-4331-36E6-A078-8C1F8D9BE018}';
-  CLASS_CJsonTypeExtensions: TGUID = '{4D20B029-0474-3B60-8FB1-A6B1F554574E}';
-  CLASS_CMiscExtensions: TGUID = '{3D63A0A5-A484-391C-9CED-3F4B4F9EFD83}';
-  CLASS_ENotImplemented: TGUID = '{6CB6328A-6F6D-34EE-B6AE-B88E3AD2C35F}';
-  CLASS_CStreamParameters: TGUID = '{B4E867FD-5CE6-39DA-82F2-39F02B0A5AB4}';
-  CLASS_SendAsyncType: TGUID = '{C67F37B0-E55B-3B30-B751-5FAC221A38B4}';
-  CLASS_ServerOnStartDelegate: TGUID = '{7F942BC9-9BF8-3554-B3B7-F47594A5EF6E}';
-  CLASS_ServerOnConnectDelegate: TGUID = '{DA551792-58EA-3FDF-A576-E28586A7BF6B}';
-  CLASS_ServerOnMessageDelegate: TGUID = '{8C3627C4-5B6E-3D6B-AE48-60C449DBE673}';
-  CLASS_ServerOnDisconnectDelegate: TGUID = '{3AF88361-24DC-334E-BE8F-BB167CA87999}';
-  CLASS_ServerOnStopDelegate: TGUID = '{2441504F-8B11-384F-B024-7648DFA9E5DD}';
-  CLASS_ClientOnReceivedMessageDelegate: TGUID = '{A1460017-971D-39F0-9664-EBA118AAE95C}';
-  CLASS_ClientOnSendMessageDelegate: TGUID = '{35340E99-1AEB-31C8-9081-35E2C087715F}';
-  CLASS_ClientOnReplyDelegate: TGUID = '{85392FA8-F4AA-3455-883B-C58246A3B319}';
-  CLASS_ClientServerOnMessageToLog: TGUID = '{F8999521-E339-3B30-8ABA-6F30843A384B}';
-  CLASS_ThreadFunction: TGUID = '{580D1E69-D679-3662-A4CA-A1F28DFB112B}';
-  CLASS_ThreadTerminates: TGUID = '{9F0A8B58-21C8-353B-9FB6-81A02851296E}';
-  CLASS_TimerCompleteDelegate: TGUID = '{975A189D-7B7C-34A9-AA4B-1DB784C033F1}';
-  CLASS_Win32UIActivityDelegate: TGUID = '{CE0742CB-5E6F-3F9B-AB3B-08102398BD47}';
-  CLASS_FeedRecordDelegate: TGUID = '{7286D360-7635-3C8E-BB29-A0146C7A210B}';
+  CLASS_EDisconnected: TGUID = '{2CFAE450-1BD4-3EE1-BFDB-DA1F877FD3E3}';
+  CLASS_EInvalidFormat: TGUID = '{D52BF81A-9D97-3B63-99E5-11C59464E5A6}';
+  CLASS_EOutOfRange: TGUID = '{406B2CFE-01A4-3633-959C-DFCB77188E4F}';
+  CLASS_CLogMsg: TGUID = '{172DF64B-4931-3F0B-82AB-F330FF1F7E6A}';
+  CLASS_CMiscExtensions: TGUID = '{E291A3F5-81AF-377B-BF55-6F46D5D136E2}';
+  CLASS_ENotImplemented: TGUID = '{762B5126-BA90-3C73-8A8A-0E8A09656099}';
+  CLASS_CSafeBase: TGUID = '{BB8589D0-C15D-389E-868B-1E252FA2F2C7}';
+  CLASS_CStreamParameters: TGUID = '{AA07E0C7-73B9-3E5A-94EC-754B4110D304}';
+  CLASS_SendAsyncType: TGUID = '{FA2ECE64-2A9B-3CB4-959D-1C245F80010B}';
+  CLASS_ServerOnStartDelegate: TGUID = '{B7973C37-1042-3CF3-BA92-B0337E1564E3}';
+  CLASS_ServerOnConnectDelegate: TGUID = '{6BD832C2-89AE-33C2-B868-E6CD299836EF}';
+  CLASS_ServerOnMessageDelegate: TGUID = '{FAC58548-C992-3934-9FDF-2612B4004323}';
+  CLASS_ServerOnDisconnectDelegate: TGUID = '{DA7C7D62-7EF9-3A62-A871-54388E757A9E}';
+  CLASS_ServerOnStopDelegate: TGUID = '{030BB428-54DD-3157-91B6-1D318D6D1530}';
+  CLASS_ClientOnReceivedMessageDelegate: TGUID = '{24927CB6-9757-3A5D-B1E5-504D9DC02047}';
+  CLASS_ClientOnSendMessageDelegate: TGUID = '{266E826A-F9D8-3004-B72D-946CBA8740F3}';
+  CLASS_ClientOnReplyDelegate: TGUID = '{11DD45C9-BBE1-36B8-9487-5FFEBDFCFD9E}';
+  CLASS_ClientServerOnMessageToLog: TGUID = '{25882531-0821-34C2-B98D-414C4CC640EE}';
+  CLASS_ThreadFunction: TGUID = '{D415FF85-70C0-36BB-A3BB-D2521076C33F}';
+  CLASS_ThreadTerminates: TGUID = '{1B0EE091-646D-3D61-8489-85A1DDFE5CEC}';
+  CLASS_TimerCompleteDelegate: TGUID = '{827366AA-BE49-3D5D-8FBE-BCD487C1B3FD}';
+  CLASS_Win32UIActivityDelegate: TGUID = '{DE1CE61B-CC82-3FA6-A55F-F65A04F4EDBC}';
+  CLASS_FeedRecordDelegate: TGUID = '{DA35543F-139C-3ACB-9231-BF35ECDCDA0B}';
 
 // *********************************************************************//
-// Déclaration d'énumérations définies dans la bibliothèque de types                    
+// Declaration of Enumerations defined in Type Library                    
 // *********************************************************************//
-// Constantes pour enum TLog
+// Constants for enum TLog
 type
   TLog = TOleEnum;
 const
+  TLog_FMNGT = $FFFFFFFE;
   TLog__begin = $FFFFFFFF;
   TLog_DEBUG = $00000000;
   TLog_INFOR = $00000001;
@@ -131,8 +139,9 @@ const
   TLog_ERROR = $00000004;
   TLog_EXCPT = $00000005;
   TLog__end = $00000006;
+  TLog__none = $00000007;
 
-// Constantes pour enum SendAsyncEnum
+// Constants for enum SendAsyncEnum
 type
   SendAsyncEnum = TOleEnum;
 const
@@ -144,7 +153,7 @@ const
   SendAsyncEnum_OK = $00000000;
   SendAsyncEnum_UserDefined = $00000001;
 
-// Constantes pour enum ThreadResult
+// Constants for enum ThreadResult
 type
   ThreadResult = TOleEnum;
 const
@@ -156,15 +165,15 @@ const
   ThreadResult__end = $00000004;
   ThreadResult__userdefined = $00000005;
 
-// Constantes pour enum VersionType
+// Constants for enum VersionType
 type
   VersionType = TOleEnum;
 const
-  VersionType_assembly = $00000000;
-  VersionType_assemblyFile = $00000001;
-  VersionType_assemblyInfo = $00000002;
+  VersionType_executable = $00000000;
+  VersionType_assembly = $00000001;
+  VersionType_assemblyFile = $00000002;
 
-// Constantes pour enum DateFormat
+// Constants for enum DateFormat
 type
   DateFormat = TOleEnum;
 const
@@ -181,7 +190,7 @@ const
   DateFormat_hhmmssmmm = $0000000A;
   DateFormat_hhmmssmmmEx = $0000000B;
 
-// Constantes pour enum SWL
+// Constants for enum SWL
 type
   SWL = TOleEnum;
 const
@@ -199,7 +208,7 @@ const
 type
 
 // *********************************************************************//
-// Déclaration Forward des types définis dans la bibliothèque de types                     
+// Forward declaration of types defined in TypeLibrary                    
 // *********************************************************************//
   _EDisconnected = interface;
   _EDisconnectedDisp = dispinterface;
@@ -207,12 +216,14 @@ type
   _EInvalidFormatDisp = dispinterface;
   _EOutOfRange = interface;
   _EOutOfRangeDisp = dispinterface;
-  _CJsonTypeExtensions = interface;
-  _CJsonTypeExtensionsDisp = dispinterface;
+  _CLogMsg = interface;
+  _CLogMsgDisp = dispinterface;
   _CMiscExtensions = interface;
   _CMiscExtensionsDisp = dispinterface;
   _ENotImplemented = interface;
   _ENotImplementedDisp = dispinterface;
+  _CSafeBase = interface;
+  _CSafeBaseDisp = dispinterface;
   IStreamClientIO = interface;
   IStreamServerIO = interface;
   _CStreamParameters = interface;
@@ -222,6 +233,7 @@ type
   IStreamServer = interface;
   IStreamClientSettings = interface;
   IStreamServerSettings = interface;
+  ISynchronize = interface;
   IThread = interface;
   IThreadEvents = interface;
   IThreadData = interface;
@@ -257,24 +269,28 @@ type
   _FeedRecordDelegateDisp = dispinterface;
 
 // *********************************************************************//
-// Déclaration de CoClasses définies dans la bibliothèque de types        
-// (REMARQUE: On affecte chaque CoClasse à son Interface par défaut)      
+// Declaration of CoClasses defined in Type Library                       
+// (NOTE: Here we map each CoClass to its Default Interface)              
 // *********************************************************************//
+  CLogMsgs = IEnumerable;
+  CSafeStringList = IEnumerable;
   CStreamClientIO = IStreamClientIO;
   CStreamServerIO = IStreamServerIO;
   CStreamServerStatistics = IStreamServerStatistics;
   CStreamServerStartSettings = IStreamServerStartSettings;
   CStreamClientSettings = IStreamClientSettings;
   CStreamServerSettings = IStreamServerSettings;
+  CSynchronize = ISynchronize;
   CThread = IThread;
   CThreadEvents = _Object;
   CThreadData = IThreadData;
   EDisconnected = _EDisconnected;
   EInvalidFormat = _EInvalidFormat;
   EOutOfRange = _EOutOfRange;
-  CJsonTypeExtensions = _CJsonTypeExtensions;
+  CLogMsg = _CLogMsg;
   CMiscExtensions = _CMiscExtensions;
   ENotImplemented = _ENotImplemented;
+  CSafeBase = _CSafeBase;
   CStreamParameters = _CStreamParameters;
   SendAsyncType = _SendAsyncType;
   ServerOnStartDelegate = _ServerOnStartDelegate;
@@ -294,176 +310,186 @@ type
 
 
 // *********************************************************************//
-// Interface :   _EDisconnected
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CA0B69CD-764A-304C-B429-626DB65562CD}
+// Interface: _EDisconnected
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CA0B69CD-764A-304C-B429-626DB65562CD}
 // *********************************************************************//
   _EDisconnected = interface(IDispatch)
     ['{CA0B69CD-764A-304C-B429-626DB65562CD}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _EDisconnectedDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CA0B69CD-764A-304C-B429-626DB65562CD}
+// DispIntf:  _EDisconnectedDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CA0B69CD-764A-304C-B429-626DB65562CD}
 // *********************************************************************//
   _EDisconnectedDisp = dispinterface
     ['{CA0B69CD-764A-304C-B429-626DB65562CD}']
   end;
 
 // *********************************************************************//
-// Interface :   _EInvalidFormat
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C55F93A5-C250-3CE4-8CEC-040BA84D26B9}
+// Interface: _EInvalidFormat
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C55F93A5-C250-3CE4-8CEC-040BA84D26B9}
 // *********************************************************************//
   _EInvalidFormat = interface(IDispatch)
     ['{C55F93A5-C250-3CE4-8CEC-040BA84D26B9}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _EInvalidFormatDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C55F93A5-C250-3CE4-8CEC-040BA84D26B9}
+// DispIntf:  _EInvalidFormatDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C55F93A5-C250-3CE4-8CEC-040BA84D26B9}
 // *********************************************************************//
   _EInvalidFormatDisp = dispinterface
     ['{C55F93A5-C250-3CE4-8CEC-040BA84D26B9}']
   end;
 
 // *********************************************************************//
-// Interface :   _EOutOfRange
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C793C680-C944-3870-8434-392142B11804}
+// Interface: _EOutOfRange
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C793C680-C944-3870-8434-392142B11804}
 // *********************************************************************//
   _EOutOfRange = interface(IDispatch)
     ['{C793C680-C944-3870-8434-392142B11804}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _EOutOfRangeDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {C793C680-C944-3870-8434-392142B11804}
+// DispIntf:  _EOutOfRangeDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {C793C680-C944-3870-8434-392142B11804}
 // *********************************************************************//
   _EOutOfRangeDisp = dispinterface
     ['{C793C680-C944-3870-8434-392142B11804}']
   end;
 
 // *********************************************************************//
-// Interface :   _CJsonTypeExtensions
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {463FE163-00A7-36CF-9AFD-52C9AFE957F2}
+// Interface: _CLogMsg
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {03941062-3C82-3785-9DF1-E912334E2594}
 // *********************************************************************//
-  _CJsonTypeExtensions = interface(IDispatch)
-    ['{463FE163-00A7-36CF-9AFD-52C9AFE957F2}']
+  _CLogMsg = interface(IDispatch)
+    ['{03941062-3C82-3785-9DF1-E912334E2594}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _CJsonTypeExtensionsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {463FE163-00A7-36CF-9AFD-52C9AFE957F2}
+// DispIntf:  _CLogMsgDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {03941062-3C82-3785-9DF1-E912334E2594}
 // *********************************************************************//
-  _CJsonTypeExtensionsDisp = dispinterface
-    ['{463FE163-00A7-36CF-9AFD-52C9AFE957F2}']
+  _CLogMsgDisp = dispinterface
+    ['{03941062-3C82-3785-9DF1-E912334E2594}']
   end;
 
 // *********************************************************************//
-// Interface :   _CMiscExtensions
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5FADEBB6-E657-349B-BACF-C130E4657E4D}
+// Interface: _CMiscExtensions
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5FADEBB6-E657-349B-BACF-C130E4657E4D}
 // *********************************************************************//
   _CMiscExtensions = interface(IDispatch)
     ['{5FADEBB6-E657-349B-BACF-C130E4657E4D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _CMiscExtensionsDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5FADEBB6-E657-349B-BACF-C130E4657E4D}
+// DispIntf:  _CMiscExtensionsDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5FADEBB6-E657-349B-BACF-C130E4657E4D}
 // *********************************************************************//
   _CMiscExtensionsDisp = dispinterface
     ['{5FADEBB6-E657-349B-BACF-C130E4657E4D}']
   end;
 
 // *********************************************************************//
-// Interface :   _ENotImplemented
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E7726354-3384-388F-8C31-F104B248E3A7}
+// Interface: _ENotImplemented
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E7726354-3384-388F-8C31-F104B248E3A7}
 // *********************************************************************//
   _ENotImplemented = interface(IDispatch)
     ['{E7726354-3384-388F-8C31-F104B248E3A7}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ENotImplementedDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E7726354-3384-388F-8C31-F104B248E3A7}
+// DispIntf:  _ENotImplementedDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E7726354-3384-388F-8C31-F104B248E3A7}
 // *********************************************************************//
   _ENotImplementedDisp = dispinterface
     ['{E7726354-3384-388F-8C31-F104B248E3A7}']
   end;
 
 // *********************************************************************//
-// Interface :   IStreamClientIO
-// Indicateurs : (256) OleAutomation
-// GUID :        {8032AC79-8819-4FD3-A4E2-A97D24D318FC}
+// Interface: _CSafeBase
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7B1E15C6-06CE-3647-A83B-C64D44346340}
 // *********************************************************************//
-  IStreamClientIO = interface(IUnknown)
-    ['{8032AC79-8819-4FD3-A4E2-A97D24D318FC}']
-    function Get_LengthBufferSize(out pRetVal: Integer): HResult; stdcall;
-    function Get_ToString(out pRetVal: WideString): HResult; stdcall;
-    function Get_Tcp(out pRetVal: IUnknown): HResult; stdcall;
-    function Get_Connected(out pRetVal: WordBool): HResult; stdcall;
-    function Send(data: PSafeArray; addSizeHeader: WordBool; out pRetVal: WordBool): HResult; stdcall;
-    function Send_2(const data: WideString; out pRetVal: WordBool): HResult; stdcall;
-    function SendLine(const data: WideString; const EOT: WideString; out pRetVal: WordBool): HResult; stdcall;
-    function Receive(out announcedSize: Integer; out pRetVal: PSafeArray): HResult; stdcall;
-    function Receive_2(out pRetVal: WideString): HResult; stdcall;
-    function ReceiveLine(const EOT: WideString; out pRetVal: WideString): HResult; stdcall;
-    function Close: HResult; stdcall;
+  _CSafeBase = interface(IDispatch)
+    ['{7B1E15C6-06CE-3647-A83B-C64D44346340}']
   end;
 
 // *********************************************************************//
-// Interface :   IStreamServerIO
-// Indicateurs : (256) OleAutomation
-// GUID :        {DBB95FAB-171A-4DFA-BF32-6E0AC64DC506}
+// DispIntf:  _CSafeBaseDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7B1E15C6-06CE-3647-A83B-C64D44346340}
 // *********************************************************************//
-  IStreamServerIO = interface(IUnknown)
-    ['{DBB95FAB-171A-4DFA-BF32-6E0AC64DC506}']
-    function Get_LengthBufferSize(out pRetVal: Integer): HResult; stdcall;
+  _CSafeBaseDisp = dispinterface
+    ['{7B1E15C6-06CE-3647-A83B-C64D44346340}']
+  end;
+
+// *********************************************************************//
+// Interface: IStreamClientIO
+// Flags:     (256) OleAutomation
+// GUID:      {8032AC79-8819-4FD3-A4E2-A97D24D318FC}
+// *********************************************************************//
+  IStreamClientIO = interface(IUnknown)
+    ['{8032AC79-8819-4FD3-A4E2-A97D24D318FC}']
+    function Get_SizeHeader(out pRetVal: Integer): HResult; stdcall;
+    function Set_SizeHeader(pRetVal: Integer): HResult; stdcall;
+    function Get_UseSizeHeader(out pRetVal: WordBool): HResult; stdcall;
+    function Set_UseSizeHeader(pRetVal: WordBool): HResult; stdcall;
     function Get_ToString(out pRetVal: WideString): HResult; stdcall;
     function Get_Tcp(out pRetVal: IUnknown): HResult; stdcall;
     function Get_Connected(out pRetVal: WordBool): HResult; stdcall;
-    function Send(data: PSafeArray; addSizeHeader: WordBool; out pRetVal: WordBool): HResult; stdcall;
-    function Send_2(const data: WideString; out pRetVal: WordBool): HResult; stdcall;
-    function SendLine(const data: WideString; const EOT: WideString; out pRetVal: WordBool): HResult; stdcall;
-    function Receive(out announcedSize: Integer; out pRetVal: PSafeArray): HResult; stdcall;
-    function Receive_2(out pRetVal: WideString): HResult; stdcall;
-    function ReceiveLine(const EOT: WideString; out pRetVal: WideString): HResult; stdcall;
-    function Close: HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: IStreamServerIO
+// Flags:     (256) OleAutomation
+// GUID:      {DBB95FAB-171A-4DFA-BF32-6E0AC64DC506}
+// *********************************************************************//
+  IStreamServerIO = interface(IUnknown)
+    ['{DBB95FAB-171A-4DFA-BF32-6E0AC64DC506}']
+    function Get_SizeHeader(out pRetVal: Integer): HResult; stdcall;
+    function Set_SizeHeader(pRetVal: Integer): HResult; stdcall;
+    function Get_UseSizeHeader(out pRetVal: WordBool): HResult; stdcall;
+    function Set_UseSizeHeader(pRetVal: WordBool): HResult; stdcall;
+    function Get_ToString(out pRetVal: WideString): HResult; stdcall;
+    function Get_Tcp(out pRetVal: IUnknown): HResult; stdcall;
+    function Get_Connected(out pRetVal: WordBool): HResult; stdcall;
     function Get_Port(out pRetVal: LongWord): HResult; stdcall;
   end;
 
 // *********************************************************************//
-// Interface :   _CStreamParameters
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {918AC90A-E98B-3FB8-B977-86677DF8B582}
+// Interface: _CStreamParameters
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {918AC90A-E98B-3FB8-B977-86677DF8B582}
 // *********************************************************************//
   _CStreamParameters = interface(IDispatch)
     ['{918AC90A-E98B-3FB8-B977-86677DF8B582}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _CStreamParametersDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {918AC90A-E98B-3FB8-B977-86677DF8B582}
+// DispIntf:  _CStreamParametersDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {918AC90A-E98B-3FB8-B977-86677DF8B582}
 // *********************************************************************//
   _CStreamParametersDisp = dispinterface
     ['{918AC90A-E98B-3FB8-B977-86677DF8B582}']
   end;
 
 // *********************************************************************//
-// Interface :   IStreamServerStatistics
-// Indicateurs : (256) OleAutomation
-// GUID :        {7711DAC5-9223-4760-A93C-D2C993359A61}
+// Interface: IStreamServerStatistics
+// Flags:     (256) OleAutomation
+// GUID:      {7711DAC5-9223-4760-A93C-D2C993359A61}
 // *********************************************************************//
   IStreamServerStatistics = interface(IUnknown)
     ['{7711DAC5-9223-4760-A93C-D2C993359A61}']
@@ -477,9 +503,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStreamServerStartSettings
-// Indicateurs : (256) OleAutomation
-// GUID :        {8E3BBBB0-F498-47BF-AB18-5C84B80EE4B4}
+// Interface: IStreamServerStartSettings
+// Flags:     (256) OleAutomation
+// GUID:      {8E3BBBB0-F498-47BF-AB18-5C84B80EE4B4}
 // *********************************************************************//
   IStreamServerStartSettings = interface(IUnknown)
     ['{8E3BBBB0-F498-47BF-AB18-5C84B80EE4B4}']
@@ -505,13 +531,13 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStreamServer
-// Indicateurs : (256) OleAutomation
-// GUID :        {7E3C2011-C388-4813-B9C5-B24D6A14892F}
+// Interface: IStreamServer
+// Flags:     (256) OleAutomation
+// GUID:      {7E3C2011-C388-4813-B9C5-B24D6A14892F}
 // *********************************************************************//
   IStreamServer = interface(IUnknown)
     ['{7E3C2011-C388-4813-B9C5-B24D6A14892F}']
-    function Get_Port(out pRetVal: LongWord): HResult; stdcall;
+    function Get_Port(out pRetVal: Integer): HResult; stdcall;
     function Get_Address(out pRetVal: WideString): HResult; stdcall;
     function Get_FullAddress(out pRetVal: WideString): HResult; stdcall;
     function Get_ID(out pRetVal: Integer): HResult; stdcall;
@@ -531,9 +557,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStreamClientSettings
-// Indicateurs : (256) OleAutomation
-// GUID :        {BE7495F7-DA7A-4584-AEB9-789AF316C971}
+// Interface: IStreamClientSettings
+// Flags:     (256) OleAutomation
+// GUID:      {BE7495F7-DA7A-4584-AEB9-789AF316C971}
 // *********************************************************************//
   IStreamClientSettings = interface(IUnknown)
     ['{BE7495F7-DA7A-4584-AEB9-789AF316C971}']
@@ -564,16 +590,16 @@ type
     function Set_SendBufferSize(pRetVal: Integer): HResult; stdcall;
     function Get_UseSsl(out pRetVal: WordBool): HResult; stdcall;
     function Get_Localhost(out pRetVal: WideString): HResult; stdcall;
-    function Get_DefaultServerPort(out pRetVal: LongWord): HResult; stdcall;
+    function Get_DefaultServerPort(out pRetVal: Integer): HResult; stdcall;
     function Get_OnMessageToLog(out pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
     function _Set_OnMessageToLog(const pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
     function Get_LocalhostV6(out pRetVal: WideString): HResult; stdcall;
   end;
 
 // *********************************************************************//
-// Interface :   IStreamServerSettings
-// Indicateurs : (256) OleAutomation
-// GUID :        {F4BC72B2-4375-4723-B59D-809182C8CFDE}
+// Interface: IStreamServerSettings
+// Flags:     (256) OleAutomation
+// GUID:      {F4BC72B2-4375-4723-B59D-809182C8CFDE}
 // *********************************************************************//
   IStreamServerSettings = interface(IUnknown)
     ['{F4BC72B2-4375-4723-B59D-809182C8CFDE}']
@@ -596,16 +622,28 @@ type
     function Set_SendBufferSize(pRetVal: Integer): HResult; stdcall;
     function Get_UseSsl(out pRetVal: WordBool): HResult; stdcall;
     function Get_Localhost(out pRetVal: WideString): HResult; stdcall;
-    function Get_DefaultServerPort(out pRetVal: LongWord): HResult; stdcall;
+    function Get_DefaultServerPort(out pRetVal: Integer): HResult; stdcall;
     function Get_OnMessageToLog(out pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
     function _Set_OnMessageToLog(const pRetVal: _ClientServerOnMessageToLog): HResult; stdcall;
     function Get_LocalhostV6(out pRetVal: WideString): HResult; stdcall;
   end;
 
 // *********************************************************************//
-// Interface :   IThread
-// Indicateurs : (256) OleAutomation
-// GUID :        {420E0E6B-C6D4-499A-87A7-992FECBFEFC3}
+// Interface: ISynchronize
+// Flags:     (256) OleAutomation
+// GUID:      {0D6D4011-3542-4192-97B8-7B67358F6DBE}
+// *********************************************************************//
+  ISynchronize = interface(IUnknown)
+    ['{0D6D4011-3542-4192-97B8-7B67358F6DBE}']
+    function WaitAll(timer: Integer; out pRetVal: WordBool): HResult; stdcall;
+    function WaitAny(timer: Integer; out pRetVal: Integer): HResult; stdcall;
+    function Reset(out pRetVal: WordBool): HResult; stdcall;
+  end;
+
+// *********************************************************************//
+// Interface: IThread
+// Flags:     (256) OleAutomation
+// GUID:      {420E0E6B-C6D4-499A-87A7-992FECBFEFC3}
 // *********************************************************************//
   IThread = interface(IUnknown)
     ['{420E0E6B-C6D4-499A-87A7-992FECBFEFC3}']
@@ -616,8 +654,6 @@ type
     function Get_FinalDelayWhenThreadTerminates(out pRetVal: Integer): HResult; stdcall;
     function Set_FinalDelayWhenThreadTerminates(pRetVal: Integer): HResult; stdcall;
     function Get_Thread(out pRetVal: _Thread): HResult; stdcall;
-    function Get_ID(out pRetVal: Integer): HResult; stdcall;
-    function Set_ID(pRetVal: Integer): HResult; stdcall;
     function Get_Name(out pRetVal: WideString): HResult; stdcall;
     function Set_Name(const pRetVal: WideString): HResult; stdcall;
     function Get_Description(out pRetVal: WideString): HResult; stdcall;
@@ -628,9 +664,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IThreadEvents
-// Indicateurs : (256) OleAutomation
-// GUID :        {3FB79C95-70A3-41DA-AEA7-02DFBFD23BB7}
+// Interface: IThreadEvents
+// Flags:     (256) OleAutomation
+// GUID:      {3FB79C95-70A3-41DA-AEA7-02DFBFD23BB7}
 // *********************************************************************//
   IThreadEvents = interface(IUnknown)
     ['{3FB79C95-70A3-41DA-AEA7-02DFBFD23BB7}']
@@ -646,301 +682,325 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IThreadData
-// Indicateurs : (256) OleAutomation
-// GUID :        {CD4AB05D-ED37-493A-B658-C4D5D86B6864}
+// Interface: IThreadData
+// Flags:     (256) OleAutomation
+// GUID:      {CD4AB05D-ED37-493A-B658-C4D5D86B6864}
 // *********************************************************************//
   IThreadData = interface(IUnknown)
     ['{CD4AB05D-ED37-493A-B658-C4D5D86B6864}']
     function Get_WindowToWarn(out pRetVal: Int64): HResult; stdcall;
     function Set_WindowToWarn(pRetVal: Int64): HResult; stdcall;
-    function Get_StoppedMessage(out pRetVal: LongWord): HResult; stdcall;
-    function Set_StoppedMessage(pRetVal: LongWord): HResult; stdcall;
-    function Get_InformationMessage(out pRetVal: LongWord): HResult; stdcall;
-    function Set_InformationMessage(pRetVal: LongWord): HResult; stdcall;
+    function Get_StoppedMessage(out pRetVal: Integer): HResult; stdcall;
+    function Set_StoppedMessage(pRetVal: Integer): HResult; stdcall;
+    function Get_InformationMessage(out pRetVal: Integer): HResult; stdcall;
+    function Set_InformationMessage(pRetVal: Integer): HResult; stdcall;
     function Get_IsValid(out pRetVal: WordBool): HResult; stdcall;
-    function Get_WMThreadStopped(out pRetVal: LongWord): HResult; stdcall;
-    function Get_WMThreadInformation(out pRetVal: LongWord): HResult; stdcall;
+    function Get_WMThreadStopped(out pRetVal: Integer): HResult; stdcall;
+    function Get_WMThreadInformation(out pRetVal: Integer): HResult; stdcall;
     function Get_EventToSignal(out pRetVal: _EventWaitHandle): HResult; stdcall;
     function _Set_EventToSignal(const pRetVal: _EventWaitHandle): HResult; stdcall;
   end;
 
 // *********************************************************************//
-// Interface :   _SendAsyncType
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DCFE0E70-4BCF-3612-B3E9-C9B7EAF687E9}
+// Interface: _SendAsyncType
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DCFE0E70-4BCF-3612-B3E9-C9B7EAF687E9}
 // *********************************************************************//
   _SendAsyncType = interface(IDispatch)
     ['{DCFE0E70-4BCF-3612-B3E9-C9B7EAF687E9}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _SendAsyncTypeDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DCFE0E70-4BCF-3612-B3E9-C9B7EAF687E9}
+// DispIntf:  _SendAsyncTypeDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DCFE0E70-4BCF-3612-B3E9-C9B7EAF687E9}
 // *********************************************************************//
   _SendAsyncTypeDisp = dispinterface
     ['{DCFE0E70-4BCF-3612-B3E9-C9B7EAF687E9}']
   end;
 
 // *********************************************************************//
-// Interface :   _ServerOnStartDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A08079B2-47AC-36E9-8A8E-7273B55BD5D2}
+// Interface: _ServerOnStartDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A08079B2-47AC-36E9-8A8E-7273B55BD5D2}
 // *********************************************************************//
   _ServerOnStartDelegate = interface(IDispatch)
     ['{A08079B2-47AC-36E9-8A8E-7273B55BD5D2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ServerOnStartDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A08079B2-47AC-36E9-8A8E-7273B55BD5D2}
+// DispIntf:  _ServerOnStartDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A08079B2-47AC-36E9-8A8E-7273B55BD5D2}
 // *********************************************************************//
   _ServerOnStartDelegateDisp = dispinterface
     ['{A08079B2-47AC-36E9-8A8E-7273B55BD5D2}']
   end;
 
 // *********************************************************************//
-// Interface :   _ServerOnConnectDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {472D1DE4-CCB1-3FC5-BCE0-F6003FF187F8}
+// Interface: _ServerOnConnectDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {472D1DE4-CCB1-3FC5-BCE0-F6003FF187F8}
 // *********************************************************************//
   _ServerOnConnectDelegate = interface(IDispatch)
     ['{472D1DE4-CCB1-3FC5-BCE0-F6003FF187F8}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ServerOnConnectDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {472D1DE4-CCB1-3FC5-BCE0-F6003FF187F8}
+// DispIntf:  _ServerOnConnectDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {472D1DE4-CCB1-3FC5-BCE0-F6003FF187F8}
 // *********************************************************************//
   _ServerOnConnectDelegateDisp = dispinterface
     ['{472D1DE4-CCB1-3FC5-BCE0-F6003FF187F8}']
   end;
 
 // *********************************************************************//
-// Interface :   _ServerOnMessageDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BFA46CC8-A3DA-38CC-9BD9-7FCB40394348}
+// Interface: _ServerOnMessageDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BFA46CC8-A3DA-38CC-9BD9-7FCB40394348}
 // *********************************************************************//
   _ServerOnMessageDelegate = interface(IDispatch)
     ['{BFA46CC8-A3DA-38CC-9BD9-7FCB40394348}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ServerOnMessageDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {BFA46CC8-A3DA-38CC-9BD9-7FCB40394348}
+// DispIntf:  _ServerOnMessageDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {BFA46CC8-A3DA-38CC-9BD9-7FCB40394348}
 // *********************************************************************//
   _ServerOnMessageDelegateDisp = dispinterface
     ['{BFA46CC8-A3DA-38CC-9BD9-7FCB40394348}']
   end;
 
 // *********************************************************************//
-// Interface :   _ServerOnDisconnectDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4B81353D-4733-3D6B-9C90-835D1DFB0B66}
+// Interface: _ServerOnDisconnectDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4B81353D-4733-3D6B-9C90-835D1DFB0B66}
 // *********************************************************************//
   _ServerOnDisconnectDelegate = interface(IDispatch)
     ['{4B81353D-4733-3D6B-9C90-835D1DFB0B66}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ServerOnDisconnectDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4B81353D-4733-3D6B-9C90-835D1DFB0B66}
+// DispIntf:  _ServerOnDisconnectDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4B81353D-4733-3D6B-9C90-835D1DFB0B66}
 // *********************************************************************//
   _ServerOnDisconnectDelegateDisp = dispinterface
     ['{4B81353D-4733-3D6B-9C90-835D1DFB0B66}']
   end;
 
 // *********************************************************************//
-// Interface :   _ServerOnStopDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B6BAA48E-2E1B-38AB-AA93-CCD29074370E}
+// Interface: _ServerOnStopDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B6BAA48E-2E1B-38AB-AA93-CCD29074370E}
 // *********************************************************************//
   _ServerOnStopDelegate = interface(IDispatch)
     ['{B6BAA48E-2E1B-38AB-AA93-CCD29074370E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ServerOnStopDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B6BAA48E-2E1B-38AB-AA93-CCD29074370E}
+// DispIntf:  _ServerOnStopDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B6BAA48E-2E1B-38AB-AA93-CCD29074370E}
 // *********************************************************************//
   _ServerOnStopDelegateDisp = dispinterface
     ['{B6BAA48E-2E1B-38AB-AA93-CCD29074370E}']
   end;
 
 // *********************************************************************//
-// Interface :   _ClientOnReceivedMessageDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {684612E3-7F2F-34AA-AD46-78FBB4E99A84}
+// Interface: _ClientOnReceivedMessageDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {684612E3-7F2F-34AA-AD46-78FBB4E99A84}
 // *********************************************************************//
   _ClientOnReceivedMessageDelegate = interface(IDispatch)
     ['{684612E3-7F2F-34AA-AD46-78FBB4E99A84}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ClientOnReceivedMessageDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {684612E3-7F2F-34AA-AD46-78FBB4E99A84}
+// DispIntf:  _ClientOnReceivedMessageDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {684612E3-7F2F-34AA-AD46-78FBB4E99A84}
 // *********************************************************************//
   _ClientOnReceivedMessageDelegateDisp = dispinterface
     ['{684612E3-7F2F-34AA-AD46-78FBB4E99A84}']
   end;
 
 // *********************************************************************//
-// Interface :   _ClientOnSendMessageDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {37485B63-0D28-3643-B8B0-3E023FD9D4F9}
+// Interface: _ClientOnSendMessageDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {37485B63-0D28-3643-B8B0-3E023FD9D4F9}
 // *********************************************************************//
   _ClientOnSendMessageDelegate = interface(IDispatch)
     ['{37485B63-0D28-3643-B8B0-3E023FD9D4F9}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ClientOnSendMessageDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {37485B63-0D28-3643-B8B0-3E023FD9D4F9}
+// DispIntf:  _ClientOnSendMessageDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {37485B63-0D28-3643-B8B0-3E023FD9D4F9}
 // *********************************************************************//
   _ClientOnSendMessageDelegateDisp = dispinterface
     ['{37485B63-0D28-3643-B8B0-3E023FD9D4F9}']
   end;
 
 // *********************************************************************//
-// Interface :   _ClientOnReplyDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {630876F9-312A-3345-817E-E41461F337A8}
+// Interface: _ClientOnReplyDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {630876F9-312A-3345-817E-E41461F337A8}
 // *********************************************************************//
   _ClientOnReplyDelegate = interface(IDispatch)
     ['{630876F9-312A-3345-817E-E41461F337A8}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ClientOnReplyDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {630876F9-312A-3345-817E-E41461F337A8}
+// DispIntf:  _ClientOnReplyDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {630876F9-312A-3345-817E-E41461F337A8}
 // *********************************************************************//
   _ClientOnReplyDelegateDisp = dispinterface
     ['{630876F9-312A-3345-817E-E41461F337A8}']
   end;
 
 // *********************************************************************//
-// Interface :   _ClientServerOnMessageToLog
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DE18EFE9-E9ED-31D4-8CD4-D5F8ECD14058}
+// Interface: _ClientServerOnMessageToLog
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DE18EFE9-E9ED-31D4-8CD4-D5F8ECD14058}
 // *********************************************************************//
   _ClientServerOnMessageToLog = interface(IDispatch)
     ['{DE18EFE9-E9ED-31D4-8CD4-D5F8ECD14058}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ClientServerOnMessageToLogDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {DE18EFE9-E9ED-31D4-8CD4-D5F8ECD14058}
+// DispIntf:  _ClientServerOnMessageToLogDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {DE18EFE9-E9ED-31D4-8CD4-D5F8ECD14058}
 // *********************************************************************//
   _ClientServerOnMessageToLogDisp = dispinterface
     ['{DE18EFE9-E9ED-31D4-8CD4-D5F8ECD14058}']
   end;
 
 // *********************************************************************//
-// Interface :   _ThreadFunction
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {28D4F472-617D-3558-8BD8-716B5AF01E18}
+// Interface: _ThreadFunction
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {28D4F472-617D-3558-8BD8-716B5AF01E18}
 // *********************************************************************//
   _ThreadFunction = interface(IDispatch)
     ['{28D4F472-617D-3558-8BD8-716B5AF01E18}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ThreadFunctionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {28D4F472-617D-3558-8BD8-716B5AF01E18}
+// DispIntf:  _ThreadFunctionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {28D4F472-617D-3558-8BD8-716B5AF01E18}
 // *********************************************************************//
   _ThreadFunctionDisp = dispinterface
     ['{28D4F472-617D-3558-8BD8-716B5AF01E18}']
   end;
 
 // *********************************************************************//
-// Interface :   _ThreadTerminates
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {07CA5805-3D55-397D-928E-3638734DFB16}
+// Interface: _ThreadTerminates
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {07CA5805-3D55-397D-928E-3638734DFB16}
 // *********************************************************************//
   _ThreadTerminates = interface(IDispatch)
     ['{07CA5805-3D55-397D-928E-3638734DFB16}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _ThreadTerminatesDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {07CA5805-3D55-397D-928E-3638734DFB16}
+// DispIntf:  _ThreadTerminatesDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {07CA5805-3D55-397D-928E-3638734DFB16}
 // *********************************************************************//
   _ThreadTerminatesDisp = dispinterface
     ['{07CA5805-3D55-397D-928E-3638734DFB16}']
   end;
 
 // *********************************************************************//
-// Interface :   _TimerCompleteDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {FD39B2A3-27C1-3253-A87B-B214CC3325F6}
+// Interface: _TimerCompleteDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {FD39B2A3-27C1-3253-A87B-B214CC3325F6}
 // *********************************************************************//
   _TimerCompleteDelegate = interface(IDispatch)
     ['{FD39B2A3-27C1-3253-A87B-B214CC3325F6}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _TimerCompleteDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {FD39B2A3-27C1-3253-A87B-B214CC3325F6}
+// DispIntf:  _TimerCompleteDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {FD39B2A3-27C1-3253-A87B-B214CC3325F6}
 // *********************************************************************//
   _TimerCompleteDelegateDisp = dispinterface
     ['{FD39B2A3-27C1-3253-A87B-B214CC3325F6}']
   end;
 
 // *********************************************************************//
-// Interface :   _Win32UIActivityDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {362514F5-AE98-3E9F-9729-E67E58A3D5D7}
+// Interface: _Win32UIActivityDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {362514F5-AE98-3E9F-9729-E67E58A3D5D7}
 // *********************************************************************//
   _Win32UIActivityDelegate = interface(IDispatch)
     ['{362514F5-AE98-3E9F-9729-E67E58A3D5D7}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _Win32UIActivityDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {362514F5-AE98-3E9F-9729-E67E58A3D5D7}
+// DispIntf:  _Win32UIActivityDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {362514F5-AE98-3E9F-9729-E67E58A3D5D7}
 // *********************************************************************//
   _Win32UIActivityDelegateDisp = dispinterface
     ['{362514F5-AE98-3E9F-9729-E67E58A3D5D7}']
   end;
 
 // *********************************************************************//
-// Interface :   _FeedRecordDelegate
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7E09070D-FD2E-3546-9F9D-676E61B63B16}
+// Interface: _FeedRecordDelegate
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7E09070D-FD2E-3546-9F9D-676E61B63B16}
 // *********************************************************************//
   _FeedRecordDelegate = interface(IDispatch)
     ['{7E09070D-FD2E-3546-9F9D-676E61B63B16}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _FeedRecordDelegateDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7E09070D-FD2E-3546-9F9D-676E61B63B16}
+// DispIntf:  _FeedRecordDelegateDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7E09070D-FD2E-3546-9F9D-676E61B63B16}
 // *********************************************************************//
   _FeedRecordDelegateDisp = dispinterface
     ['{7E09070D-FD2E-3546-9F9D-676E61B63B16}']
   end;
 
 // *********************************************************************//
-// La classe CoCStreamClientIO fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamClientIO exposée
-// par la CoClasse CStreamClientIO. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCLogMsgs provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass CLogMsgs. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoCLogMsgs = class
+    class function Create: IEnumerable;
+    class function CreateRemote(const MachineName: string): IEnumerable;
+  end;
+
+// *********************************************************************//
+// The Class CoCSafeStringList provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass CSafeStringList. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoCSafeStringList = class
+    class function Create: IEnumerable;
+    class function CreateRemote(const MachineName: string): IEnumerable;
+  end;
+
+// *********************************************************************//
+// The Class CoCStreamClientIO provides a Create and CreateRemote method to          
+// create instances of the default interface IStreamClientIO exposed by              
+// the CoClass CStreamClientIO. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCStreamClientIO = class
     class function Create: IStreamClientIO;
@@ -948,11 +1008,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCStreamServerIO fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamServerIO exposée
-// par la CoClasse CStreamServerIO. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCStreamServerIO provides a Create and CreateRemote method to          
+// create instances of the default interface IStreamServerIO exposed by              
+// the CoClass CStreamServerIO. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCStreamServerIO = class
     class function Create: IStreamServerIO;
@@ -960,11 +1020,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCStreamServerStatistics fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamServerStatistics exposée
-// par la CoClasse CStreamServerStatistics. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCStreamServerStatistics provides a Create and CreateRemote method to          
+// create instances of the default interface IStreamServerStatistics exposed by              
+// the CoClass CStreamServerStatistics. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCStreamServerStatistics = class
     class function Create: IStreamServerStatistics;
@@ -972,11 +1032,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCStreamServerStartSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamServerStartSettings exposée
-// par la CoClasse CStreamServerStartSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCStreamServerStartSettings provides a Create and CreateRemote method to          
+// create instances of the default interface IStreamServerStartSettings exposed by              
+// the CoClass CStreamServerStartSettings. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCStreamServerStartSettings = class
     class function Create: IStreamServerStartSettings;
@@ -984,11 +1044,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCStreamClientSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamClientSettings exposée
-// par la CoClasse CStreamClientSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCStreamClientSettings provides a Create and CreateRemote method to          
+// create instances of the default interface IStreamClientSettings exposed by              
+// the CoClass CStreamClientSettings. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCStreamClientSettings = class
     class function Create: IStreamClientSettings;
@@ -996,11 +1056,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCStreamServerSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStreamServerSettings exposée
-// par la CoClasse CStreamServerSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCStreamServerSettings provides a Create and CreateRemote method to          
+// create instances of the default interface IStreamServerSettings exposed by              
+// the CoClass CStreamServerSettings. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCStreamServerSettings = class
     class function Create: IStreamServerSettings;
@@ -1008,11 +1068,23 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCThread fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IThread exposée
-// par la CoClasse CThread. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCSynchronize provides a Create and CreateRemote method to          
+// create instances of the default interface ISynchronize exposed by              
+// the CoClass CSynchronize. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoCSynchronize = class
+    class function Create: ISynchronize;
+    class function CreateRemote(const MachineName: string): ISynchronize;
+  end;
+
+// *********************************************************************//
+// The Class CoCThread provides a Create and CreateRemote method to          
+// create instances of the default interface IThread exposed by              
+// the CoClass CThread. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCThread = class
     class function Create: IThread;
@@ -1020,11 +1092,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCThreadEvents fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Object exposée
-// par la CoClasse CThreadEvents. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCThreadEvents provides a Create and CreateRemote method to          
+// create instances of the default interface _Object exposed by              
+// the CoClass CThreadEvents. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCThreadEvents = class
     class function Create: _Object;
@@ -1032,11 +1104,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCThreadData fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IThreadData exposée
-// par la CoClasse CThreadData. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCThreadData provides a Create and CreateRemote method to          
+// create instances of the default interface IThreadData exposed by              
+// the CoClass CThreadData. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCThreadData = class
     class function Create: IThreadData;
@@ -1044,11 +1116,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEDisconnected fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _EDisconnected exposée
-// par la CoClasse EDisconnected. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEDisconnected provides a Create and CreateRemote method to          
+// create instances of the default interface _EDisconnected exposed by              
+// the CoClass EDisconnected. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEDisconnected = class
     class function Create: _EDisconnected;
@@ -1056,11 +1128,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEInvalidFormat fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _EInvalidFormat exposée
-// par la CoClasse EInvalidFormat. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEInvalidFormat provides a Create and CreateRemote method to          
+// create instances of the default interface _EInvalidFormat exposed by              
+// the CoClass EInvalidFormat. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEInvalidFormat = class
     class function Create: _EInvalidFormat;
@@ -1068,11 +1140,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEOutOfRange fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _EOutOfRange exposée
-// par la CoClasse EOutOfRange. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEOutOfRange provides a Create and CreateRemote method to          
+// create instances of the default interface _EOutOfRange exposed by              
+// the CoClass EOutOfRange. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEOutOfRange = class
     class function Create: _EOutOfRange;
@@ -1080,23 +1152,23 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCJsonTypeExtensions fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _CJsonTypeExtensions exposée
-// par la CoClasse CJsonTypeExtensions. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCLogMsg provides a Create and CreateRemote method to          
+// create instances of the default interface _CLogMsg exposed by              
+// the CoClass CLogMsg. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
-  CoCJsonTypeExtensions = class
-    class function Create: _CJsonTypeExtensions;
-    class function CreateRemote(const MachineName: string): _CJsonTypeExtensions;
+  CoCLogMsg = class
+    class function Create: _CLogMsg;
+    class function CreateRemote(const MachineName: string): _CLogMsg;
   end;
 
 // *********************************************************************//
-// La classe CoCMiscExtensions fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _CMiscExtensions exposée
-// par la CoClasse CMiscExtensions. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCMiscExtensions provides a Create and CreateRemote method to          
+// create instances of the default interface _CMiscExtensions exposed by              
+// the CoClass CMiscExtensions. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCMiscExtensions = class
     class function Create: _CMiscExtensions;
@@ -1104,11 +1176,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoENotImplemented fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ENotImplemented exposée
-// par la CoClasse ENotImplemented. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoENotImplemented provides a Create and CreateRemote method to          
+// create instances of the default interface _ENotImplemented exposed by              
+// the CoClass ENotImplemented. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoENotImplemented = class
     class function Create: _ENotImplemented;
@@ -1116,11 +1188,23 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCStreamParameters fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _CStreamParameters exposée
-// par la CoClasse CStreamParameters. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCSafeBase provides a Create and CreateRemote method to          
+// create instances of the default interface _CSafeBase exposed by              
+// the CoClass CSafeBase. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
+// *********************************************************************//
+  CoCSafeBase = class
+    class function Create: _CSafeBase;
+    class function CreateRemote(const MachineName: string): _CSafeBase;
+  end;
+
+// *********************************************************************//
+// The Class CoCStreamParameters provides a Create and CreateRemote method to          
+// create instances of the default interface _CStreamParameters exposed by              
+// the CoClass CStreamParameters. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCStreamParameters = class
     class function Create: _CStreamParameters;
@@ -1128,11 +1212,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSendAsyncType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _SendAsyncType exposée
-// par la CoClasse SendAsyncType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSendAsyncType provides a Create and CreateRemote method to          
+// create instances of the default interface _SendAsyncType exposed by              
+// the CoClass SendAsyncType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSendAsyncType = class
     class function Create: _SendAsyncType;
@@ -1140,11 +1224,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoServerOnStartDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ServerOnStartDelegate exposée
-// par la CoClasse ServerOnStartDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoServerOnStartDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ServerOnStartDelegate exposed by              
+// the CoClass ServerOnStartDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoServerOnStartDelegate = class
     class function Create: _ServerOnStartDelegate;
@@ -1152,11 +1236,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoServerOnConnectDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ServerOnConnectDelegate exposée
-// par la CoClasse ServerOnConnectDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoServerOnConnectDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ServerOnConnectDelegate exposed by              
+// the CoClass ServerOnConnectDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoServerOnConnectDelegate = class
     class function Create: _ServerOnConnectDelegate;
@@ -1164,11 +1248,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoServerOnMessageDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ServerOnMessageDelegate exposée
-// par la CoClasse ServerOnMessageDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoServerOnMessageDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ServerOnMessageDelegate exposed by              
+// the CoClass ServerOnMessageDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoServerOnMessageDelegate = class
     class function Create: _ServerOnMessageDelegate;
@@ -1176,11 +1260,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoServerOnDisconnectDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ServerOnDisconnectDelegate exposée
-// par la CoClasse ServerOnDisconnectDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoServerOnDisconnectDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ServerOnDisconnectDelegate exposed by              
+// the CoClass ServerOnDisconnectDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoServerOnDisconnectDelegate = class
     class function Create: _ServerOnDisconnectDelegate;
@@ -1188,11 +1272,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoServerOnStopDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ServerOnStopDelegate exposée
-// par la CoClasse ServerOnStopDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoServerOnStopDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ServerOnStopDelegate exposed by              
+// the CoClass ServerOnStopDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoServerOnStopDelegate = class
     class function Create: _ServerOnStopDelegate;
@@ -1200,11 +1284,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoClientOnReceivedMessageDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ClientOnReceivedMessageDelegate exposée
-// par la CoClasse ClientOnReceivedMessageDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoClientOnReceivedMessageDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ClientOnReceivedMessageDelegate exposed by              
+// the CoClass ClientOnReceivedMessageDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoClientOnReceivedMessageDelegate = class
     class function Create: _ClientOnReceivedMessageDelegate;
@@ -1212,11 +1296,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoClientOnSendMessageDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ClientOnSendMessageDelegate exposée
-// par la CoClasse ClientOnSendMessageDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoClientOnSendMessageDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ClientOnSendMessageDelegate exposed by              
+// the CoClass ClientOnSendMessageDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoClientOnSendMessageDelegate = class
     class function Create: _ClientOnSendMessageDelegate;
@@ -1224,11 +1308,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoClientOnReplyDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ClientOnReplyDelegate exposée
-// par la CoClasse ClientOnReplyDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoClientOnReplyDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _ClientOnReplyDelegate exposed by              
+// the CoClass ClientOnReplyDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoClientOnReplyDelegate = class
     class function Create: _ClientOnReplyDelegate;
@@ -1236,11 +1320,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoClientServerOnMessageToLog fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ClientServerOnMessageToLog exposée
-// par la CoClasse ClientServerOnMessageToLog. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoClientServerOnMessageToLog provides a Create and CreateRemote method to          
+// create instances of the default interface _ClientServerOnMessageToLog exposed by              
+// the CoClass ClientServerOnMessageToLog. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoClientServerOnMessageToLog = class
     class function Create: _ClientServerOnMessageToLog;
@@ -1248,11 +1332,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoThreadFunction fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ThreadFunction exposée
-// par la CoClasse ThreadFunction. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoThreadFunction provides a Create and CreateRemote method to          
+// create instances of the default interface _ThreadFunction exposed by              
+// the CoClass ThreadFunction. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoThreadFunction = class
     class function Create: _ThreadFunction;
@@ -1260,11 +1344,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoThreadTerminates fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _ThreadTerminates exposée
-// par la CoClasse ThreadTerminates. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoThreadTerminates provides a Create and CreateRemote method to          
+// create instances of the default interface _ThreadTerminates exposed by              
+// the CoClass ThreadTerminates. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoThreadTerminates = class
     class function Create: _ThreadTerminates;
@@ -1272,11 +1356,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTimerCompleteDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _TimerCompleteDelegate exposée
-// par la CoClasse TimerCompleteDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTimerCompleteDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _TimerCompleteDelegate exposed by              
+// the CoClass TimerCompleteDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTimerCompleteDelegate = class
     class function Create: _TimerCompleteDelegate;
@@ -1284,11 +1368,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoWin32UIActivityDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _Win32UIActivityDelegate exposée
-// par la CoClasse Win32UIActivityDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoWin32UIActivityDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _Win32UIActivityDelegate exposed by              
+// the CoClass Win32UIActivityDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoWin32UIActivityDelegate = class
     class function Create: _Win32UIActivityDelegate;
@@ -1296,11 +1380,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoFeedRecordDelegate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _FeedRecordDelegate exposée
-// par la CoClasse FeedRecordDelegate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoFeedRecordDelegate provides a Create and CreateRemote method to          
+// create instances of the default interface _FeedRecordDelegate exposed by              
+// the CoClass FeedRecordDelegate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoFeedRecordDelegate = class
     class function Create: _FeedRecordDelegate;
@@ -1310,6 +1394,26 @@ type
 implementation
 
 uses System.Win.ComObj;
+
+class function CoCLogMsgs.Create: IEnumerable;
+begin
+  Result := CreateComObject(CLASS_CLogMsgs) as IEnumerable;
+end;
+
+class function CoCLogMsgs.CreateRemote(const MachineName: string): IEnumerable;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_CLogMsgs) as IEnumerable;
+end;
+
+class function CoCSafeStringList.Create: IEnumerable;
+begin
+  Result := CreateComObject(CLASS_CSafeStringList) as IEnumerable;
+end;
+
+class function CoCSafeStringList.CreateRemote(const MachineName: string): IEnumerable;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_CSafeStringList) as IEnumerable;
+end;
 
 class function CoCStreamClientIO.Create: IStreamClientIO;
 begin
@@ -1369,6 +1473,16 @@ end;
 class function CoCStreamServerSettings.CreateRemote(const MachineName: string): IStreamServerSettings;
 begin
   Result := CreateRemoteComObject(MachineName, CLASS_CStreamServerSettings) as IStreamServerSettings;
+end;
+
+class function CoCSynchronize.Create: ISynchronize;
+begin
+  Result := CreateComObject(CLASS_CSynchronize) as ISynchronize;
+end;
+
+class function CoCSynchronize.CreateRemote(const MachineName: string): ISynchronize;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_CSynchronize) as ISynchronize;
 end;
 
 class function CoCThread.Create: IThread;
@@ -1431,14 +1545,14 @@ begin
   Result := CreateRemoteComObject(MachineName, CLASS_EOutOfRange) as _EOutOfRange;
 end;
 
-class function CoCJsonTypeExtensions.Create: _CJsonTypeExtensions;
+class function CoCLogMsg.Create: _CLogMsg;
 begin
-  Result := CreateComObject(CLASS_CJsonTypeExtensions) as _CJsonTypeExtensions;
+  Result := CreateComObject(CLASS_CLogMsg) as _CLogMsg;
 end;
 
-class function CoCJsonTypeExtensions.CreateRemote(const MachineName: string): _CJsonTypeExtensions;
+class function CoCLogMsg.CreateRemote(const MachineName: string): _CLogMsg;
 begin
-  Result := CreateRemoteComObject(MachineName, CLASS_CJsonTypeExtensions) as _CJsonTypeExtensions;
+  Result := CreateRemoteComObject(MachineName, CLASS_CLogMsg) as _CLogMsg;
 end;
 
 class function CoCMiscExtensions.Create: _CMiscExtensions;
@@ -1459,6 +1573,16 @@ end;
 class function CoENotImplemented.CreateRemote(const MachineName: string): _ENotImplemented;
 begin
   Result := CreateRemoteComObject(MachineName, CLASS_ENotImplemented) as _ENotImplemented;
+end;
+
+class function CoCSafeBase.Create: _CSafeBase;
+begin
+  Result := CreateComObject(CLASS_CSafeBase) as _CSafeBase;
+end;
+
+class function CoCSafeBase.CreateRemote(const MachineName: string): _CSafeBase;
+begin
+  Result := CreateRemoteComObject(MachineName, CLASS_CSafeBase) as _CSafeBase;
 end;
 
 class function CoCStreamParameters.Create: _CStreamParameters;

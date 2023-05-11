@@ -1,36 +1,36 @@
 unit Accessibility_TLB;
 
 // ************************************************************************ //
-// AVERTISSEMENT
-// -------
-// Les types déclarés dans ce fichier ont été générés à partir de données lues
-// depuis la bibliothèque de types. Si cette dernière (via une autre bibliothèque de types
-// s'y référant) est explicitement ou indirectement ré-importée, ou la commande "Actualiser"
-// de l'éditeur de bibliothèque de types est activée lors de la modification de la bibliothèque
-// de types, le contenu de ce fichier sera régénéré et toutes les modifications
-// manuellement apportées seront perdues.
+// WARNING                                                                    
+// -------                                                                    
+// The types declared in this file were generated from data read from a       
+// Type Library. If this type library is explicitly or indirectly (via        
+// another type library referring to this type library) re-imported, or the   
+// 'Refresh' command of the Type Library Editor activated while editing the   
+// Type Library, the contents of this file will be regenerated and all        
+// manual modifications will be lost.                                         
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 29/11/2022 17:31:23 depuis la bibliothèque de types ci-dessous.
+// File generated on 11/05/2023 18:08:18 from Type Library described below.
 
 // ************************************************************************  //
-// Biblio. types : C:\Windows\SysWOW64\oleacc.dll (1)
-// LIBID : {1EA4DBF0-3C3B-11CF-810C-00AA00389B71}
-// LCID : 0
-// Fichier d'aide : 
-// Chaîne d'aide : 
-// DepndLst : 
+// Type Lib: C:\Windows\SysWOW64\oleacc.dll (1)
+// LIBID: {1EA4DBF0-3C3B-11CF-810C-00AA00389B71}
+// LCID: 0
+// Helpfile: 
+// HelpString: 
+// DepndLst: 
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
-// Bibliothèque de types parent :
-//   (0) v1.6 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+// Parent TypeLibrary:
+//   (0) v1.8 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN32
 // Errors:
-//   Remarque : paramètre 'var' dans IAccPropServices.SetPropValue changé en 'var_'
-//   Remarque : paramètre 'var' dans IAccPropServices.SetHwndProp changé en 'var_'
-//   Remarque : paramètre 'var' dans IAccPropServices.SetHmenuProp changé en 'var_'
+//   Hint: Parameter 'var' of IAccPropServices.SetPropValue changed to 'var_'
+//   Hint: Parameter 'var' of IAccPropServices.SetHwndProp changed to 'var_'
+//   Hint: Parameter 'var' of IAccPropServices.SetHmenuProp changed to 'var_'
 // ************************************************************************ //
-{$TYPEDADDRESS OFF} // L'unité doit être compilée sans pointeur à type contrôlé.  
+{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
 {$WARN SYMBOL_PLATFORM OFF}
 {$WRITEABLECONST ON}
 {$VARPROPSETTER ON}
@@ -40,15 +40,16 @@ interface
 
 uses Winapi.Windows, System.Classes, System.Variants, System.Win.StdVCL, Vcl.Graphics, Vcl.OleServer, Winapi.ActiveX;
   
+
 // *********************************************************************//
-// GUIDS déclarés dans la bibliothèque de types. Préfixes utilisés:        
-//   Bibliothèques de types : LIBID_xxxx                                      
-//   CoClasses              : CLASS_xxxx                                      
-//   Interfaces DISP        : DIID_xxxx                                       
-//   Interfaces Non-DISP    : IID_xxxx                                        
+// GUIDS declared in the TypeLibrary. Following prefixes are used:        
+//   Type Libraries     : LIBID_xxxx                                      
+//   CoClasses          : CLASS_xxxx                                      
+//   DISPInterfaces     : DIID_xxxx                                       
+//   Non-DISP interfaces: IID_xxxx                                        
 // *********************************************************************//
 const
-  // Versions mineure et majeure de la bibliothèque de types
+  // TypeLibrary Major and minor versions
   AccessibilityMajorVersion = 1;
   AccessibilityMinorVersion = 1;
 
@@ -62,9 +63,9 @@ const
   CLASS_CAccPropServices: TGUID = '{B5F8350B-0548-48B1-A6EE-88BD00B4A5E7}';
 
 // *********************************************************************//
-// Déclaration d'énumérations définies dans la bibliothèque de types                    
+// Declaration of Enumerations defined in Type Library                    
 // *********************************************************************//
-// Constantes pour enum AnnoScope
+// Constants for enum AnnoScope
 type
   AnnoScope = TOleEnum;
 const
@@ -74,7 +75,7 @@ const
 type
 
 // *********************************************************************//
-// Déclaration Forward des types définis dans la bibliothèque de types                     
+// Forward declaration of types defined in TypeLibrary                    
 // *********************************************************************//
   IAccessible = interface;
   IAccessibleDisp = dispinterface;
@@ -84,14 +85,14 @@ type
   IAccPropServices = interface;
 
 // *********************************************************************//
-// Déclaration de CoClasses définies dans la bibliothèque de types        
-// (REMARQUE: On affecte chaque CoClasse à son Interface par défaut)      
+// Declaration of CoClasses defined in Type Library                       
+// (NOTE: Here we map each CoClass to its Default Interface)              
 // *********************************************************************//
   CAccPropServices = IAccPropServices;
 
 
 // *********************************************************************//
-// Déclaration de structures, d'unions et d'alias.                         
+// Declaration of structures, unions and aliases.                         
 // *********************************************************************//
   wireHWND = ^_RemotableHandle; 
   wireHMENU = ^_RemotableHandle; 
@@ -112,9 +113,9 @@ type
 
 
 // *********************************************************************//
-// Interface :   IAccessible
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {618736E0-3C3D-11CF-810C-00AA00389B71}
+// Interface: IAccessible
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {618736E0-3C3D-11CF-810C-00AA00389B71}
 // *********************************************************************//
   IAccessible = interface(IDispatch)
     ['{618736E0-3C3D-11CF-810C-00AA00389B71}']
@@ -157,9 +158,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAccessibleDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {618736E0-3C3D-11CF-810C-00AA00389B71}
+// DispIntf:  IAccessibleDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {618736E0-3C3D-11CF-810C-00AA00389B71}
 // *********************************************************************//
   IAccessibleDisp = dispinterface
     ['{618736E0-3C3D-11CF-810C-00AA00389B71}']
@@ -186,9 +187,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAccessibleHandler
-// Indicateurs : (272) Hidden OleAutomation
-// GUID :        {03022430-ABC4-11D0-BDE2-00AA001A1953}
+// Interface: IAccessibleHandler
+// Flags:     (272) Hidden OleAutomation
+// GUID:      {03022430-ABC4-11D0-BDE2-00AA001A1953}
 // *********************************************************************//
   IAccessibleHandler = interface(IUnknown)
     ['{03022430-ABC4-11D0-BDE2-00AA001A1953}']
@@ -196,9 +197,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAccIdentity
-// Indicateurs : (0)
-// GUID :        {7852B78D-1CFD-41C1-A615-9C0C85960B5F}
+// Interface: IAccIdentity
+// Flags:     (0)
+// GUID:      {7852B78D-1CFD-41C1-A615-9C0C85960B5F}
 // *********************************************************************//
   IAccIdentity = interface(IUnknown)
     ['{7852B78D-1CFD-41C1-A615-9C0C85960B5F}']
@@ -207,9 +208,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAccPropServer
-// Indicateurs : (0)
-// GUID :        {76C0DBBB-15E0-4E7B-B61B-20EEEA2001E0}
+// Interface: IAccPropServer
+// Flags:     (0)
+// GUID:      {76C0DBBB-15E0-4E7B-B61B-20EEEA2001E0}
 // *********************************************************************//
   IAccPropServer = interface(IUnknown)
     ['{76C0DBBB-15E0-4E7B-B61B-20EEEA2001E0}']
@@ -218,9 +219,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAccPropServices
-// Indicateurs : (0)
-// GUID :        {6E26E776-04F0-495D-80E4-3330352E3169}
+// Interface: IAccPropServices
+// Flags:     (0)
+// GUID:      {6E26E776-04F0-495D-80E4-3330352E3169}
 // *********************************************************************//
   IAccPropServices = interface(IUnknown)
     ['{6E26E776-04F0-495D-80E4-3330352E3169}']
@@ -260,11 +261,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCAccPropServices fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAccPropServices exposée
-// par la CoClasse CAccPropServices. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCAccPropServices provides a Create and CreateRemote method to          
+// create instances of the default interface IAccPropServices exposed by              
+// the CoClass CAccPropServices. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCAccPropServices = class
     class function Create: IAccPropServices;

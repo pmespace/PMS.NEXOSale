@@ -7,7 +7,7 @@ Public Class FConfirm
 	Private HEADER As String = "CONFIRM CANCEL REQUEST WINDOW - "
 	Public AlwaysUseDate As Boolean = False
 	Public MessageToDisplay As String = My.Resources.CommonResources.FConfirm_CancelOperationRequest
-	Public Shared WM_CANCEL_CANCEL As UInteger = Win32.WM_USER + 1
+	Public Shared WM_CANCEL_CANCEL As UInteger = Win32.WM_APP + 1
 	Public Code As String
 
 	Protected Overrides Sub WndProc(ByRef m As Message)

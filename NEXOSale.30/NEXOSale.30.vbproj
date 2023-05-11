@@ -10,7 +10,7 @@
     <AssemblyName>PMS.NEXOSALE30</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
     <ShouldCreateLogs>True</ShouldCreateLogs>
     <AdvancedSettingsExpanded>False</AdvancedSettingsExpanded>
@@ -24,6 +24,7 @@
     <AssemblyFileVersionSettings>None.None.None.None</AssemblyFileVersionSettings>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -208,7 +209,6 @@
     <None Include="pms.key.file.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NUGET30.nuspec" />
     <None Include="button green.png" />
     <None Include="button red.png" />
     <Content Include="Open.png" />
@@ -221,18 +221,26 @@
       <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="PMS.NEXO30">
-      <Version>4.8.0</Version>
+      <Version>4.9.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
-    <PreBuildEvent>rem %25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe $(OutDir)PMS.COMMON.dll /unregister
-rem %25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe $(OutDir)PMS.NEXO30.dll /unregister</PreBuildEvent>
+    <PreBuildEvent>rem %25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe  /unregister $(OutDir)PMS.COMMON.dll
+rem %25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe  /unregister $(OutDir)PMS.NEXO30.dll
+
+echo pms.common
+%25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe  /codebase  /tlb  $(OutDir)PMS.COMMON.dll
+echo pms.nexo30
+%25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe  /codebase  /tlb  $(OutDir)PMS.NEXO30.dll</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>echo pms.common
-%25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe $(OutDir)PMS.COMMON.dll /codebase /tlb
-echo pms.nexo30
-%25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe $(OutDir)PMS.NEXO30.dll /codebase /tlb</PostBuildEvent>
+    <PostBuildEvent>rem echo pms.common
+rem %25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe  /codebase  /tlb  $(OutDir)PMS.COMMON.dll
+rem echo pms.nexo30
+rem %25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe  /codebase  /tlb  $(OutDir)PMS.NEXO30.dll
+rem echo pms.nexosale30
+rem %25windir%25\Microsoft.NET\Framework64\v4.0.30319\regasm.exe  /codebase  /tlb  $(OutDir)$(TargetFileName)
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

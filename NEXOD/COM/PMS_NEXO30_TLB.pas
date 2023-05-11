@@ -1,40 +1,40 @@
 unit PMS_NEXO30_TLB;
 
 // ************************************************************************ //
-// AVERTISSEMENT
-// -------
-// Les types déclarés dans ce fichier ont été générés à partir de données lues
-// depuis la bibliothèque de types. Si cette dernière (via une autre bibliothèque de types
-// s'y référant) est explicitement ou indirectement ré-importée, ou la commande "Actualiser"
-// de l'éditeur de bibliothèque de types est activée lors de la modification de la bibliothèque
-// de types, le contenu de ce fichier sera régénéré et toutes les modifications
-// manuellement apportées seront perdues.
+// WARNING                                                                    
+// -------                                                                    
+// The types declared in this file were generated from data read from a       
+// Type Library. If this type library is explicitly or indirectly (via        
+// another type library referring to this type library) re-imported, or the   
+// 'Refresh' command of the Type Library Editor activated while editing the   
+// Type Library, the contents of this file will be regenerated and all        
+// manual modifications will be lost.                                         
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// Fichier généré le 29/11/2022 17:31:23 depuis la bibliothèque de types ci-dessous.
+// File generated on 11/05/2023 18:08:18 from Type Library described below.
 
 // ************************************************************************  //
-// Biblio. types : C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.nexo30.tlb (1)
-// LIBID : {99591289-9246-3DDD-A74F-A90DC3E3829D}
-// LCID : 0
-// Fichier d'aide : 
-// Chaîne d'aide : 
-// DepndLst : 
+// Type Lib: C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXO30.tlb (1)
+// LIBID: {484B007D-0671-3C40-835E-DD8138A71CE5}
+// LCID: 0
+// Helpfile: 
+// HelpString: 
+// DepndLst: 
 //   (1) v2.0 stdole, (C:\Windows\SysWOW64\stdole2.tlb)
 //   (2) v2.4 mscorlib, (C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb)
-//   (3) v6.3 PMS_COMMON, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb)
-// Bibliothèque de types parent :
-//   (0) v1.6 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
+//   (3) v7.5 PMS_COMMON, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.COMMON.tlb)
+// Parent TypeLibrary:
+//   (0) v1.8 PMS_NEXOSALE30, (C:\Users\philippe\Documents\Dev\NEXOSale\bin\PMS.NEXOSALE30.tlb)
 // SYS_KIND: SYS_WIN64
 // Errors:
-//   Remarque : le symbole 'Type' a été renommé en 'type_'
-//   Remarque : membre 'Class' de 'INexoItem' changé en 'Class_'
-//   Remarque : membre 'Label' de 'INexoLabel' changé en 'Label_'
-//   Remarque : paramètre 'Label' dans INexoCluster.SetLabel changé en 'Label_'
-//   Remarque : paramètre 'Label' dans INexoCluster.UnsetLabel changé en 'Label_'
+//   Hint: Symbol 'Type' renamed to 'type_'
+//   Hint: Member 'Class' of 'INexoItem' changed to 'Class_'
+//   Hint: Member 'Label' of 'INexoLabel' changed to 'Label_'
+//   Hint: Parameter 'Label' of INexoCluster.SetLabel changed to 'Label_'
+//   Hint: Parameter 'Label' of INexoCluster.UnsetLabel changed to 'Label_'
 // ************************************************************************ //
-{$TYPEDADDRESS OFF} // L'unité doit être compilée sans pointeur à type contrôlé.  
+{$TYPEDADDRESS OFF} // Unit must be compiled without type-checked pointers. 
 {$WARN SYMBOL_PLATFORM OFF}
 {$WRITEABLECONST ON}
 {$VARPROPSETTER ON}
@@ -45,19 +45,20 @@ interface
 uses Winapi.Windows, mscorlib_TLB, PMS_COMMON_TLB, System.Classes, System.Variants, System.Win.StdVCL, Vcl.Graphics, Vcl.OleServer, 
 Winapi.ActiveX;
   
+
 // *********************************************************************//
-// GUIDS déclarés dans la bibliothèque de types. Préfixes utilisés:        
-//   Bibliothèques de types : LIBID_xxxx                                      
-//   CoClasses              : CLASS_xxxx                                      
-//   Interfaces DISP        : DIID_xxxx                                       
-//   Interfaces Non-DISP    : IID_xxxx                                        
+// GUIDS declared in the TypeLibrary. Following prefixes are used:        
+//   Type Libraries     : LIBID_xxxx                                      
+//   CoClasses          : CLASS_xxxx                                      
+//   DISPInterfaces     : DIID_xxxx                                       
+//   Non-DISP interfaces: IID_xxxx                                        
 // *********************************************************************//
 const
-  // Versions mineure et majeure de la bibliothèque de types
+  // TypeLibrary Major and minor versions
   PMS_NEXO30MajorVersion = 4;
-  PMS_NEXO30MinorVersion = 7;
+  PMS_NEXO30MinorVersion = 9;
 
-  LIBID_PMS_NEXO30: TGUID = '{99591289-9246-3DDD-A74F-A90DC3E3829D}';
+  LIBID_PMS_NEXO30: TGUID = '{484B007D-0671-3C40-835E-DD8138A71CE5}';
 
   IID_IAuthenticatedDataType: TGUID = '{2CE2CC43-4B32-471D-B095-0C10BCAE737F}';
   IID_IKEKType: TGUID = '{ED747233-340A-41A1-8E0E-9AEF576C9941}';
@@ -380,21 +381,21 @@ const
   IID_INexoActivity: TGUID = '{1ADB3E04-8743-492B-94C5-4F973C27B951}';
   CLASS_NexoActivity: TGUID = '{0010366D-C2CC-4685-A52A-9716D59740F3}';
   IID__NexoMessage: TGUID = '{7DA4FB59-22EF-399D-B3B4-1E0397E4CCF5}';
-  CLASS_NexoDictionaryOfMessages: TGUID = '{B4A1065E-A038-3A59-BFB4-41D7810B6403}';
+  CLASS_NexoDictionaryOfMessages: TGUID = '{2AD0C369-75E6-37EF-AAAF-13EDEA01845F}';
   IID__NexoPartner: TGUID = '{59BB3895-65B2-3942-940E-6DD04810656E}';
   IID__NexoEndPoint: TGUID = '{5339D5FB-D6F3-3710-B640-21CEF51B9F46}';
-  CLASS_NexoListOfEndPoints: TGUID = '{18AE78E3-CED0-3245-816E-460125EF8940}';
-  CLASS_NexoDictionaryOfEndPoints: TGUID = '{2E91A7DB-7347-352F-AE28-3A45B98C5D8D}';
+  CLASS_NexoListOfEndPoints: TGUID = '{88C1009C-D664-380D-AFFF-CED703AEEF9E}';
+  CLASS_NexoDictionaryOfEndPoints: TGUID = '{37E6E82B-D6F9-3A44-B45E-4533811123B6}';
   IID__NexoSession: TGUID = '{22FDEE0C-B93F-3CF0-A2A2-BA85F2288CED}';
-  CLASS_NexoListOfSessions: TGUID = '{AAE56028-CC85-3030-8B38-F7B657257AAA}';
-  CLASS_NexoDictionaryOfSessions: TGUID = '{3AA9D075-D415-397A-84A6-40DF8214C749}';
-  CLASS_NexoListOfNexoKeys: TGUID = '{DD3D1C2C-3F12-3585-9477-972FB8323C28}';
-  CLASS_NexoDictionaryOfNexoKeys: TGUID = '{B6319457-1507-3E1E-B46D-56A55A121913}';
+  CLASS_NexoListOfSessions: TGUID = '{903F7EA2-6792-3253-BECC-535751C4091B}';
+  CLASS_NexoDictionaryOfSessions: TGUID = '{A7728459-93DE-3C6F-90FE-838C5E12C58C}';
+  CLASS_NexoListOfNexoKeys: TGUID = '{7ACF0661-BA59-3C01-B0D0-04090D63B180}';
+  CLASS_NexoDictionaryOfNexoKeys: TGUID = '{588EA7DE-922C-3C1B-9F58-C48E562DC44D}';
   IID_INexoAnyMessage: TGUID = '{91849B50-192A-4811-8BFA-A506BD74E778}';
-  CLASS_NexoListOfAnyMessages: TGUID = '{25269D1D-BFC3-39CF-9E19-0A94011D8DAE}';
-  CLASS_NexoDictionaryOfAnyMessages: TGUID = '{7D1825ED-7C3F-3238-A51E-F336D37779B3}';
+  CLASS_NexoListOfAnyMessages: TGUID = '{0B6361CC-DB1A-3B71-8D2E-141C25C0A44C}';
+  CLASS_NexoDictionaryOfAnyMessages: TGUID = '{25742716-BD2D-3A27-B6EB-86A49B4CE505}';
   IID__NexoDelegates: TGUID = '{9D53AE2A-5E06-352F-A630-F76256357105}';
-  CLASS_NexoAcceptedCommands: TGUID = '{2B9E76CE-110E-386B-9DAA-8C6BD9FB4A71}';
+  CLASS_NexoAcceptedCommands: TGUID = '{5DBCC52D-F79C-345F-AD5C-098F96AEB92B}';
   IID_INexoItem: TGUID = '{B7773C1A-8091-4B2A-A54E-74E686E5F91E}';
   CLASS_NexoItem: TGUID = '{390237C2-5337-4EBE-8B1E-E395611FEC82}';
   IID__NexoKey: TGUID = '{89CFED27-307C-3ADA-BBD6-40800D474F0F}';
@@ -500,7 +501,7 @@ const
   IID__NexoTerminalEnvironment: TGUID = '{22389591-8FAC-3D5C-8696-7F02CE9D1A28}';
   IID__NexoSaleCapabilities: TGUID = '{27EE1457-9C5B-364B-A5B0-6F8DEA5DFD90}';
   IID__NexoProtocolVersion: TGUID = '{80FE31BB-AA27-3228-9E9F-ACCBC7BEC91E}';
-  CLASS_NexoSupportedProtocolVersions: TGUID = '{FEEC8267-8CBC-39CB-8E9B-68A91CBB4B9F}';
+  CLASS_NexoSupportedProtocolVersions: TGUID = '{7E861A88-241A-314F-A591-C1C970F86D50}';
   IID__NexoID: TGUID = '{18471494-0F7D-3761-AA8A-4234DEEE46E0}';
   IID__NexoServiceID: TGUID = '{59B3973C-67DE-3226-950C-3F1AF7CA8CD9}';
   IID__NexoDeviceID: TGUID = '{71E7118B-B956-330C-8CF3-985FF48C8383}';
@@ -544,51 +545,51 @@ const
   IID__NexoRetailerServerDatabase: TGUID = '{23975521-A1F1-3C63-9519-BE95ECC5C8E2}';
   IID_INexoRetailerServerSettings: TGUID = '{0D584C15-C13E-4123-B6A6-57D27C7937D1}';
   CLASS_NexoRetailerServerSettings: TGUID = '{D2737F59-F4EE-4935-9C89-C45667C4D506}';
-  CLASS_NexoMessage: TGUID = '{B7997B4B-7AC4-3838-B969-18CFBE98322C}';
-  CLASS_NexoPartner: TGUID = '{EA7535D6-204E-3C40-B584-889C9E060531}';
-  CLASS_NexoEndPoint: TGUID = '{30588D42-30E5-3847-BE6E-73A5B7BDADFE}';
-  CLASS_NexoSession: TGUID = '{3A7AD5A3-6F4B-3974-9AAA-1A81D7DA7CF6}';
-  CLASS_NexoDelegates: TGUID = '{B2A5A3DB-90DD-3D86-9D5F-C9A95DFBE2E1}';
-  CLASS_NexoKey: TGUID = '{541994E3-06D0-3652-9102-C06DA61177CF}';
-  CLASS_NexoObjectExtension: TGUID = '{AC66120A-377C-33B3-A022-C80A8EBEB54D}';
-  CLASS_NexoMessageType: TGUID = '{9E20EFBF-4BA7-3867-AA38-4825FFAFF997}';
-  CLASS_NexoMessageClass: TGUID = '{5002C6B8-1B0B-34D5-A2FB-D55242292B94}';
-  CLASS_NexoMessageCategory: TGUID = '{E7B12641-AB5F-3BF0-A41D-B0340AD320D8}';
-  CLASS_NexoTerminalEnvironment: TGUID = '{03B215C7-BAD5-3097-8BD7-4B68EDAF70DB}';
-  CLASS_NexoSaleCapabilities: TGUID = '{16B43DC5-2C7F-3C50-9918-2334CA8B0682}';
-  CLASS_NexoProtocolVersion: TGUID = '{48B09C81-5757-3BBB-891D-C116E3B707D5}';
-  CLASS_NexoID: TGUID = '{4F91A87D-9CE8-35AB-9150-A586F070F71F}';
-  CLASS_NexoServiceID: TGUID = '{38B606A8-23FB-3A9E-AA21-218F070407C4}';
-  CLASS_NexoDeviceID: TGUID = '{C011D375-E0DA-3F7A-9E92-F6DC3D990BED}';
-  CLASS_NexoPOIID: TGUID = '{C29C8500-4660-3F0D-8347-F29A7598B2F7}';
-  CLASS_NexoSaleID: TGUID = '{818EF61D-59A5-36A2-B6EB-746CA62EDCEF}';
-  CLASS_NexoOperatorLanguage: TGUID = '{EF01B629-AE8F-3F86-AD26-2D32843861D7}';
-  CLASS_NexoResult: TGUID = '{9EBC260F-FA50-38F6-B361-F1579CF6ABEA}';
-  CLASS_NexoErrorCondition: TGUID = '{6EF03CA8-E20B-38D6-9B61-A8C7F8F7E305}';
-  CLASS_NexoAdditionalResponse: TGUID = '{F3995BDB-F4E9-37A6-BD8E-19256D225EBE}';
-  CLASS_NexoGlobalStatus: TGUID = '{F2DBFE8D-E66D-3555-8152-594B3167EBC8}';
-  CLASS_NexoCertificationCode: TGUID = '{0018BC7C-4EEF-32BC-805F-83C2FA2D2D39}';
-  CLASS_NexoSoftwareVersion: TGUID = '{01FE978D-3F31-3A83-B773-06A8C2E2ADE4}';
-  CLASS_NexoApplicationName: TGUID = '{C99C1495-3577-3AD8-9EA7-684160D3D462}';
-  CLASS_NexoManufacturerID: TGUID = '{A064DBE6-A739-3E0D-B025-17993A3CD7A8}';
-  CLASS_NexoPOISerialNumber: TGUID = '{5FF50E3E-FE5D-314F-A20C-CE9F0490E543}';
-  CLASS_NexoOperatorID: TGUID = '{ED640907-D1CF-3577-B791-C76829AD9C9B}';
-  CLASS_NexoDateTime: TGUID = '{761EEEC1-8AE3-3FA8-9543-C8017FF95199}';
-  CLASS_NexoInputCommand: TGUID = '{DFEB1478-E62D-315F-8899-98322189A84A}';
-  CLASS_NexoEventToNotify: TGUID = '{0E3893A7-3DD1-3CA9-B814-49C74FCA1570}';
-  CLASS_NexoPaymentIntrumentType: TGUID = '{07C2EAFF-22BF-3857-8AD2-0833FE8A39FD}';
-  CLASS_NexoVersion: TGUID = '{FD89854A-A4AB-3DF5-9224-3CCB802725E7}';
-  CLASS_NexoCurrentVersion: TGUID = '{38BCD422-C0FE-3948-8495-52E343D95E38}';
-  CLASS_NexoRetailerServerDatabaseConnection: TGUID = '{122E66EB-7C8F-34B3-8276-42CCEB473F01}';
-  CLASS_NexoRetailerServerDatabaseEndPoint: TGUID = '{8079F83A-096D-35D7-827D-79570C25F963}';
-  CLASS_NexoRetailerServerDatabaseSale: TGUID = '{002C3128-20AB-3D12-9C54-382D736ABC7E}';
-  CLASS_NexoRetailerServerDatabaseMessage: TGUID = '{A377FAB5-75CF-3A5D-B015-149C42A69643}';
-  CLASS_NexoRetailerServerDatabase: TGUID = '{64DBC7FC-AE79-3542-A462-3B5C766D3926}';
+  CLASS_NexoMessage: TGUID = '{1D24F5CA-4FFC-3ABE-8F16-7D92A9FBDFBF}';
+  CLASS_NexoPartner: TGUID = '{2EC635D5-AC4D-341B-BE83-A955044235B1}';
+  CLASS_NexoEndPoint: TGUID = '{64DBB23B-468C-396F-BEC5-B81CE250B8BF}';
+  CLASS_NexoSession: TGUID = '{7B47D46E-2F5F-32BA-9EFA-1A6FFC444739}';
+  CLASS_NexoDelegates: TGUID = '{E4574B2C-97B7-3A66-BF9B-343DA74FB924}';
+  CLASS_NexoKey: TGUID = '{2A967E4A-99AC-354B-86A8-EB780F545760}';
+  CLASS_NexoObjectExtension: TGUID = '{A3BD970D-2869-3662-B35F-FA460FAA2949}';
+  CLASS_NexoMessageType: TGUID = '{575D2C0B-9675-36F9-9E02-0B24815B8F34}';
+  CLASS_NexoMessageClass: TGUID = '{25332E97-9679-380D-BB8C-666B19BC2586}';
+  CLASS_NexoMessageCategory: TGUID = '{25CCFA7A-6BDC-3B6C-B162-77253C89B73B}';
+  CLASS_NexoTerminalEnvironment: TGUID = '{505D687F-E91B-3603-AB0D-1E0F3A8FF77F}';
+  CLASS_NexoSaleCapabilities: TGUID = '{00B7611C-8959-3E2E-B467-12502B53B8A5}';
+  CLASS_NexoProtocolVersion: TGUID = '{F9EFECFD-8D0C-3951-B235-832EA1A6BDEB}';
+  CLASS_NexoID: TGUID = '{68FB8904-E589-317A-B648-BE10D9CCD5E5}';
+  CLASS_NexoServiceID: TGUID = '{A5355424-D647-31B2-B59F-FEA194EAA5A2}';
+  CLASS_NexoDeviceID: TGUID = '{A45CD5CE-62DF-30D4-817A-1BAE76AF8EAD}';
+  CLASS_NexoPOIID: TGUID = '{0A429878-1E13-3083-A14E-C51D80ED2C64}';
+  CLASS_NexoSaleID: TGUID = '{BE3D7A0F-2BA4-3AE6-8BFF-120BD40D8DD9}';
+  CLASS_NexoOperatorLanguage: TGUID = '{7A23339E-902C-31DF-9641-D69091014F3F}';
+  CLASS_NexoResult: TGUID = '{545907F0-AF0E-3D95-93CC-A49982DAAA07}';
+  CLASS_NexoErrorCondition: TGUID = '{ABBE6EA3-89CB-34DF-BEB2-D98F3C7A08F9}';
+  CLASS_NexoAdditionalResponse: TGUID = '{393D8EEB-50E5-3CB7-A571-55C30BCB662D}';
+  CLASS_NexoGlobalStatus: TGUID = '{650B6045-BD99-3E6F-AE60-45DAD10C27DC}';
+  CLASS_NexoCertificationCode: TGUID = '{6A295367-7CED-3F14-AB7D-9330AACC6593}';
+  CLASS_NexoSoftwareVersion: TGUID = '{8FB33F3E-9C4A-36EC-92A6-CCF6C4C200BF}';
+  CLASS_NexoApplicationName: TGUID = '{8F5E07B5-F2D1-3489-976F-45564A26244F}';
+  CLASS_NexoManufacturerID: TGUID = '{87A6B729-FC69-3532-8301-6246CEE4D709}';
+  CLASS_NexoPOISerialNumber: TGUID = '{B0F4135B-60CF-3BAE-9B97-947ADE394F6E}';
+  CLASS_NexoOperatorID: TGUID = '{81A775EF-8EA7-3A9B-81B3-7AB519A3E69E}';
+  CLASS_NexoDateTime: TGUID = '{420713F0-359C-39F1-B163-6787778E1964}';
+  CLASS_NexoInputCommand: TGUID = '{01C28DBD-A08A-3754-AB76-36229457CC45}';
+  CLASS_NexoEventToNotify: TGUID = '{6D86DDE2-F8FF-3C42-84F6-447139634196}';
+  CLASS_NexoPaymentIntrumentType: TGUID = '{01F27B61-08D4-3D80-9EF8-406D1CC8E284}';
+  CLASS_NexoVersion: TGUID = '{F721AC3A-6057-32DD-B85B-00301A0310D9}';
+  CLASS_NexoCurrentVersion: TGUID = '{CDF57C67-5B55-3395-A643-93FDE028B25C}';
+  CLASS_NexoRetailerServerDatabaseConnection: TGUID = '{E7BF5018-ADB3-30BC-9036-4046050B2162}';
+  CLASS_NexoRetailerServerDatabaseEndPoint: TGUID = '{74955FCC-E06C-3949-B85F-579216202B7D}';
+  CLASS_NexoRetailerServerDatabaseSale: TGUID = '{C2A1FA68-D637-36FD-A2BA-6A9FD3C28B35}';
+  CLASS_NexoRetailerServerDatabaseMessage: TGUID = '{185817AD-79DF-36CD-9F6D-18618C561AA5}';
+  CLASS_NexoRetailerServerDatabase: TGUID = '{E5917319-D050-387F-B6B9-20F56C346806}';
 
 // *********************************************************************//
-// Déclaration d'énumérations définies dans la bibliothèque de types                    
+// Declaration of Enumerations defined in Type Library                    
 // *********************************************************************//
-// Constantes pour enum AlgorithmEnumeration
+// Constants for enum AlgorithmEnumeration
 type
   AlgorithmEnumeration = TOleEnum;
 const
@@ -605,7 +606,7 @@ const
   AlgorithmEnumeration_rsaEncryption = $00000008;
   AlgorithmEnumeration__end = $00000009;
 
-// Constantes pour enum AttributeTypeEnumeration
+// Constants for enum AttributeTypeEnumeration
 type
   AttributeTypeEnumeration = TOleEnum;
 const
@@ -618,7 +619,7 @@ const
   AttributeTypeEnumeration_idatcountryName = $00000004;
   AttributeTypeEnumeration__end = $00000005;
 
-// Constantes pour enum ContentTypeEnumeration
+// Constants for enum ContentTypeEnumeration
 type
   ContentTypeEnumeration = TOleEnum;
 const
@@ -632,7 +633,7 @@ const
   ContentTypeEnumeration_idctauthData = $00000005;
   ContentTypeEnumeration__end = $00000006;
 
-// Constantes pour enum VersionEnumeration
+// Constants for enum VersionEnumeration
 type
   VersionEnumeration = TOleEnum;
 const
@@ -646,7 +647,7 @@ const
   VersionEnumeration_v5 = $00000005;
   VersionEnumeration__end = $00000006;
 
-// Constantes pour enum AccountTypeEnumeration
+// Constants for enum AccountTypeEnumeration
 type
   AccountTypeEnumeration = TOleEnum;
 const
@@ -662,7 +663,7 @@ const
   AccountTypeEnumeration_EpurseCard = $00000007;
   AccountTypeEnumeration__end = $00000008;
 
-// Constantes pour enum AlignmentEnumeration
+// Constants for enum AlignmentEnumeration
 type
   AlignmentEnumeration = TOleEnum;
 const
@@ -674,7 +675,7 @@ const
   AlignmentEnumeration_Justified = $00000003;
   AlignmentEnumeration__end = $00000004;
 
-// Constantes pour enum AuthenticationMethodEnumeration
+// Constants for enum AuthenticationMethodEnumeration
 type
   AuthenticationMethodEnumeration = TOleEnum;
 const
@@ -693,7 +694,7 @@ const
   AuthenticationMethodEnumeration_UnknownMethod = $0000000A;
   AuthenticationMethodEnumeration__end = $0000000B;
 
-// Constantes pour enum BarcodeTypeEnumeration
+// Constants for enum BarcodeTypeEnumeration
 type
   BarcodeTypeEnumeration = TOleEnum;
 const
@@ -708,7 +709,7 @@ const
   BarcodeTypeEnumeration_QRCODE = $00000006;
   BarcodeTypeEnumeration__end = $00000007;
 
-// Constantes pour enum CharacterHeightEnumeration
+// Constants for enum CharacterHeightEnumeration
 type
   CharacterHeightEnumeration = TOleEnum;
 const
@@ -719,7 +720,7 @@ const
   CharacterHeightEnumeration_HalfHeight = $00000002;
   CharacterHeightEnumeration__end = $00000003;
 
-// Constantes pour enum CharacterStyleEnumeration
+// Constants for enum CharacterStyleEnumeration
 type
   CharacterStyleEnumeration = TOleEnum;
 const
@@ -731,7 +732,7 @@ const
   CharacterStyleEnumeration_Underlined = $00000003;
   CharacterStyleEnumeration__end = $00000004;
 
-// Constantes pour enum CharacterWidthEnumeration
+// Constants for enum CharacterWidthEnumeration
 type
   CharacterWidthEnumeration = TOleEnum;
 const
@@ -741,7 +742,7 @@ const
   CharacterWidthEnumeration_DoubleWidth = $00000001;
   CharacterWidthEnumeration__end = $00000002;
 
-// Constantes pour enum CheckTypeCodeEnumeration
+// Constants for enum CheckTypeCodeEnumeration
 type
   CheckTypeCodeEnumeration = TOleEnum;
 const
@@ -751,7 +752,7 @@ const
   CheckTypeCodeEnumeration_Company = $00000001;
   CheckTypeCodeEnumeration__end = $00000002;
 
-// Constantes pour enum ColorEnumeration
+// Constants for enum ColorEnumeration
 type
   ColorEnumeration = TOleEnum;
 const
@@ -767,7 +768,7 @@ const
   ColorEnumeration_Cyan = $00000007;
   ColorEnumeration__end = $00000008;
 
-// Constantes pour enum CustomerOrderReqEnumeration
+// Constants for enum CustomerOrderReqEnumeration
 type
   CustomerOrderReqEnumeration = TOleEnum;
 const
@@ -778,7 +779,7 @@ const
   CustomerOrderReqEnumeration_Both = $00000002;
   CustomerOrderReqEnumeration__end = $00000003;
 
-// Constantes pour enum DeviceEnumeration
+// Constants for enum DeviceEnumeration
 type
   DeviceEnumeration = TOleEnum;
 const
@@ -790,7 +791,7 @@ const
   DeviceEnumeration_CustomerInput = $00000003;
   DeviceEnumeration__end = $00000004;
 
-// Constantes pour enum DocumentQualifierEnumeration
+// Constants for enum DocumentQualifierEnumeration
 type
   DocumentQualifierEnumeration = TOleEnum;
 const
@@ -804,7 +805,7 @@ const
   DocumentQualifierEnumeration_Journal = $00000005;
   DocumentQualifierEnumeration__end = $00000006;
 
-// Constantes pour enum EntryModeEnumeration
+// Constants for enum EntryModeEnumeration
 type
   EntryModeEnumeration = TOleEnum;
 const
@@ -823,7 +824,7 @@ const
   EntryModeEnumeration_Mobile = $0000000A;
   EntryModeEnumeration__end = $0000000B;
 
-// Constantes pour enum ErrorConditionEnumeration
+// Constants for enum ErrorConditionEnumeration
 type
   ErrorConditionEnumeration = TOleEnum;
 const
@@ -848,7 +849,7 @@ const
   ErrorConditionEnumeration_WrongPIN = $00000010;
   ErrorConditionEnumeration__end = $00000011;
 
-// Constantes pour enum EventToNotifyEnumeration
+// Constants for enum EventToNotifyEnumeration
 type
   EventToNotifyEnumeration = TOleEnum;
 const
@@ -872,7 +873,7 @@ const
   EventToNotifyEnumeration_Reject = $0000000F;
   EventToNotifyEnumeration__end = $00000010;
 
-// Constantes pour enum ForceEntryModeEnumeration
+// Constants for enum ForceEntryModeEnumeration
 type
   ForceEntryModeEnumeration = TOleEnum;
 const
@@ -891,7 +892,7 @@ const
   ForceEntryModeEnumeration_CheckReader = $0000000A;
   ForceEntryModeEnumeration__end = $0000000B;
 
-// Constantes pour enum GenericProfileEnumeration
+// Constants for enum GenericProfileEnumeration
 type
   GenericProfileEnumeration = TOleEnum;
 const
@@ -902,7 +903,7 @@ const
   GenericProfileEnumeration_Extended = $00000002;
   GenericProfileEnumeration__end = $00000003;
 
-// Constantes pour enum GlobalStatusEnumeration
+// Constants for enum GlobalStatusEnumeration
 type
   GlobalStatusEnumeration = TOleEnum;
 const
@@ -914,7 +915,7 @@ const
   GlobalStatusEnumeration_Unreachable = $00000003;
   GlobalStatusEnumeration__end = $00000004;
 
-// Constantes pour enum IdentificationSupportEnumeration
+// Constants for enum IdentificationSupportEnumeration
 type
   IdentificationSupportEnumeration = TOleEnum;
 const
@@ -926,7 +927,7 @@ const
   IdentificationSupportEnumeration_LinkedCard = $00000003;
   IdentificationSupportEnumeration__end = $00000004;
 
-// Constantes pour enum IdentificationTypeEnumeration
+// Constants for enum IdentificationTypeEnumeration
 type
   IdentificationTypeEnumeration = TOleEnum;
 const
@@ -939,7 +940,7 @@ const
   IdentificationTypeEnumeration_PhoneNumber = $00000004;
   IdentificationTypeEnumeration__end = $00000005;
 
-// Constantes pour enum InfoQualifyEnumeration
+// Constants for enum InfoQualifyEnumeration
 type
   InfoQualifyEnumeration = TOleEnum;
 const
@@ -957,7 +958,7 @@ const
   InfoQualifyEnumeration_Voucher = $00000009;
   InfoQualifyEnumeration__end = $0000000A;
 
-// Constantes pour enum InputCommandEnumeration
+// Constants for enum InputCommandEnumeration
 type
   InputCommandEnumeration = TOleEnum;
 const
@@ -974,7 +975,7 @@ const
   InputCommandEnumeration_Password = $00000008;
   InputCommandEnumeration__end = $00000009;
 
-// Constantes pour enum InstalmentTypeEnumeration
+// Constants for enum InstalmentTypeEnumeration
 type
   InstalmentTypeEnumeration = TOleEnum;
 const
@@ -985,7 +986,7 @@ const
   InstalmentTypeEnumeration_InequalInstalments = $00000002;
   InstalmentTypeEnumeration__end = $00000003;
 
-// Constantes pour enum LoyaltyHandlingEnumeration
+// Constants for enum LoyaltyHandlingEnumeration
 type
   LoyaltyHandlingEnumeration = TOleEnum;
 const
@@ -998,7 +999,7 @@ const
   LoyaltyHandlingEnumeration_Required = $00000004;
   LoyaltyHandlingEnumeration__end = $00000005;
 
-// Constantes pour enum LoyaltyTransactionTypeEnumeration
+// Constants for enum LoyaltyTransactionTypeEnumeration
 type
   LoyaltyTransactionTypeEnumeration = TOleEnum;
 const
@@ -1012,7 +1013,7 @@ const
   LoyaltyTransactionTypeEnumeration_RedemptionRefund = $00000005;
   LoyaltyTransactionTypeEnumeration__end = $00000006;
 
-// Constantes pour enum LoyaltyUnitEnumeration
+// Constants for enum LoyaltyUnitEnumeration
 type
   LoyaltyUnitEnumeration = TOleEnum;
 const
@@ -1022,7 +1023,7 @@ const
   LoyaltyUnitEnumeration_Monetary = $00000001;
   LoyaltyUnitEnumeration__end = $00000002;
 
-// Constantes pour enum MenuEntryTagEnumeration
+// Constants for enum MenuEntryTagEnumeration
 type
   MenuEntryTagEnumeration = TOleEnum;
 const
@@ -1034,7 +1035,7 @@ const
   MenuEntryTagEnumeration_NonSelectableSubMenu = $00000003;
   MenuEntryTagEnumeration__end = $00000004;
 
-// Constantes pour enum MessageCategoryEnumeration
+// Constants for enum MessageCategoryEnumeration
 type
   MessageCategoryEnumeration = TOleEnum;
 const
@@ -1070,7 +1071,7 @@ const
   MessageCategoryEnumeration_Transmit = $0000001B;
   MessageCategoryEnumeration__end = $0000001C;
 
-// Constantes pour enum MessageClassEnumeration
+// Constants for enum MessageClassEnumeration
 type
   MessageClassEnumeration = TOleEnum;
 const
@@ -1081,7 +1082,7 @@ const
   MessageClassEnumeration_Event = $00000002;
   MessageClassEnumeration__end = $00000003;
 
-// Constantes pour enum MessageTypeEnumeration
+// Constants for enum MessageTypeEnumeration
 type
   MessageTypeEnumeration = TOleEnum;
 const
@@ -1092,7 +1093,7 @@ const
   MessageTypeEnumeration_Notification = $00000002;
   MessageTypeEnumeration__end = $00000003;
 
-// Constantes pour enum OutputFormatEnumeration
+// Constants for enum OutputFormatEnumeration
 type
   OutputFormatEnumeration = TOleEnum;
 const
@@ -1104,7 +1105,7 @@ const
   OutputFormatEnumeration_BarCode = $00000003;
   OutputFormatEnumeration__end = $00000004;
 
-// Constantes pour enum PaymentInstrumentTypeEnumeration
+// Constants for enum PaymentInstrumentTypeEnumeration
 type
   PaymentInstrumentTypeEnumeration = TOleEnum;
 const
@@ -1117,7 +1118,7 @@ const
   PaymentInstrumentTypeEnumeration_Cash = $00000004;
   PaymentInstrumentTypeEnumeration__end = $00000005;
 
-// Constantes pour enum PaymentTypeEnumeration
+// Constants for enum PaymentTypeEnumeration
 type
   PaymentTypeEnumeration = TOleEnum;
 const
@@ -1137,7 +1138,7 @@ const
   PaymentTypeEnumeration_PaidOut = $0000000B;
   PaymentTypeEnumeration__end = $0000000C;
 
-// Constantes pour enum PeriodUnitEnumeration
+// Constants for enum PeriodUnitEnumeration
 type
   PeriodUnitEnumeration = TOleEnum;
 const
@@ -1149,7 +1150,7 @@ const
   PeriodUnitEnumeration_Annual = $00000003;
   PeriodUnitEnumeration__end = $00000004;
 
-// Constantes pour enum PINFormatEnumeration
+// Constants for enum PINFormatEnumeration
 type
   PINFormatEnumeration = TOleEnum;
 const
@@ -1161,7 +1162,7 @@ const
   PINFormatEnumeration_ISO3 = $00000003;
   PINFormatEnumeration__end = $00000004;
 
-// Constantes pour enum PINRequestTypeEnumeration
+// Constants for enum PINRequestTypeEnumeration
 type
   PINRequestTypeEnumeration = TOleEnum;
 const
@@ -1172,7 +1173,7 @@ const
   PINRequestTypeEnumeration_PINEnter = $00000002;
   PINRequestTypeEnumeration__end = $00000003;
 
-// Constantes pour enum POICapabilitiesEnumeration
+// Constants for enum POICapabilitiesEnumeration
 type
   POICapabilitiesEnumeration = TOleEnum;
 const
@@ -1193,7 +1194,7 @@ const
   POICapabilitiesEnumeration_CashHandling = $0000000C;
   POICapabilitiesEnumeration__end = $0000000D;
 
-// Constantes pour enum PrinterStatusEnumeration
+// Constants for enum PrinterStatusEnumeration
 type
   PrinterStatusEnumeration = TOleEnum;
 const
@@ -1206,7 +1207,7 @@ const
   PrinterStatusEnumeration_OutOfOrder = $00000004;
   PrinterStatusEnumeration__end = $00000005;
 
-// Constantes pour enum ReconciliationTypeEnumeration
+// Constants for enum ReconciliationTypeEnumeration
 type
   ReconciliationTypeEnumeration = TOleEnum;
 const
@@ -1218,7 +1219,7 @@ const
   ReconciliationTypeEnumeration_PreviousReconciliation = $00000003;
   ReconciliationTypeEnumeration__end = $00000004;
 
-// Constantes pour enum ResponseModeEnumeration
+// Constants for enum ResponseModeEnumeration
 type
   ResponseModeEnumeration = TOleEnum;
 const
@@ -1230,7 +1231,7 @@ const
   ResponseModeEnumeration_SoundEnd = $00000003;
   ResponseModeEnumeration__end = $00000004;
 
-// Constantes pour enum ResultEnumeration
+// Constants for enum ResultEnumeration
 type
   ResultEnumeration = TOleEnum;
 const
@@ -1241,7 +1242,7 @@ const
   ResultEnumeration_Partial = $00000002;
   ResultEnumeration__end = $00000003;
 
-// Constantes pour enum ReversalReasonEnumeration
+// Constants for enum ReversalReasonEnumeration
 type
   ReversalReasonEnumeration = TOleEnum;
 const
@@ -1253,7 +1254,7 @@ const
   ReversalReasonEnumeration_Unable2Compl = $00000003;
   ReversalReasonEnumeration__end = $00000004;
 
-// Constantes pour enum SaleCapabilitiesEnumeration
+// Constants for enum SaleCapabilitiesEnumeration
 type
   SaleCapabilitiesEnumeration = TOleEnum;
 const
@@ -1276,7 +1277,7 @@ const
   SaleCapabilitiesEnumeration_EMVContactless = $0000000E;
   SaleCapabilitiesEnumeration__end = $0000000F;
 
-// Constantes pour enum ServicesEnabledEnumeration
+// Constants for enum ServicesEnabledEnumeration
 type
   ServicesEnabledEnumeration = TOleEnum;
 const
@@ -1287,7 +1288,7 @@ const
   ServicesEnabledEnumeration_Loyalty = $00000002;
   ServicesEnabledEnumeration__end = $00000003;
 
-// Constantes pour enum ServiceProfilesEnumeration
+// Constants for enum ServiceProfilesEnumeration
 type
   ServiceProfilesEnumeration = TOleEnum;
 const
@@ -1305,7 +1306,7 @@ const
   ServiceProfilesEnumeration_Communication = $00000009;
   ServiceProfilesEnumeration__end = $0000000A;
 
-// Constantes pour enum SoundActionEnumeration
+// Constants for enum SoundActionEnumeration
 type
   SoundActionEnumeration = TOleEnum;
 const
@@ -1316,7 +1317,7 @@ const
   SoundActionEnumeration_SetDefaultVolume = $00000002;
   SoundActionEnumeration__end = $00000003;
 
-// Constantes pour enum SoundFormatEnumeration
+// Constants for enum SoundFormatEnumeration
 type
   SoundFormatEnumeration = TOleEnum;
 const
@@ -1327,7 +1328,7 @@ const
   SoundFormatEnumeration_Text = $00000002;
   SoundFormatEnumeration__end = $00000003;
 
-// Constantes pour enum StoredValueAccountTypeEnumeration
+// Constants for enum StoredValueAccountTypeEnumeration
 type
   StoredValueAccountTypeEnumeration = TOleEnum;
 const
@@ -1338,7 +1339,7 @@ const
   StoredValueAccountTypeEnumeration_Other = $00000002;
   StoredValueAccountTypeEnumeration__end = $00000003;
 
-// Constantes pour enum StoredValueTransactionTypeEnumeration
+// Constants for enum StoredValueTransactionTypeEnumeration
 type
   StoredValueTransactionTypeEnumeration = TOleEnum;
 const
@@ -1352,7 +1353,7 @@ const
   StoredValueTransactionTypeEnumeration_Duplicate = $00000005;
   StoredValueTransactionTypeEnumeration__end = $00000006;
 
-// Constantes pour enum TerminalEnvironmentEnumeration
+// Constants for enum TerminalEnvironmentEnumeration
 type
   TerminalEnvironmentEnumeration = TOleEnum;
 const
@@ -1363,7 +1364,7 @@ const
   TerminalEnvironmentEnumeration_Unattended = $00000002;
   TerminalEnvironmentEnumeration__end = $00000003;
 
-// Constantes pour enum TokenRequestedTypeEnumeration
+// Constants for enum TokenRequestedTypeEnumeration
 type
   TokenRequestedTypeEnumeration = TOleEnum;
 const
@@ -1373,7 +1374,7 @@ const
   TokenRequestedTypeEnumeration_Customer = $00000001;
   TokenRequestedTypeEnumeration__end = $00000002;
 
-// Constantes pour enum TotalDetailsEnumeration
+// Constants for enum TotalDetailsEnumeration
 type
   TotalDetailsEnumeration = TOleEnum;
 const
@@ -1386,7 +1387,7 @@ const
   TotalDetailsEnumeration_TotalsGroupID = $00000004;
   TotalDetailsEnumeration__end = $00000005;
 
-// Constantes pour enum TrackFormatEnumeration
+// Constants for enum TrackFormatEnumeration
 type
   TrackFormatEnumeration = TOleEnum;
 const
@@ -1400,7 +1401,7 @@ const
   TrackFormatEnumeration_E13B = $00000005;
   TrackFormatEnumeration__end = $00000006;
 
-// Constantes pour enum TransactionActionEnumeration
+// Constants for enum TransactionActionEnumeration
 type
   TransactionActionEnumeration = TOleEnum;
 const
@@ -1410,7 +1411,7 @@ const
   TransactionActionEnumeration_AbortTransaction = $00000001;
   TransactionActionEnumeration__end = $00000002;
 
-// Constantes pour enum TransactionTypeEnumeration
+// Constants for enum TransactionTypeEnumeration
 type
   TransactionTypeEnumeration = TOleEnum;
 const
@@ -1437,7 +1438,7 @@ const
   TransactionTypeEnumeration_ReverseRebate = $00000012;
   TransactionTypeEnumeration__end = $00000013;
 
-// Constantes pour enum UnitOfMeasureEnumeration
+// Constants for enum UnitOfMeasureEnumeration
 type
   UnitOfMeasureEnumeration = TOleEnum;
 const
@@ -1464,7 +1465,7 @@ const
   UnitOfMeasureEnumeration_Other = $00000012;
   UnitOfMeasureEnumeration__end = $00000013;
 
-// Constantes pour enum TagsEnumeration
+// Constants for enum TagsEnumeration
 type
   TagsEnumeration = TOleEnum;
 const
@@ -1899,7 +1900,7 @@ const
   TagsEnumeration_X = $000001AC;
   TagsEnumeration_Y = $000001AD;
 
-// Constantes pour enum NexoMessageStatus
+// Constants for enum NexoMessageStatus
 type
   NexoMessageStatus = TOleEnum;
 const
@@ -1907,7 +1908,7 @@ const
   NexoMessageStatus_timeout = $00000001;
   NexoMessageStatus_cancelled = $00000002;
 
-// Constantes pour enum NexoSchemaEventType
+// Constants for enum NexoSchemaEventType
 type
   NexoSchemaEventType = TOleEnum;
 const
@@ -1915,7 +1916,7 @@ const
   NexoSchemaEventType_Error = $00000001;
   NexoSchemaEventType_Warning = $00000002;
 
-// Constantes pour enum NexoNextAction
+// Constants for enum NexoNextAction
 type
   NexoNextAction = TOleEnum;
 const
@@ -1926,13 +1927,13 @@ const
   NexoNextAction_sendRequest = $00000004;
   NexoNextAction_sendNotification = $00000005;
 
-// Constantes pour enum NexoValues
+// Constants for enum NexoValues
 type
   NexoValues = TOleEnum;
 const
   NexoValues_None = $7FFFFFFF;
 
-// Constantes pour enum Labels
+// Constants for enum Labels
 type
   Labels = TOleEnum;
 const
@@ -1948,14 +1949,14 @@ const
   Labels_CertificationCode = $00000009;
   Labels_AutoLogoutTimestamp = $0000000A;
 
-// Constantes pour enum Labels_2
+// Constants for enum Labels_2
 type
   Labels_2 = TOleEnum;
 const
   Labels_2_IP = $00000000;
   Labels_2_Accepted = $00000001;
 
-// Constantes pour enum Labels_3
+// Constants for enum Labels_3
 type
   Labels_3 = TOleEnum;
 const
@@ -1964,7 +1965,7 @@ const
   Labels_3_Accepted = $00000002;
   Labels_3_CertificationCode = $00000003;
 
-// Constantes pour enum Labels_4
+// Constants for enum Labels_4
 type
   Labels_4 = TOleEnum;
 const
@@ -1994,7 +1995,7 @@ const
 type
 
 // *********************************************************************//
-// Déclaration Forward des types définis dans la bibliothèque de types                     
+// Forward declaration of types defined in TypeLibrary                    
 // *********************************************************************//
   IAuthenticatedDataType = interface;
   IAuthenticatedDataTypeDisp = dispinterface;
@@ -2506,8 +2507,8 @@ type
   INexoRetailerServerSettingsDisp = dispinterface;
 
 // *********************************************************************//
-// Déclaration de CoClasses définies dans la bibliothèque de types        
-// (REMARQUE: On affecte chaque CoClasse à son Interface par défaut)      
+// Declaration of CoClasses defined in Type Library                       
+// (NOTE: Here we map each CoClass to its Default Interface)              
 // *********************************************************************//
   AuthenticatedDataType = IAuthenticatedDataType;
   KEKType = IKEKType;
@@ -2783,9 +2784,9 @@ type
 
 
 // *********************************************************************//
-// Interface :   IAuthenticatedDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2CE2CC43-4B32-471D-B095-0C10BCAE737F}
+// Interface: IAuthenticatedDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2CE2CC43-4B32-471D-B095-0C10BCAE737F}
 // *********************************************************************//
   IAuthenticatedDataType = interface(IDispatch)
     ['{2CE2CC43-4B32-471D-B095-0C10BCAE737F}']
@@ -2840,9 +2841,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAuthenticatedDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2CE2CC43-4B32-471D-B095-0C10BCAE737F}
+// DispIntf:  IAuthenticatedDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2CE2CC43-4B32-471D-B095-0C10BCAE737F}
 // *********************************************************************//
   IAuthenticatedDataTypeDisp = dispinterface
     ['{2CE2CC43-4B32-471D-B095-0C10BCAE737F}']
@@ -2874,9 +2875,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IKEKType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ED747233-340A-41A1-8E0E-9AEF576C9941}
+// Interface: IKEKType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ED747233-340A-41A1-8E0E-9AEF576C9941}
 // *********************************************************************//
   IKEKType = interface(IDispatch)
     ['{ED747233-340A-41A1-8E0E-9AEF576C9941}']
@@ -2919,9 +2920,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IKEKTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ED747233-340A-41A1-8E0E-9AEF576C9941}
+// DispIntf:  IKEKTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ED747233-340A-41A1-8E0E-9AEF576C9941}
 // *********************************************************************//
   IKEKTypeDisp = dispinterface
     ['{ED747233-340A-41A1-8E0E-9AEF576C9941}']
@@ -2945,9 +2946,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IKEKIdentifierType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AF8CC137-C442-4972-969B-373E29AA473B}
+// Interface: IKEKIdentifierType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AF8CC137-C442-4972-969B-373E29AA473B}
 // *********************************************************************//
   IKEKIdentifierType = interface(IDispatch)
     ['{AF8CC137-C442-4972-969B-373E29AA473B}']
@@ -2982,9 +2983,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IKEKIdentifierTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AF8CC137-C442-4972-969B-373E29AA473B}
+// DispIntf:  IKEKIdentifierTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AF8CC137-C442-4972-969B-373E29AA473B}
 // *********************************************************************//
   IKEKIdentifierTypeDisp = dispinterface
     ['{AF8CC137-C442-4972-969B-373E29AA473B}']
@@ -3005,9 +3006,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IDisplayResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C23554B1-C18C-4867-B856-DB1E609CDEA4}
+// Interface: IDisplayResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C23554B1-C18C-4867-B856-DB1E609CDEA4}
 // *********************************************************************//
   IDisplayResponseType = interface(IDispatch)
     ['{C23554B1-C18C-4867-B856-DB1E609CDEA4}']
@@ -3030,9 +3031,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IDisplayResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C23554B1-C18C-4867-B856-DB1E609CDEA4}
+// DispIntf:  IDisplayResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C23554B1-C18C-4867-B856-DB1E609CDEA4}
 // *********************************************************************//
   IDisplayResponseTypeDisp = dispinterface
     ['{C23554B1-C18C-4867-B856-DB1E609CDEA4}']
@@ -3049,9 +3050,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IOutputResultType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {53752DA9-5217-4F7F-B532-21CB70F1A8C2}
+// Interface: IOutputResultType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {53752DA9-5217-4F7F-B532-21CB70F1A8C2}
 // *********************************************************************//
   IOutputResultType = interface(IDispatch)
     ['{53752DA9-5217-4F7F-B532-21CB70F1A8C2}']
@@ -3080,9 +3081,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IOutputResultTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {53752DA9-5217-4F7F-B532-21CB70F1A8C2}
+// DispIntf:  IOutputResultTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {53752DA9-5217-4F7F-B532-21CB70F1A8C2}
 // *********************************************************************//
   IOutputResultTypeDisp = dispinterface
     ['{53752DA9-5217-4F7F-B532-21CB70F1A8C2}']
@@ -3097,9 +3098,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {172DBB30-A4BB-4ADA-84CB-A33D90A3D7ED}
+// Interface: IResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {172DBB30-A4BB-4ADA-84CB-A33D90A3D7ED}
 // *********************************************************************//
   IResponseType = interface(IDispatch)
     ['{172DBB30-A4BB-4ADA-84CB-A33D90A3D7ED}']
@@ -3128,9 +3129,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {172DBB30-A4BB-4ADA-84CB-A33D90A3D7ED}
+// DispIntf:  IResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {172DBB30-A4BB-4ADA-84CB-A33D90A3D7ED}
 // *********************************************************************//
   IResponseTypeDisp = dispinterface
     ['{172DBB30-A4BB-4ADA-84CB-A33D90A3D7ED}']
@@ -3145,9 +3146,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IDisplayRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7D659799-73EB-4CE7-B09D-64C8EE7C0C70}
+// Interface: IDisplayRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7D659799-73EB-4CE7-B09D-64C8EE7C0C70}
 // *********************************************************************//
   IDisplayRequestType = interface(IDispatch)
     ['{7D659799-73EB-4CE7-B09D-64C8EE7C0C70}']
@@ -3170,9 +3171,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IDisplayRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7D659799-73EB-4CE7-B09D-64C8EE7C0C70}
+// DispIntf:  IDisplayRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7D659799-73EB-4CE7-B09D-64C8EE7C0C70}
 // *********************************************************************//
   IDisplayRequestTypeDisp = dispinterface
     ['{7D659799-73EB-4CE7-B09D-64C8EE7C0C70}']
@@ -3189,9 +3190,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IDisplayOutputType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {566C57CC-BBCE-4290-B09E-672AD4D8E9DE}
+// Interface: IDisplayOutputType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {566C57CC-BBCE-4290-B09E-672AD4D8E9DE}
 // *********************************************************************//
   IDisplayOutputType = interface(IDispatch)
     ['{566C57CC-BBCE-4290-B09E-672AD4D8E9DE}']
@@ -3260,9 +3261,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IDisplayOutputTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {566C57CC-BBCE-4290-B09E-672AD4D8E9DE}
+// DispIntf:  IDisplayOutputTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {566C57CC-BBCE-4290-B09E-672AD4D8E9DE}
 // *********************************************************************//
   IDisplayOutputTypeDisp = dispinterface
     ['{566C57CC-BBCE-4290-B09E-672AD4D8E9DE}']
@@ -3299,9 +3300,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IOutputContentType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {01C975FD-1504-465B-9588-DDC655820C07}
+// Interface: IOutputContentType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {01C975FD-1504-465B-9588-DDC655820C07}
 // *********************************************************************//
   IOutputContentType = interface(IDispatch)
     ['{01C975FD-1504-465B-9588-DDC655820C07}']
@@ -3354,9 +3355,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IOutputContentTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {01C975FD-1504-465B-9588-DDC655820C07}
+// DispIntf:  IOutputContentTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {01C975FD-1504-465B-9588-DDC655820C07}
 // *********************************************************************//
   IOutputContentTypeDisp = dispinterface
     ['{01C975FD-1504-465B-9588-DDC655820C07}']
@@ -3387,9 +3388,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPredefinedContentType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BA939E4A-8E8C-4514-A638-C6BA5BF2CE9D}
+// Interface: IPredefinedContentType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BA939E4A-8E8C-4514-A638-C6BA5BF2CE9D}
 // *********************************************************************//
   IPredefinedContentType = interface(IDispatch)
     ['{BA939E4A-8E8C-4514-A638-C6BA5BF2CE9D}']
@@ -3412,9 +3413,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPredefinedContentTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BA939E4A-8E8C-4514-A638-C6BA5BF2CE9D}
+// DispIntf:  IPredefinedContentTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BA939E4A-8E8C-4514-A638-C6BA5BF2CE9D}
 // *********************************************************************//
   IPredefinedContentTypeDisp = dispinterface
     ['{BA939E4A-8E8C-4514-A638-C6BA5BF2CE9D}']
@@ -3427,9 +3428,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IOutputTextType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {94492CFC-7498-4B37-86C3-09AF0E7E0FE4}
+// Interface: IOutputTextType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {94492CFC-7498-4B37-86C3-09AF0E7E0FE4}
 // *********************************************************************//
   IOutputTextType = interface(IDispatch)
     ['{94492CFC-7498-4B37-86C3-09AF0E7E0FE4}']
@@ -3508,9 +3509,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IOutputTextTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {94492CFC-7498-4B37-86C3-09AF0E7E0FE4}
+// DispIntf:  IOutputTextTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {94492CFC-7498-4B37-86C3-09AF0E7E0FE4}
 // *********************************************************************//
   IOutputTextTypeDisp = dispinterface
     ['{94492CFC-7498-4B37-86C3-09AF0E7E0FE4}']
@@ -3542,9 +3543,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IOutputBarcodeType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9614E4BA-A161-4A3B-BC5D-252B89972882}
+// Interface: IOutputBarcodeType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9614E4BA-A161-4A3B-BC5D-252B89972882}
 // *********************************************************************//
   IOutputBarcodeType = interface(IDispatch)
     ['{9614E4BA-A161-4A3B-BC5D-252B89972882}']
@@ -3569,9 +3570,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IOutputBarcodeTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9614E4BA-A161-4A3B-BC5D-252B89972882}
+// DispIntf:  IOutputBarcodeTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9614E4BA-A161-4A3B-BC5D-252B89972882}
 // *********************************************************************//
   IOutputBarcodeTypeDisp = dispinterface
     ['{9614E4BA-A161-4A3B-BC5D-252B89972882}']
@@ -3585,9 +3586,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IMenuEntryType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {500723C8-4ACB-42CF-8B40-79D288335FE3}
+// Interface: IMenuEntryType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {500723C8-4ACB-42CF-8B40-79D288335FE3}
 // *********************************************************************//
   IMenuEntryType = interface(IDispatch)
     ['{500723C8-4ACB-42CF-8B40-79D288335FE3}']
@@ -3650,9 +3651,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IMenuEntryTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {500723C8-4ACB-42CF-8B40-79D288335FE3}
+// DispIntf:  IMenuEntryTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {500723C8-4ACB-42CF-8B40-79D288335FE3}
 // *********************************************************************//
   IMenuEntryTypeDisp = dispinterface
     ['{500723C8-4ACB-42CF-8B40-79D288335FE3}']
@@ -3687,9 +3688,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAlgorithmIdentifier
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {99A2E623-D214-4940-A656-5923B3CF4203}
+// Interface: IAlgorithmIdentifier
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {99A2E623-D214-4940-A656-5923B3CF4203}
 // *********************************************************************//
   IAlgorithmIdentifier = interface(IDispatch)
     ['{99A2E623-D214-4940-A656-5923B3CF4203}']
@@ -3712,9 +3713,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAlgorithmIdentifierDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {99A2E623-D214-4940-A656-5923B3CF4203}
+// DispIntf:  IAlgorithmIdentifierDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {99A2E623-D214-4940-A656-5923B3CF4203}
 // *********************************************************************//
   IAlgorithmIdentifierDisp = dispinterface
     ['{99A2E623-D214-4940-A656-5923B3CF4203}']
@@ -3727,9 +3728,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IParameterType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5D0ACD2C-42E1-43CA-8C44-5E07E17FC19F}
+// Interface: IParameterType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5D0ACD2C-42E1-43CA-8C44-5E07E17FC19F}
 // *********************************************************************//
   IParameterType = interface(IDispatch)
     ['{5D0ACD2C-42E1-43CA-8C44-5E07E17FC19F}']
@@ -3752,9 +3753,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IParameterTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5D0ACD2C-42E1-43CA-8C44-5E07E17FC19F}
+// DispIntf:  IParameterTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5D0ACD2C-42E1-43CA-8C44-5E07E17FC19F}
 // *********************************************************************//
   IParameterTypeDisp = dispinterface
     ['{5D0ACD2C-42E1-43CA-8C44-5E07E17FC19F}']
@@ -3771,9 +3772,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IKeyTransportType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D4E6010C-E2F9-4B05-9112-A8041CE62321}
+// Interface: IKeyTransportType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D4E6010C-E2F9-4B05-9112-A8041CE62321}
 // *********************************************************************//
   IKeyTransportType = interface(IDispatch)
     ['{D4E6010C-E2F9-4B05-9112-A8041CE62321}']
@@ -3816,9 +3817,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IKeyTransportTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D4E6010C-E2F9-4B05-9112-A8041CE62321}
+// DispIntf:  IKeyTransportTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D4E6010C-E2F9-4B05-9112-A8041CE62321}
 // *********************************************************************//
   IKeyTransportTypeDisp = dispinterface
     ['{D4E6010C-E2F9-4B05-9112-A8041CE62321}']
@@ -3842,9 +3843,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IRecipientIdentifierType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {49467F6B-2202-4B53-B719-0D6E3EED6BBB}
+// Interface: IRecipientIdentifierType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {49467F6B-2202-4B53-B719-0D6E3EED6BBB}
 // *********************************************************************//
   IRecipientIdentifierType = interface(IDispatch)
     ['{49467F6B-2202-4B53-B719-0D6E3EED6BBB}']
@@ -3861,9 +3862,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IRecipientIdentifierTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {49467F6B-2202-4B53-B719-0D6E3EED6BBB}
+// DispIntf:  IRecipientIdentifierTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {49467F6B-2202-4B53-B719-0D6E3EED6BBB}
 // *********************************************************************//
   IRecipientIdentifierTypeDisp = dispinterface
     ['{49467F6B-2202-4B53-B719-0D6E3EED6BBB}']
@@ -3874,9 +3875,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IIssuerAndSerialNumberType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {196D9B21-ABCF-4636-8D84-0AB650F30781}
+// Interface: IIssuerAndSerialNumberType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {196D9B21-ABCF-4636-8D84-0AB650F30781}
 // *********************************************************************//
   IIssuerAndSerialNumberType = interface(IDispatch)
     ['{196D9B21-ABCF-4636-8D84-0AB650F30781}']
@@ -3905,9 +3906,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IIssuerAndSerialNumberTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {196D9B21-ABCF-4636-8D84-0AB650F30781}
+// DispIntf:  IIssuerAndSerialNumberTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {196D9B21-ABCF-4636-8D84-0AB650F30781}
 // *********************************************************************//
   IIssuerAndSerialNumberTypeDisp = dispinterface
     ['{196D9B21-ABCF-4636-8D84-0AB650F30781}']
@@ -3926,9 +3927,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IRelativeDistinguishedNameType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2FF1ACE1-513A-4B15-9D45-5522C692712E}
+// Interface: IRelativeDistinguishedNameType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2FF1ACE1-513A-4B15-9D45-5522C692712E}
 // *********************************************************************//
   IRelativeDistinguishedNameType = interface(IDispatch)
     ['{2FF1ACE1-513A-4B15-9D45-5522C692712E}']
@@ -3951,9 +3952,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IRelativeDistinguishedNameTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2FF1ACE1-513A-4B15-9D45-5522C692712E}
+// DispIntf:  IRelativeDistinguishedNameTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2FF1ACE1-513A-4B15-9D45-5522C692712E}
 // *********************************************************************//
   IRelativeDistinguishedNameTypeDisp = dispinterface
     ['{2FF1ACE1-513A-4B15-9D45-5522C692712E}']
@@ -3966,9 +3967,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IEncapsulatedContentType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3768434D-BDD1-4532-9C59-6D03FAF39169}
+// Interface: IEncapsulatedContentType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3768434D-BDD1-4532-9C59-6D03FAF39169}
 // *********************************************************************//
   IEncapsulatedContentType = interface(IDispatch)
     ['{3768434D-BDD1-4532-9C59-6D03FAF39169}']
@@ -3997,9 +3998,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IEncapsulatedContentTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3768434D-BDD1-4532-9C59-6D03FAF39169}
+// DispIntf:  IEncapsulatedContentTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3768434D-BDD1-4532-9C59-6D03FAF39169}
 // *********************************************************************//
   IEncapsulatedContentTypeDisp = dispinterface
     ['{3768434D-BDD1-4532-9C59-6D03FAF39169}']
@@ -4018,9 +4019,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IDigestedDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2D8C49E1-CDA6-4A11-97EB-7230C31B5217}
+// Interface: IDigestedDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2D8C49E1-CDA6-4A11-97EB-7230C31B5217}
 // *********************************************************************//
   IDigestedDataType = interface(IDispatch)
     ['{2D8C49E1-CDA6-4A11-97EB-7230C31B5217}']
@@ -4061,9 +4062,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IDigestedDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2D8C49E1-CDA6-4A11-97EB-7230C31B5217}
+// DispIntf:  IDigestedDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2D8C49E1-CDA6-4A11-97EB-7230C31B5217}
 // *********************************************************************//
   IDigestedDataTypeDisp = dispinterface
     ['{2D8C49E1-CDA6-4A11-97EB-7230C31B5217}']
@@ -4086,9 +4087,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IEncryptedContentType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {373EC025-795E-43B9-A848-CE8FD5822118}
+// Interface: IEncryptedContentType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {373EC025-795E-43B9-A848-CE8FD5822118}
 // *********************************************************************//
   IEncryptedContentType = interface(IDispatch)
     ['{373EC025-795E-43B9-A848-CE8FD5822118}']
@@ -4123,9 +4124,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IEncryptedContentTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {373EC025-795E-43B9-A848-CE8FD5822118}
+// DispIntf:  IEncryptedContentTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {373EC025-795E-43B9-A848-CE8FD5822118}
 // *********************************************************************//
   IEncryptedContentTypeDisp = dispinterface
     ['{373EC025-795E-43B9-A848-CE8FD5822118}']
@@ -4146,9 +4147,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IEnvelopedDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1D78F12A-815D-4600-B0E5-C91EEB62B9EE}
+// Interface: IEnvelopedDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1D78F12A-815D-4600-B0E5-C91EEB62B9EE}
 // *********************************************************************//
   IEnvelopedDataType = interface(IDispatch)
     ['{1D78F12A-815D-4600-B0E5-C91EEB62B9EE}']
@@ -4185,9 +4186,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IEnvelopedDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1D78F12A-815D-4600-B0E5-C91EEB62B9EE}
+// DispIntf:  IEnvelopedDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1D78F12A-815D-4600-B0E5-C91EEB62B9EE}
 // *********************************************************************//
   IEnvelopedDataTypeDisp = dispinterface
     ['{1D78F12A-815D-4600-B0E5-C91EEB62B9EE}']
@@ -4209,9 +4210,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IIssuerType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {41525CD2-F4D2-413D-961D-CCB6CA0557D4}
+// Interface: IIssuerType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {41525CD2-F4D2-413D-961D-CCB6CA0557D4}
 // *********************************************************************//
   IIssuerType = interface(IDispatch)
     ['{41525CD2-F4D2-413D-961D-CCB6CA0557D4}']
@@ -4236,9 +4237,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IIssuerTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {41525CD2-F4D2-413D-961D-CCB6CA0557D4}
+// DispIntf:  IIssuerTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {41525CD2-F4D2-413D-961D-CCB6CA0557D4}
 // *********************************************************************//
   IIssuerTypeDisp = dispinterface
     ['{41525CD2-F4D2-413D-961D-CCB6CA0557D4}']
@@ -4257,9 +4258,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INamedKeyEncryptedDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7512F49A-7AA4-4CCA-B2AF-CCC12439411D}
+// Interface: INamedKeyEncryptedDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7512F49A-7AA4-4CCA-B2AF-CCC12439411D}
 // *********************************************************************//
   INamedKeyEncryptedDataType = interface(IDispatch)
     ['{7512F49A-7AA4-4CCA-B2AF-CCC12439411D}']
@@ -4290,9 +4291,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INamedKeyEncryptedDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7512F49A-7AA4-4CCA-B2AF-CCC12439411D}
+// DispIntf:  INamedKeyEncryptedDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7512F49A-7AA4-4CCA-B2AF-CCC12439411D}
 // *********************************************************************//
   INamedKeyEncryptedDataTypeDisp = dispinterface
     ['{7512F49A-7AA4-4CCA-B2AF-CCC12439411D}']
@@ -4308,9 +4309,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISignedDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AF873B5C-F7CE-4DED-B382-FB19BD6606B8}
+// Interface: ISignedDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AF873B5C-F7CE-4DED-B382-FB19BD6606B8}
 // *********************************************************************//
   ISignedDataType = interface(IDispatch)
     ['{AF873B5C-F7CE-4DED-B382-FB19BD6606B8}']
@@ -4371,9 +4372,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISignedDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AF873B5C-F7CE-4DED-B382-FB19BD6606B8}
+// DispIntf:  ISignedDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AF873B5C-F7CE-4DED-B382-FB19BD6606B8}
 // *********************************************************************//
   ISignedDataTypeDisp = dispinterface
     ['{AF873B5C-F7CE-4DED-B382-FB19BD6606B8}']
@@ -4411,9 +4412,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISignerType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8E8CE7CC-5313-4362-83A0-23177CD3080B}
+// Interface: ISignerType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8E8CE7CC-5313-4362-83A0-23177CD3080B}
 // *********************************************************************//
   ISignerType = interface(IDispatch)
     ['{8E8CE7CC-5313-4362-83A0-23177CD3080B}']
@@ -4462,9 +4463,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISignerTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8E8CE7CC-5313-4362-83A0-23177CD3080B}
+// DispIntf:  ISignerTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8E8CE7CC-5313-4362-83A0-23177CD3080B}
 // *********************************************************************//
   ISignerTypeDisp = dispinterface
     ['{8E8CE7CC-5313-4362-83A0-23177CD3080B}']
@@ -4490,9 +4491,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISignerIdentifierType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F4CFB260-9D1A-4783-B622-BE251C699E1C}
+// Interface: ISignerIdentifierType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F4CFB260-9D1A-4783-B622-BE251C699E1C}
 // *********************************************************************//
   ISignerIdentifierType = interface(IDispatch)
     ['{F4CFB260-9D1A-4783-B622-BE251C699E1C}']
@@ -4509,9 +4510,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISignerIdentifierTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F4CFB260-9D1A-4783-B622-BE251C699E1C}
+// DispIntf:  ISignerIdentifierTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F4CFB260-9D1A-4783-B622-BE251C699E1C}
 // *********************************************************************//
   ISignerIdentifierTypeDisp = dispinterface
     ['{F4CFB260-9D1A-4783-B622-BE251C699E1C}']
@@ -4522,9 +4523,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IContentInformationType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A9D88186-440E-4904-A917-3F7C70400BCF}
+// Interface: IContentInformationType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A9D88186-440E-4904-A917-3F7C70400BCF}
 // *********************************************************************//
   IContentInformationType = interface(IDispatch)
     ['{A9D88186-440E-4904-A917-3F7C70400BCF}']
@@ -4547,9 +4548,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IContentInformationTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A9D88186-440E-4904-A917-3F7C70400BCF}
+// DispIntf:  IContentInformationTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A9D88186-440E-4904-A917-3F7C70400BCF}
 // *********************************************************************//
   IContentInformationTypeDisp = dispinterface
     ['{A9D88186-440E-4904-A917-3F7C70400BCF}']
@@ -4562,9 +4563,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAbortRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3ACCAFD2-F826-4DB0-93C0-0A210CBEC985}
+// Interface: IAbortRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3ACCAFD2-F826-4DB0-93C0-0A210CBEC985}
 // *********************************************************************//
   IAbortRequestType = interface(IDispatch)
     ['{3ACCAFD2-F826-4DB0-93C0-0A210CBEC985}']
@@ -4593,9 +4594,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAbortRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3ACCAFD2-F826-4DB0-93C0-0A210CBEC985}
+// DispIntf:  IAbortRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3ACCAFD2-F826-4DB0-93C0-0A210CBEC985}
 // *********************************************************************//
   IAbortRequestTypeDisp = dispinterface
     ['{3ACCAFD2-F826-4DB0-93C0-0A210CBEC985}']
@@ -4610,9 +4611,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IMessageReferenceType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BBEA1967-1573-4855-8345-CFBC175D6198}
+// Interface: IMessageReferenceType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BBEA1967-1573-4855-8345-CFBC175D6198}
 // *********************************************************************//
   IMessageReferenceType = interface(IDispatch)
     ['{BBEA1967-1573-4855-8345-CFBC175D6198}']
@@ -4653,9 +4654,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IMessageReferenceTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BBEA1967-1573-4855-8345-CFBC175D6198}
+// DispIntf:  IMessageReferenceTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BBEA1967-1573-4855-8345-CFBC175D6198}
 // *********************************************************************//
   IMessageReferenceTypeDisp = dispinterface
     ['{BBEA1967-1573-4855-8345-CFBC175D6198}']
@@ -4674,9 +4675,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAdminRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7DDFBFFD-787F-4912-8105-E8E54CB4CD3F}
+// Interface: IAdminRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7DDFBFFD-787F-4912-8105-E8E54CB4CD3F}
 // *********************************************************************//
   IAdminRequestType = interface(IDispatch)
     ['{7DDFBFFD-787F-4912-8105-E8E54CB4CD3F}']
@@ -4693,9 +4694,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAdminRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7DDFBFFD-787F-4912-8105-E8E54CB4CD3F}
+// DispIntf:  IAdminRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7DDFBFFD-787F-4912-8105-E8E54CB4CD3F}
 // *********************************************************************//
   IAdminRequestTypeDisp = dispinterface
     ['{7DDFBFFD-787F-4912-8105-E8E54CB4CD3F}']
@@ -4706,9 +4707,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAdminResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {295F98CB-C396-4107-A588-4C2750E66B23}
+// Interface: IAdminResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {295F98CB-C396-4107-A588-4C2750E66B23}
 // *********************************************************************//
   IAdminResponseType = interface(IDispatch)
     ['{295F98CB-C396-4107-A588-4C2750E66B23}']
@@ -4725,9 +4726,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAdminResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {295F98CB-C396-4107-A588-4C2750E66B23}
+// DispIntf:  IAdminResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {295F98CB-C396-4107-A588-4C2750E66B23}
 // *********************************************************************//
   IAdminResponseTypeDisp = dispinterface
     ['{295F98CB-C396-4107-A588-4C2750E66B23}']
@@ -4738,9 +4739,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAllowedProductType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5A6B89FD-3F75-42BD-A784-084E3156BBFE}
+// Interface: IAllowedProductType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5A6B89FD-3F75-42BD-A784-084E3156BBFE}
 // *********************************************************************//
   IAllowedProductType = interface(IDispatch)
     ['{5A6B89FD-3F75-42BD-A784-084E3156BBFE}']
@@ -4775,9 +4776,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAllowedProductTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5A6B89FD-3F75-42BD-A784-084E3156BBFE}
+// DispIntf:  IAllowedProductTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5A6B89FD-3F75-42BD-A784-084E3156BBFE}
 // *********************************************************************//
   IAllowedProductTypeDisp = dispinterface
     ['{5A6B89FD-3F75-42BD-A784-084E3156BBFE}']
@@ -4794,9 +4795,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAmountsReqType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {52FA396F-DECA-4513-BCA1-EF89D0E8AD15}
+// Interface: IAmountsReqType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {52FA396F-DECA-4513-BCA1-EF89D0E8AD15}
 // *********************************************************************//
   IAmountsReqType = interface(IDispatch)
     ['{52FA396F-DECA-4513-BCA1-EF89D0E8AD15}']
@@ -4855,9 +4856,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAmountsReqTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {52FA396F-DECA-4513-BCA1-EF89D0E8AD15}
+// DispIntf:  IAmountsReqTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {52FA396F-DECA-4513-BCA1-EF89D0E8AD15}
 // *********************************************************************//
   IAmountsReqTypeDisp = dispinterface
     ['{52FA396F-DECA-4513-BCA1-EF89D0E8AD15}']
@@ -4882,9 +4883,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAmountsRespType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9F0E9E21-708A-444C-9087-413FA376DC77}
+// Interface: IAmountsRespType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9F0E9E21-708A-444C-9087-413FA376DC77}
 // *********************************************************************//
   IAmountsRespType = interface(IDispatch)
     ['{9F0E9E21-708A-444C-9087-413FA376DC77}']
@@ -4931,9 +4932,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAmountsRespTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9F0E9E21-708A-444C-9087-413FA376DC77}
+// DispIntf:  IAmountsRespTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9F0E9E21-708A-444C-9087-413FA376DC77}
 // *********************************************************************//
   IAmountsRespTypeDisp = dispinterface
     ['{9F0E9E21-708A-444C-9087-413FA376DC77}']
@@ -4954,9 +4955,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAreaSizeType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {040FD94A-4F30-4BC0-9A87-B44CA5A6FE22}
+// Interface: IAreaSizeType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {040FD94A-4F30-4BC0-9A87-B44CA5A6FE22}
 // *********************************************************************//
   IAreaSizeType = interface(IDispatch)
     ['{040FD94A-4F30-4BC0-9A87-B44CA5A6FE22}']
@@ -4979,9 +4980,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAreaSizeTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {040FD94A-4F30-4BC0-9A87-B44CA5A6FE22}
+// DispIntf:  IAreaSizeTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {040FD94A-4F30-4BC0-9A87-B44CA5A6FE22}
 // *********************************************************************//
   IAreaSizeTypeDisp = dispinterface
     ['{040FD94A-4F30-4BC0-9A87-B44CA5A6FE22}']
@@ -4994,9 +4995,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IBalanceInquiryRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {27FACFD4-7E76-469B-ACF4-558009071D7F}
+// Interface: IBalanceInquiryRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {27FACFD4-7E76-469B-ACF4-558009071D7F}
 // *********************************************************************//
   IBalanceInquiryRequestType = interface(IDispatch)
     ['{27FACFD4-7E76-469B-ACF4-558009071D7F}']
@@ -5019,9 +5020,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IBalanceInquiryRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {27FACFD4-7E76-469B-ACF4-558009071D7F}
+// DispIntf:  IBalanceInquiryRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {27FACFD4-7E76-469B-ACF4-558009071D7F}
 // *********************************************************************//
   IBalanceInquiryRequestTypeDisp = dispinterface
     ['{27FACFD4-7E76-469B-ACF4-558009071D7F}']
@@ -5034,9 +5035,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentAccountReqType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2F674875-D6C5-421C-9BA7-844B5C967A13}
+// Interface: IPaymentAccountReqType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2F674875-D6C5-421C-9BA7-844B5C967A13}
 // *********************************************************************//
   IPaymentAccountReqType = interface(IDispatch)
     ['{2F674875-D6C5-421C-9BA7-844B5C967A13}']
@@ -5067,9 +5068,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentAccountReqTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2F674875-D6C5-421C-9BA7-844B5C967A13}
+// DispIntf:  IPaymentAccountReqTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2F674875-D6C5-421C-9BA7-844B5C967A13}
 // *********************************************************************//
   IPaymentAccountReqTypeDisp = dispinterface
     ['{2F674875-D6C5-421C-9BA7-844B5C967A13}']
@@ -5085,9 +5086,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransactionIdentificationType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {761C6929-6C00-46BD-92EC-310E316423D7}
+// Interface: ITransactionIdentificationType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {761C6929-6C00-46BD-92EC-310E316423D7}
 // *********************************************************************//
   ITransactionIdentificationType = interface(IDispatch)
     ['{761C6929-6C00-46BD-92EC-310E316423D7}']
@@ -5110,9 +5111,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransactionIdentificationTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {761C6929-6C00-46BD-92EC-310E316423D7}
+// DispIntf:  ITransactionIdentificationTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {761C6929-6C00-46BD-92EC-310E316423D7}
 // *********************************************************************//
   ITransactionIdentificationTypeDisp = dispinterface
     ['{761C6929-6C00-46BD-92EC-310E316423D7}']
@@ -5125,9 +5126,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentInstrumentDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F244DF91-C609-4B7D-8D53-F937A7697779}
+// Interface: IPaymentInstrumentDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F244DF91-C609-4B7D-8D53-F937A7697779}
 // *********************************************************************//
   IPaymentInstrumentDataType = interface(IDispatch)
     ['{F244DF91-C609-4B7D-8D53-F937A7697779}']
@@ -5162,9 +5163,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentInstrumentDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F244DF91-C609-4B7D-8D53-F937A7697779}
+// DispIntf:  IPaymentInstrumentDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F244DF91-C609-4B7D-8D53-F937A7697779}
 // *********************************************************************//
   IPaymentInstrumentDataTypeDisp = dispinterface
     ['{F244DF91-C609-4B7D-8D53-F937A7697779}']
@@ -5181,9 +5182,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {10B8615B-08B0-41B9-8977-FEEEC7EFB57D}
+// Interface: ICardDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {10B8615B-08B0-41B9-8977-FEEEC7EFB57D}
 // *********************************************************************//
   ICardDataType = interface(IDispatch)
     ['{10B8615B-08B0-41B9-8977-FEEEC7EFB57D}']
@@ -5284,9 +5285,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {10B8615B-08B0-41B9-8977-FEEEC7EFB57D}
+// DispIntf:  ICardDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {10B8615B-08B0-41B9-8977-FEEEC7EFB57D}
 // *********************************************************************//
   ICardDataTypeDisp = dispinterface
     ['{10B8615B-08B0-41B9-8977-FEEEC7EFB57D}']
@@ -5341,9 +5342,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISensitiveCardDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A804A6DE-93E7-4739-8860-ED5D4E4DB5FC}
+// Interface: ISensitiveCardDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A804A6DE-93E7-4739-8860-ED5D4E4DB5FC}
 // *********************************************************************//
   ISensitiveCardDataType = interface(IDispatch)
     ['{A804A6DE-93E7-4739-8860-ED5D4E4DB5FC}']
@@ -5384,9 +5385,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISensitiveCardDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A804A6DE-93E7-4739-8860-ED5D4E4DB5FC}
+// DispIntf:  ISensitiveCardDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A804A6DE-93E7-4739-8860-ED5D4E4DB5FC}
 // *********************************************************************//
   ISensitiveCardDataTypeDisp = dispinterface
     ['{A804A6DE-93E7-4739-8860-ED5D4E4DB5FC}']
@@ -5409,9 +5410,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITrackDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EC9DD552-8D49-42E5-95FF-B85405C33632}
+// Interface: ITrackDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EC9DD552-8D49-42E5-95FF-B85405C33632}
 // *********************************************************************//
   ITrackDataType = interface(IDispatch)
     ['{EC9DD552-8D49-42E5-95FF-B85405C33632}']
@@ -5444,9 +5445,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITrackDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EC9DD552-8D49-42E5-95FF-B85405C33632}
+// DispIntf:  ITrackDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EC9DD552-8D49-42E5-95FF-B85405C33632}
 // *********************************************************************//
   ITrackDataTypeDisp = dispinterface
     ['{EC9DD552-8D49-42E5-95FF-B85405C33632}']
@@ -5463,9 +5464,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentTokenType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FB486B1E-FAE6-4812-9D96-A288450FE940}
+// Interface: IPaymentTokenType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FB486B1E-FAE6-4812-9D96-A288450FE940}
 // *********************************************************************//
   IPaymentTokenType = interface(IDispatch)
     ['{FB486B1E-FAE6-4812-9D96-A288450FE940}']
@@ -5494,9 +5495,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentTokenTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FB486B1E-FAE6-4812-9D96-A288450FE940}
+// DispIntf:  IPaymentTokenTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FB486B1E-FAE6-4812-9D96-A288450FE940}
 // *********************************************************************//
   IPaymentTokenTypeDisp = dispinterface
     ['{FB486B1E-FAE6-4812-9D96-A288450FE940}']
@@ -5511,9 +5512,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICustomerOrderType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {03868E5D-A059-430C-9FF1-F5959BDB1B47}
+// Interface: ICustomerOrderType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {03868E5D-A059-430C-9FF1-F5959BDB1B47}
 // *********************************************************************//
   ICustomerOrderType = interface(IDispatch)
     ['{03868E5D-A059-430C-9FF1-F5959BDB1B47}']
@@ -5580,9 +5581,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICustomerOrderTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {03868E5D-A059-430C-9FF1-F5959BDB1B47}
+// DispIntf:  ICustomerOrderTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {03868E5D-A059-430C-9FF1-F5959BDB1B47}
 // *********************************************************************//
   ICustomerOrderTypeDisp = dispinterface
     ['{03868E5D-A059-430C-9FF1-F5959BDB1B47}']
@@ -5610,9 +5611,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICheckDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F963BC7E-656B-447E-A719-9DDE564696CA}
+// Interface: ICheckDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F963BC7E-656B-447E-A719-9DDE564696CA}
 // *********************************************************************//
   ICheckDataType = interface(IDispatch)
     ['{F963BC7E-656B-447E-A719-9DDE564696CA}']
@@ -5667,9 +5668,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICheckDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F963BC7E-656B-447E-A719-9DDE564696CA}
+// DispIntf:  ICheckDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F963BC7E-656B-447E-A719-9DDE564696CA}
 // *********************************************************************//
   ICheckDataTypeDisp = dispinterface
     ['{F963BC7E-656B-447E-A719-9DDE564696CA}']
@@ -5693,9 +5694,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IMobileDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A2C090F8-E6E4-42CE-98CF-D54F1B3C1F44}
+// Interface: IMobileDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A2C090F8-E6E4-42CE-98CF-D54F1B3C1F44}
 // *********************************************************************//
   IMobileDataType = interface(IDispatch)
     ['{A2C090F8-E6E4-42CE-98CF-D54F1B3C1F44}']
@@ -5742,9 +5743,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IMobileDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A2C090F8-E6E4-42CE-98CF-D54F1B3C1F44}
+// DispIntf:  IMobileDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A2C090F8-E6E4-42CE-98CF-D54F1B3C1F44}
 // *********************************************************************//
   IMobileDataTypeDisp = dispinterface
     ['{A2C090F8-E6E4-42CE-98CF-D54F1B3C1F44}']
@@ -5765,9 +5766,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IGeolocationType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9D352567-4120-4E43-A6CD-DCDA84B067C9}
+// Interface: IGeolocationType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9D352567-4120-4E43-A6CD-DCDA84B067C9}
 // *********************************************************************//
   IGeolocationType = interface(IDispatch)
     ['{9D352567-4120-4E43-A6CD-DCDA84B067C9}']
@@ -5790,9 +5791,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IGeolocationTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9D352567-4120-4E43-A6CD-DCDA84B067C9}
+// DispIntf:  IGeolocationTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9D352567-4120-4E43-A6CD-DCDA84B067C9}
 // *********************************************************************//
   IGeolocationTypeDisp = dispinterface
     ['{9D352567-4120-4E43-A6CD-DCDA84B067C9}']
@@ -5805,9 +5806,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IGeographicCoordinatesType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4AEA1180-11A1-42A2-A301-156B0EFB23C0}
+// Interface: IGeographicCoordinatesType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4AEA1180-11A1-42A2-A301-156B0EFB23C0}
 // *********************************************************************//
   IGeographicCoordinatesType = interface(IDispatch)
     ['{4AEA1180-11A1-42A2-A301-156B0EFB23C0}']
@@ -5830,9 +5831,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IGeographicCoordinatesTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4AEA1180-11A1-42A2-A301-156B0EFB23C0}
+// DispIntf:  IGeographicCoordinatesTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4AEA1180-11A1-42A2-A301-156B0EFB23C0}
 // *********************************************************************//
   IGeographicCoordinatesTypeDisp = dispinterface
     ['{4AEA1180-11A1-42A2-A301-156B0EFB23C0}']
@@ -5845,9 +5846,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IUTMCoordinatesType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EDEEDCDB-BFF0-4DB4-89FF-DB77DBF1EFAC}
+// Interface: IUTMCoordinatesType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EDEEDCDB-BFF0-4DB4-89FF-DB77DBF1EFAC}
 // *********************************************************************//
   IUTMCoordinatesType = interface(IDispatch)
     ['{EDEEDCDB-BFF0-4DB4-89FF-DB77DBF1EFAC}']
@@ -5876,9 +5877,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IUTMCoordinatesTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EDEEDCDB-BFF0-4DB4-89FF-DB77DBF1EFAC}
+// DispIntf:  IUTMCoordinatesTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EDEEDCDB-BFF0-4DB4-89FF-DB77DBF1EFAC}
 // *********************************************************************//
   IUTMCoordinatesTypeDisp = dispinterface
     ['{EDEEDCDB-BFF0-4DB4-89FF-DB77DBF1EFAC}']
@@ -5893,9 +5894,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISensitiveMobileDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {11CD0FEB-68A4-4B6A-BB0D-04611ADD97D9}
+// Interface: ISensitiveMobileDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {11CD0FEB-68A4-4B6A-BB0D-04611ADD97D9}
 // *********************************************************************//
   ISensitiveMobileDataType = interface(IDispatch)
     ['{11CD0FEB-68A4-4B6A-BB0D-04611ADD97D9}']
@@ -5924,9 +5925,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISensitiveMobileDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {11CD0FEB-68A4-4B6A-BB0D-04611ADD97D9}
+// DispIntf:  ISensitiveMobileDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {11CD0FEB-68A4-4B6A-BB0D-04611ADD97D9}
 // *********************************************************************//
   ISensitiveMobileDataTypeDisp = dispinterface
     ['{11CD0FEB-68A4-4B6A-BB0D-04611ADD97D9}']
@@ -5941,9 +5942,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyAccountReqType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {82A71907-300C-4A89-85BE-7A4D9D894C5F}
+// Interface: ILoyaltyAccountReqType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {82A71907-300C-4A89-85BE-7A4D9D894C5F}
 // *********************************************************************//
   ILoyaltyAccountReqType = interface(IDispatch)
     ['{82A71907-300C-4A89-85BE-7A4D9D894C5F}']
@@ -5966,9 +5967,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyAccountReqTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {82A71907-300C-4A89-85BE-7A4D9D894C5F}
+// DispIntf:  ILoyaltyAccountReqTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {82A71907-300C-4A89-85BE-7A4D9D894C5F}
 // *********************************************************************//
   ILoyaltyAccountReqTypeDisp = dispinterface
     ['{82A71907-300C-4A89-85BE-7A4D9D894C5F}']
@@ -5981,9 +5982,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyAccountIDType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6BB1F4F6-8B90-4BF7-828E-C55AB6E69029}
+// Interface: ILoyaltyAccountIDType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6BB1F4F6-8B90-4BF7-828E-C55AB6E69029}
 // *********************************************************************//
   ILoyaltyAccountIDType = interface(IDispatch)
     ['{6BB1F4F6-8B90-4BF7-828E-C55AB6E69029}']
@@ -6024,9 +6025,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyAccountIDTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6BB1F4F6-8B90-4BF7-828E-C55AB6E69029}
+// DispIntf:  ILoyaltyAccountIDTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6BB1F4F6-8B90-4BF7-828E-C55AB6E69029}
 // *********************************************************************//
   ILoyaltyAccountIDTypeDisp = dispinterface
     ['{6BB1F4F6-8B90-4BF7-828E-C55AB6E69029}']
@@ -6049,9 +6050,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IBalanceInquiryResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AEC7079C-EA9A-4441-826D-58EDCCDE0D75}
+// Interface: IBalanceInquiryResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AEC7079C-EA9A-4441-826D-58EDCCDE0D75}
 // *********************************************************************//
   IBalanceInquiryResponseType = interface(IDispatch)
     ['{AEC7079C-EA9A-4441-826D-58EDCCDE0D75}']
@@ -6080,9 +6081,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IBalanceInquiryResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AEC7079C-EA9A-4441-826D-58EDCCDE0D75}
+// DispIntf:  IBalanceInquiryResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AEC7079C-EA9A-4441-826D-58EDCCDE0D75}
 // *********************************************************************//
   IBalanceInquiryResponseTypeDisp = dispinterface
     ['{AEC7079C-EA9A-4441-826D-58EDCCDE0D75}']
@@ -6097,9 +6098,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentAccountStatusType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {33E64590-5407-4C1F-8D14-F9FAC760F47E}
+// Interface: IPaymentAccountStatusType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {33E64590-5407-4C1F-8D14-F9FAC760F47E}
 // *********************************************************************//
   IPaymentAccountStatusType = interface(IDispatch)
     ['{33E64590-5407-4C1F-8D14-F9FAC760F47E}']
@@ -6140,9 +6141,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentAccountStatusTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {33E64590-5407-4C1F-8D14-F9FAC760F47E}
+// DispIntf:  IPaymentAccountStatusTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {33E64590-5407-4C1F-8D14-F9FAC760F47E}
 // *********************************************************************//
   IPaymentAccountStatusTypeDisp = dispinterface
     ['{33E64590-5407-4C1F-8D14-F9FAC760F47E}']
@@ -6161,9 +6162,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentAcquirerDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0E64D591-59A8-4A6A-B0B5-A8B2A950D264}
+// Interface: IPaymentAcquirerDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0E64D591-59A8-4A6A-B0B5-A8B2A950D264}
 // *********************************************************************//
   IPaymentAcquirerDataType = interface(IDispatch)
     ['{0E64D591-59A8-4A6A-B0B5-A8B2A950D264}']
@@ -6204,9 +6205,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentAcquirerDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0E64D591-59A8-4A6A-B0B5-A8B2A950D264}
+// DispIntf:  IPaymentAcquirerDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0E64D591-59A8-4A6A-B0B5-A8B2A950D264}
 // *********************************************************************//
   IPaymentAcquirerDataTypeDisp = dispinterface
     ['{0E64D591-59A8-4A6A-B0B5-A8B2A950D264}']
@@ -6225,9 +6226,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyAccountStatusType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {83EFAB67-1DB6-419B-8B74-062EB7007B55}
+// Interface: ILoyaltyAccountStatusType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {83EFAB67-1DB6-419B-8B74-062EB7007B55}
 // *********************************************************************//
   ILoyaltyAccountStatusType = interface(IDispatch)
     ['{83EFAB67-1DB6-419B-8B74-062EB7007B55}']
@@ -6264,9 +6265,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyAccountStatusTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {83EFAB67-1DB6-419B-8B74-062EB7007B55}
+// DispIntf:  ILoyaltyAccountStatusTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {83EFAB67-1DB6-419B-8B74-062EB7007B55}
 // *********************************************************************//
   ILoyaltyAccountStatusTypeDisp = dispinterface
     ['{83EFAB67-1DB6-419B-8B74-062EB7007B55}']
@@ -6284,9 +6285,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyAccountType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {02FAA4F4-62C2-4E76-B8E3-BF6CF27C9C40}
+// Interface: ILoyaltyAccountType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {02FAA4F4-62C2-4E76-B8E3-BF6CF27C9C40}
 // *********************************************************************//
   ILoyaltyAccountType = interface(IDispatch)
     ['{02FAA4F4-62C2-4E76-B8E3-BF6CF27C9C40}']
@@ -6309,9 +6310,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyAccountTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {02FAA4F4-62C2-4E76-B8E3-BF6CF27C9C40}
+// DispIntf:  ILoyaltyAccountTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {02FAA4F4-62C2-4E76-B8E3-BF6CF27C9C40}
 // *********************************************************************//
   ILoyaltyAccountTypeDisp = dispinterface
     ['{02FAA4F4-62C2-4E76-B8E3-BF6CF27C9C40}']
@@ -6324,9 +6325,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IBatchRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F81C3089-A3B9-4AC9-8E04-032065AF9246}
+// Interface: IBatchRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F81C3089-A3B9-4AC9-8E04-032065AF9246}
 // *********************************************************************//
   IBatchRequestType = interface(IDispatch)
     ['{F81C3089-A3B9-4AC9-8E04-032065AF9246}']
@@ -6355,9 +6356,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IBatchRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F81C3089-A3B9-4AC9-8E04-032065AF9246}
+// DispIntf:  IBatchRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F81C3089-A3B9-4AC9-8E04-032065AF9246}
 // *********************************************************************//
   IBatchRequestTypeDisp = dispinterface
     ['{F81C3089-A3B9-4AC9-8E04-032065AF9246}']
@@ -6376,9 +6377,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransactionToPerformType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0C86FA56-561D-407D-A6F6-A7F2B7193D60}
+// Interface: ITransactionToPerformType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0C86FA56-561D-407D-A6F6-A7F2B7193D60}
 // *********************************************************************//
   ITransactionToPerformType = interface(IDispatch)
     ['{0C86FA56-561D-407D-A6F6-A7F2B7193D60}']
@@ -6395,9 +6396,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransactionToPerformTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0C86FA56-561D-407D-A6F6-A7F2B7193D60}
+// DispIntf:  ITransactionToPerformTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0C86FA56-561D-407D-A6F6-A7F2B7193D60}
 // *********************************************************************//
   ITransactionToPerformTypeDisp = dispinterface
     ['{0C86FA56-561D-407D-A6F6-A7F2B7193D60}']
@@ -6408,9 +6409,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {702B4840-BE88-4D00-91C8-FE3A1A9594C6}
+// Interface: ILoyaltyRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {702B4840-BE88-4D00-91C8-FE3A1A9594C6}
 // *********************************************************************//
   ILoyaltyRequestType = interface(IDispatch)
     ['{702B4840-BE88-4D00-91C8-FE3A1A9594C6}']
@@ -6445,9 +6446,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {702B4840-BE88-4D00-91C8-FE3A1A9594C6}
+// DispIntf:  ILoyaltyRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {702B4840-BE88-4D00-91C8-FE3A1A9594C6}
 // *********************************************************************//
   ILoyaltyRequestTypeDisp = dispinterface
     ['{702B4840-BE88-4D00-91C8-FE3A1A9594C6}']
@@ -6468,9 +6469,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {43F4BF16-126E-4D81-9CAB-924F480BEDC4}
+// Interface: ISaleDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {43F4BF16-126E-4D81-9CAB-924F480BEDC4}
 // *********************************************************************//
   ISaleDataType = interface(IDispatch)
     ['{43F4BF16-126E-4D81-9CAB-924F480BEDC4}']
@@ -6571,9 +6572,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {43F4BF16-126E-4D81-9CAB-924F480BEDC4}
+// DispIntf:  ISaleDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {43F4BF16-126E-4D81-9CAB-924F480BEDC4}
 // *********************************************************************//
   ISaleDataTypeDisp = dispinterface
     ['{43F4BF16-126E-4D81-9CAB-924F480BEDC4}']
@@ -6620,9 +6621,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleTerminalDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A8EF3D7F-1F95-4C3E-A87F-BAF64D4763A9}
+// Interface: ISaleTerminalDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A8EF3D7F-1F95-4C3E-A87F-BAF64D4763A9}
 // *********************************************************************//
   ISaleTerminalDataType = interface(IDispatch)
     ['{A8EF3D7F-1F95-4C3E-A87F-BAF64D4763A9}']
@@ -6657,9 +6658,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleTerminalDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A8EF3D7F-1F95-4C3E-A87F-BAF64D4763A9}
+// DispIntf:  ISaleTerminalDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A8EF3D7F-1F95-4C3E-A87F-BAF64D4763A9}
 // *********************************************************************//
   ISaleTerminalDataTypeDisp = dispinterface
     ['{A8EF3D7F-1F95-4C3E-A87F-BAF64D4763A9}']
@@ -6676,9 +6677,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleProfileType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D65F1CDA-F811-479A-A37C-83A1C23B3620}
+// Interface: ISaleProfileType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D65F1CDA-F811-479A-A37C-83A1C23B3620}
 // *********************************************************************//
   ISaleProfileType = interface(IDispatch)
     ['{D65F1CDA-F811-479A-A37C-83A1C23B3620}']
@@ -6703,9 +6704,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleProfileTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D65F1CDA-F811-479A-A37C-83A1C23B3620}
+// DispIntf:  ISaleProfileTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D65F1CDA-F811-479A-A37C-83A1C23B3620}
 // *********************************************************************//
   ISaleProfileTypeDisp = dispinterface
     ['{D65F1CDA-F811-479A-A37C-83A1C23B3620}']
@@ -6719,9 +6720,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISponsoredMerchantType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E85C7262-E5DD-436A-92B1-02F4A4CAE670}
+// Interface: ISponsoredMerchantType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E85C7262-E5DD-436A-92B1-02F4A4CAE670}
 // *********************************************************************//
   ISponsoredMerchantType = interface(IDispatch)
     ['{E85C7262-E5DD-436A-92B1-02F4A4CAE670}']
@@ -6762,9 +6763,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISponsoredMerchantTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E85C7262-E5DD-436A-92B1-02F4A4CAE670}
+// DispIntf:  ISponsoredMerchantTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E85C7262-E5DD-436A-92B1-02F4A4CAE670}
 // *********************************************************************//
   ISponsoredMerchantTypeDisp = dispinterface
     ['{E85C7262-E5DD-436A-92B1-02F4A4CAE670}']
@@ -6783,9 +6784,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleToIssuerDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1BDD73E4-B0F2-4239-A3A1-B8B5D1C07115}
+// Interface: ISaleToIssuerDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1BDD73E4-B0F2-4239-A3A1-B8B5D1C07115}
 // *********************************************************************//
   ISaleToIssuerDataType = interface(IDispatch)
     ['{1BDD73E4-B0F2-4239-A3A1-B8B5D1C07115}']
@@ -6802,9 +6803,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleToIssuerDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1BDD73E4-B0F2-4239-A3A1-B8B5D1C07115}
+// DispIntf:  ISaleToIssuerDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1BDD73E4-B0F2-4239-A3A1-B8B5D1C07115}
 // *********************************************************************//
   ISaleToIssuerDataTypeDisp = dispinterface
     ['{1BDD73E4-B0F2-4239-A3A1-B8B5D1C07115}']
@@ -6815,9 +6816,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyTransactionType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2D2381D1-1729-4E5A-801F-038D30FB9BBB}
+// Interface: ILoyaltyTransactionType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2D2381D1-1729-4E5A-801F-038D30FB9BBB}
 // *********************************************************************//
   ILoyaltyTransactionType = interface(IDispatch)
     ['{2D2381D1-1729-4E5A-801F-038D30FB9BBB}']
@@ -6870,9 +6871,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyTransactionTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2D2381D1-1729-4E5A-801F-038D30FB9BBB}
+// DispIntf:  ILoyaltyTransactionTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2D2381D1-1729-4E5A-801F-038D30FB9BBB}
 // *********************************************************************//
   ILoyaltyTransactionTypeDisp = dispinterface
     ['{2D2381D1-1729-4E5A-801F-038D30FB9BBB}']
@@ -6899,9 +6900,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IOriginalPOITransactionType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {061B783B-4080-4A85-A52B-5C277377E357}
+// Interface: IOriginalPOITransactionType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {061B783B-4080-4A85-A52B-5C277377E357}
 // *********************************************************************//
   IOriginalPOITransactionType = interface(IDispatch)
     ['{061B783B-4080-4A85-A52B-5C277377E357}']
@@ -6962,9 +6963,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IOriginalPOITransactionTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {061B783B-4080-4A85-A52B-5C277377E357}
+// DispIntf:  IOriginalPOITransactionTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {061B783B-4080-4A85-A52B-5C277377E357}
 // *********************************************************************//
   IOriginalPOITransactionTypeDisp = dispinterface
     ['{061B783B-4080-4A85-A52B-5C277377E357}']
@@ -6990,9 +6991,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransactionConditionsType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {47F8BE79-F6D6-40F2-B053-13285B7F2593}
+// Interface: ITransactionConditionsType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {47F8BE79-F6D6-40F2-B053-13285B7F2593}
 // *********************************************************************//
   ITransactionConditionsType = interface(IDispatch)
     ['{47F8BE79-F6D6-40F2-B053-13285B7F2593}']
@@ -7087,9 +7088,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransactionConditionsTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {47F8BE79-F6D6-40F2-B053-13285B7F2593}
+// DispIntf:  ITransactionConditionsTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {47F8BE79-F6D6-40F2-B053-13285B7F2593}
 // *********************************************************************//
   ITransactionConditionsTypeDisp = dispinterface
     ['{47F8BE79-F6D6-40F2-B053-13285B7F2593}']
@@ -7143,9 +7144,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleItemType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3E722267-37AF-4126-A841-08CA668FE23C}
+// Interface: ISaleItemType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3E722267-37AF-4126-A841-08CA668FE23C}
 // *********************************************************************//
   ISaleItemType = interface(IDispatch)
     ['{3E722267-37AF-4126-A841-08CA668FE23C}']
@@ -7222,9 +7223,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleItemTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3E722267-37AF-4126-A841-08CA668FE23C}
+// DispIntf:  ISaleItemTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3E722267-37AF-4126-A841-08CA668FE23C}
 // *********************************************************************//
   ISaleItemTypeDisp = dispinterface
     ['{3E722267-37AF-4126-A841-08CA668FE23C}']
@@ -7255,9 +7256,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D3A824AA-34E8-4A35-93FD-B0F054C31EEA}
+// Interface: ILoyaltyDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D3A824AA-34E8-4A35-93FD-B0F054C31EEA}
 // *********************************************************************//
   ILoyaltyDataType = interface(IDispatch)
     ['{D3A824AA-34E8-4A35-93FD-B0F054C31EEA}']
@@ -7286,9 +7287,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D3A824AA-34E8-4A35-93FD-B0F054C31EEA}
+// DispIntf:  ILoyaltyDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D3A824AA-34E8-4A35-93FD-B0F054C31EEA}
 // *********************************************************************//
   ILoyaltyDataTypeDisp = dispinterface
     ['{D3A824AA-34E8-4A35-93FD-B0F054C31EEA}']
@@ -7303,9 +7304,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyAmountType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EB24B6EF-51A9-4F62-ACFC-7605D5E0FB90}
+// Interface: ILoyaltyAmountType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EB24B6EF-51A9-4F62-ACFC-7605D5E0FB90}
 // *********************************************************************//
   ILoyaltyAmountType = interface(IDispatch)
     ['{EB24B6EF-51A9-4F62-ACFC-7605D5E0FB90}']
@@ -7336,9 +7337,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyAmountTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EB24B6EF-51A9-4F62-ACFC-7605D5E0FB90}
+// DispIntf:  ILoyaltyAmountTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EB24B6EF-51A9-4F62-ACFC-7605D5E0FB90}
 // *********************************************************************//
   ILoyaltyAmountTypeDisp = dispinterface
     ['{EB24B6EF-51A9-4F62-ACFC-7605D5E0FB90}']
@@ -7354,9 +7355,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {308E3993-D297-4516-877B-E2680F70E997}
+// Interface: IPaymentRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {308E3993-D297-4516-877B-E2680F70E997}
 // *********************************************************************//
   IPaymentRequestType = interface(IDispatch)
     ['{308E3993-D297-4516-877B-E2680F70E997}']
@@ -7397,9 +7398,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {308E3993-D297-4516-877B-E2680F70E997}
+// DispIntf:  IPaymentRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {308E3993-D297-4516-877B-E2680F70E997}
 // *********************************************************************//
   IPaymentRequestTypeDisp = dispinterface
     ['{308E3993-D297-4516-877B-E2680F70E997}']
@@ -7422,9 +7423,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentTransactionType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F89A3553-0EFE-46DB-8DFC-536C36A8EC87}
+// Interface: IPaymentTransactionType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F89A3553-0EFE-46DB-8DFC-536C36A8EC87}
 // *********************************************************************//
   IPaymentTransactionType = interface(IDispatch)
     ['{F89A3553-0EFE-46DB-8DFC-536C36A8EC87}']
@@ -7465,9 +7466,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentTransactionTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F89A3553-0EFE-46DB-8DFC-536C36A8EC87}
+// DispIntf:  IPaymentTransactionTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F89A3553-0EFE-46DB-8DFC-536C36A8EC87}
 // *********************************************************************//
   IPaymentTransactionTypeDisp = dispinterface
     ['{F89A3553-0EFE-46DB-8DFC-536C36A8EC87}']
@@ -7490,9 +7491,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C3341BD8-FD76-49F9-8085-2F45F4C90A65}
+// Interface: IPaymentDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C3341BD8-FD76-49F9-8085-2F45F4C90A65}
 // *********************************************************************//
   IPaymentDataType = interface(IDispatch)
     ['{C3341BD8-FD76-49F9-8085-2F45F4C90A65}']
@@ -7549,9 +7550,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C3341BD8-FD76-49F9-8085-2F45F4C90A65}
+// DispIntf:  IPaymentDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C3341BD8-FD76-49F9-8085-2F45F4C90A65}
 // *********************************************************************//
   IPaymentDataTypeDisp = dispinterface
     ['{C3341BD8-FD76-49F9-8085-2F45F4C90A65}']
@@ -7576,9 +7577,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IInstalmentType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7A5C0D17-A678-4B1E-8B0A-44729BD7701B}
+// Interface: IInstalmentType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7A5C0D17-A678-4B1E-8B0A-44729BD7701B}
 // *********************************************************************//
   IInstalmentType = interface(IDispatch)
     ['{7A5C0D17-A678-4B1E-8B0A-44729BD7701B}']
@@ -7649,9 +7650,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IInstalmentTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7A5C0D17-A678-4B1E-8B0A-44729BD7701B}
+// DispIntf:  IInstalmentTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7A5C0D17-A678-4B1E-8B0A-44729BD7701B}
 // *********************************************************************//
   IInstalmentTypeDisp = dispinterface
     ['{7A5C0D17-A678-4B1E-8B0A-44729BD7701B}']
@@ -7680,9 +7681,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IReversalRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6478F36D-E89D-428A-AF16-94174DAD62EA}
+// Interface: IReversalRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6478F36D-E89D-428A-AF16-94174DAD62EA}
 // *********************************************************************//
   IReversalRequestType = interface(IDispatch)
     ['{6478F36D-E89D-428A-AF16-94174DAD62EA}']
@@ -7723,9 +7724,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IReversalRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6478F36D-E89D-428A-AF16-94174DAD62EA}
+// DispIntf:  IReversalRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6478F36D-E89D-428A-AF16-94174DAD62EA}
 // *********************************************************************//
   IReversalRequestTypeDisp = dispinterface
     ['{6478F36D-E89D-428A-AF16-94174DAD62EA}']
@@ -7744,9 +7745,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IBatchResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {57A97454-2DC8-4CC1-836D-E150AEA9163A}
+// Interface: IBatchResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {57A97454-2DC8-4CC1-836D-E150AEA9163A}
 // *********************************************************************//
   IBatchResponseType = interface(IDispatch)
     ['{57A97454-2DC8-4CC1-836D-E150AEA9163A}']
@@ -7775,9 +7776,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IBatchResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {57A97454-2DC8-4CC1-836D-E150AEA9163A}
+// DispIntf:  IBatchResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {57A97454-2DC8-4CC1-836D-E150AEA9163A}
 // *********************************************************************//
   IBatchResponseTypeDisp = dispinterface
     ['{57A97454-2DC8-4CC1-836D-E150AEA9163A}']
@@ -7796,9 +7797,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPerformedTransactionType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E6F5686A-499D-4BF3-868E-4E856931ABC2}
+// Interface: IPerformedTransactionType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E6F5686A-499D-4BF3-868E-4E856931ABC2}
 // *********************************************************************//
   IPerformedTransactionType = interface(IDispatch)
     ['{E6F5686A-499D-4BF3-868E-4E856931ABC2}']
@@ -7851,9 +7852,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPerformedTransactionTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E6F5686A-499D-4BF3-868E-4E856931ABC2}
+// DispIntf:  IPerformedTransactionTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E6F5686A-499D-4BF3-868E-4E856931ABC2}
 // *********************************************************************//
   IPerformedTransactionTypeDisp = dispinterface
     ['{E6F5686A-499D-4BF3-868E-4E856931ABC2}']
@@ -7880,9 +7881,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPOIDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AB1F9C61-EF73-43A1-90C1-944799F7495F}
+// Interface: IPOIDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AB1F9C61-EF73-43A1-90C1-944799F7495F}
 // *********************************************************************//
   IPOIDataType = interface(IDispatch)
     ['{AB1F9C61-EF73-43A1-90C1-944799F7495F}']
@@ -7905,9 +7906,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPOIDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AB1F9C61-EF73-43A1-90C1-944799F7495F}
+// DispIntf:  IPOIDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AB1F9C61-EF73-43A1-90C1-944799F7495F}
 // *********************************************************************//
   IPOIDataTypeDisp = dispinterface
     ['{AB1F9C61-EF73-43A1-90C1-944799F7495F}']
@@ -7920,9 +7921,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentResultType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F7F33479-B9DC-4C06-83E0-A6EF2B70FA3D}
+// Interface: IPaymentResultType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F7F33479-B9DC-4C06-83E0-A6EF2B70FA3D}
 // *********************************************************************//
   IPaymentResultType = interface(IDispatch)
     ['{F7F33479-B9DC-4C06-83E0-A6EF2B70FA3D}']
@@ -8029,9 +8030,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentResultTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F7F33479-B9DC-4C06-83E0-A6EF2B70FA3D}
+// DispIntf:  IPaymentResultTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F7F33479-B9DC-4C06-83E0-A6EF2B70FA3D}
 // *********************************************************************//
   IPaymentResultTypeDisp = dispinterface
     ['{F7F33479-B9DC-4C06-83E0-A6EF2B70FA3D}']
@@ -8081,9 +8082,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICurrencyConversionType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AE4940CF-7B52-4AB7-B76C-E2081E577729}
+// Interface: ICurrencyConversionType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AE4940CF-7B52-4AB7-B76C-E2081E577729}
 // *********************************************************************//
   ICurrencyConversionType = interface(IDispatch)
     ['{AE4940CF-7B52-4AB7-B76C-E2081E577729}']
@@ -8132,9 +8133,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICurrencyConversionTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AE4940CF-7B52-4AB7-B76C-E2081E577729}
+// DispIntf:  ICurrencyConversionTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AE4940CF-7B52-4AB7-B76C-E2081E577729}
 // *********************************************************************//
   ICurrencyConversionTypeDisp = dispinterface
     ['{AE4940CF-7B52-4AB7-B76C-E2081E577729}']
@@ -8156,9 +8157,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IAmountType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5BEC0622-42B6-4562-8119-CAEC54DE4CE9}
+// Interface: IAmountType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5BEC0622-42B6-4562-8119-CAEC54DE4CE9}
 // *********************************************************************//
   IAmountType = interface(IDispatch)
     ['{5BEC0622-42B6-4562-8119-CAEC54DE4CE9}']
@@ -8181,9 +8182,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IAmountTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5BEC0622-42B6-4562-8119-CAEC54DE4CE9}
+// DispIntf:  IAmountTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5BEC0622-42B6-4562-8119-CAEC54DE4CE9}
 // *********************************************************************//
   IAmountTypeDisp = dispinterface
     ['{5BEC0622-42B6-4562-8119-CAEC54DE4CE9}']
@@ -8196,9 +8197,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICapturedSignatureType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CF83F203-8BDC-4E0D-B4F5-78572CFB784D}
+// Interface: ICapturedSignatureType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CF83F203-8BDC-4E0D-B4F5-78572CFB784D}
 // *********************************************************************//
   ICapturedSignatureType = interface(IDispatch)
     ['{CF83F203-8BDC-4E0D-B4F5-78572CFB784D}']
@@ -8227,9 +8228,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICapturedSignatureTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CF83F203-8BDC-4E0D-B4F5-78572CFB784D}
+// DispIntf:  ICapturedSignatureTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CF83F203-8BDC-4E0D-B4F5-78572CFB784D}
 // *********************************************************************//
   ICapturedSignatureTypeDisp = dispinterface
     ['{CF83F203-8BDC-4E0D-B4F5-78572CFB784D}']
@@ -8248,9 +8249,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISignaturePointType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {924C4CB8-B1E3-4A18-926F-3C6C3345C69A}
+// Interface: ISignaturePointType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {924C4CB8-B1E3-4A18-926F-3C6C3345C69A}
 // *********************************************************************//
   ISignaturePointType = interface(IDispatch)
     ['{924C4CB8-B1E3-4A18-926F-3C6C3345C69A}']
@@ -8273,9 +8274,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISignaturePointTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {924C4CB8-B1E3-4A18-926F-3C6C3345C69A}
+// DispIntf:  ISignaturePointTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {924C4CB8-B1E3-4A18-926F-3C6C3345C69A}
 // *********************************************************************//
   ISignaturePointTypeDisp = dispinterface
     ['{924C4CB8-B1E3-4A18-926F-3C6C3345C69A}']
@@ -8288,9 +8289,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyResultType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {92F3B1F3-64EF-478E-A54C-8B45EA1714BE}
+// Interface: ILoyaltyResultType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {92F3B1F3-64EF-478E-A54C-8B45EA1714BE}
 // *********************************************************************//
   ILoyaltyResultType = interface(IDispatch)
     ['{92F3B1F3-64EF-478E-A54C-8B45EA1714BE}']
@@ -8331,9 +8332,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyResultTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {92F3B1F3-64EF-478E-A54C-8B45EA1714BE}
+// DispIntf:  ILoyaltyResultTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {92F3B1F3-64EF-478E-A54C-8B45EA1714BE}
 // *********************************************************************//
   ILoyaltyResultTypeDisp = dispinterface
     ['{92F3B1F3-64EF-478E-A54C-8B45EA1714BE}']
@@ -8352,9 +8353,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyAcquirerDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AB465FBE-8AD4-4AC6-BFF5-DF7347E33BF5}
+// Interface: ILoyaltyAcquirerDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AB465FBE-8AD4-4AC6-BFF5-DF7347E33BF5}
 // *********************************************************************//
   ILoyaltyAcquirerDataType = interface(IDispatch)
     ['{AB465FBE-8AD4-4AC6-BFF5-DF7347E33BF5}']
@@ -8389,9 +8390,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyAcquirerDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {AB465FBE-8AD4-4AC6-BFF5-DF7347E33BF5}
+// DispIntf:  ILoyaltyAcquirerDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {AB465FBE-8AD4-4AC6-BFF5-DF7347E33BF5}
 // *********************************************************************//
   ILoyaltyAcquirerDataTypeDisp = dispinterface
     ['{AB465FBE-8AD4-4AC6-BFF5-DF7347E33BF5}']
@@ -8408,9 +8409,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IRebatesType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1546173A-430A-478B-8B3E-AD45804FB91C}
+// Interface: IRebatesType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1546173A-430A-478B-8B3E-AD45804FB91C}
 // *********************************************************************//
   IRebatesType = interface(IDispatch)
     ['{1546173A-430A-478B-8B3E-AD45804FB91C}']
@@ -8445,9 +8446,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IRebatesTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1546173A-430A-478B-8B3E-AD45804FB91C}
+// DispIntf:  IRebatesTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1546173A-430A-478B-8B3E-AD45804FB91C}
 // *********************************************************************//
   IRebatesTypeDisp = dispinterface
     ['{1546173A-430A-478B-8B3E-AD45804FB91C}']
@@ -8468,9 +8469,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleItemRebateType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A2629B00-1109-4E9F-A898-EF742CF51CA3}
+// Interface: ISaleItemRebateType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A2629B00-1109-4E9F-A898-EF742CF51CA3}
 // *********************************************************************//
   ISaleItemRebateType = interface(IDispatch)
     ['{A2629B00-1109-4E9F-A898-EF742CF51CA3}']
@@ -8523,9 +8524,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleItemRebateTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A2629B00-1109-4E9F-A898-EF742CF51CA3}
+// DispIntf:  ISaleItemRebateTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A2629B00-1109-4E9F-A898-EF742CF51CA3}
 // *********************************************************************//
   ISaleItemRebateTypeDisp = dispinterface
     ['{A2629B00-1109-4E9F-A898-EF742CF51CA3}']
@@ -8548,9 +8549,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardAcquisitionRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {061AC163-77AC-4F1E-8FF8-1DBB0F3F4BFE}
+// Interface: ICardAcquisitionRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {061AC163-77AC-4F1E-8FF8-1DBB0F3F4BFE}
 // *********************************************************************//
   ICardAcquisitionRequestType = interface(IDispatch)
     ['{061AC163-77AC-4F1E-8FF8-1DBB0F3F4BFE}']
@@ -8573,9 +8574,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardAcquisitionRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {061AC163-77AC-4F1E-8FF8-1DBB0F3F4BFE}
+// DispIntf:  ICardAcquisitionRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {061AC163-77AC-4F1E-8FF8-1DBB0F3F4BFE}
 // *********************************************************************//
   ICardAcquisitionRequestTypeDisp = dispinterface
     ['{061AC163-77AC-4F1E-8FF8-1DBB0F3F4BFE}']
@@ -8588,9 +8589,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardAcquisitionTransactionType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {63888BB5-FF2F-49E2-B8A4-7EF55F29A3D3}
+// Interface: ICardAcquisitionTransactionType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {63888BB5-FF2F-49E2-B8A4-7EF55F29A3D3}
 // *********************************************************************//
   ICardAcquisitionTransactionType = interface(IDispatch)
     ['{63888BB5-FF2F-49E2-B8A4-7EF55F29A3D3}']
@@ -8677,9 +8678,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardAcquisitionTransactionTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {63888BB5-FF2F-49E2-B8A4-7EF55F29A3D3}
+// DispIntf:  ICardAcquisitionTransactionTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {63888BB5-FF2F-49E2-B8A4-7EF55F29A3D3}
 // *********************************************************************//
   ICardAcquisitionTransactionTypeDisp = dispinterface
     ['{63888BB5-FF2F-49E2-B8A4-7EF55F29A3D3}']
@@ -8726,9 +8727,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardAcquisitionResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {42253F0A-6543-43F3-97B4-800C98D7027E}
+// Interface: ICardAcquisitionResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {42253F0A-6543-43F3-97B4-800C98D7027E}
 // *********************************************************************//
   ICardAcquisitionResponseType = interface(IDispatch)
     ['{42253F0A-6543-43F3-97B4-800C98D7027E}']
@@ -8799,9 +8800,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardAcquisitionResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {42253F0A-6543-43F3-97B4-800C98D7027E}
+// DispIntf:  ICardAcquisitionResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {42253F0A-6543-43F3-97B4-800C98D7027E}
 // *********************************************************************//
   ICardAcquisitionResponseTypeDisp = dispinterface
     ['{42253F0A-6543-43F3-97B4-800C98D7027E}']
@@ -8842,9 +8843,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardholderPINType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7E284611-73B1-4F9D-9DC3-F9FB4845CF0D}
+// Interface: ICardholderPINType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7E284611-73B1-4F9D-9DC3-F9FB4845CF0D}
 // *********************************************************************//
   ICardholderPINType = interface(IDispatch)
     ['{7E284611-73B1-4F9D-9DC3-F9FB4845CF0D}']
@@ -8873,9 +8874,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardholderPINTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7E284611-73B1-4F9D-9DC3-F9FB4845CF0D}
+// DispIntf:  ICardholderPINTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7E284611-73B1-4F9D-9DC3-F9FB4845CF0D}
 // *********************************************************************//
   ICardholderPINTypeDisp = dispinterface
     ['{7E284611-73B1-4F9D-9DC3-F9FB4845CF0D}']
@@ -8890,9 +8891,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardReaderAPDURequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {17FBE143-27FE-4D58-9E27-70365195C380}
+// Interface: ICardReaderAPDURequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {17FBE143-27FE-4D58-9E27-70365195C380}
 // *********************************************************************//
   ICardReaderAPDURequestType = interface(IDispatch)
     ['{17FBE143-27FE-4D58-9E27-70365195C380}']
@@ -8975,9 +8976,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardReaderAPDURequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {17FBE143-27FE-4D58-9E27-70365195C380}
+// DispIntf:  ICardReaderAPDURequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {17FBE143-27FE-4D58-9E27-70365195C380}
 // *********************************************************************//
   ICardReaderAPDURequestTypeDisp = dispinterface
     ['{17FBE143-27FE-4D58-9E27-70365195C380}']
@@ -9034,9 +9035,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardReaderAPDUResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5070685E-4C92-472E-847C-9D4355343C5A}
+// Interface: ICardReaderAPDUResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5070685E-4C92-472E-847C-9D4355343C5A}
 // *********************************************************************//
   ICardReaderAPDUResponseType = interface(IDispatch)
     ['{5070685E-4C92-472E-847C-9D4355343C5A}']
@@ -9077,9 +9078,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardReaderAPDUResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5070685E-4C92-472E-847C-9D4355343C5A}
+// DispIntf:  ICardReaderAPDUResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5070685E-4C92-472E-847C-9D4355343C5A}
 // *********************************************************************//
   ICardReaderAPDUResponseTypeDisp = dispinterface
     ['{5070685E-4C92-472E-847C-9D4355343C5A}']
@@ -9106,9 +9107,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardReaderInitRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A781A66F-2F52-46C7-AC26-9C06E9AC21A1}
+// Interface: ICardReaderInitRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A781A66F-2F52-46C7-AC26-9C06E9AC21A1}
 // *********************************************************************//
   ICardReaderInitRequestType = interface(IDispatch)
     ['{A781A66F-2F52-46C7-AC26-9C06E9AC21A1}']
@@ -9157,9 +9158,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardReaderInitRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A781A66F-2F52-46C7-AC26-9C06E9AC21A1}
+// DispIntf:  ICardReaderInitRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A781A66F-2F52-46C7-AC26-9C06E9AC21A1}
 // *********************************************************************//
   ICardReaderInitRequestTypeDisp = dispinterface
     ['{A781A66F-2F52-46C7-AC26-9C06E9AC21A1}']
@@ -9185,9 +9186,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardReaderInitResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {DFA3F7E8-3325-41FE-AC09-6B6C677FBDD0}
+// Interface: ICardReaderInitResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DFA3F7E8-3325-41FE-AC09-6B6C677FBDD0}
 // *********************************************************************//
   ICardReaderInitResponseType = interface(IDispatch)
     ['{DFA3F7E8-3325-41FE-AC09-6B6C677FBDD0}']
@@ -9234,9 +9235,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardReaderInitResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {DFA3F7E8-3325-41FE-AC09-6B6C677FBDD0}
+// DispIntf:  ICardReaderInitResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DFA3F7E8-3325-41FE-AC09-6B6C677FBDD0}
 // *********************************************************************//
   ICardReaderInitResponseTypeDisp = dispinterface
     ['{DFA3F7E8-3325-41FE-AC09-6B6C677FBDD0}']
@@ -9265,9 +9266,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IICCResetDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3E00F440-81DE-4DFA-83E7-EFAAF4D94B12}
+// Interface: IICCResetDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3E00F440-81DE-4DFA-83E7-EFAAF4D94B12}
 // *********************************************************************//
   IICCResetDataType = interface(IDispatch)
     ['{3E00F440-81DE-4DFA-83E7-EFAAF4D94B12}']
@@ -9302,9 +9303,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IICCResetDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3E00F440-81DE-4DFA-83E7-EFAAF4D94B12}
+// DispIntf:  IICCResetDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3E00F440-81DE-4DFA-83E7-EFAAF4D94B12}
 // *********************************************************************//
   IICCResetDataTypeDisp = dispinterface
     ['{3E00F440-81DE-4DFA-83E7-EFAAF4D94B12}']
@@ -9329,9 +9330,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardReaderPowerOffRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1A39257B-3017-47F7-8347-026E26FF16B9}
+// Interface: ICardReaderPowerOffRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1A39257B-3017-47F7-8347-026E26FF16B9}
 // *********************************************************************//
   ICardReaderPowerOffRequestType = interface(IDispatch)
     ['{1A39257B-3017-47F7-8347-026E26FF16B9}']
@@ -9354,9 +9355,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardReaderPowerOffRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1A39257B-3017-47F7-8347-026E26FF16B9}
+// DispIntf:  ICardReaderPowerOffRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1A39257B-3017-47F7-8347-026E26FF16B9}
 // *********************************************************************//
   ICardReaderPowerOffRequestTypeDisp = dispinterface
     ['{1A39257B-3017-47F7-8347-026E26FF16B9}']
@@ -9369,9 +9370,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICardReaderPowerOffResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FAFCD6BE-6693-4EDC-AE51-4CEC18171925}
+// Interface: ICardReaderPowerOffResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FAFCD6BE-6693-4EDC-AE51-4CEC18171925}
 // *********************************************************************//
   ICardReaderPowerOffResponseType = interface(IDispatch)
     ['{FAFCD6BE-6693-4EDC-AE51-4CEC18171925}']
@@ -9388,9 +9389,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICardReaderPowerOffResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FAFCD6BE-6693-4EDC-AE51-4CEC18171925}
+// DispIntf:  ICardReaderPowerOffResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FAFCD6BE-6693-4EDC-AE51-4CEC18171925}
 // *********************************************************************//
   ICardReaderPowerOffResponseTypeDisp = dispinterface
     ['{FAFCD6BE-6693-4EDC-AE51-4CEC18171925}']
@@ -9401,9 +9402,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICashHandlingDeviceType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BEF6E883-95B7-4528-92BF-450131A2F7CA}
+// Interface: ICashHandlingDeviceType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BEF6E883-95B7-4528-92BF-450131A2F7CA}
 // *********************************************************************//
   ICashHandlingDeviceType = interface(IDispatch)
     ['{BEF6E883-95B7-4528-92BF-450131A2F7CA}']
@@ -9438,9 +9439,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICashHandlingDeviceTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BEF6E883-95B7-4528-92BF-450131A2F7CA}
+// DispIntf:  ICashHandlingDeviceTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BEF6E883-95B7-4528-92BF-450131A2F7CA}
 // *********************************************************************//
   ICashHandlingDeviceTypeDisp = dispinterface
     ['{BEF6E883-95B7-4528-92BF-450131A2F7CA}']
@@ -9461,9 +9462,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ICoinsOrBillsType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D3978808-08F5-44D4-B450-8EA19488D84C}
+// Interface: ICoinsOrBillsType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D3978808-08F5-44D4-B450-8EA19488D84C}
 // *********************************************************************//
   ICoinsOrBillsType = interface(IDispatch)
     ['{D3978808-08F5-44D4-B450-8EA19488D84C}']
@@ -9486,9 +9487,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ICoinsOrBillsTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D3978808-08F5-44D4-B450-8EA19488D84C}
+// DispIntf:  ICoinsOrBillsTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D3978808-08F5-44D4-B450-8EA19488D84C}
 // *********************************************************************//
   ICoinsOrBillsTypeDisp = dispinterface
     ['{D3978808-08F5-44D4-B450-8EA19488D84C}']
@@ -9501,9 +9502,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IDiagnosisRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {86CE0B10-DC26-490D-844D-F14EDCE7E0AF}
+// Interface: IDiagnosisRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {86CE0B10-DC26-490D-844D-F14EDCE7E0AF}
 // *********************************************************************//
   IDiagnosisRequestType = interface(IDispatch)
     ['{86CE0B10-DC26-490D-844D-F14EDCE7E0AF}']
@@ -9540,9 +9541,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IDiagnosisRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {86CE0B10-DC26-490D-844D-F14EDCE7E0AF}
+// DispIntf:  IDiagnosisRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {86CE0B10-DC26-490D-844D-F14EDCE7E0AF}
 // *********************************************************************//
   IDiagnosisRequestTypeDisp = dispinterface
     ['{86CE0B10-DC26-490D-844D-F14EDCE7E0AF}']
@@ -9564,9 +9565,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IDiagnosisResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B6E9F52E-3056-4C77-8C88-9494E87EDCBE}
+// Interface: IDiagnosisResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B6E9F52E-3056-4C77-8C88-9494E87EDCBE}
 // *********************************************************************//
   IDiagnosisResponseType = interface(IDispatch)
     ['{B6E9F52E-3056-4C77-8C88-9494E87EDCBE}']
@@ -9613,9 +9614,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IDiagnosisResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B6E9F52E-3056-4C77-8C88-9494E87EDCBE}
+// DispIntf:  IDiagnosisResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B6E9F52E-3056-4C77-8C88-9494E87EDCBE}
 // *********************************************************************//
   IDiagnosisResponseTypeDisp = dispinterface
     ['{B6E9F52E-3056-4C77-8C88-9494E87EDCBE}']
@@ -9644,9 +9645,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPOIStatusType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C706A417-A604-4E96-BF1F-B4D8860E8F2F}
+// Interface: IPOIStatusType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C706A417-A604-4E96-BF1F-B4D8860E8F2F}
 // *********************************************************************//
   IPOIStatusType = interface(IDispatch)
     ['{C706A417-A604-4E96-BF1F-B4D8860E8F2F}']
@@ -9711,9 +9712,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPOIStatusTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C706A417-A604-4E96-BF1F-B4D8860E8F2F}
+// DispIntf:  IPOIStatusTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C706A417-A604-4E96-BF1F-B4D8860E8F2F}
 // *********************************************************************//
   IPOIStatusTypeDisp = dispinterface
     ['{C706A417-A604-4E96-BF1F-B4D8860E8F2F}']
@@ -9744,9 +9745,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IHostStatusType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A8B24D19-0E09-46BB-919B-30ACF87963C2}
+// Interface: IHostStatusType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A8B24D19-0E09-46BB-919B-30ACF87963C2}
 // *********************************************************************//
   IHostStatusType = interface(IDispatch)
     ['{A8B24D19-0E09-46BB-919B-30ACF87963C2}']
@@ -9771,9 +9772,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IHostStatusTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A8B24D19-0E09-46BB-919B-30ACF87963C2}
+// DispIntf:  IHostStatusTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A8B24D19-0E09-46BB-919B-30ACF87963C2}
 // *********************************************************************//
   IHostStatusTypeDisp = dispinterface
     ['{A8B24D19-0E09-46BB-919B-30ACF87963C2}']
@@ -9787,9 +9788,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IEnableServiceRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B1370D95-CA29-4C39-A0B9-13D2A3117F4F}
+// Interface: IEnableServiceRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B1370D95-CA29-4C39-A0B9-13D2A3117F4F}
 // *********************************************************************//
   IEnableServiceRequestType = interface(IDispatch)
     ['{B1370D95-CA29-4C39-A0B9-13D2A3117F4F}']
@@ -9818,9 +9819,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IEnableServiceRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B1370D95-CA29-4C39-A0B9-13D2A3117F4F}
+// DispIntf:  IEnableServiceRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B1370D95-CA29-4C39-A0B9-13D2A3117F4F}
 // *********************************************************************//
   IEnableServiceRequestTypeDisp = dispinterface
     ['{B1370D95-CA29-4C39-A0B9-13D2A3117F4F}']
@@ -9835,9 +9836,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IEnableServiceResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {73B61B13-351C-4D69-9D76-0F49EC82931E}
+// Interface: IEnableServiceResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {73B61B13-351C-4D69-9D76-0F49EC82931E}
 // *********************************************************************//
   IEnableServiceResponseType = interface(IDispatch)
     ['{73B61B13-351C-4D69-9D76-0F49EC82931E}']
@@ -9854,9 +9855,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IEnableServiceResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {73B61B13-351C-4D69-9D76-0F49EC82931E}
+// DispIntf:  IEnableServiceResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {73B61B13-351C-4D69-9D76-0F49EC82931E}
 // *********************************************************************//
   IEnableServiceResponseTypeDisp = dispinterface
     ['{73B61B13-351C-4D69-9D76-0F49EC82931E}']
@@ -9867,9 +9868,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IEventNotificationType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F15DFB3D-F4FB-4058-917A-553E508DE129}
+// Interface: IEventNotificationType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F15DFB3D-F4FB-4058-917A-553E508DE129}
 // *********************************************************************//
   IEventNotificationType = interface(IDispatch)
     ['{F15DFB3D-F4FB-4058-917A-553E508DE129}']
@@ -9930,9 +9931,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IEventNotificationTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F15DFB3D-F4FB-4058-917A-553E508DE129}
+// DispIntf:  IEventNotificationTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F15DFB3D-F4FB-4058-917A-553E508DE129}
 // *********************************************************************//
   IEventNotificationTypeDisp = dispinterface
     ['{F15DFB3D-F4FB-4058-917A-553E508DE129}']
@@ -9962,9 +9963,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IGetTotalsRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {22202959-F880-43E3-A3CE-1B9CA4871520}
+// Interface: IGetTotalsRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {22202959-F880-43E3-A3CE-1B9CA4871520}
 // *********************************************************************//
   IGetTotalsRequestType = interface(IDispatch)
     ['{22202959-F880-43E3-A3CE-1B9CA4871520}']
@@ -9987,9 +9988,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IGetTotalsRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {22202959-F880-43E3-A3CE-1B9CA4871520}
+// DispIntf:  IGetTotalsRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {22202959-F880-43E3-A3CE-1B9CA4871520}
 // *********************************************************************//
   IGetTotalsRequestTypeDisp = dispinterface
     ['{22202959-F880-43E3-A3CE-1B9CA4871520}']
@@ -10002,9 +10003,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITotalFilterType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {486FAC29-EAE7-426E-A861-F200436B2497}
+// Interface: ITotalFilterType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {486FAC29-EAE7-426E-A861-F200436B2497}
 // *********************************************************************//
   ITotalFilterType = interface(IDispatch)
     ['{486FAC29-EAE7-426E-A861-F200436B2497}']
@@ -10045,9 +10046,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITotalFilterTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {486FAC29-EAE7-426E-A861-F200436B2497}
+// DispIntf:  ITotalFilterTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {486FAC29-EAE7-426E-A861-F200436B2497}
 // *********************************************************************//
   ITotalFilterTypeDisp = dispinterface
     ['{486FAC29-EAE7-426E-A861-F200436B2497}']
@@ -10066,9 +10067,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IGetTotalsResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {33B42E4B-3E17-4BAC-96BD-C219550AD8E5}
+// Interface: IGetTotalsResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {33B42E4B-3E17-4BAC-96BD-C219550AD8E5}
 // *********************************************************************//
   IGetTotalsResponseType = interface(IDispatch)
     ['{33B42E4B-3E17-4BAC-96BD-C219550AD8E5}']
@@ -10103,9 +10104,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IGetTotalsResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {33B42E4B-3E17-4BAC-96BD-C219550AD8E5}
+// DispIntf:  IGetTotalsResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {33B42E4B-3E17-4BAC-96BD-C219550AD8E5}
 // *********************************************************************//
   IGetTotalsResponseTypeDisp = dispinterface
     ['{33B42E4B-3E17-4BAC-96BD-C219550AD8E5}']
@@ -10126,9 +10127,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransactionTotalsType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F1991FBC-7113-429D-80C2-6DFFF5F5DC06}
+// Interface: ITransactionTotalsType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F1991FBC-7113-429D-80C2-6DFFF5F5DC06}
 // *********************************************************************//
   ITransactionTotalsType = interface(IDispatch)
     ['{F1991FBC-7113-429D-80C2-6DFFF5F5DC06}']
@@ -10243,9 +10244,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransactionTotalsTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F1991FBC-7113-429D-80C2-6DFFF5F5DC06}
+// DispIntf:  ITransactionTotalsTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F1991FBC-7113-429D-80C2-6DFFF5F5DC06}
 // *********************************************************************//
   ITransactionTotalsTypeDisp = dispinterface
     ['{F1991FBC-7113-429D-80C2-6DFFF5F5DC06}']
@@ -10297,9 +10298,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentTotalsType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2B700BCC-11DA-4266-A6C1-F4AB6EAEAE8A}
+// Interface: IPaymentTotalsType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2B700BCC-11DA-4266-A6C1-F4AB6EAEAE8A}
 // *********************************************************************//
   IPaymentTotalsType = interface(IDispatch)
     ['{2B700BCC-11DA-4266-A6C1-F4AB6EAEAE8A}']
@@ -10328,9 +10329,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentTotalsTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2B700BCC-11DA-4266-A6C1-F4AB6EAEAE8A}
+// DispIntf:  IPaymentTotalsTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2B700BCC-11DA-4266-A6C1-F4AB6EAEAE8A}
 // *********************************************************************//
   IPaymentTotalsTypeDisp = dispinterface
     ['{2B700BCC-11DA-4266-A6C1-F4AB6EAEAE8A}']
@@ -10345,9 +10346,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyTotalsType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {19E17D75-5D2C-47A1-B8B0-DAC383412580}
+// Interface: ILoyaltyTotalsType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {19E17D75-5D2C-47A1-B8B0-DAC383412580}
 // *********************************************************************//
   ILoyaltyTotalsType = interface(IDispatch)
     ['{19E17D75-5D2C-47A1-B8B0-DAC383412580}']
@@ -10376,9 +10377,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyTotalsTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {19E17D75-5D2C-47A1-B8B0-DAC383412580}
+// DispIntf:  ILoyaltyTotalsTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {19E17D75-5D2C-47A1-B8B0-DAC383412580}
 // *********************************************************************//
   ILoyaltyTotalsTypeDisp = dispinterface
     ['{19E17D75-5D2C-47A1-B8B0-DAC383412580}']
@@ -10393,9 +10394,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IInputType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {31BAEAAF-AE2C-484E-88B6-998207399FA9}
+// Interface: IInputType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {31BAEAAF-AE2C-484E-88B6-998207399FA9}
 // *********************************************************************//
   IInputType = interface(IDispatch)
     ['{31BAEAAF-AE2C-484E-88B6-998207399FA9}']
@@ -10448,9 +10449,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IInputTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {31BAEAAF-AE2C-484E-88B6-998207399FA9}
+// DispIntf:  IInputTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {31BAEAAF-AE2C-484E-88B6-998207399FA9}
 // *********************************************************************//
   IInputTypeDisp = dispinterface
     ['{31BAEAAF-AE2C-484E-88B6-998207399FA9}']
@@ -10473,9 +10474,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IInputDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D5559853-E587-4B38-A225-A3423236229C}
+// Interface: IInputDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D5559853-E587-4B38-A225-A3423236229C}
 // *********************************************************************//
   IInputDataType = interface(IDispatch)
     ['{D5559853-E587-4B38-A225-A3423236229C}']
@@ -10628,9 +10629,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IInputDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D5559853-E587-4B38-A225-A3423236229C}
+// DispIntf:  IInputDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D5559853-E587-4B38-A225-A3423236229C}
 // *********************************************************************//
   IInputDataTypeDisp = dispinterface
     ['{D5559853-E587-4B38-A225-A3423236229C}']
@@ -10690,9 +10691,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IInputRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {93072595-70E4-4459-993B-AE553734CF80}
+// Interface: IInputRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {93072595-70E4-4459-993B-AE553734CF80}
 // *********************************************************************//
   IInputRequestType = interface(IDispatch)
     ['{93072595-70E4-4459-993B-AE553734CF80}']
@@ -10715,9 +10716,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IInputRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {93072595-70E4-4459-993B-AE553734CF80}
+// DispIntf:  IInputRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {93072595-70E4-4459-993B-AE553734CF80}
 // *********************************************************************//
   IInputRequestTypeDisp = dispinterface
     ['{93072595-70E4-4459-993B-AE553734CF80}']
@@ -10730,9 +10731,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IInputResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5EB5086B-C889-4EA3-A2D7-E1B574B908AD}
+// Interface: IInputResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5EB5086B-C889-4EA3-A2D7-E1B574B908AD}
 // *********************************************************************//
   IInputResponseType = interface(IDispatch)
     ['{5EB5086B-C889-4EA3-A2D7-E1B574B908AD}']
@@ -10755,9 +10756,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IInputResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5EB5086B-C889-4EA3-A2D7-E1B574B908AD}
+// DispIntf:  IInputResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5EB5086B-C889-4EA3-A2D7-E1B574B908AD}
 // *********************************************************************//
   IInputResponseTypeDisp = dispinterface
     ['{5EB5086B-C889-4EA3-A2D7-E1B574B908AD}']
@@ -10770,9 +10771,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IInputResultType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D9E64C32-8FA8-4665-9E62-531768EF43C2}
+// Interface: IInputResultType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D9E64C32-8FA8-4665-9E62-531768EF43C2}
 // *********************************************************************//
   IInputResultType = interface(IDispatch)
     ['{D9E64C32-8FA8-4665-9E62-531768EF43C2}']
@@ -10807,9 +10808,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IInputResultTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D9E64C32-8FA8-4665-9E62-531768EF43C2}
+// DispIntf:  IInputResultTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D9E64C32-8FA8-4665-9E62-531768EF43C2}
 // *********************************************************************//
   IInputResultTypeDisp = dispinterface
     ['{D9E64C32-8FA8-4665-9E62-531768EF43C2}']
@@ -10826,9 +10827,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IInputUpdateType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6FE5AFDB-1BEA-4BD2-97DB-554200E841DF}
+// Interface: IInputUpdateType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6FE5AFDB-1BEA-4BD2-97DB-554200E841DF}
 // *********************************************************************//
   IInputUpdateType = interface(IDispatch)
     ['{6FE5AFDB-1BEA-4BD2-97DB-554200E841DF}']
@@ -10893,9 +10894,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IInputUpdateTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6FE5AFDB-1BEA-4BD2-97DB-554200E841DF}
+// DispIntf:  IInputUpdateTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6FE5AFDB-1BEA-4BD2-97DB-554200E841DF}
 // *********************************************************************//
   IInputUpdateTypeDisp = dispinterface
     ['{6FE5AFDB-1BEA-4BD2-97DB-554200E841DF}']
@@ -10930,9 +10931,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoginRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2324F7FC-4A86-4399-B0DB-18A9D7EC8A58}
+// Interface: ILoginRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2324F7FC-4A86-4399-B0DB-18A9D7EC8A58}
 // *********************************************************************//
   ILoginRequestType = interface(IDispatch)
     ['{2324F7FC-4A86-4399-B0DB-18A9D7EC8A58}']
@@ -11011,9 +11012,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoginRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2324F7FC-4A86-4399-B0DB-18A9D7EC8A58}
+// DispIntf:  ILoginRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2324F7FC-4A86-4399-B0DB-18A9D7EC8A58}
 // *********************************************************************//
   ILoginRequestTypeDisp = dispinterface
     ['{2324F7FC-4A86-4399-B0DB-18A9D7EC8A58}']
@@ -11049,9 +11050,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleSoftwareType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7D40EEAA-CF76-41CC-B19E-248BC87DC664}
+// Interface: ISaleSoftwareType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7D40EEAA-CF76-41CC-B19E-248BC87DC664}
 // *********************************************************************//
   ISaleSoftwareType = interface(IDispatch)
     ['{7D40EEAA-CF76-41CC-B19E-248BC87DC664}']
@@ -11086,9 +11087,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleSoftwareTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7D40EEAA-CF76-41CC-B19E-248BC87DC664}
+// DispIntf:  ISaleSoftwareTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7D40EEAA-CF76-41CC-B19E-248BC87DC664}
 // *********************************************************************//
   ISaleSoftwareTypeDisp = dispinterface
     ['{7D40EEAA-CF76-41CC-B19E-248BC87DC664}']
@@ -11105,9 +11106,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoginResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A8AFF0B4-100F-44CF-927C-4E5ABF785C3E}
+// Interface: ILoginResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A8AFF0B4-100F-44CF-927C-4E5ABF785C3E}
 // *********************************************************************//
   ILoginResponseType = interface(IDispatch)
     ['{A8AFF0B4-100F-44CF-927C-4E5ABF785C3E}']
@@ -11130,9 +11131,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoginResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A8AFF0B4-100F-44CF-927C-4E5ABF785C3E}
+// DispIntf:  ILoginResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A8AFF0B4-100F-44CF-927C-4E5ABF785C3E}
 // *********************************************************************//
   ILoginResponseTypeDisp = dispinterface
     ['{A8AFF0B4-100F-44CF-927C-4E5ABF785C3E}']
@@ -11145,9 +11146,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPOISystemDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E1D95584-5ACD-4D68-8E85-1C336947DDEA}
+// Interface: IPOISystemDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E1D95584-5ACD-4D68-8E85-1C336947DDEA}
 // *********************************************************************//
   IPOISystemDataType = interface(IDispatch)
     ['{E1D95584-5ACD-4D68-8E85-1C336947DDEA}']
@@ -11182,9 +11183,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPOISystemDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E1D95584-5ACD-4D68-8E85-1C336947DDEA}
+// DispIntf:  IPOISystemDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E1D95584-5ACD-4D68-8E85-1C336947DDEA}
 // *********************************************************************//
   IPOISystemDataTypeDisp = dispinterface
     ['{E1D95584-5ACD-4D68-8E85-1C336947DDEA}']
@@ -11201,9 +11202,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPOISoftwareType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {19CD36D2-0E17-49CC-B5C2-75439BF1F28D}
+// Interface: IPOISoftwareType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {19CD36D2-0E17-49CC-B5C2-75439BF1F28D}
 // *********************************************************************//
   IPOISoftwareType = interface(IDispatch)
     ['{19CD36D2-0E17-49CC-B5C2-75439BF1F28D}']
@@ -11238,9 +11239,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPOISoftwareTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {19CD36D2-0E17-49CC-B5C2-75439BF1F28D}
+// DispIntf:  IPOISoftwareTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {19CD36D2-0E17-49CC-B5C2-75439BF1F28D}
 // *********************************************************************//
   IPOISoftwareTypeDisp = dispinterface
     ['{19CD36D2-0E17-49CC-B5C2-75439BF1F28D}']
@@ -11257,9 +11258,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPOITerminalDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9FE55164-EBFE-489B-9C73-BC131EF087F9}
+// Interface: IPOITerminalDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9FE55164-EBFE-489B-9C73-BC131EF087F9}
 // *********************************************************************//
   IPOITerminalDataType = interface(IDispatch)
     ['{9FE55164-EBFE-489B-9C73-BC131EF087F9}']
@@ -11294,9 +11295,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPOITerminalDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9FE55164-EBFE-489B-9C73-BC131EF087F9}
+// DispIntf:  IPOITerminalDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9FE55164-EBFE-489B-9C73-BC131EF087F9}
 // *********************************************************************//
   IPOITerminalDataTypeDisp = dispinterface
     ['{9FE55164-EBFE-489B-9C73-BC131EF087F9}']
@@ -11313,9 +11314,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPOIProfileType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ABA76971-48A9-4FB9-98F7-9011F683D6BB}
+// Interface: IPOIProfileType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ABA76971-48A9-4FB9-98F7-9011F683D6BB}
 // *********************************************************************//
   IPOIProfileType = interface(IDispatch)
     ['{ABA76971-48A9-4FB9-98F7-9011F683D6BB}']
@@ -11340,9 +11341,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPOIProfileTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ABA76971-48A9-4FB9-98F7-9011F683D6BB}
+// DispIntf:  IPOIProfileTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ABA76971-48A9-4FB9-98F7-9011F683D6BB}
 // *********************************************************************//
   IPOIProfileTypeDisp = dispinterface
     ['{ABA76971-48A9-4FB9-98F7-9011F683D6BB}']
@@ -11356,9 +11357,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILogoutRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FD24347B-6827-47A7-89F5-4B83117FC269}
+// Interface: ILogoutRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FD24347B-6827-47A7-89F5-4B83117FC269}
 // *********************************************************************//
   ILogoutRequestType = interface(IDispatch)
     ['{FD24347B-6827-47A7-89F5-4B83117FC269}']
@@ -11377,9 +11378,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILogoutRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FD24347B-6827-47A7-89F5-4B83117FC269}
+// DispIntf:  ILogoutRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FD24347B-6827-47A7-89F5-4B83117FC269}
 // *********************************************************************//
   ILogoutRequestTypeDisp = dispinterface
     ['{FD24347B-6827-47A7-89F5-4B83117FC269}']
@@ -11391,9 +11392,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILogoutResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9885A3FB-2506-4874-96A6-F811CECDBB5B}
+// Interface: ILogoutResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9885A3FB-2506-4874-96A6-F811CECDBB5B}
 // *********************************************************************//
   ILogoutResponseType = interface(IDispatch)
     ['{9885A3FB-2506-4874-96A6-F811CECDBB5B}']
@@ -11410,9 +11411,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILogoutResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9885A3FB-2506-4874-96A6-F811CECDBB5B}
+// DispIntf:  ILogoutResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9885A3FB-2506-4874-96A6-F811CECDBB5B}
 // *********************************************************************//
   ILogoutResponseTypeDisp = dispinterface
     ['{9885A3FB-2506-4874-96A6-F811CECDBB5B}']
@@ -11423,9 +11424,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ILoyaltyResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5C633F78-E104-479E-A135-1296A8AB1D71}
+// Interface: ILoyaltyResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5C633F78-E104-479E-A135-1296A8AB1D71}
 // *********************************************************************//
   ILoyaltyResponseType = interface(IDispatch)
     ['{5C633F78-E104-479E-A135-1296A8AB1D71}']
@@ -11478,9 +11479,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ILoyaltyResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5C633F78-E104-479E-A135-1296A8AB1D71}
+// DispIntf:  ILoyaltyResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5C633F78-E104-479E-A135-1296A8AB1D71}
 // *********************************************************************//
   ILoyaltyResponseTypeDisp = dispinterface
     ['{5C633F78-E104-479E-A135-1296A8AB1D71}']
@@ -11511,9 +11512,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentReceiptType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5E00082F-06EA-427B-805C-357982C21E9B}
+// Interface: IPaymentReceiptType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5E00082F-06EA-427B-805C-357982C21E9B}
 // *********************************************************************//
   IPaymentReceiptType = interface(IDispatch)
     ['{5E00082F-06EA-427B-805C-357982C21E9B}']
@@ -11552,9 +11553,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentReceiptTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5E00082F-06EA-427B-805C-357982C21E9B}
+// DispIntf:  IPaymentReceiptTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5E00082F-06EA-427B-805C-357982C21E9B}
 // *********************************************************************//
   IPaymentReceiptTypeDisp = dispinterface
     ['{5E00082F-06EA-427B-805C-357982C21E9B}']
@@ -11573,9 +11574,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IMessageHeaderType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8CD60DB5-7A68-4D82-A811-66294E1233EB}
+// Interface: IMessageHeaderType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8CD60DB5-7A68-4D82-A811-66294E1233EB}
 // *********************************************************************//
   IMessageHeaderType = interface(IDispatch)
     ['{8CD60DB5-7A68-4D82-A811-66294E1233EB}']
@@ -11634,9 +11635,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IMessageHeaderTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8CD60DB5-7A68-4D82-A811-66294E1233EB}
+// DispIntf:  IMessageHeaderTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8CD60DB5-7A68-4D82-A811-66294E1233EB}
 // *********************************************************************//
   IMessageHeaderTypeDisp = dispinterface
     ['{8CD60DB5-7A68-4D82-A811-66294E1233EB}']
@@ -11661,9 +11662,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPaymentResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ACA98F6A-91FF-4BBE-9C7C-63A85467689A}
+// Interface: IPaymentResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ACA98F6A-91FF-4BBE-9C7C-63A85467689A}
 // *********************************************************************//
   IPaymentResponseType = interface(IDispatch)
     ['{ACA98F6A-91FF-4BBE-9C7C-63A85467689A}']
@@ -11734,9 +11735,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPaymentResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ACA98F6A-91FF-4BBE-9C7C-63A85467689A}
+// DispIntf:  IPaymentResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ACA98F6A-91FF-4BBE-9C7C-63A85467689A}
 // *********************************************************************//
   IPaymentResponseTypeDisp = dispinterface
     ['{ACA98F6A-91FF-4BBE-9C7C-63A85467689A}']
@@ -11777,9 +11778,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPINRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6D53265E-61AD-4FA5-9B5B-D21C5391ED26}
+// Interface: IPINRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6D53265E-61AD-4FA5-9B5B-D21C5391ED26}
 // *********************************************************************//
   IPINRequestType = interface(IDispatch)
     ['{6D53265E-61AD-4FA5-9B5B-D21C5391ED26}']
@@ -11838,9 +11839,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPINRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6D53265E-61AD-4FA5-9B5B-D21C5391ED26}
+// DispIntf:  IPINRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6D53265E-61AD-4FA5-9B5B-D21C5391ED26}
 // *********************************************************************//
   IPINRequestTypeDisp = dispinterface
     ['{6D53265E-61AD-4FA5-9B5B-D21C5391ED26}']
@@ -11865,9 +11866,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPINResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {49A2D829-17C5-42DA-B44B-64190B5D936F}
+// Interface: IPINResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {49A2D829-17C5-42DA-B44B-64190B5D936F}
 // *********************************************************************//
   IPINResponseType = interface(IDispatch)
     ['{49A2D829-17C5-42DA-B44B-64190B5D936F}']
@@ -11890,9 +11891,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPINResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {49A2D829-17C5-42DA-B44B-64190B5D936F}
+// DispIntf:  IPINResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {49A2D829-17C5-42DA-B44B-64190B5D936F}
 // *********************************************************************//
   IPINResponseTypeDisp = dispinterface
     ['{49A2D829-17C5-42DA-B44B-64190B5D936F}']
@@ -11905,9 +11906,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPrintOutputType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3E768DF5-81D5-48DE-B342-D37087B564E4}
+// Interface: IPrintOutputType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3E768DF5-81D5-48DE-B342-D37087B564E4}
 // *********************************************************************//
   IPrintOutputType = interface(IDispatch)
     ['{3E768DF5-81D5-48DE-B342-D37087B564E4}']
@@ -11964,9 +11965,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPrintOutputTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3E768DF5-81D5-48DE-B342-D37087B564E4}
+// DispIntf:  IPrintOutputTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3E768DF5-81D5-48DE-B342-D37087B564E4}
 // *********************************************************************//
   IPrintOutputTypeDisp = dispinterface
     ['{3E768DF5-81D5-48DE-B342-D37087B564E4}']
@@ -11995,9 +11996,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPrintRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3536B09B-CC61-4773-A865-64F794D802E3}
+// Interface: IPrintRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3536B09B-CC61-4773-A865-64F794D802E3}
 // *********************************************************************//
   IPrintRequestType = interface(IDispatch)
     ['{3536B09B-CC61-4773-A865-64F794D802E3}']
@@ -12014,9 +12015,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPrintRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3536B09B-CC61-4773-A865-64F794D802E3}
+// DispIntf:  IPrintRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3536B09B-CC61-4773-A865-64F794D802E3}
 // *********************************************************************//
   IPrintRequestTypeDisp = dispinterface
     ['{3536B09B-CC61-4773-A865-64F794D802E3}']
@@ -12027,9 +12028,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IPrintResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0BB238E0-D5A0-4FEB-8BBB-E0EB963D5321}
+// Interface: IPrintResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0BB238E0-D5A0-4FEB-8BBB-E0EB963D5321}
 // *********************************************************************//
   IPrintResponseType = interface(IDispatch)
     ['{0BB238E0-D5A0-4FEB-8BBB-E0EB963D5321}']
@@ -12052,9 +12053,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IPrintResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0BB238E0-D5A0-4FEB-8BBB-E0EB963D5321}
+// DispIntf:  IPrintResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0BB238E0-D5A0-4FEB-8BBB-E0EB963D5321}
 // *********************************************************************//
   IPrintResponseTypeDisp = dispinterface
     ['{0BB238E0-D5A0-4FEB-8BBB-E0EB963D5321}']
@@ -12067,9 +12068,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IReconciliationRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EB7BF44F-3CF3-49B0-906B-87BA1932AE71}
+// Interface: IReconciliationRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EB7BF44F-3CF3-49B0-906B-87BA1932AE71}
 // *********************************************************************//
   IReconciliationRequestType = interface(IDispatch)
     ['{EB7BF44F-3CF3-49B0-906B-87BA1932AE71}']
@@ -12104,9 +12105,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IReconciliationRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {EB7BF44F-3CF3-49B0-906B-87BA1932AE71}
+// DispIntf:  IReconciliationRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {EB7BF44F-3CF3-49B0-906B-87BA1932AE71}
 // *********************************************************************//
   IReconciliationRequestTypeDisp = dispinterface
     ['{EB7BF44F-3CF3-49B0-906B-87BA1932AE71}']
@@ -12127,9 +12128,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IReconciliationResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B1880C2C-09F4-4DB2-A90D-2F3DB2ACEC22}
+// Interface: IReconciliationResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B1880C2C-09F4-4DB2-A90D-2F3DB2ACEC22}
 // *********************************************************************//
   IReconciliationResponseType = interface(IDispatch)
     ['{B1880C2C-09F4-4DB2-A90D-2F3DB2ACEC22}']
@@ -12170,9 +12171,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IReconciliationResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B1880C2C-09F4-4DB2-A90D-2F3DB2ACEC22}
+// DispIntf:  IReconciliationResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B1880C2C-09F4-4DB2-A90D-2F3DB2ACEC22}
 // *********************************************************************//
   IReconciliationResponseTypeDisp = dispinterface
     ['{B1880C2C-09F4-4DB2-A90D-2F3DB2ACEC22}']
@@ -12195,9 +12196,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IRepeatedMessageResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B36C867F-7C01-4D3F-A057-9522E953D448}
+// Interface: IRepeatedMessageResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B36C867F-7C01-4D3F-A057-9522E953D448}
 // *********************************************************************//
   IRepeatedMessageResponseType = interface(IDispatch)
     ['{B36C867F-7C01-4D3F-A057-9522E953D448}']
@@ -12220,9 +12221,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IRepeatedMessageResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B36C867F-7C01-4D3F-A057-9522E953D448}
+// DispIntf:  IRepeatedMessageResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B36C867F-7C01-4D3F-A057-9522E953D448}
 // *********************************************************************//
   IRepeatedMessageResponseTypeDisp = dispinterface
     ['{B36C867F-7C01-4D3F-A057-9522E953D448}']
@@ -12235,9 +12236,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IReversalResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1C5D942B-DE94-447E-B560-6F8794DB03B6}
+// Interface: IReversalResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1C5D942B-DE94-447E-B560-6F8794DB03B6}
 // *********************************************************************//
   IReversalResponseType = interface(IDispatch)
     ['{1C5D942B-DE94-447E-B560-6F8794DB03B6}']
@@ -12290,9 +12291,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IReversalResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1C5D942B-DE94-447E-B560-6F8794DB03B6}
+// DispIntf:  IReversalResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1C5D942B-DE94-447E-B560-6F8794DB03B6}
 // *********************************************************************//
   IReversalResponseTypeDisp = dispinterface
     ['{1C5D942B-DE94-447E-B560-6F8794DB03B6}']
@@ -12319,9 +12320,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStoredValueResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FAEF695B-D58A-4461-BE24-4F565BC4D9F5}
+// Interface: IStoredValueResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FAEF695B-D58A-4461-BE24-4F565BC4D9F5}
 // *********************************************************************//
   IStoredValueResponseType = interface(IDispatch)
     ['{FAEF695B-D58A-4461-BE24-4F565BC4D9F5}']
@@ -12362,9 +12363,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IStoredValueResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {FAEF695B-D58A-4461-BE24-4F565BC4D9F5}
+// DispIntf:  IStoredValueResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {FAEF695B-D58A-4461-BE24-4F565BC4D9F5}
 // *********************************************************************//
   IStoredValueResponseTypeDisp = dispinterface
     ['{FAEF695B-D58A-4461-BE24-4F565BC4D9F5}']
@@ -12387,9 +12388,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStoredValueResultType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8AC125BF-A644-40EF-8203-DF4CDF4AA388}
+// Interface: IStoredValueResultType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8AC125BF-A644-40EF-8203-DF4CDF4AA388}
 // *********************************************************************//
   IStoredValueResultType = interface(IDispatch)
     ['{8AC125BF-A644-40EF-8203-DF4CDF4AA388}']
@@ -12442,9 +12443,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IStoredValueResultTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8AC125BF-A644-40EF-8203-DF4CDF4AA388}
+// DispIntf:  IStoredValueResultTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8AC125BF-A644-40EF-8203-DF4CDF4AA388}
 // *********************************************************************//
   IStoredValueResultTypeDisp = dispinterface
     ['{8AC125BF-A644-40EF-8203-DF4CDF4AA388}']
@@ -12467,9 +12468,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStoredValueAccountStatusType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3B4ADF20-FFF5-4391-9706-F90567D58348}
+// Interface: IStoredValueAccountStatusType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3B4ADF20-FFF5-4391-9706-F90567D58348}
 // *********************************************************************//
   IStoredValueAccountStatusType = interface(IDispatch)
     ['{3B4ADF20-FFF5-4391-9706-F90567D58348}']
@@ -12492,9 +12493,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IStoredValueAccountStatusTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {3B4ADF20-FFF5-4391-9706-F90567D58348}
+// DispIntf:  IStoredValueAccountStatusTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {3B4ADF20-FFF5-4391-9706-F90567D58348}
 // *********************************************************************//
   IStoredValueAccountStatusTypeDisp = dispinterface
     ['{3B4ADF20-FFF5-4391-9706-F90567D58348}']
@@ -12507,9 +12508,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStoredValueAccountIDType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B93C9FA1-AA16-48A4-A1CB-64BD3E2EC83E}
+// Interface: IStoredValueAccountIDType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B93C9FA1-AA16-48A4-A1CB-64BD3E2EC83E}
 // *********************************************************************//
   IStoredValueAccountIDType = interface(IDispatch)
     ['{B93C9FA1-AA16-48A4-A1CB-64BD3E2EC83E}']
@@ -12568,9 +12569,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IStoredValueAccountIDTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B93C9FA1-AA16-48A4-A1CB-64BD3E2EC83E}
+// DispIntf:  IStoredValueAccountIDTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B93C9FA1-AA16-48A4-A1CB-64BD3E2EC83E}
 // *********************************************************************//
   IStoredValueAccountIDTypeDisp = dispinterface
     ['{B93C9FA1-AA16-48A4-A1CB-64BD3E2EC83E}']
@@ -12599,9 +12600,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISoundContentType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C5B5A58D-D4CD-4983-A48B-826D7797966B}
+// Interface: ISoundContentType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C5B5A58D-D4CD-4983-A48B-826D7797966B}
 // *********************************************************************//
   ISoundContentType = interface(IDispatch)
     ['{C5B5A58D-D4CD-4983-A48B-826D7797966B}']
@@ -12636,9 +12637,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISoundContentTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C5B5A58D-D4CD-4983-A48B-826D7797966B}
+// DispIntf:  ISoundContentTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C5B5A58D-D4CD-4983-A48B-826D7797966B}
 // *********************************************************************//
   ISoundContentTypeDisp = dispinterface
     ['{C5B5A58D-D4CD-4983-A48B-826D7797966B}']
@@ -12655,9 +12656,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISoundRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6F4BF09C-4AD1-4493-B512-80DEED01BA82}
+// Interface: ISoundRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6F4BF09C-4AD1-4493-B512-80DEED01BA82}
 // *********************************************************************//
   ISoundRequestType = interface(IDispatch)
     ['{6F4BF09C-4AD1-4493-B512-80DEED01BA82}']
@@ -12694,9 +12695,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISoundRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6F4BF09C-4AD1-4493-B512-80DEED01BA82}
+// DispIntf:  ISoundRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6F4BF09C-4AD1-4493-B512-80DEED01BA82}
 // *********************************************************************//
   ISoundRequestTypeDisp = dispinterface
     ['{6F4BF09C-4AD1-4493-B512-80DEED01BA82}']
@@ -12714,9 +12715,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISoundResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {023A4ED4-A48F-4C4B-BA1E-F8DB69B4408D}
+// Interface: ISoundResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {023A4ED4-A48F-4C4B-BA1E-F8DB69B4408D}
 // *********************************************************************//
   ISoundResponseType = interface(IDispatch)
     ['{023A4ED4-A48F-4C4B-BA1E-F8DB69B4408D}']
@@ -12733,9 +12734,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISoundResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {023A4ED4-A48F-4C4B-BA1E-F8DB69B4408D}
+// DispIntf:  ISoundResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {023A4ED4-A48F-4C4B-BA1E-F8DB69B4408D}
 // *********************************************************************//
   ISoundResponseTypeDisp = dispinterface
     ['{023A4ED4-A48F-4C4B-BA1E-F8DB69B4408D}']
@@ -12746,9 +12747,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStoredValueDataType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2380C4AE-818E-4E85-BD6C-76DBE16C0BCA}
+// Interface: IStoredValueDataType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2380C4AE-818E-4E85-BD6C-76DBE16C0BCA}
 // *********************************************************************//
   IStoredValueDataType = interface(IDispatch)
     ['{2380C4AE-818E-4E85-BD6C-76DBE16C0BCA}']
@@ -12807,9 +12808,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IStoredValueDataTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2380C4AE-818E-4E85-BD6C-76DBE16C0BCA}
+// DispIntf:  IStoredValueDataTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2380C4AE-818E-4E85-BD6C-76DBE16C0BCA}
 // *********************************************************************//
   IStoredValueDataTypeDisp = dispinterface
     ['{2380C4AE-818E-4E85-BD6C-76DBE16C0BCA}']
@@ -12834,9 +12835,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   IStoredValueRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {27600256-3E85-481D-B93B-55623FCDA325}
+// Interface: IStoredValueRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {27600256-3E85-481D-B93B-55623FCDA325}
 // *********************************************************************//
   IStoredValueRequestType = interface(IDispatch)
     ['{27600256-3E85-481D-B93B-55623FCDA325}']
@@ -12871,9 +12872,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    IStoredValueRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {27600256-3E85-481D-B93B-55623FCDA325}
+// DispIntf:  IStoredValueRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {27600256-3E85-481D-B93B-55623FCDA325}
 // *********************************************************************//
   IStoredValueRequestTypeDisp = dispinterface
     ['{27600256-3E85-481D-B93B-55623FCDA325}']
@@ -12894,9 +12895,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransmitRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F2F6E319-0F70-4D1B-8088-85FC4D31E537}
+// Interface: ITransmitRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F2F6E319-0F70-4D1B-8088-85FC4D31E537}
 // *********************************************************************//
   ITransmitRequestType = interface(IDispatch)
     ['{F2F6E319-0F70-4D1B-8088-85FC4D31E537}']
@@ -12939,9 +12940,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransmitRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F2F6E319-0F70-4D1B-8088-85FC4D31E537}
+// DispIntf:  ITransmitRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F2F6E319-0F70-4D1B-8088-85FC4D31E537}
 // *********************************************************************//
   ITransmitRequestTypeDisp = dispinterface
     ['{F2F6E319-0F70-4D1B-8088-85FC4D31E537}']
@@ -12965,9 +12966,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransmitResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {51D6CB7F-E9A6-4E8B-B1A8-67B76D1DED02}
+// Interface: ITransmitResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {51D6CB7F-E9A6-4E8B-B1A8-67B76D1DED02}
 // *********************************************************************//
   ITransmitResponseType = interface(IDispatch)
     ['{51D6CB7F-E9A6-4E8B-B1A8-67B76D1DED02}']
@@ -12996,9 +12997,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransmitResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {51D6CB7F-E9A6-4E8B-B1A8-67B76D1DED02}
+// DispIntf:  ITransmitResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {51D6CB7F-E9A6-4E8B-B1A8-67B76D1DED02}
 // *********************************************************************//
   ITransmitResponseTypeDisp = dispinterface
     ['{51D6CB7F-E9A6-4E8B-B1A8-67B76D1DED02}']
@@ -13017,9 +13018,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransactionStatusRequestType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F92AE636-FBA7-43C1-9D7D-0D15ABA950AF}
+// Interface: ITransactionStatusRequestType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F92AE636-FBA7-43C1-9D7D-0D15ABA950AF}
 // *********************************************************************//
   ITransactionStatusRequestType = interface(IDispatch)
     ['{F92AE636-FBA7-43C1-9D7D-0D15ABA950AF}']
@@ -13056,9 +13057,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransactionStatusRequestTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F92AE636-FBA7-43C1-9D7D-0D15ABA950AF}
+// DispIntf:  ITransactionStatusRequestTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F92AE636-FBA7-43C1-9D7D-0D15ABA950AF}
 // *********************************************************************//
   ITransactionStatusRequestTypeDisp = dispinterface
     ['{F92AE636-FBA7-43C1-9D7D-0D15ABA950AF}']
@@ -13080,9 +13081,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ITransactionStatusResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BA11F98F-99D7-4522-8C0A-F74F5E3D662A}
+// Interface: ITransactionStatusResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BA11F98F-99D7-4522-8C0A-F74F5E3D662A}
 // *********************************************************************//
   ITransactionStatusResponseType = interface(IDispatch)
     ['{BA11F98F-99D7-4522-8C0A-F74F5E3D662A}']
@@ -13111,9 +13112,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ITransactionStatusResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BA11F98F-99D7-4522-8C0A-F74F5E3D662A}
+// DispIntf:  ITransactionStatusResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BA11F98F-99D7-4522-8C0A-F74F5E3D662A}
 // *********************************************************************//
   ITransactionStatusResponseTypeDisp = dispinterface
     ['{BA11F98F-99D7-4522-8C0A-F74F5E3D662A}']
@@ -13128,9 +13129,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleToPOIRequest
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {001A8556-FD18-49BB-8249-E99025D42F1A}
+// Interface: ISaleToPOIRequest
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {001A8556-FD18-49BB-8249-E99025D42F1A}
 // *********************************************************************//
   ISaleToPOIRequest = interface(IDispatch)
     ['{001A8556-FD18-49BB-8249-E99025D42F1A}']
@@ -13159,9 +13160,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleToPOIRequestDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {001A8556-FD18-49BB-8249-E99025D42F1A}
+// DispIntf:  ISaleToPOIRequestDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {001A8556-FD18-49BB-8249-E99025D42F1A}
 // *********************************************************************//
   ISaleToPOIRequestDisp = dispinterface
     ['{001A8556-FD18-49BB-8249-E99025D42F1A}']
@@ -13176,9 +13177,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   ISaleToPOIResponse
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {466E642F-5A7A-4E1A-B000-43F24574F023}
+// Interface: ISaleToPOIResponse
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {466E642F-5A7A-4E1A-B000-43F24574F023}
 // *********************************************************************//
   ISaleToPOIResponse = interface(IDispatch)
     ['{466E642F-5A7A-4E1A-B000-43F24574F023}']
@@ -13207,9 +13208,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    ISaleToPOIResponseDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {466E642F-5A7A-4E1A-B000-43F24574F023}
+// DispIntf:  ISaleToPOIResponseDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {466E642F-5A7A-4E1A-B000-43F24574F023}
 // *********************************************************************//
   ISaleToPOIResponseDisp = dispinterface
     ['{466E642F-5A7A-4E1A-B000-43F24574F023}']
@@ -13224,9 +13225,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoActivity
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1ADB3E04-8743-492B-94C5-4F973C27B951}
+// Interface: INexoActivity
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1ADB3E04-8743-492B-94C5-4F973C27B951}
 // *********************************************************************//
   INexoActivity = interface(IDispatch)
     ['{1ADB3E04-8743-492B-94C5-4F973C27B951}']
@@ -13235,9 +13236,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoActivityDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {1ADB3E04-8743-492B-94C5-4F973C27B951}
+// DispIntf:  INexoActivityDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {1ADB3E04-8743-492B-94C5-4F973C27B951}
 // *********************************************************************//
   INexoActivityDisp = dispinterface
     ['{1ADB3E04-8743-492B-94C5-4F973C27B951}']
@@ -13246,81 +13247,81 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _NexoMessage
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7DA4FB59-22EF-399D-B3B4-1E0397E4CCF5}
+// Interface: _NexoMessage
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7DA4FB59-22EF-399D-B3B4-1E0397E4CCF5}
 // *********************************************************************//
   _NexoMessage = interface(IDispatch)
     ['{7DA4FB59-22EF-399D-B3B4-1E0397E4CCF5}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoMessageDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {7DA4FB59-22EF-399D-B3B4-1E0397E4CCF5}
+// DispIntf:  _NexoMessageDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {7DA4FB59-22EF-399D-B3B4-1E0397E4CCF5}
 // *********************************************************************//
   _NexoMessageDisp = dispinterface
     ['{7DA4FB59-22EF-399D-B3B4-1E0397E4CCF5}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoPartner
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59BB3895-65B2-3942-940E-6DD04810656E}
+// Interface: _NexoPartner
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59BB3895-65B2-3942-940E-6DD04810656E}
 // *********************************************************************//
   _NexoPartner = interface(IDispatch)
     ['{59BB3895-65B2-3942-940E-6DD04810656E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoPartnerDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59BB3895-65B2-3942-940E-6DD04810656E}
+// DispIntf:  _NexoPartnerDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59BB3895-65B2-3942-940E-6DD04810656E}
 // *********************************************************************//
   _NexoPartnerDisp = dispinterface
     ['{59BB3895-65B2-3942-940E-6DD04810656E}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoEndPoint
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5339D5FB-D6F3-3710-B640-21CEF51B9F46}
+// Interface: _NexoEndPoint
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5339D5FB-D6F3-3710-B640-21CEF51B9F46}
 // *********************************************************************//
   _NexoEndPoint = interface(IDispatch)
     ['{5339D5FB-D6F3-3710-B640-21CEF51B9F46}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoEndPointDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5339D5FB-D6F3-3710-B640-21CEF51B9F46}
+// DispIntf:  _NexoEndPointDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5339D5FB-D6F3-3710-B640-21CEF51B9F46}
 // *********************************************************************//
   _NexoEndPointDisp = dispinterface
     ['{5339D5FB-D6F3-3710-B640-21CEF51B9F46}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoSession
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {22FDEE0C-B93F-3CF0-A2A2-BA85F2288CED}
+// Interface: _NexoSession
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {22FDEE0C-B93F-3CF0-A2A2-BA85F2288CED}
 // *********************************************************************//
   _NexoSession = interface(IDispatch)
     ['{22FDEE0C-B93F-3CF0-A2A2-BA85F2288CED}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoSessionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {22FDEE0C-B93F-3CF0-A2A2-BA85F2288CED}
+// DispIntf:  _NexoSessionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {22FDEE0C-B93F-3CF0-A2A2-BA85F2288CED}
 // *********************************************************************//
   _NexoSessionDisp = dispinterface
     ['{22FDEE0C-B93F-3CF0-A2A2-BA85F2288CED}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoAnyMessage
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {91849B50-192A-4811-8BFA-A506BD74E778}
+// Interface: INexoAnyMessage
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {91849B50-192A-4811-8BFA-A506BD74E778}
 // *********************************************************************//
   INexoAnyMessage = interface(IDispatch)
     ['{91849B50-192A-4811-8BFA-A506BD74E778}']
@@ -13336,9 +13337,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoAnyMessageDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {91849B50-192A-4811-8BFA-A506BD74E778}
+// DispIntf:  INexoAnyMessageDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {91849B50-192A-4811-8BFA-A506BD74E778}
 // *********************************************************************//
   INexoAnyMessageDisp = dispinterface
     ['{91849B50-192A-4811-8BFA-A506BD74E778}']
@@ -13349,27 +13350,27 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _NexoDelegates
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9D53AE2A-5E06-352F-A630-F76256357105}
+// Interface: _NexoDelegates
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9D53AE2A-5E06-352F-A630-F76256357105}
 // *********************************************************************//
   _NexoDelegates = interface(IDispatch)
     ['{9D53AE2A-5E06-352F-A630-F76256357105}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoDelegatesDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9D53AE2A-5E06-352F-A630-F76256357105}
+// DispIntf:  _NexoDelegatesDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9D53AE2A-5E06-352F-A630-F76256357105}
 // *********************************************************************//
   _NexoDelegatesDisp = dispinterface
     ['{9D53AE2A-5E06-352F-A630-F76256357105}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoItem
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B7773C1A-8091-4B2A-A54E-74E686E5F91E}
+// Interface: INexoItem
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B7773C1A-8091-4B2A-A54E-74E686E5F91E}
 // *********************************************************************//
   INexoItem = interface(IDispatch)
     ['{B7773C1A-8091-4B2A-A54E-74E686E5F91E}']
@@ -13411,9 +13412,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoItemDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B7773C1A-8091-4B2A-A54E-74E686E5F91E}
+// DispIntf:  INexoItemDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B7773C1A-8091-4B2A-A54E-74E686E5F91E}
 // *********************************************************************//
   INexoItemDisp = dispinterface
     ['{B7773C1A-8091-4B2A-A54E-74E686E5F91E}']
@@ -13438,27 +13439,27 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _NexoKey
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {89CFED27-307C-3ADA-BBD6-40800D474F0F}
+// Interface: _NexoKey
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {89CFED27-307C-3ADA-BBD6-40800D474F0F}
 // *********************************************************************//
   _NexoKey = interface(IDispatch)
     ['{89CFED27-307C-3ADA-BBD6-40800D474F0F}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoKeyDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {89CFED27-307C-3ADA-BBD6-40800D474F0F}
+// DispIntf:  _NexoKeyDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {89CFED27-307C-3ADA-BBD6-40800D474F0F}
 // *********************************************************************//
   _NexoKeyDisp = dispinterface
     ['{89CFED27-307C-3ADA-BBD6-40800D474F0F}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoAdmin
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9A3C60DD-2D50-4515-9762-4632AA45BBC5}
+// Interface: INexoAdmin
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9A3C60DD-2D50-4515-9762-4632AA45BBC5}
 // *********************************************************************//
   INexoAdmin = interface(IDispatch)
     ['{9A3C60DD-2D50-4515-9762-4632AA45BBC5}']
@@ -13604,9 +13605,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoAdminDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {9A3C60DD-2D50-4515-9762-4632AA45BBC5}
+// DispIntf:  INexoAdminDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {9A3C60DD-2D50-4515-9762-4632AA45BBC5}
 // *********************************************************************//
   INexoAdminDisp = dispinterface
     ['{9A3C60DD-2D50-4515-9762-4632AA45BBC5}']
@@ -13683,9 +13684,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoObject
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {70469D2A-4EFD-4023-82BB-7F6D382A5D83}
+// Interface: INexoObject
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {70469D2A-4EFD-4023-82BB-7F6D382A5D83}
 // *********************************************************************//
   INexoObject = interface(IDispatch)
     ['{70469D2A-4EFD-4023-82BB-7F6D382A5D83}']
@@ -13800,9 +13801,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoObjectDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {70469D2A-4EFD-4023-82BB-7F6D382A5D83}
+// DispIntf:  INexoObjectDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {70469D2A-4EFD-4023-82BB-7F6D382A5D83}
 // *********************************************************************//
   INexoObjectDisp = dispinterface
     ['{70469D2A-4EFD-4023-82BB-7F6D382A5D83}']
@@ -13863,9 +13864,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoBalanceInquiry
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CDC42997-48E2-4D4A-9DD4-4CEBCA16652B}
+// Interface: INexoBalanceInquiry
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CDC42997-48E2-4D4A-9DD4-4CEBCA16652B}
 // *********************************************************************//
   INexoBalanceInquiry = interface(IDispatch)
     ['{CDC42997-48E2-4D4A-9DD4-4CEBCA16652B}']
@@ -14008,9 +14009,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoBalanceInquiryDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CDC42997-48E2-4D4A-9DD4-4CEBCA16652B}
+// DispIntf:  INexoBalanceInquiryDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CDC42997-48E2-4D4A-9DD4-4CEBCA16652B}
 // *********************************************************************//
   INexoBalanceInquiryDisp = dispinterface
     ['{CDC42997-48E2-4D4A-9DD4-4CEBCA16652B}']
@@ -14086,9 +14087,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoBatch
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0AB85F76-922F-46EF-8DCB-A050E7030921}
+// Interface: INexoBatch
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0AB85F76-922F-46EF-8DCB-A050E7030921}
 // *********************************************************************//
   INexoBatch = interface(IDispatch)
     ['{0AB85F76-922F-46EF-8DCB-A050E7030921}']
@@ -14231,9 +14232,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoBatchDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0AB85F76-922F-46EF-8DCB-A050E7030921}
+// DispIntf:  INexoBatchDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0AB85F76-922F-46EF-8DCB-A050E7030921}
 // *********************************************************************//
   INexoBatchDisp = dispinterface
     ['{0AB85F76-922F-46EF-8DCB-A050E7030921}']
@@ -14309,9 +14310,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoCardAcquisition
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {85FADEEB-5156-405B-87EE-54D9AE22E316}
+// Interface: INexoCardAcquisition
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {85FADEEB-5156-405B-87EE-54D9AE22E316}
 // *********************************************************************//
   INexoCardAcquisition = interface(IDispatch)
     ['{85FADEEB-5156-405B-87EE-54D9AE22E316}']
@@ -14466,9 +14467,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoCardAcquisitionDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {85FADEEB-5156-405B-87EE-54D9AE22E316}
+// DispIntf:  INexoCardAcquisitionDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {85FADEEB-5156-405B-87EE-54D9AE22E316}
 // *********************************************************************//
   INexoCardAcquisitionDisp = dispinterface
     ['{85FADEEB-5156-405B-87EE-54D9AE22E316}']
@@ -14548,9 +14549,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoCardReaderInit
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {424AC59E-6B02-46F1-97AD-F4DAF1BEBDCE}
+// Interface: INexoCardReaderInit
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {424AC59E-6B02-46F1-97AD-F4DAF1BEBDCE}
 // *********************************************************************//
   INexoCardReaderInit = interface(IDispatch)
     ['{424AC59E-6B02-46F1-97AD-F4DAF1BEBDCE}']
@@ -14693,9 +14694,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoCardReaderInitDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {424AC59E-6B02-46F1-97AD-F4DAF1BEBDCE}
+// DispIntf:  INexoCardReaderInitDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {424AC59E-6B02-46F1-97AD-F4DAF1BEBDCE}
 // *********************************************************************//
   INexoCardReaderInitDisp = dispinterface
     ['{424AC59E-6B02-46F1-97AD-F4DAF1BEBDCE}']
@@ -14771,9 +14772,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoCardReaderAPDU
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CB4E4768-D56A-4105-B780-004E97929361}
+// Interface: INexoCardReaderAPDU
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CB4E4768-D56A-4105-B780-004E97929361}
 // *********************************************************************//
   INexoCardReaderAPDU = interface(IDispatch)
     ['{CB4E4768-D56A-4105-B780-004E97929361}']
@@ -14916,9 +14917,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoCardReaderAPDUDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CB4E4768-D56A-4105-B780-004E97929361}
+// DispIntf:  INexoCardReaderAPDUDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CB4E4768-D56A-4105-B780-004E97929361}
 // *********************************************************************//
   INexoCardReaderAPDUDisp = dispinterface
     ['{CB4E4768-D56A-4105-B780-004E97929361}']
@@ -14994,9 +14995,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoCardReaderPowerOFF
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {70C8C7A9-62C2-4729-929C-8163614D09DA}
+// Interface: INexoCardReaderPowerOFF
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {70C8C7A9-62C2-4729-929C-8163614D09DA}
 // *********************************************************************//
   INexoCardReaderPowerOFF = interface(IDispatch)
     ['{70C8C7A9-62C2-4729-929C-8163614D09DA}']
@@ -15139,9 +15140,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoCardReaderPowerOFFDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {70C8C7A9-62C2-4729-929C-8163614D09DA}
+// DispIntf:  INexoCardReaderPowerOFFDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {70C8C7A9-62C2-4729-929C-8163614D09DA}
 // *********************************************************************//
   INexoCardReaderPowerOFFDisp = dispinterface
     ['{70C8C7A9-62C2-4729-929C-8163614D09DA}']
@@ -15217,9 +15218,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDeviceDisplay
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F6DC1D06-11C7-4814-9326-E68C4A9EBF4E}
+// Interface: INexoDeviceDisplay
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F6DC1D06-11C7-4814-9326-E68C4A9EBF4E}
 // *********************************************************************//
   INexoDeviceDisplay = interface(IDispatch)
     ['{F6DC1D06-11C7-4814-9326-E68C4A9EBF4E}']
@@ -15362,9 +15363,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDeviceDisplayDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F6DC1D06-11C7-4814-9326-E68C4A9EBF4E}
+// DispIntf:  INexoDeviceDisplayDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F6DC1D06-11C7-4814-9326-E68C4A9EBF4E}
 // *********************************************************************//
   INexoDeviceDisplayDisp = dispinterface
     ['{F6DC1D06-11C7-4814-9326-E68C4A9EBF4E}']
@@ -15440,9 +15441,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDeviceInputUpdate
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {529FFD3D-658C-49C5-85A3-66799AAA5E34}
+// Interface: INexoDeviceInputUpdate
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {529FFD3D-658C-49C5-85A3-66799AAA5E34}
 // *********************************************************************//
   INexoDeviceInputUpdate = interface(IDispatch)
     ['{529FFD3D-658C-49C5-85A3-66799AAA5E34}']
@@ -15589,9 +15590,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDeviceInputUpdateDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {529FFD3D-658C-49C5-85A3-66799AAA5E34}
+// DispIntf:  INexoDeviceInputUpdateDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {529FFD3D-658C-49C5-85A3-66799AAA5E34}
 // *********************************************************************//
   INexoDeviceInputUpdateDisp = dispinterface
     ['{529FFD3D-658C-49C5-85A3-66799AAA5E34}']
@@ -15668,9 +15669,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDeviceSound
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A3534554-E05D-4A11-BB41-88DEC0B20EE4}
+// Interface: INexoDeviceSound
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A3534554-E05D-4A11-BB41-88DEC0B20EE4}
 // *********************************************************************//
   INexoDeviceSound = interface(IDispatch)
     ['{A3534554-E05D-4A11-BB41-88DEC0B20EE4}']
@@ -15819,9 +15820,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDeviceSoundDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {A3534554-E05D-4A11-BB41-88DEC0B20EE4}
+// DispIntf:  INexoDeviceSoundDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {A3534554-E05D-4A11-BB41-88DEC0B20EE4}
 // *********************************************************************//
   INexoDeviceSoundDisp = dispinterface
     ['{A3534554-E05D-4A11-BB41-88DEC0B20EE4}']
@@ -15899,9 +15900,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoEnableService
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {459D4296-691D-48D6-84E5-F9069D5B85D6}
+// Interface: INexoEnableService
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {459D4296-691D-48D6-84E5-F9069D5B85D6}
 // *********************************************************************//
   INexoEnableService = interface(IDispatch)
     ['{459D4296-691D-48D6-84E5-F9069D5B85D6}']
@@ -16050,9 +16051,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoEnableServiceDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {459D4296-691D-48D6-84E5-F9069D5B85D6}
+// DispIntf:  INexoEnableServiceDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {459D4296-691D-48D6-84E5-F9069D5B85D6}
 // *********************************************************************//
   INexoEnableServiceDisp = dispinterface
     ['{459D4296-691D-48D6-84E5-F9069D5B85D6}']
@@ -16130,9 +16131,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoGetTotals
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ED6FDAD1-7D79-4DA6-8F4F-35BCAFADF772}
+// Interface: INexoGetTotals
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ED6FDAD1-7D79-4DA6-8F4F-35BCAFADF772}
 // *********************************************************************//
   INexoGetTotals = interface(IDispatch)
     ['{ED6FDAD1-7D79-4DA6-8F4F-35BCAFADF772}']
@@ -16278,9 +16279,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoGetTotalsDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {ED6FDAD1-7D79-4DA6-8F4F-35BCAFADF772}
+// DispIntf:  INexoGetTotalsDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {ED6FDAD1-7D79-4DA6-8F4F-35BCAFADF772}
 // *********************************************************************//
   INexoGetTotalsDisp = dispinterface
     ['{ED6FDAD1-7D79-4DA6-8F4F-35BCAFADF772}']
@@ -16357,9 +16358,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoLoyalty
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C69EE5BC-630A-4D1F-990B-0D0984E07F08}
+// Interface: INexoLoyalty
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C69EE5BC-630A-4D1F-990B-0D0984E07F08}
 // *********************************************************************//
   INexoLoyalty = interface(IDispatch)
     ['{C69EE5BC-630A-4D1F-990B-0D0984E07F08}']
@@ -16529,9 +16530,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoLoyaltyDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C69EE5BC-630A-4D1F-990B-0D0984E07F08}
+// DispIntf:  INexoLoyaltyDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C69EE5BC-630A-4D1F-990B-0D0984E07F08}
 // *********************************************************************//
   INexoLoyaltyDisp = dispinterface
     ['{C69EE5BC-630A-4D1F-990B-0D0984E07F08}']
@@ -16616,9 +16617,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoPayment
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BD2E9B0D-1DE8-4D77-A974-0E6078206FAA}
+// Interface: INexoPayment
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BD2E9B0D-1DE8-4D77-A974-0E6078206FAA}
 // *********************************************************************//
   INexoPayment = interface(IDispatch)
     ['{BD2E9B0D-1DE8-4D77-A974-0E6078206FAA}']
@@ -16814,9 +16815,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoPaymentDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BD2E9B0D-1DE8-4D77-A974-0E6078206FAA}
+// DispIntf:  INexoPaymentDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BD2E9B0D-1DE8-4D77-A974-0E6078206FAA}
 // *********************************************************************//
   INexoPaymentDisp = dispinterface
     ['{BD2E9B0D-1DE8-4D77-A974-0E6078206FAA}']
@@ -16911,9 +16912,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoPIN
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {877BE257-F158-4A4F-9646-6080B193749B}
+// Interface: INexoPIN
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {877BE257-F158-4A4F-9646-6080B193749B}
 // *********************************************************************//
   INexoPIN = interface(IDispatch)
     ['{877BE257-F158-4A4F-9646-6080B193749B}']
@@ -17062,9 +17063,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoPINDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {877BE257-F158-4A4F-9646-6080B193749B}
+// DispIntf:  INexoPINDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {877BE257-F158-4A4F-9646-6080B193749B}
 // *********************************************************************//
   INexoPINDisp = dispinterface
     ['{877BE257-F158-4A4F-9646-6080B193749B}']
@@ -17142,9 +17143,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoReconciliation
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7ADA4C0C-EEAD-4B53-8089-A8B7491D1FB6}
+// Interface: INexoReconciliation
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7ADA4C0C-EEAD-4B53-8089-A8B7491D1FB6}
 // *********************************************************************//
   INexoReconciliation = interface(IDispatch)
     ['{7ADA4C0C-EEAD-4B53-8089-A8B7491D1FB6}']
@@ -17290,9 +17291,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoReconciliationDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {7ADA4C0C-EEAD-4B53-8089-A8B7491D1FB6}
+// DispIntf:  INexoReconciliationDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {7ADA4C0C-EEAD-4B53-8089-A8B7491D1FB6}
 // *********************************************************************//
   INexoReconciliationDisp = dispinterface
     ['{7ADA4C0C-EEAD-4B53-8089-A8B7491D1FB6}']
@@ -17369,9 +17370,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoStoredValue
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2F3C26FD-174D-45BC-86A4-981B953C6611}
+// Interface: INexoStoredValue
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2F3C26FD-174D-45BC-86A4-981B953C6611}
 // *********************************************************************//
   INexoStoredValue = interface(IDispatch)
     ['{2F3C26FD-174D-45BC-86A4-981B953C6611}']
@@ -17520,9 +17521,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoStoredValueDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2F3C26FD-174D-45BC-86A4-981B953C6611}
+// DispIntf:  INexoStoredValueDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2F3C26FD-174D-45BC-86A4-981B953C6611}
 // *********************************************************************//
   INexoStoredValueDisp = dispinterface
     ['{2F3C26FD-174D-45BC-86A4-981B953C6611}']
@@ -17600,9 +17601,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoTransmit
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8314ADA0-DD56-497D-9FFA-02A86CB305CA}
+// Interface: INexoTransmit
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8314ADA0-DD56-497D-9FFA-02A86CB305CA}
 // *********************************************************************//
   INexoTransmit = interface(IDispatch)
     ['{8314ADA0-DD56-497D-9FFA-02A86CB305CA}']
@@ -17754,9 +17755,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoTransmitDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8314ADA0-DD56-497D-9FFA-02A86CB305CA}
+// DispIntf:  INexoTransmitDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8314ADA0-DD56-497D-9FFA-02A86CB305CA}
 // *********************************************************************//
   INexoTransmitDisp = dispinterface
     ['{8314ADA0-DD56-497D-9FFA-02A86CB305CA}']
@@ -17835,9 +17836,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoAbort
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D71CE22F-0AA1-4792-9857-864A5E29A2BE}
+// Interface: INexoAbort
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D71CE22F-0AA1-4792-9857-864A5E29A2BE}
 // *********************************************************************//
   INexoAbort = interface(IDispatch)
     ['{D71CE22F-0AA1-4792-9857-864A5E29A2BE}']
@@ -17996,9 +17997,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoAbortDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D71CE22F-0AA1-4792-9857-864A5E29A2BE}
+// DispIntf:  INexoAbortDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D71CE22F-0AA1-4792-9857-864A5E29A2BE}
 // *********************************************************************//
   INexoAbortDisp = dispinterface
     ['{D71CE22F-0AA1-4792-9857-864A5E29A2BE}']
@@ -18079,9 +18080,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDiagnosis
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E8C62FFB-C292-4592-A538-8283E5807DA1}
+// Interface: INexoDiagnosis
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E8C62FFB-C292-4592-A538-8283E5807DA1}
 // *********************************************************************//
   INexoDiagnosis = interface(IDispatch)
     ['{E8C62FFB-C292-4592-A538-8283E5807DA1}']
@@ -18233,9 +18234,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDiagnosisDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {E8C62FFB-C292-4592-A538-8283E5807DA1}
+// DispIntf:  INexoDiagnosisDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {E8C62FFB-C292-4592-A538-8283E5807DA1}
 // *********************************************************************//
   INexoDiagnosisDisp = dispinterface
     ['{E8C62FFB-C292-4592-A538-8283E5807DA1}']
@@ -18314,9 +18315,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoEvent
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {389CD3D9-3950-4A61-B90E-BC9EB85E0008}
+// Interface: INexoEvent
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {389CD3D9-3950-4A61-B90E-BC9EB85E0008}
 // *********************************************************************//
   INexoEvent = interface(IDispatch)
     ['{389CD3D9-3950-4A61-B90E-BC9EB85E0008}']
@@ -18475,9 +18476,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoEventDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {389CD3D9-3950-4A61-B90E-BC9EB85E0008}
+// DispIntf:  INexoEventDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {389CD3D9-3950-4A61-B90E-BC9EB85E0008}
 // *********************************************************************//
   INexoEventDisp = dispinterface
     ['{389CD3D9-3950-4A61-B90E-BC9EB85E0008}']
@@ -18558,9 +18559,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoTransactionStatus
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {18C58418-DF2D-4CF4-B394-7C055526C73A}
+// Interface: INexoTransactionStatus
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {18C58418-DF2D-4CF4-B394-7C055526C73A}
 // *********************************************************************//
   INexoTransactionStatus = interface(IDispatch)
     ['{18C58418-DF2D-4CF4-B394-7C055526C73A}']
@@ -18712,9 +18713,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoTransactionStatusDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {18C58418-DF2D-4CF4-B394-7C055526C73A}
+// DispIntf:  INexoTransactionStatusDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {18C58418-DF2D-4CF4-B394-7C055526C73A}
 // *********************************************************************//
   INexoTransactionStatusDisp = dispinterface
     ['{18C58418-DF2D-4CF4-B394-7C055526C73A}']
@@ -18793,9 +18794,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoResponseType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5987CC8F-70A4-4FB9-BCEA-71A706CA27C9}
+// Interface: INexoResponseType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5987CC8F-70A4-4FB9-BCEA-71A706CA27C9}
 // *********************************************************************//
   INexoResponseType = interface(IDispatch)
     ['{5987CC8F-70A4-4FB9-BCEA-71A706CA27C9}']
@@ -18812,9 +18813,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoResponseTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5987CC8F-70A4-4FB9-BCEA-71A706CA27C9}
+// DispIntf:  INexoResponseTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5987CC8F-70A4-4FB9-BCEA-71A706CA27C9}
 // *********************************************************************//
   INexoResponseTypeDisp = dispinterface
     ['{5987CC8F-70A4-4FB9-BCEA-71A706CA27C9}']
@@ -18825,9 +18826,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDeviceInput
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2CD13AE4-4DF6-47EC-8487-0BBB017D37ED}
+// Interface: INexoDeviceInput
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2CD13AE4-4DF6-47EC-8487-0BBB017D37ED}
 // *********************************************************************//
   INexoDeviceInput = interface(IDispatch)
     ['{2CD13AE4-4DF6-47EC-8487-0BBB017D37ED}']
@@ -18982,9 +18983,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDeviceInputDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {2CD13AE4-4DF6-47EC-8487-0BBB017D37ED}
+// DispIntf:  INexoDeviceInputDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {2CD13AE4-4DF6-47EC-8487-0BBB017D37ED}
 // *********************************************************************//
   INexoDeviceInputDisp = dispinterface
     ['{2CD13AE4-4DF6-47EC-8487-0BBB017D37ED}']
@@ -19064,9 +19065,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDevicePrint
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F9BC46A7-AA77-4B4B-81CC-1348E2E4FABC}
+// Interface: INexoDevicePrint
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F9BC46A7-AA77-4B4B-81CC-1348E2E4FABC}
 // *********************************************************************//
   INexoDevicePrint = interface(IDispatch)
     ['{F9BC46A7-AA77-4B4B-81CC-1348E2E4FABC}']
@@ -19221,9 +19222,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDevicePrintDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F9BC46A7-AA77-4B4B-81CC-1348E2E4FABC}
+// DispIntf:  INexoDevicePrintDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F9BC46A7-AA77-4B4B-81CC-1348E2E4FABC}
 // *********************************************************************//
   INexoDevicePrintDisp = dispinterface
     ['{F9BC46A7-AA77-4B4B-81CC-1348E2E4FABC}']
@@ -19303,9 +19304,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoLogin
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4B77D218-D00F-4C13-9652-F0E9E11F3BF3}
+// Interface: INexoLogin
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4B77D218-D00F-4C13-9652-F0E9E11F3BF3}
 // *********************************************************************//
   INexoLogin = interface(IDispatch)
     ['{4B77D218-D00F-4C13-9652-F0E9E11F3BF3}']
@@ -19500,9 +19501,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoLoginDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4B77D218-D00F-4C13-9652-F0E9E11F3BF3}
+// DispIntf:  INexoLoginDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4B77D218-D00F-4C13-9652-F0E9E11F3BF3}
 // *********************************************************************//
   INexoLoginDisp = dispinterface
     ['{4B77D218-D00F-4C13-9652-F0E9E11F3BF3}']
@@ -19596,9 +19597,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoLogout
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {37A4DF49-8D4A-43E6-BAAB-FDFD7C550AB9}
+// Interface: INexoLogout
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {37A4DF49-8D4A-43E6-BAAB-FDFD7C550AB9}
 // *********************************************************************//
   INexoLogout = interface(IDispatch)
     ['{37A4DF49-8D4A-43E6-BAAB-FDFD7C550AB9}']
@@ -19741,9 +19742,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoLogoutDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {37A4DF49-8D4A-43E6-BAAB-FDFD7C550AB9}
+// DispIntf:  INexoLogoutDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {37A4DF49-8D4A-43E6-BAAB-FDFD7C550AB9}
 // *********************************************************************//
   INexoLogoutDisp = dispinterface
     ['{37A4DF49-8D4A-43E6-BAAB-FDFD7C550AB9}']
@@ -19819,27 +19820,27 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _NexoObjectExtension
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {0EF59D09-8837-34F8-9563-20008B5F4A2E}
+// Interface: _NexoObjectExtension
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {0EF59D09-8837-34F8-9563-20008B5F4A2E}
 // *********************************************************************//
   _NexoObjectExtension = interface(IDispatch)
     ['{0EF59D09-8837-34F8-9563-20008B5F4A2E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoObjectExtensionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {0EF59D09-8837-34F8-9563-20008B5F4A2E}
+// DispIntf:  _NexoObjectExtensionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {0EF59D09-8837-34F8-9563-20008B5F4A2E}
 // *********************************************************************//
   _NexoObjectExtensionDisp = dispinterface
     ['{0EF59D09-8837-34F8-9563-20008B5F4A2E}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoReversal
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {DBC11F2F-A231-47BB-9CD1-0B36872B6BB4}
+// Interface: INexoReversal
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DBC11F2F-A231-47BB-9CD1-0B36872B6BB4}
 // *********************************************************************//
   INexoReversal = interface(IDispatch)
     ['{DBC11F2F-A231-47BB-9CD1-0B36872B6BB4}']
@@ -20006,9 +20007,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoReversalDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {DBC11F2F-A231-47BB-9CD1-0B36872B6BB4}
+// DispIntf:  INexoReversalDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {DBC11F2F-A231-47BB-9CD1-0B36872B6BB4}
 // *********************************************************************//
   INexoReversalDisp = dispinterface
     ['{DBC11F2F-A231-47BB-9CD1-0B36872B6BB4}']
@@ -20092,9 +20093,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoObjectToProcess
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4DA003CE-49BF-4831-83EB-3DAEA2072370}
+// Interface: INexoObjectToProcess
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4DA003CE-49BF-4831-83EB-3DAEA2072370}
 // *********************************************************************//
   INexoObjectToProcess = interface(IDispatch)
     ['{4DA003CE-49BF-4831-83EB-3DAEA2072370}']
@@ -20122,9 +20123,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoObjectToProcessDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4DA003CE-49BF-4831-83EB-3DAEA2072370}
+// DispIntf:  INexoObjectToProcessDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4DA003CE-49BF-4831-83EB-3DAEA2072370}
 // *********************************************************************//
   INexoObjectToProcessDisp = dispinterface
     ['{4DA003CE-49BF-4831-83EB-3DAEA2072370}']
@@ -20140,9 +20141,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoTextString
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {81DBF2A7-F56C-4316-A7DA-84A69DD10193}
+// Interface: INexoTextString
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {81DBF2A7-F56C-4316-A7DA-84A69DD10193}
 // *********************************************************************//
   INexoTextString = interface(IDispatch)
     ['{81DBF2A7-F56C-4316-A7DA-84A69DD10193}']
@@ -20179,9 +20180,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoTextStringDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {81DBF2A7-F56C-4316-A7DA-84A69DD10193}
+// DispIntf:  INexoTextStringDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {81DBF2A7-F56C-4316-A7DA-84A69DD10193}
 // *********************************************************************//
   INexoTextStringDisp = dispinterface
     ['{81DBF2A7-F56C-4316-A7DA-84A69DD10193}']
@@ -20200,9 +20201,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoBooleanType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {54927BBD-044C-4FF6-90B9-9EF4C97DF13E}
+// Interface: INexoBooleanType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {54927BBD-044C-4FF6-90B9-9EF4C97DF13E}
 // *********************************************************************//
   INexoBooleanType = interface(IDispatch)
     ['{54927BBD-044C-4FF6-90B9-9EF4C97DF13E}']
@@ -20225,9 +20226,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoBooleanTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {54927BBD-044C-4FF6-90B9-9EF4C97DF13E}
+// DispIntf:  INexoBooleanTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {54927BBD-044C-4FF6-90B9-9EF4C97DF13E}
 // *********************************************************************//
   INexoBooleanTypeDisp = dispinterface
     ['{54927BBD-044C-4FF6-90B9-9EF4C97DF13E}']
@@ -20241,9 +20242,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoInteger
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D54E0EEC-3021-430A-958A-0CE8CBAF28CF}
+// Interface: INexoInteger
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D54E0EEC-3021-430A-958A-0CE8CBAF28CF}
 // *********************************************************************//
   INexoInteger = interface(IDispatch)
     ['{D54E0EEC-3021-430A-958A-0CE8CBAF28CF}']
@@ -20266,9 +20267,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoIntegerDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D54E0EEC-3021-430A-958A-0CE8CBAF28CF}
+// DispIntf:  INexoIntegerDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D54E0EEC-3021-430A-958A-0CE8CBAF28CF}
 // *********************************************************************//
   INexoIntegerDisp = dispinterface
     ['{D54E0EEC-3021-430A-958A-0CE8CBAF28CF}']
@@ -20282,9 +20283,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDecimal
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D6A6402E-7675-4B58-A192-1E5831A63308}
+// Interface: INexoDecimal
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D6A6402E-7675-4B58-A192-1E5831A63308}
 // *********************************************************************//
   INexoDecimal = interface(IDispatch)
     ['{D6A6402E-7675-4B58-A192-1E5831A63308}']
@@ -20315,9 +20316,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDecimalDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {D6A6402E-7675-4B58-A192-1E5831A63308}
+// DispIntf:  INexoDecimalDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {D6A6402E-7675-4B58-A192-1E5831A63308}
 // *********************************************************************//
   INexoDecimalDisp = dispinterface
     ['{D6A6402E-7675-4B58-A192-1E5831A63308}']
@@ -20334,9 +20335,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoLabel
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B1212D60-971B-4FB3-BE41-EC87DD743EFB}
+// Interface: INexoLabel
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B1212D60-971B-4FB3-BE41-EC87DD743EFB}
 // *********************************************************************//
   INexoLabel = interface(IDispatch)
     ['{B1212D60-971B-4FB3-BE41-EC87DD743EFB}']
@@ -20348,9 +20349,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoLabelDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B1212D60-971B-4FB3-BE41-EC87DD743EFB}
+// DispIntf:  INexoLabelDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B1212D60-971B-4FB3-BE41-EC87DD743EFB}
 // *********************************************************************//
   INexoLabelDisp = dispinterface
     ['{B1212D60-971B-4FB3-BE41-EC87DD743EFB}']
@@ -20359,9 +20360,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoEnumeration
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {44DD3DF5-C824-4E2D-8727-9F1856EB8019}
+// Interface: INexoEnumeration
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {44DD3DF5-C824-4E2D-8727-9F1856EB8019}
 // *********************************************************************//
   INexoEnumeration = interface(IDispatch)
     ['{44DD3DF5-C824-4E2D-8727-9F1856EB8019}']
@@ -20380,9 +20381,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoEnumerationDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {44DD3DF5-C824-4E2D-8727-9F1856EB8019}
+// DispIntf:  INexoEnumerationDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {44DD3DF5-C824-4E2D-8727-9F1856EB8019}
 // *********************************************************************//
   INexoEnumerationDisp = dispinterface
     ['{44DD3DF5-C824-4E2D-8727-9F1856EB8019}']
@@ -20396,9 +20397,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoCluster
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CF6E62CA-537D-4545-A336-673D288B6D58}
+// Interface: INexoCluster
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CF6E62CA-537D-4545-A336-673D288B6D58}
 // *********************************************************************//
   INexoCluster = interface(IDispatch)
     ['{CF6E62CA-537D-4545-A336-673D288B6D58}']
@@ -20423,9 +20424,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoClusterDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {CF6E62CA-537D-4545-A336-673D288B6D58}
+// DispIntf:  INexoClusterDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {CF6E62CA-537D-4545-A336-673D288B6D58}
 // *********************************************************************//
   INexoClusterDisp = dispinterface
     ['{CF6E62CA-537D-4545-A336-673D288B6D58}']
@@ -20444,9 +20445,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoLengthDrivenTextString
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {380807B4-5276-443B-A8E8-0D88A51199E8}
+// Interface: INexoLengthDrivenTextString
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {380807B4-5276-443B-A8E8-0D88A51199E8}
 // *********************************************************************//
   INexoLengthDrivenTextString = interface(IDispatch)
     ['{380807B4-5276-443B-A8E8-0D88A51199E8}']
@@ -20492,9 +20493,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoLengthDrivenTextStringDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {380807B4-5276-443B-A8E8-0D88A51199E8}
+// DispIntf:  INexoLengthDrivenTextStringDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {380807B4-5276-443B-A8E8-0D88A51199E8}
 // *********************************************************************//
   INexoLengthDrivenTextStringDisp = dispinterface
     ['{380807B4-5276-443B-A8E8-0D88A51199E8}']
@@ -20516,9 +20517,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoDigitString
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4DEDF6AC-8EF9-41EC-92CD-51A2E7E5FC6F}
+// Interface: INexoDigitString
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4DEDF6AC-8EF9-41EC-92CD-51A2E7E5FC6F}
 // *********************************************************************//
   INexoDigitString = interface(IDispatch)
     ['{4DEDF6AC-8EF9-41EC-92CD-51A2E7E5FC6F}']
@@ -20546,9 +20547,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoDigitStringDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {4DEDF6AC-8EF9-41EC-92CD-51A2E7E5FC6F}
+// DispIntf:  INexoDigitStringDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {4DEDF6AC-8EF9-41EC-92CD-51A2E7E5FC6F}
 // *********************************************************************//
   INexoDigitStringDisp = dispinterface
     ['{4DEDF6AC-8EF9-41EC-92CD-51A2E7E5FC6F}']
@@ -20564,9 +20565,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoISOData
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {342FE081-D5F0-475B-AEC6-6374979BBDC7}
+// Interface: INexoISOData
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {342FE081-D5F0-475B-AEC6-6374979BBDC7}
 // *********************************************************************//
   INexoISOData = interface(IDispatch)
     ['{342FE081-D5F0-475B-AEC6-6374979BBDC7}']
@@ -20582,9 +20583,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoISODataDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {342FE081-D5F0-475B-AEC6-6374979BBDC7}
+// DispIntf:  INexoISODataDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {342FE081-D5F0-475B-AEC6-6374979BBDC7}
 // *********************************************************************//
   INexoISODataDisp = dispinterface
     ['{342FE081-D5F0-475B-AEC6-6374979BBDC7}']
@@ -20595,9 +20596,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoISODateTime
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6EA56916-0B9F-48D1-B726-1F26C1897724}
+// Interface: INexoISODateTime
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6EA56916-0B9F-48D1-B726-1F26C1897724}
 // *********************************************************************//
   INexoISODateTime = interface(IDispatch)
     ['{6EA56916-0B9F-48D1-B726-1F26C1897724}']
@@ -20622,9 +20623,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoISODateTimeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {6EA56916-0B9F-48D1-B726-1F26C1897724}
+// DispIntf:  INexoISODateTimeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {6EA56916-0B9F-48D1-B726-1F26C1897724}
 // *********************************************************************//
   INexoISODateTimeDisp = dispinterface
     ['{6EA56916-0B9F-48D1-B726-1F26C1897724}']
@@ -20640,9 +20641,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoISODate
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {880DF188-0670-419D-8E0D-2170D0D537C9}
+// Interface: INexoISODate
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {880DF188-0670-419D-8E0D-2170D0D537C9}
 // *********************************************************************//
   INexoISODate = interface(IDispatch)
     ['{880DF188-0670-419D-8E0D-2170D0D537C9}']
@@ -20661,9 +20662,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoISODateDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {880DF188-0670-419D-8E0D-2170D0D537C9}
+// DispIntf:  INexoISODateDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {880DF188-0670-419D-8E0D-2170D0D537C9}
 // *********************************************************************//
   INexoISODateDisp = dispinterface
     ['{880DF188-0670-419D-8E0D-2170D0D537C9}']
@@ -20677,9 +20678,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoNonStringType
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C7CAA85A-2A0D-49A7-925A-48A122D76C30}
+// Interface: INexoNonStringType
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C7CAA85A-2A0D-49A7-925A-48A122D76C30}
 // *********************************************************************//
   INexoNonStringType = interface(IDispatch)
     ['{C7CAA85A-2A0D-49A7-925A-48A122D76C30}']
@@ -20697,9 +20698,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoNonStringTypeDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {C7CAA85A-2A0D-49A7-925A-48A122D76C30}
+// DispIntf:  INexoNonStringTypeDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {C7CAA85A-2A0D-49A7-925A-48A122D76C30}
 // *********************************************************************//
   INexoNonStringTypeDisp = dispinterface
     ['{C7CAA85A-2A0D-49A7-925A-48A122D76C30}']
@@ -20710,9 +20711,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoCurrency
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5F12D07E-EA73-4E87-98C6-DDD3A38888C8}
+// Interface: INexoCurrency
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5F12D07E-EA73-4E87-98C6-DDD3A38888C8}
 // *********************************************************************//
   INexoCurrency = interface(IDispatch)
     ['{5F12D07E-EA73-4E87-98C6-DDD3A38888C8}']
@@ -20733,9 +20734,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoCurrencyDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {5F12D07E-EA73-4E87-98C6-DDD3A38888C8}
+// DispIntf:  INexoCurrencyDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {5F12D07E-EA73-4E87-98C6-DDD3A38888C8}
 // *********************************************************************//
   INexoCurrencyDisp = dispinterface
     ['{5F12D07E-EA73-4E87-98C6-DDD3A38888C8}']
@@ -20748,513 +20749,513 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _NexoMessageType
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9B63F343-CE34-348E-ADBB-ADF5FDC28172}
+// Interface: _NexoMessageType
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9B63F343-CE34-348E-ADBB-ADF5FDC28172}
 // *********************************************************************//
   _NexoMessageType = interface(IDispatch)
     ['{9B63F343-CE34-348E-ADBB-ADF5FDC28172}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoMessageTypeDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9B63F343-CE34-348E-ADBB-ADF5FDC28172}
+// DispIntf:  _NexoMessageTypeDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9B63F343-CE34-348E-ADBB-ADF5FDC28172}
 // *********************************************************************//
   _NexoMessageTypeDisp = dispinterface
     ['{9B63F343-CE34-348E-ADBB-ADF5FDC28172}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoMessageClass
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5014AC46-3B6B-35D6-9EAB-308C612BE1BD}
+// Interface: _NexoMessageClass
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5014AC46-3B6B-35D6-9EAB-308C612BE1BD}
 // *********************************************************************//
   _NexoMessageClass = interface(IDispatch)
     ['{5014AC46-3B6B-35D6-9EAB-308C612BE1BD}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoMessageClassDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {5014AC46-3B6B-35D6-9EAB-308C612BE1BD}
+// DispIntf:  _NexoMessageClassDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {5014AC46-3B6B-35D6-9EAB-308C612BE1BD}
 // *********************************************************************//
   _NexoMessageClassDisp = dispinterface
     ['{5014AC46-3B6B-35D6-9EAB-308C612BE1BD}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoMessageCategory
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {56E803F5-FC60-381C-B78C-129D973A9A94}
+// Interface: _NexoMessageCategory
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {56E803F5-FC60-381C-B78C-129D973A9A94}
 // *********************************************************************//
   _NexoMessageCategory = interface(IDispatch)
     ['{56E803F5-FC60-381C-B78C-129D973A9A94}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoMessageCategoryDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {56E803F5-FC60-381C-B78C-129D973A9A94}
+// DispIntf:  _NexoMessageCategoryDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {56E803F5-FC60-381C-B78C-129D973A9A94}
 // *********************************************************************//
   _NexoMessageCategoryDisp = dispinterface
     ['{56E803F5-FC60-381C-B78C-129D973A9A94}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoTerminalEnvironment
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {22389591-8FAC-3D5C-8696-7F02CE9D1A28}
+// Interface: _NexoTerminalEnvironment
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {22389591-8FAC-3D5C-8696-7F02CE9D1A28}
 // *********************************************************************//
   _NexoTerminalEnvironment = interface(IDispatch)
     ['{22389591-8FAC-3D5C-8696-7F02CE9D1A28}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoTerminalEnvironmentDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {22389591-8FAC-3D5C-8696-7F02CE9D1A28}
+// DispIntf:  _NexoTerminalEnvironmentDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {22389591-8FAC-3D5C-8696-7F02CE9D1A28}
 // *********************************************************************//
   _NexoTerminalEnvironmentDisp = dispinterface
     ['{22389591-8FAC-3D5C-8696-7F02CE9D1A28}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoSaleCapabilities
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {27EE1457-9C5B-364B-A5B0-6F8DEA5DFD90}
+// Interface: _NexoSaleCapabilities
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {27EE1457-9C5B-364B-A5B0-6F8DEA5DFD90}
 // *********************************************************************//
   _NexoSaleCapabilities = interface(IDispatch)
     ['{27EE1457-9C5B-364B-A5B0-6F8DEA5DFD90}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoSaleCapabilitiesDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {27EE1457-9C5B-364B-A5B0-6F8DEA5DFD90}
+// DispIntf:  _NexoSaleCapabilitiesDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {27EE1457-9C5B-364B-A5B0-6F8DEA5DFD90}
 // *********************************************************************//
   _NexoSaleCapabilitiesDisp = dispinterface
     ['{27EE1457-9C5B-364B-A5B0-6F8DEA5DFD90}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoProtocolVersion
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {80FE31BB-AA27-3228-9E9F-ACCBC7BEC91E}
+// Interface: _NexoProtocolVersion
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {80FE31BB-AA27-3228-9E9F-ACCBC7BEC91E}
 // *********************************************************************//
   _NexoProtocolVersion = interface(IDispatch)
     ['{80FE31BB-AA27-3228-9E9F-ACCBC7BEC91E}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoProtocolVersionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {80FE31BB-AA27-3228-9E9F-ACCBC7BEC91E}
+// DispIntf:  _NexoProtocolVersionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {80FE31BB-AA27-3228-9E9F-ACCBC7BEC91E}
 // *********************************************************************//
   _NexoProtocolVersionDisp = dispinterface
     ['{80FE31BB-AA27-3228-9E9F-ACCBC7BEC91E}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoID
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {18471494-0F7D-3761-AA8A-4234DEEE46E0}
+// Interface: _NexoID
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {18471494-0F7D-3761-AA8A-4234DEEE46E0}
 // *********************************************************************//
   _NexoID = interface(IDispatch)
     ['{18471494-0F7D-3761-AA8A-4234DEEE46E0}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoIDDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {18471494-0F7D-3761-AA8A-4234DEEE46E0}
+// DispIntf:  _NexoIDDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {18471494-0F7D-3761-AA8A-4234DEEE46E0}
 // *********************************************************************//
   _NexoIDDisp = dispinterface
     ['{18471494-0F7D-3761-AA8A-4234DEEE46E0}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoServiceID
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59B3973C-67DE-3226-950C-3F1AF7CA8CD9}
+// Interface: _NexoServiceID
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59B3973C-67DE-3226-950C-3F1AF7CA8CD9}
 // *********************************************************************//
   _NexoServiceID = interface(IDispatch)
     ['{59B3973C-67DE-3226-950C-3F1AF7CA8CD9}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoServiceIDDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {59B3973C-67DE-3226-950C-3F1AF7CA8CD9}
+// DispIntf:  _NexoServiceIDDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {59B3973C-67DE-3226-950C-3F1AF7CA8CD9}
 // *********************************************************************//
   _NexoServiceIDDisp = dispinterface
     ['{59B3973C-67DE-3226-950C-3F1AF7CA8CD9}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoDeviceID
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {71E7118B-B956-330C-8CF3-985FF48C8383}
+// Interface: _NexoDeviceID
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {71E7118B-B956-330C-8CF3-985FF48C8383}
 // *********************************************************************//
   _NexoDeviceID = interface(IDispatch)
     ['{71E7118B-B956-330C-8CF3-985FF48C8383}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoDeviceIDDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {71E7118B-B956-330C-8CF3-985FF48C8383}
+// DispIntf:  _NexoDeviceIDDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {71E7118B-B956-330C-8CF3-985FF48C8383}
 // *********************************************************************//
   _NexoDeviceIDDisp = dispinterface
     ['{71E7118B-B956-330C-8CF3-985FF48C8383}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoPOIID
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {054197A2-96CE-3280-A396-9A9647E69093}
+// Interface: _NexoPOIID
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {054197A2-96CE-3280-A396-9A9647E69093}
 // *********************************************************************//
   _NexoPOIID = interface(IDispatch)
     ['{054197A2-96CE-3280-A396-9A9647E69093}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoPOIIDDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {054197A2-96CE-3280-A396-9A9647E69093}
+// DispIntf:  _NexoPOIIDDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {054197A2-96CE-3280-A396-9A9647E69093}
 // *********************************************************************//
   _NexoPOIIDDisp = dispinterface
     ['{054197A2-96CE-3280-A396-9A9647E69093}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoSaleID
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {42F36241-B65E-3279-8AB5-B0FDF51E2007}
+// Interface: _NexoSaleID
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {42F36241-B65E-3279-8AB5-B0FDF51E2007}
 // *********************************************************************//
   _NexoSaleID = interface(IDispatch)
     ['{42F36241-B65E-3279-8AB5-B0FDF51E2007}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoSaleIDDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {42F36241-B65E-3279-8AB5-B0FDF51E2007}
+// DispIntf:  _NexoSaleIDDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {42F36241-B65E-3279-8AB5-B0FDF51E2007}
 // *********************************************************************//
   _NexoSaleIDDisp = dispinterface
     ['{42F36241-B65E-3279-8AB5-B0FDF51E2007}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoOperatorLanguage
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E71BBF4C-00C1-3A08-8FA7-D6AC9B58C165}
+// Interface: _NexoOperatorLanguage
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E71BBF4C-00C1-3A08-8FA7-D6AC9B58C165}
 // *********************************************************************//
   _NexoOperatorLanguage = interface(IDispatch)
     ['{E71BBF4C-00C1-3A08-8FA7-D6AC9B58C165}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoOperatorLanguageDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E71BBF4C-00C1-3A08-8FA7-D6AC9B58C165}
+// DispIntf:  _NexoOperatorLanguageDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E71BBF4C-00C1-3A08-8FA7-D6AC9B58C165}
 // *********************************************************************//
   _NexoOperatorLanguageDisp = dispinterface
     ['{E71BBF4C-00C1-3A08-8FA7-D6AC9B58C165}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoResult
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4D8B2E36-3BE3-3AAE-820E-2AF11CA82E64}
+// Interface: _NexoResult
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4D8B2E36-3BE3-3AAE-820E-2AF11CA82E64}
 // *********************************************************************//
   _NexoResult = interface(IDispatch)
     ['{4D8B2E36-3BE3-3AAE-820E-2AF11CA82E64}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoResultDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4D8B2E36-3BE3-3AAE-820E-2AF11CA82E64}
+// DispIntf:  _NexoResultDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4D8B2E36-3BE3-3AAE-820E-2AF11CA82E64}
 // *********************************************************************//
   _NexoResultDisp = dispinterface
     ['{4D8B2E36-3BE3-3AAE-820E-2AF11CA82E64}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoErrorCondition
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3A6C71B5-A08C-315D-B127-D96E2E2EAC09}
+// Interface: _NexoErrorCondition
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3A6C71B5-A08C-315D-B127-D96E2E2EAC09}
 // *********************************************************************//
   _NexoErrorCondition = interface(IDispatch)
     ['{3A6C71B5-A08C-315D-B127-D96E2E2EAC09}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoErrorConditionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3A6C71B5-A08C-315D-B127-D96E2E2EAC09}
+// DispIntf:  _NexoErrorConditionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3A6C71B5-A08C-315D-B127-D96E2E2EAC09}
 // *********************************************************************//
   _NexoErrorConditionDisp = dispinterface
     ['{3A6C71B5-A08C-315D-B127-D96E2E2EAC09}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoAdditionalResponse
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B44411B6-3F45-333F-B166-1A295EED6A6C}
+// Interface: _NexoAdditionalResponse
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B44411B6-3F45-333F-B166-1A295EED6A6C}
 // *********************************************************************//
   _NexoAdditionalResponse = interface(IDispatch)
     ['{B44411B6-3F45-333F-B166-1A295EED6A6C}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoAdditionalResponseDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {B44411B6-3F45-333F-B166-1A295EED6A6C}
+// DispIntf:  _NexoAdditionalResponseDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {B44411B6-3F45-333F-B166-1A295EED6A6C}
 // *********************************************************************//
   _NexoAdditionalResponseDisp = dispinterface
     ['{B44411B6-3F45-333F-B166-1A295EED6A6C}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoGlobalStatus
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3AC0D87E-F614-3958-AF82-0EDD3E6D9179}
+// Interface: _NexoGlobalStatus
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3AC0D87E-F614-3958-AF82-0EDD3E6D9179}
 // *********************************************************************//
   _NexoGlobalStatus = interface(IDispatch)
     ['{3AC0D87E-F614-3958-AF82-0EDD3E6D9179}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoGlobalStatusDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {3AC0D87E-F614-3958-AF82-0EDD3E6D9179}
+// DispIntf:  _NexoGlobalStatusDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {3AC0D87E-F614-3958-AF82-0EDD3E6D9179}
 // *********************************************************************//
   _NexoGlobalStatusDisp = dispinterface
     ['{3AC0D87E-F614-3958-AF82-0EDD3E6D9179}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoCertificationCode
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {02DB9CB2-8343-3689-AB49-DC0FB8415C72}
+// Interface: _NexoCertificationCode
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {02DB9CB2-8343-3689-AB49-DC0FB8415C72}
 // *********************************************************************//
   _NexoCertificationCode = interface(IDispatch)
     ['{02DB9CB2-8343-3689-AB49-DC0FB8415C72}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoCertificationCodeDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {02DB9CB2-8343-3689-AB49-DC0FB8415C72}
+// DispIntf:  _NexoCertificationCodeDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {02DB9CB2-8343-3689-AB49-DC0FB8415C72}
 // *********************************************************************//
   _NexoCertificationCodeDisp = dispinterface
     ['{02DB9CB2-8343-3689-AB49-DC0FB8415C72}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoSoftwareVersion
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {451A06B3-89A7-3712-9763-C753FC8885C3}
+// Interface: _NexoSoftwareVersion
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {451A06B3-89A7-3712-9763-C753FC8885C3}
 // *********************************************************************//
   _NexoSoftwareVersion = interface(IDispatch)
     ['{451A06B3-89A7-3712-9763-C753FC8885C3}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoSoftwareVersionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {451A06B3-89A7-3712-9763-C753FC8885C3}
+// DispIntf:  _NexoSoftwareVersionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {451A06B3-89A7-3712-9763-C753FC8885C3}
 // *********************************************************************//
   _NexoSoftwareVersionDisp = dispinterface
     ['{451A06B3-89A7-3712-9763-C753FC8885C3}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoApplicationName
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9C672E07-5151-38F4-A42C-CEB77A05332B}
+// Interface: _NexoApplicationName
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9C672E07-5151-38F4-A42C-CEB77A05332B}
 // *********************************************************************//
   _NexoApplicationName = interface(IDispatch)
     ['{9C672E07-5151-38F4-A42C-CEB77A05332B}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoApplicationNameDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {9C672E07-5151-38F4-A42C-CEB77A05332B}
+// DispIntf:  _NexoApplicationNameDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {9C672E07-5151-38F4-A42C-CEB77A05332B}
 // *********************************************************************//
   _NexoApplicationNameDisp = dispinterface
     ['{9C672E07-5151-38F4-A42C-CEB77A05332B}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoManufacturerID
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E49650FA-D915-3C41-8313-9A5A13A64420}
+// Interface: _NexoManufacturerID
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E49650FA-D915-3C41-8313-9A5A13A64420}
 // *********************************************************************//
   _NexoManufacturerID = interface(IDispatch)
     ['{E49650FA-D915-3C41-8313-9A5A13A64420}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoManufacturerIDDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {E49650FA-D915-3C41-8313-9A5A13A64420}
+// DispIntf:  _NexoManufacturerIDDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {E49650FA-D915-3C41-8313-9A5A13A64420}
 // *********************************************************************//
   _NexoManufacturerIDDisp = dispinterface
     ['{E49650FA-D915-3C41-8313-9A5A13A64420}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoPOISerialNumber
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6681A893-77AF-3107-A6DA-DF729D6DB446}
+// Interface: _NexoPOISerialNumber
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6681A893-77AF-3107-A6DA-DF729D6DB446}
 // *********************************************************************//
   _NexoPOISerialNumber = interface(IDispatch)
     ['{6681A893-77AF-3107-A6DA-DF729D6DB446}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoPOISerialNumberDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {6681A893-77AF-3107-A6DA-DF729D6DB446}
+// DispIntf:  _NexoPOISerialNumberDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {6681A893-77AF-3107-A6DA-DF729D6DB446}
 // *********************************************************************//
   _NexoPOISerialNumberDisp = dispinterface
     ['{6681A893-77AF-3107-A6DA-DF729D6DB446}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoOperatorID
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CD18F863-D50B-352D-B4A0-5E980F36021D}
+// Interface: _NexoOperatorID
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CD18F863-D50B-352D-B4A0-5E980F36021D}
 // *********************************************************************//
   _NexoOperatorID = interface(IDispatch)
     ['{CD18F863-D50B-352D-B4A0-5E980F36021D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoOperatorIDDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {CD18F863-D50B-352D-B4A0-5E980F36021D}
+// DispIntf:  _NexoOperatorIDDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {CD18F863-D50B-352D-B4A0-5E980F36021D}
 // *********************************************************************//
   _NexoOperatorIDDisp = dispinterface
     ['{CD18F863-D50B-352D-B4A0-5E980F36021D}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoDateTime
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8DF83577-AE20-31AB-B9C0-1F46E4CF327C}
+// Interface: _NexoDateTime
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8DF83577-AE20-31AB-B9C0-1F46E4CF327C}
 // *********************************************************************//
   _NexoDateTime = interface(IDispatch)
     ['{8DF83577-AE20-31AB-B9C0-1F46E4CF327C}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoDateTimeDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {8DF83577-AE20-31AB-B9C0-1F46E4CF327C}
+// DispIntf:  _NexoDateTimeDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {8DF83577-AE20-31AB-B9C0-1F46E4CF327C}
 // *********************************************************************//
   _NexoDateTimeDisp = dispinterface
     ['{8DF83577-AE20-31AB-B9C0-1F46E4CF327C}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoInputCommand
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4E7620D8-37EE-3EF1-8219-5905E4C30D28}
+// Interface: _NexoInputCommand
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4E7620D8-37EE-3EF1-8219-5905E4C30D28}
 // *********************************************************************//
   _NexoInputCommand = interface(IDispatch)
     ['{4E7620D8-37EE-3EF1-8219-5905E4C30D28}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoInputCommandDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {4E7620D8-37EE-3EF1-8219-5905E4C30D28}
+// DispIntf:  _NexoInputCommandDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {4E7620D8-37EE-3EF1-8219-5905E4C30D28}
 // *********************************************************************//
   _NexoInputCommandDisp = dispinterface
     ['{4E7620D8-37EE-3EF1-8219-5905E4C30D28}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoEventToNotify
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {F32A9C29-CEFF-3D25-9C49-F4350CA77ABB}
+// Interface: _NexoEventToNotify
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {F32A9C29-CEFF-3D25-9C49-F4350CA77ABB}
 // *********************************************************************//
   _NexoEventToNotify = interface(IDispatch)
     ['{F32A9C29-CEFF-3D25-9C49-F4350CA77ABB}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoEventToNotifyDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {F32A9C29-CEFF-3D25-9C49-F4350CA77ABB}
+// DispIntf:  _NexoEventToNotifyDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {F32A9C29-CEFF-3D25-9C49-F4350CA77ABB}
 // *********************************************************************//
   _NexoEventToNotifyDisp = dispinterface
     ['{F32A9C29-CEFF-3D25-9C49-F4350CA77ABB}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoPaymentIntrumentType
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A7085E0D-4C4E-3492-9CD8-E5EEA1139AB4}
+// Interface: _NexoPaymentIntrumentType
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A7085E0D-4C4E-3492-9CD8-E5EEA1139AB4}
 // *********************************************************************//
   _NexoPaymentIntrumentType = interface(IDispatch)
     ['{A7085E0D-4C4E-3492-9CD8-E5EEA1139AB4}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoPaymentIntrumentTypeDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {A7085E0D-4C4E-3492-9CD8-E5EEA1139AB4}
+// DispIntf:  _NexoPaymentIntrumentTypeDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {A7085E0D-4C4E-3492-9CD8-E5EEA1139AB4}
 // *********************************************************************//
   _NexoPaymentIntrumentTypeDisp = dispinterface
     ['{A7085E0D-4C4E-3492-9CD8-E5EEA1139AB4}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoVersion
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {765A7BDB-C986-34A3-A1F6-07606723E48D}
+// Interface: _NexoVersion
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {765A7BDB-C986-34A3-A1F6-07606723E48D}
 // *********************************************************************//
   _NexoVersion = interface(IDispatch)
     ['{765A7BDB-C986-34A3-A1F6-07606723E48D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoVersionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {765A7BDB-C986-34A3-A1F6-07606723E48D}
+// DispIntf:  _NexoVersionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {765A7BDB-C986-34A3-A1F6-07606723E48D}
 // *********************************************************************//
   _NexoVersionDisp = dispinterface
     ['{765A7BDB-C986-34A3-A1F6-07606723E48D}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoCurrentVersion
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {912B7F67-674E-35E3-9F46-CCB8B8FA08A0}
+// Interface: _NexoCurrentVersion
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {912B7F67-674E-35E3-9F46-CCB8B8FA08A0}
 // *********************************************************************//
   _NexoCurrentVersion = interface(IDispatch)
     ['{912B7F67-674E-35E3-9F46-CCB8B8FA08A0}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoCurrentVersionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {912B7F67-674E-35E3-9F46-CCB8B8FA08A0}
+// DispIntf:  _NexoCurrentVersionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {912B7F67-674E-35E3-9F46-CCB8B8FA08A0}
 // *********************************************************************//
   _NexoCurrentVersionDisp = dispinterface
     ['{912B7F67-674E-35E3-9F46-CCB8B8FA08A0}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerClientHandle
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {006465F7-6122-44C2-BBF1-166B483315E4}
+// Interface: INexoRetailerClientHandle
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {006465F7-6122-44C2-BBF1-166B483315E4}
 // *********************************************************************//
   INexoRetailerClientHandle = interface(IDispatch)
     ['{006465F7-6122-44C2-BBF1-166B483315E4}']
@@ -21263,9 +21264,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerClientHandleDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {006465F7-6122-44C2-BBF1-166B483315E4}
+// DispIntf:  INexoRetailerClientHandleDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {006465F7-6122-44C2-BBF1-166B483315E4}
 // *********************************************************************//
   INexoRetailerClientHandleDisp = dispinterface
     ['{006465F7-6122-44C2-BBF1-166B483315E4}']
@@ -21273,9 +21274,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerClient
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8B1988DB-F6AC-4B87-B874-62C58ED8E95F}
+// Interface: INexoRetailerClient
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8B1988DB-F6AC-4B87-B874-62C58ED8E95F}
 // *********************************************************************//
   INexoRetailerClient = interface(IDispatch)
     ['{8B1988DB-F6AC-4B87-B874-62C58ED8E95F}']
@@ -21302,10 +21303,8 @@ type
     function Get_ToString: WideString; safecall;
     function Connect(const Settings: INexoRetailerClientSettings): WordBool; safecall;
     procedure Disconnect; safecall;
-    function SendRequest(const msg: INexoObject; timer: Integer; 
-                         const Settings: INexoRetailerClientSettings; autoComplete: WordBool): INexoRetailerClientHandle; safecall;
-    function SendRequest_2(const msg: ISaleToPOIRequest; timer: Integer; 
-                           const Settings: INexoRetailerClientSettings; autoComplete: WordBool): INexoRetailerClientHandle; safecall;
+    function SendRequest(const msg: INexoObject; timer: Integer; autoComplete: WordBool): INexoRetailerClientHandle; safecall;
+    function SendRequest_2(const msg: ISaleToPOIRequest; timer: Integer; autoComplete: WordBool): INexoRetailerClientHandle; safecall;
     function SendRequestSync(const msg: INexoObject; timer: Integer; autoComplete: WordBool): WordBool; safecall;
     function SendRequestSync_2(const msg: ISaleToPOIRequest; timer: Integer; autoComplete: WordBool): WordBool; safecall;
     function SendReply(const msg: INexoObject; const thread: IThread; autoComplete: WordBool): WordBool; safecall;
@@ -21361,9 +21360,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerClientDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {8B1988DB-F6AC-4B87-B874-62C58ED8E95F}
+// DispIntf:  INexoRetailerClientDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {8B1988DB-F6AC-4B87-B874-62C58ED8E95F}
 // *********************************************************************//
   INexoRetailerClientDisp = dispinterface
     ['{8B1988DB-F6AC-4B87-B874-62C58ED8E95F}']
@@ -21387,10 +21386,8 @@ type
     property ToString: WideString readonly dispid 100;
     function Connect(const Settings: INexoRetailerClientSettings): WordBool; dispid 101;
     procedure Disconnect; dispid 102;
-    function SendRequest(const msg: INexoObject; timer: Integer; 
-                         const Settings: INexoRetailerClientSettings; autoComplete: WordBool): INexoRetailerClientHandle; dispid 110;
-    function SendRequest_2(const msg: ISaleToPOIRequest; timer: Integer; 
-                           const Settings: INexoRetailerClientSettings; autoComplete: WordBool): INexoRetailerClientHandle; dispid 111;
+    function SendRequest(const msg: INexoObject; timer: Integer; autoComplete: WordBool): INexoRetailerClientHandle; dispid 110;
+    function SendRequest_2(const msg: ISaleToPOIRequest; timer: Integer; autoComplete: WordBool): INexoRetailerClientHandle; dispid 111;
     function SendRequestSync(const msg: INexoObject; timer: Integer; autoComplete: WordBool): WordBool; dispid 120;
     function SendRequestSync_2(const msg: ISaleToPOIRequest; timer: Integer; autoComplete: WordBool): WordBool; dispid 121;
     function SendReply(const msg: INexoObject; const thread: IThread; autoComplete: WordBool): WordBool; dispid 200;
@@ -21415,9 +21412,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerClientSettings
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {96259F3B-053E-45AF-B616-079CBC11690A}
+// Interface: INexoRetailerClientSettings
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {96259F3B-053E-45AF-B616-079CBC11690A}
 // *********************************************************************//
   INexoRetailerClientSettings = interface(IDispatch)
     ['{96259F3B-053E-45AF-B616-079CBC11690A}']
@@ -21456,9 +21453,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerClientSettingsDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {96259F3B-053E-45AF-B616-079CBC11690A}
+// DispIntf:  INexoRetailerClientSettingsDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {96259F3B-053E-45AF-B616-079CBC11690A}
 // *********************************************************************//
   INexoRetailerClientSettingsDisp = dispinterface
     ['{96259F3B-053E-45AF-B616-079CBC11690A}']
@@ -21476,9 +21473,9 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerClientConnectionSettings
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BFEFE83C-FA94-48DB-B7B9-9E1887CB6884}
+// Interface: INexoRetailerClientConnectionSettings
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BFEFE83C-FA94-48DB-B7B9-9E1887CB6884}
 // *********************************************************************//
   INexoRetailerClientConnectionSettings = interface(IDispatch)
     ['{BFEFE83C-FA94-48DB-B7B9-9E1887CB6884}']
@@ -21494,9 +21491,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerClientConnectionSettingsDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BFEFE83C-FA94-48DB-B7B9-9E1887CB6884}
+// DispIntf:  INexoRetailerClientConnectionSettingsDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BFEFE83C-FA94-48DB-B7B9-9E1887CB6884}
 // *********************************************************************//
   INexoRetailerClientConnectionSettingsDisp = dispinterface
     ['{BFEFE83C-FA94-48DB-B7B9-9E1887CB6884}']
@@ -21506,117 +21503,117 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerClientActivity
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BC3BD01B-95AA-4D4A-B2A1-3AB16231142D}
+// Interface: INexoRetailerClientActivity
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BC3BD01B-95AA-4D4A-B2A1-3AB16231142D}
 // *********************************************************************//
   INexoRetailerClientActivity = interface(IDispatch)
     ['{BC3BD01B-95AA-4D4A-B2A1-3AB16231142D}']
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerClientActivityDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {BC3BD01B-95AA-4D4A-B2A1-3AB16231142D}
+// DispIntf:  INexoRetailerClientActivityDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {BC3BD01B-95AA-4D4A-B2A1-3AB16231142D}
 // *********************************************************************//
   INexoRetailerClientActivityDisp = dispinterface
     ['{BC3BD01B-95AA-4D4A-B2A1-3AB16231142D}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerServerActivity
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F71D22CA-428A-4B19-9412-05F8552EB8F2}
+// Interface: INexoRetailerServerActivity
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F71D22CA-428A-4B19-9412-05F8552EB8F2}
 // *********************************************************************//
   INexoRetailerServerActivity = interface(IDispatch)
     ['{F71D22CA-428A-4B19-9412-05F8552EB8F2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerServerActivityDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {F71D22CA-428A-4B19-9412-05F8552EB8F2}
+// DispIntf:  INexoRetailerServerActivityDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {F71D22CA-428A-4B19-9412-05F8552EB8F2}
 // *********************************************************************//
   INexoRetailerServerActivityDisp = dispinterface
     ['{F71D22CA-428A-4B19-9412-05F8552EB8F2}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoRetailerServerDatabaseConnection
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {79C911BC-C8E4-341F-941F-73005D7CFC92}
+// Interface: _NexoRetailerServerDatabaseConnection
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {79C911BC-C8E4-341F-941F-73005D7CFC92}
 // *********************************************************************//
   _NexoRetailerServerDatabaseConnection = interface(IDispatch)
     ['{79C911BC-C8E4-341F-941F-73005D7CFC92}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoRetailerServerDatabaseConnectionDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {79C911BC-C8E4-341F-941F-73005D7CFC92}
+// DispIntf:  _NexoRetailerServerDatabaseConnectionDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {79C911BC-C8E4-341F-941F-73005D7CFC92}
 // *********************************************************************//
   _NexoRetailerServerDatabaseConnectionDisp = dispinterface
     ['{79C911BC-C8E4-341F-941F-73005D7CFC92}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoRetailerServerDatabaseEndPoint
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {34DA5861-39D5-35BB-B676-8F96880BB3EB}
+// Interface: _NexoRetailerServerDatabaseEndPoint
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {34DA5861-39D5-35BB-B676-8F96880BB3EB}
 // *********************************************************************//
   _NexoRetailerServerDatabaseEndPoint = interface(IDispatch)
     ['{34DA5861-39D5-35BB-B676-8F96880BB3EB}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoRetailerServerDatabaseEndPointDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {34DA5861-39D5-35BB-B676-8F96880BB3EB}
+// DispIntf:  _NexoRetailerServerDatabaseEndPointDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {34DA5861-39D5-35BB-B676-8F96880BB3EB}
 // *********************************************************************//
   _NexoRetailerServerDatabaseEndPointDisp = dispinterface
     ['{34DA5861-39D5-35BB-B676-8F96880BB3EB}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoRetailerServerDatabaseSale
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {93971474-DEA7-3D4D-A112-61B672EE7B52}
+// Interface: _NexoRetailerServerDatabaseSale
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {93971474-DEA7-3D4D-A112-61B672EE7B52}
 // *********************************************************************//
   _NexoRetailerServerDatabaseSale = interface(IDispatch)
     ['{93971474-DEA7-3D4D-A112-61B672EE7B52}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoRetailerServerDatabaseSaleDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {93971474-DEA7-3D4D-A112-61B672EE7B52}
+// DispIntf:  _NexoRetailerServerDatabaseSaleDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {93971474-DEA7-3D4D-A112-61B672EE7B52}
 // *********************************************************************//
   _NexoRetailerServerDatabaseSaleDisp = dispinterface
     ['{93971474-DEA7-3D4D-A112-61B672EE7B52}']
   end;
 
 // *********************************************************************//
-// Interface :   _NexoRetailerServerDatabaseMessage
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {144CF118-C521-3B94-89DA-D4739A0C91D2}
+// Interface: _NexoRetailerServerDatabaseMessage
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {144CF118-C521-3B94-89DA-D4739A0C91D2}
 // *********************************************************************//
   _NexoRetailerServerDatabaseMessage = interface(IDispatch)
     ['{144CF118-C521-3B94-89DA-D4739A0C91D2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoRetailerServerDatabaseMessageDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {144CF118-C521-3B94-89DA-D4739A0C91D2}
+// DispIntf:  _NexoRetailerServerDatabaseMessageDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {144CF118-C521-3B94-89DA-D4739A0C91D2}
 // *********************************************************************//
   _NexoRetailerServerDatabaseMessageDisp = dispinterface
     ['{144CF118-C521-3B94-89DA-D4739A0C91D2}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerServerDatabaseSettings
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B46DBE4F-C3E3-41F8-BFE8-E10DBEF1988B}
+// Interface: INexoRetailerServerDatabaseSettings
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B46DBE4F-C3E3-41F8-BFE8-E10DBEF1988B}
 // *********************************************************************//
   INexoRetailerServerDatabaseSettings = interface(IDispatch)
     ['{B46DBE4F-C3E3-41F8-BFE8-E10DBEF1988B}']
@@ -21648,9 +21645,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerServerDatabaseSettingsDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {B46DBE4F-C3E3-41F8-BFE8-E10DBEF1988B}
+// DispIntf:  INexoRetailerServerDatabaseSettingsDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {B46DBE4F-C3E3-41F8-BFE8-E10DBEF1988B}
 // *********************************************************************//
   INexoRetailerServerDatabaseSettingsDisp = dispinterface
     ['{B46DBE4F-C3E3-41F8-BFE8-E10DBEF1988B}']
@@ -21666,27 +21663,27 @@ type
   end;
 
 // *********************************************************************//
-// Interface :   _NexoRetailerServerDatabase
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {23975521-A1F1-3C63-9519-BE95ECC5C8E2}
+// Interface: _NexoRetailerServerDatabase
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {23975521-A1F1-3C63-9519-BE95ECC5C8E2}
 // *********************************************************************//
   _NexoRetailerServerDatabase = interface(IDispatch)
     ['{23975521-A1F1-3C63-9519-BE95ECC5C8E2}']
   end;
 
 // *********************************************************************//
-// DispIntf :    _NexoRetailerServerDatabaseDisp
-// Indicateurs : (4432) Hidden Dual OleAutomation Dispatchable
-// GUID :        {23975521-A1F1-3C63-9519-BE95ECC5C8E2}
+// DispIntf:  _NexoRetailerServerDatabaseDisp
+// Flags:     (4432) Hidden Dual OleAutomation Dispatchable
+// GUID:      {23975521-A1F1-3C63-9519-BE95ECC5C8E2}
 // *********************************************************************//
   _NexoRetailerServerDatabaseDisp = dispinterface
     ['{23975521-A1F1-3C63-9519-BE95ECC5C8E2}']
   end;
 
 // *********************************************************************//
-// Interface :   INexoRetailerServerSettings
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0D584C15-C13E-4123-B6A6-57D27C7937D1}
+// Interface: INexoRetailerServerSettings
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0D584C15-C13E-4123-B6A6-57D27C7937D1}
 // *********************************************************************//
   INexoRetailerServerSettings = interface(IDispatch)
     ['{0D584C15-C13E-4123-B6A6-57D27C7937D1}']
@@ -21725,9 +21722,9 @@ type
   end;
 
 // *********************************************************************//
-// DispIntf :    INexoRetailerServerSettingsDisp
-// Indicateurs : (4416) Dual OleAutomation Dispatchable
-// GUID :        {0D584C15-C13E-4123-B6A6-57D27C7937D1}
+// DispIntf:  INexoRetailerServerSettingsDisp
+// Flags:     (4416) Dual OleAutomation Dispatchable
+// GUID:      {0D584C15-C13E-4123-B6A6-57D27C7937D1}
 // *********************************************************************//
   INexoRetailerServerSettingsDisp = dispinterface
     ['{0D584C15-C13E-4123-B6A6-57D27C7937D1}']
@@ -21745,11 +21742,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAuthenticatedDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAuthenticatedDataType exposée
-// par la CoClasse AuthenticatedDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAuthenticatedDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IAuthenticatedDataType exposed by              
+// the CoClass AuthenticatedDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAuthenticatedDataType = class
     class function Create: IAuthenticatedDataType;
@@ -21757,11 +21754,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoKEKType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IKEKType exposée
-// par la CoClasse KEKType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoKEKType provides a Create and CreateRemote method to          
+// create instances of the default interface IKEKType exposed by              
+// the CoClass KEKType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoKEKType = class
     class function Create: IKEKType;
@@ -21769,11 +21766,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoKEKIdentifierType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IKEKIdentifierType exposée
-// par la CoClasse KEKIdentifierType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoKEKIdentifierType provides a Create and CreateRemote method to          
+// create instances of the default interface IKEKIdentifierType exposed by              
+// the CoClass KEKIdentifierType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoKEKIdentifierType = class
     class function Create: IKEKIdentifierType;
@@ -21781,11 +21778,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDisplayResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IDisplayResponseType exposée
-// par la CoClasse DisplayResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDisplayResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IDisplayResponseType exposed by              
+// the CoClass DisplayResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDisplayResponseType = class
     class function Create: IDisplayResponseType;
@@ -21793,11 +21790,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoOutputResultType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IOutputResultType exposée
-// par la CoClasse OutputResultType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoOutputResultType provides a Create and CreateRemote method to          
+// create instances of the default interface IOutputResultType exposed by              
+// the CoClass OutputResultType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoOutputResultType = class
     class function Create: IOutputResultType;
@@ -21805,11 +21802,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IResponseType exposée
-// par la CoClasse ResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IResponseType exposed by              
+// the CoClass ResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoResponseType = class
     class function Create: IResponseType;
@@ -21817,11 +21814,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDisplayRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IDisplayRequestType exposée
-// par la CoClasse DisplayRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDisplayRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IDisplayRequestType exposed by              
+// the CoClass DisplayRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDisplayRequestType = class
     class function Create: IDisplayRequestType;
@@ -21829,11 +21826,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDisplayOutputType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IDisplayOutputType exposée
-// par la CoClasse DisplayOutputType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDisplayOutputType provides a Create and CreateRemote method to          
+// create instances of the default interface IDisplayOutputType exposed by              
+// the CoClass DisplayOutputType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDisplayOutputType = class
     class function Create: IDisplayOutputType;
@@ -21841,11 +21838,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoOutputContentType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IOutputContentType exposée
-// par la CoClasse OutputContentType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoOutputContentType provides a Create and CreateRemote method to          
+// create instances of the default interface IOutputContentType exposed by              
+// the CoClass OutputContentType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoOutputContentType = class
     class function Create: IOutputContentType;
@@ -21853,11 +21850,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPredefinedContentType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPredefinedContentType exposée
-// par la CoClasse PredefinedContentType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPredefinedContentType provides a Create and CreateRemote method to          
+// create instances of the default interface IPredefinedContentType exposed by              
+// the CoClass PredefinedContentType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPredefinedContentType = class
     class function Create: IPredefinedContentType;
@@ -21865,11 +21862,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoOutputTextType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IOutputTextType exposée
-// par la CoClasse OutputTextType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoOutputTextType provides a Create and CreateRemote method to          
+// create instances of the default interface IOutputTextType exposed by              
+// the CoClass OutputTextType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoOutputTextType = class
     class function Create: IOutputTextType;
@@ -21877,11 +21874,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoOutputBarcodeType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IOutputBarcodeType exposée
-// par la CoClasse OutputBarcodeType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoOutputBarcodeType provides a Create and CreateRemote method to          
+// create instances of the default interface IOutputBarcodeType exposed by              
+// the CoClass OutputBarcodeType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoOutputBarcodeType = class
     class function Create: IOutputBarcodeType;
@@ -21889,11 +21886,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMenuEntryType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IMenuEntryType exposée
-// par la CoClasse MenuEntryType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMenuEntryType provides a Create and CreateRemote method to          
+// create instances of the default interface IMenuEntryType exposed by              
+// the CoClass MenuEntryType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMenuEntryType = class
     class function Create: IMenuEntryType;
@@ -21901,11 +21898,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAlgorithmIdentifier fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAlgorithmIdentifier exposée
-// par la CoClasse AlgorithmIdentifier. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAlgorithmIdentifier provides a Create and CreateRemote method to          
+// create instances of the default interface IAlgorithmIdentifier exposed by              
+// the CoClass AlgorithmIdentifier. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAlgorithmIdentifier = class
     class function Create: IAlgorithmIdentifier;
@@ -21913,11 +21910,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoParameterType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IParameterType exposée
-// par la CoClasse ParameterType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoParameterType provides a Create and CreateRemote method to          
+// create instances of the default interface IParameterType exposed by              
+// the CoClass ParameterType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoParameterType = class
     class function Create: IParameterType;
@@ -21925,11 +21922,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoKeyTransportType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IKeyTransportType exposée
-// par la CoClasse KeyTransportType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoKeyTransportType provides a Create and CreateRemote method to          
+// create instances of the default interface IKeyTransportType exposed by              
+// the CoClass KeyTransportType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoKeyTransportType = class
     class function Create: IKeyTransportType;
@@ -21937,11 +21934,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoRecipientIdentifierType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IRecipientIdentifierType exposée
-// par la CoClasse RecipientIdentifierType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoRecipientIdentifierType provides a Create and CreateRemote method to          
+// create instances of the default interface IRecipientIdentifierType exposed by              
+// the CoClass RecipientIdentifierType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoRecipientIdentifierType = class
     class function Create: IRecipientIdentifierType;
@@ -21949,11 +21946,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoIssuerAndSerialNumberType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IIssuerAndSerialNumberType exposée
-// par la CoClasse IssuerAndSerialNumberType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoIssuerAndSerialNumberType provides a Create and CreateRemote method to          
+// create instances of the default interface IIssuerAndSerialNumberType exposed by              
+// the CoClass IssuerAndSerialNumberType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoIssuerAndSerialNumberType = class
     class function Create: IIssuerAndSerialNumberType;
@@ -21961,11 +21958,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoRelativeDistinguishedNameType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IRelativeDistinguishedNameType exposée
-// par la CoClasse RelativeDistinguishedNameType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoRelativeDistinguishedNameType provides a Create and CreateRemote method to          
+// create instances of the default interface IRelativeDistinguishedNameType exposed by              
+// the CoClass RelativeDistinguishedNameType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoRelativeDistinguishedNameType = class
     class function Create: IRelativeDistinguishedNameType;
@@ -21973,11 +21970,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEncapsulatedContentType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEncapsulatedContentType exposée
-// par la CoClasse EncapsulatedContentType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEncapsulatedContentType provides a Create and CreateRemote method to          
+// create instances of the default interface IEncapsulatedContentType exposed by              
+// the CoClass EncapsulatedContentType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEncapsulatedContentType = class
     class function Create: IEncapsulatedContentType;
@@ -21985,11 +21982,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDigestedDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IDigestedDataType exposée
-// par la CoClasse DigestedDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDigestedDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IDigestedDataType exposed by              
+// the CoClass DigestedDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDigestedDataType = class
     class function Create: IDigestedDataType;
@@ -21997,11 +21994,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEncryptedContentType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEncryptedContentType exposée
-// par la CoClasse EncryptedContentType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEncryptedContentType provides a Create and CreateRemote method to          
+// create instances of the default interface IEncryptedContentType exposed by              
+// the CoClass EncryptedContentType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEncryptedContentType = class
     class function Create: IEncryptedContentType;
@@ -22009,11 +22006,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEnvelopedDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnvelopedDataType exposée
-// par la CoClasse EnvelopedDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEnvelopedDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IEnvelopedDataType exposed by              
+// the CoClass EnvelopedDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEnvelopedDataType = class
     class function Create: IEnvelopedDataType;
@@ -22021,11 +22018,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoIssuerType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IIssuerType exposée
-// par la CoClasse IssuerType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoIssuerType provides a Create and CreateRemote method to          
+// create instances of the default interface IIssuerType exposed by              
+// the CoClass IssuerType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoIssuerType = class
     class function Create: IIssuerType;
@@ -22033,11 +22030,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNamedKeyEncryptedDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INamedKeyEncryptedDataType exposée
-// par la CoClasse NamedKeyEncryptedDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNamedKeyEncryptedDataType provides a Create and CreateRemote method to          
+// create instances of the default interface INamedKeyEncryptedDataType exposed by              
+// the CoClass NamedKeyEncryptedDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNamedKeyEncryptedDataType = class
     class function Create: INamedKeyEncryptedDataType;
@@ -22045,11 +22042,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSignedDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISignedDataType exposée
-// par la CoClasse SignedDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSignedDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ISignedDataType exposed by              
+// the CoClass SignedDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSignedDataType = class
     class function Create: ISignedDataType;
@@ -22057,11 +22054,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSignerType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISignerType exposée
-// par la CoClasse SignerType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSignerType provides a Create and CreateRemote method to          
+// create instances of the default interface ISignerType exposed by              
+// the CoClass SignerType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSignerType = class
     class function Create: ISignerType;
@@ -22069,11 +22066,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSignerIdentifierType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISignerIdentifierType exposée
-// par la CoClasse SignerIdentifierType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSignerIdentifierType provides a Create and CreateRemote method to          
+// create instances of the default interface ISignerIdentifierType exposed by              
+// the CoClass SignerIdentifierType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSignerIdentifierType = class
     class function Create: ISignerIdentifierType;
@@ -22081,11 +22078,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoContentInformationType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IContentInformationType exposée
-// par la CoClasse ContentInformationType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoContentInformationType provides a Create and CreateRemote method to          
+// create instances of the default interface IContentInformationType exposed by              
+// the CoClass ContentInformationType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoContentInformationType = class
     class function Create: IContentInformationType;
@@ -22093,11 +22090,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAbortRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAbortRequestType exposée
-// par la CoClasse AbortRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAbortRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IAbortRequestType exposed by              
+// the CoClass AbortRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAbortRequestType = class
     class function Create: IAbortRequestType;
@@ -22105,11 +22102,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMessageReferenceType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IMessageReferenceType exposée
-// par la CoClasse MessageReferenceType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMessageReferenceType provides a Create and CreateRemote method to          
+// create instances of the default interface IMessageReferenceType exposed by              
+// the CoClass MessageReferenceType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMessageReferenceType = class
     class function Create: IMessageReferenceType;
@@ -22117,11 +22114,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAdminRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAdminRequestType exposée
-// par la CoClasse AdminRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAdminRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IAdminRequestType exposed by              
+// the CoClass AdminRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAdminRequestType = class
     class function Create: IAdminRequestType;
@@ -22129,11 +22126,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAdminResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAdminResponseType exposée
-// par la CoClasse AdminResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAdminResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IAdminResponseType exposed by              
+// the CoClass AdminResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAdminResponseType = class
     class function Create: IAdminResponseType;
@@ -22141,11 +22138,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAllowedProductType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAllowedProductType exposée
-// par la CoClasse AllowedProductType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAllowedProductType provides a Create and CreateRemote method to          
+// create instances of the default interface IAllowedProductType exposed by              
+// the CoClass AllowedProductType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAllowedProductType = class
     class function Create: IAllowedProductType;
@@ -22153,11 +22150,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAmountsReqType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAmountsReqType exposée
-// par la CoClasse AmountsReqType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAmountsReqType provides a Create and CreateRemote method to          
+// create instances of the default interface IAmountsReqType exposed by              
+// the CoClass AmountsReqType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAmountsReqType = class
     class function Create: IAmountsReqType;
@@ -22165,11 +22162,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAmountsRespType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAmountsRespType exposée
-// par la CoClasse AmountsRespType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAmountsRespType provides a Create and CreateRemote method to          
+// create instances of the default interface IAmountsRespType exposed by              
+// the CoClass AmountsRespType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAmountsRespType = class
     class function Create: IAmountsRespType;
@@ -22177,11 +22174,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAreaSizeType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAreaSizeType exposée
-// par la CoClasse AreaSizeType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAreaSizeType provides a Create and CreateRemote method to          
+// create instances of the default interface IAreaSizeType exposed by              
+// the CoClass AreaSizeType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAreaSizeType = class
     class function Create: IAreaSizeType;
@@ -22189,11 +22186,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoBalanceInquiryRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IBalanceInquiryRequestType exposée
-// par la CoClasse BalanceInquiryRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoBalanceInquiryRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IBalanceInquiryRequestType exposed by              
+// the CoClass BalanceInquiryRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoBalanceInquiryRequestType = class
     class function Create: IBalanceInquiryRequestType;
@@ -22201,11 +22198,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentAccountReqType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentAccountReqType exposée
-// par la CoClasse PaymentAccountReqType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentAccountReqType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentAccountReqType exposed by              
+// the CoClass PaymentAccountReqType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentAccountReqType = class
     class function Create: IPaymentAccountReqType;
@@ -22213,11 +22210,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransactionIdentificationType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransactionIdentificationType exposée
-// par la CoClasse TransactionIdentificationType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransactionIdentificationType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransactionIdentificationType exposed by              
+// the CoClass TransactionIdentificationType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransactionIdentificationType = class
     class function Create: ITransactionIdentificationType;
@@ -22225,11 +22222,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentInstrumentDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentInstrumentDataType exposée
-// par la CoClasse PaymentInstrumentDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentInstrumentDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentInstrumentDataType exposed by              
+// the CoClass PaymentInstrumentDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentInstrumentDataType = class
     class function Create: IPaymentInstrumentDataType;
@@ -22237,11 +22234,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardDataType exposée
-// par la CoClasse CardDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardDataType exposed by              
+// the CoClass CardDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardDataType = class
     class function Create: ICardDataType;
@@ -22249,11 +22246,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSensitiveCardDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISensitiveCardDataType exposée
-// par la CoClasse SensitiveCardDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSensitiveCardDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ISensitiveCardDataType exposed by              
+// the CoClass SensitiveCardDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSensitiveCardDataType = class
     class function Create: ISensitiveCardDataType;
@@ -22261,11 +22258,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTrackDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITrackDataType exposée
-// par la CoClasse TrackDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTrackDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ITrackDataType exposed by              
+// the CoClass TrackDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTrackDataType = class
     class function Create: ITrackDataType;
@@ -22273,11 +22270,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentTokenType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentTokenType exposée
-// par la CoClasse PaymentTokenType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentTokenType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentTokenType exposed by              
+// the CoClass PaymentTokenType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentTokenType = class
     class function Create: IPaymentTokenType;
@@ -22285,11 +22282,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCustomerOrderType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICustomerOrderType exposée
-// par la CoClasse CustomerOrderType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCustomerOrderType provides a Create and CreateRemote method to          
+// create instances of the default interface ICustomerOrderType exposed by              
+// the CoClass CustomerOrderType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCustomerOrderType = class
     class function Create: ICustomerOrderType;
@@ -22297,11 +22294,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCheckDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICheckDataType exposée
-// par la CoClasse CheckDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCheckDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ICheckDataType exposed by              
+// the CoClass CheckDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCheckDataType = class
     class function Create: ICheckDataType;
@@ -22309,11 +22306,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMobileDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IMobileDataType exposée
-// par la CoClasse MobileDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMobileDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IMobileDataType exposed by              
+// the CoClass MobileDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMobileDataType = class
     class function Create: IMobileDataType;
@@ -22321,11 +22318,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoGeolocationType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IGeolocationType exposée
-// par la CoClasse GeolocationType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoGeolocationType provides a Create and CreateRemote method to          
+// create instances of the default interface IGeolocationType exposed by              
+// the CoClass GeolocationType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoGeolocationType = class
     class function Create: IGeolocationType;
@@ -22333,11 +22330,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoGeographicCoordinatesType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IGeographicCoordinatesType exposée
-// par la CoClasse GeographicCoordinatesType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoGeographicCoordinatesType provides a Create and CreateRemote method to          
+// create instances of the default interface IGeographicCoordinatesType exposed by              
+// the CoClass GeographicCoordinatesType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoGeographicCoordinatesType = class
     class function Create: IGeographicCoordinatesType;
@@ -22345,11 +22342,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoUTMCoordinatesType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IUTMCoordinatesType exposée
-// par la CoClasse UTMCoordinatesType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoUTMCoordinatesType provides a Create and CreateRemote method to          
+// create instances of the default interface IUTMCoordinatesType exposed by              
+// the CoClass UTMCoordinatesType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoUTMCoordinatesType = class
     class function Create: IUTMCoordinatesType;
@@ -22357,11 +22354,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSensitiveMobileDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISensitiveMobileDataType exposée
-// par la CoClasse SensitiveMobileDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSensitiveMobileDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ISensitiveMobileDataType exposed by              
+// the CoClass SensitiveMobileDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSensitiveMobileDataType = class
     class function Create: ISensitiveMobileDataType;
@@ -22369,11 +22366,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyAccountReqType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyAccountReqType exposée
-// par la CoClasse LoyaltyAccountReqType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyAccountReqType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyAccountReqType exposed by              
+// the CoClass LoyaltyAccountReqType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyAccountReqType = class
     class function Create: ILoyaltyAccountReqType;
@@ -22381,11 +22378,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyAccountIDType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyAccountIDType exposée
-// par la CoClasse LoyaltyAccountIDType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyAccountIDType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyAccountIDType exposed by              
+// the CoClass LoyaltyAccountIDType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyAccountIDType = class
     class function Create: ILoyaltyAccountIDType;
@@ -22393,11 +22390,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoBalanceInquiryResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IBalanceInquiryResponseType exposée
-// par la CoClasse BalanceInquiryResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoBalanceInquiryResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IBalanceInquiryResponseType exposed by              
+// the CoClass BalanceInquiryResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoBalanceInquiryResponseType = class
     class function Create: IBalanceInquiryResponseType;
@@ -22405,11 +22402,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentAccountStatusType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentAccountStatusType exposée
-// par la CoClasse PaymentAccountStatusType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentAccountStatusType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentAccountStatusType exposed by              
+// the CoClass PaymentAccountStatusType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentAccountStatusType = class
     class function Create: IPaymentAccountStatusType;
@@ -22417,11 +22414,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentAcquirerDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentAcquirerDataType exposée
-// par la CoClasse PaymentAcquirerDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentAcquirerDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentAcquirerDataType exposed by              
+// the CoClass PaymentAcquirerDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentAcquirerDataType = class
     class function Create: IPaymentAcquirerDataType;
@@ -22429,11 +22426,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyAccountStatusType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyAccountStatusType exposée
-// par la CoClasse LoyaltyAccountStatusType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyAccountStatusType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyAccountStatusType exposed by              
+// the CoClass LoyaltyAccountStatusType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyAccountStatusType = class
     class function Create: ILoyaltyAccountStatusType;
@@ -22441,11 +22438,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyAccountType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyAccountType exposée
-// par la CoClasse LoyaltyAccountType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyAccountType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyAccountType exposed by              
+// the CoClass LoyaltyAccountType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyAccountType = class
     class function Create: ILoyaltyAccountType;
@@ -22453,11 +22450,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoBatchRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IBatchRequestType exposée
-// par la CoClasse BatchRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoBatchRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IBatchRequestType exposed by              
+// the CoClass BatchRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoBatchRequestType = class
     class function Create: IBatchRequestType;
@@ -22465,11 +22462,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransactionToPerformType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransactionToPerformType exposée
-// par la CoClasse TransactionToPerformType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransactionToPerformType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransactionToPerformType exposed by              
+// the CoClass TransactionToPerformType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransactionToPerformType = class
     class function Create: ITransactionToPerformType;
@@ -22477,11 +22474,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyRequestType exposée
-// par la CoClasse LoyaltyRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyRequestType exposed by              
+// the CoClass LoyaltyRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyRequestType = class
     class function Create: ILoyaltyRequestType;
@@ -22489,11 +22486,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleDataType exposée
-// par la CoClasse SaleDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleDataType exposed by              
+// the CoClass SaleDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleDataType = class
     class function Create: ISaleDataType;
@@ -22501,11 +22498,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleTerminalDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleTerminalDataType exposée
-// par la CoClasse SaleTerminalDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleTerminalDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleTerminalDataType exposed by              
+// the CoClass SaleTerminalDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleTerminalDataType = class
     class function Create: ISaleTerminalDataType;
@@ -22513,11 +22510,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleProfileType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleProfileType exposée
-// par la CoClasse SaleProfileType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleProfileType provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleProfileType exposed by              
+// the CoClass SaleProfileType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleProfileType = class
     class function Create: ISaleProfileType;
@@ -22525,11 +22522,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSponsoredMerchantType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISponsoredMerchantType exposée
-// par la CoClasse SponsoredMerchantType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSponsoredMerchantType provides a Create and CreateRemote method to          
+// create instances of the default interface ISponsoredMerchantType exposed by              
+// the CoClass SponsoredMerchantType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSponsoredMerchantType = class
     class function Create: ISponsoredMerchantType;
@@ -22537,11 +22534,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleToIssuerDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleToIssuerDataType exposée
-// par la CoClasse SaleToIssuerDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleToIssuerDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleToIssuerDataType exposed by              
+// the CoClass SaleToIssuerDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleToIssuerDataType = class
     class function Create: ISaleToIssuerDataType;
@@ -22549,11 +22546,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyTransactionType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyTransactionType exposée
-// par la CoClasse LoyaltyTransactionType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyTransactionType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyTransactionType exposed by              
+// the CoClass LoyaltyTransactionType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyTransactionType = class
     class function Create: ILoyaltyTransactionType;
@@ -22561,11 +22558,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoOriginalPOITransactionType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IOriginalPOITransactionType exposée
-// par la CoClasse OriginalPOITransactionType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoOriginalPOITransactionType provides a Create and CreateRemote method to          
+// create instances of the default interface IOriginalPOITransactionType exposed by              
+// the CoClass OriginalPOITransactionType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoOriginalPOITransactionType = class
     class function Create: IOriginalPOITransactionType;
@@ -22573,11 +22570,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransactionConditionsType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransactionConditionsType exposée
-// par la CoClasse TransactionConditionsType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransactionConditionsType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransactionConditionsType exposed by              
+// the CoClass TransactionConditionsType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransactionConditionsType = class
     class function Create: ITransactionConditionsType;
@@ -22585,11 +22582,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleItemType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleItemType exposée
-// par la CoClasse SaleItemType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleItemType provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleItemType exposed by              
+// the CoClass SaleItemType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleItemType = class
     class function Create: ISaleItemType;
@@ -22597,11 +22594,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyDataType exposée
-// par la CoClasse LoyaltyDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyDataType exposed by              
+// the CoClass LoyaltyDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyDataType = class
     class function Create: ILoyaltyDataType;
@@ -22609,11 +22606,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyAmountType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyAmountType exposée
-// par la CoClasse LoyaltyAmountType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyAmountType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyAmountType exposed by              
+// the CoClass LoyaltyAmountType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyAmountType = class
     class function Create: ILoyaltyAmountType;
@@ -22621,11 +22618,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentRequestType exposée
-// par la CoClasse PaymentRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentRequestType exposed by              
+// the CoClass PaymentRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentRequestType = class
     class function Create: IPaymentRequestType;
@@ -22633,11 +22630,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentTransactionType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentTransactionType exposée
-// par la CoClasse PaymentTransactionType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentTransactionType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentTransactionType exposed by              
+// the CoClass PaymentTransactionType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentTransactionType = class
     class function Create: IPaymentTransactionType;
@@ -22645,11 +22642,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentDataType exposée
-// par la CoClasse PaymentDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentDataType exposed by              
+// the CoClass PaymentDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentDataType = class
     class function Create: IPaymentDataType;
@@ -22657,11 +22654,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoInstalmentType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IInstalmentType exposée
-// par la CoClasse InstalmentType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoInstalmentType provides a Create and CreateRemote method to          
+// create instances of the default interface IInstalmentType exposed by              
+// the CoClass InstalmentType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoInstalmentType = class
     class function Create: IInstalmentType;
@@ -22669,11 +22666,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoReversalRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IReversalRequestType exposée
-// par la CoClasse ReversalRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoReversalRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IReversalRequestType exposed by              
+// the CoClass ReversalRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoReversalRequestType = class
     class function Create: IReversalRequestType;
@@ -22681,11 +22678,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoBatchResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IBatchResponseType exposée
-// par la CoClasse BatchResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoBatchResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IBatchResponseType exposed by              
+// the CoClass BatchResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoBatchResponseType = class
     class function Create: IBatchResponseType;
@@ -22693,11 +22690,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPerformedTransactionType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPerformedTransactionType exposée
-// par la CoClasse PerformedTransactionType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPerformedTransactionType provides a Create and CreateRemote method to          
+// create instances of the default interface IPerformedTransactionType exposed by              
+// the CoClass PerformedTransactionType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPerformedTransactionType = class
     class function Create: IPerformedTransactionType;
@@ -22705,11 +22702,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPOIDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPOIDataType exposée
-// par la CoClasse POIDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPOIDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IPOIDataType exposed by              
+// the CoClass POIDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPOIDataType = class
     class function Create: IPOIDataType;
@@ -22717,11 +22714,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentResultType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentResultType exposée
-// par la CoClasse PaymentResultType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentResultType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentResultType exposed by              
+// the CoClass PaymentResultType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentResultType = class
     class function Create: IPaymentResultType;
@@ -22729,11 +22726,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCurrencyConversionType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICurrencyConversionType exposée
-// par la CoClasse CurrencyConversionType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCurrencyConversionType provides a Create and CreateRemote method to          
+// create instances of the default interface ICurrencyConversionType exposed by              
+// the CoClass CurrencyConversionType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCurrencyConversionType = class
     class function Create: ICurrencyConversionType;
@@ -22741,11 +22738,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoAmountType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IAmountType exposée
-// par la CoClasse AmountType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoAmountType provides a Create and CreateRemote method to          
+// create instances of the default interface IAmountType exposed by              
+// the CoClass AmountType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoAmountType = class
     class function Create: IAmountType;
@@ -22753,11 +22750,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCapturedSignatureType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICapturedSignatureType exposée
-// par la CoClasse CapturedSignatureType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCapturedSignatureType provides a Create and CreateRemote method to          
+// create instances of the default interface ICapturedSignatureType exposed by              
+// the CoClass CapturedSignatureType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCapturedSignatureType = class
     class function Create: ICapturedSignatureType;
@@ -22765,11 +22762,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSignaturePointType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISignaturePointType exposée
-// par la CoClasse SignaturePointType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSignaturePointType provides a Create and CreateRemote method to          
+// create instances of the default interface ISignaturePointType exposed by              
+// the CoClass SignaturePointType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSignaturePointType = class
     class function Create: ISignaturePointType;
@@ -22777,11 +22774,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyResultType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyResultType exposée
-// par la CoClasse LoyaltyResultType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyResultType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyResultType exposed by              
+// the CoClass LoyaltyResultType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyResultType = class
     class function Create: ILoyaltyResultType;
@@ -22789,11 +22786,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyAcquirerDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyAcquirerDataType exposée
-// par la CoClasse LoyaltyAcquirerDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyAcquirerDataType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyAcquirerDataType exposed by              
+// the CoClass LoyaltyAcquirerDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyAcquirerDataType = class
     class function Create: ILoyaltyAcquirerDataType;
@@ -22801,11 +22798,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoRebatesType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IRebatesType exposée
-// par la CoClasse RebatesType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoRebatesType provides a Create and CreateRemote method to          
+// create instances of the default interface IRebatesType exposed by              
+// the CoClass RebatesType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoRebatesType = class
     class function Create: IRebatesType;
@@ -22813,11 +22810,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleItemRebateType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleItemRebateType exposée
-// par la CoClasse SaleItemRebateType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleItemRebateType provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleItemRebateType exposed by              
+// the CoClass SaleItemRebateType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleItemRebateType = class
     class function Create: ISaleItemRebateType;
@@ -22825,11 +22822,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardAcquisitionRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardAcquisitionRequestType exposée
-// par la CoClasse CardAcquisitionRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardAcquisitionRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardAcquisitionRequestType exposed by              
+// the CoClass CardAcquisitionRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardAcquisitionRequestType = class
     class function Create: ICardAcquisitionRequestType;
@@ -22837,11 +22834,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardAcquisitionTransactionType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardAcquisitionTransactionType exposée
-// par la CoClasse CardAcquisitionTransactionType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardAcquisitionTransactionType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardAcquisitionTransactionType exposed by              
+// the CoClass CardAcquisitionTransactionType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardAcquisitionTransactionType = class
     class function Create: ICardAcquisitionTransactionType;
@@ -22849,11 +22846,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardAcquisitionResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardAcquisitionResponseType exposée
-// par la CoClasse CardAcquisitionResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardAcquisitionResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardAcquisitionResponseType exposed by              
+// the CoClass CardAcquisitionResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardAcquisitionResponseType = class
     class function Create: ICardAcquisitionResponseType;
@@ -22861,11 +22858,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardholderPINType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardholderPINType exposée
-// par la CoClasse CardholderPINType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardholderPINType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardholderPINType exposed by              
+// the CoClass CardholderPINType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardholderPINType = class
     class function Create: ICardholderPINType;
@@ -22873,11 +22870,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardReaderAPDURequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardReaderAPDURequestType exposée
-// par la CoClasse CardReaderAPDURequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardReaderAPDURequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardReaderAPDURequestType exposed by              
+// the CoClass CardReaderAPDURequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardReaderAPDURequestType = class
     class function Create: ICardReaderAPDURequestType;
@@ -22885,11 +22882,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardReaderAPDUResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardReaderAPDUResponseType exposée
-// par la CoClasse CardReaderAPDUResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardReaderAPDUResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardReaderAPDUResponseType exposed by              
+// the CoClass CardReaderAPDUResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardReaderAPDUResponseType = class
     class function Create: ICardReaderAPDUResponseType;
@@ -22897,11 +22894,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardReaderInitRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardReaderInitRequestType exposée
-// par la CoClasse CardReaderInitRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardReaderInitRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardReaderInitRequestType exposed by              
+// the CoClass CardReaderInitRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardReaderInitRequestType = class
     class function Create: ICardReaderInitRequestType;
@@ -22909,11 +22906,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardReaderInitResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardReaderInitResponseType exposée
-// par la CoClasse CardReaderInitResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardReaderInitResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardReaderInitResponseType exposed by              
+// the CoClass CardReaderInitResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardReaderInitResponseType = class
     class function Create: ICardReaderInitResponseType;
@@ -22921,11 +22918,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoICCResetDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IICCResetDataType exposée
-// par la CoClasse ICCResetDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoICCResetDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IICCResetDataType exposed by              
+// the CoClass ICCResetDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoICCResetDataType = class
     class function Create: IICCResetDataType;
@@ -22933,11 +22930,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardReaderPowerOffRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardReaderPowerOffRequestType exposée
-// par la CoClasse CardReaderPowerOffRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardReaderPowerOffRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardReaderPowerOffRequestType exposed by              
+// the CoClass CardReaderPowerOffRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardReaderPowerOffRequestType = class
     class function Create: ICardReaderPowerOffRequestType;
@@ -22945,11 +22942,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCardReaderPowerOffResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICardReaderPowerOffResponseType exposée
-// par la CoClasse CardReaderPowerOffResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCardReaderPowerOffResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ICardReaderPowerOffResponseType exposed by              
+// the CoClass CardReaderPowerOffResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCardReaderPowerOffResponseType = class
     class function Create: ICardReaderPowerOffResponseType;
@@ -22957,11 +22954,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCashHandlingDeviceType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICashHandlingDeviceType exposée
-// par la CoClasse CashHandlingDeviceType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCashHandlingDeviceType provides a Create and CreateRemote method to          
+// create instances of the default interface ICashHandlingDeviceType exposed by              
+// the CoClass CashHandlingDeviceType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCashHandlingDeviceType = class
     class function Create: ICashHandlingDeviceType;
@@ -22969,11 +22966,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoCoinsOrBillsType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ICoinsOrBillsType exposée
-// par la CoClasse CoinsOrBillsType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoCoinsOrBillsType provides a Create and CreateRemote method to          
+// create instances of the default interface ICoinsOrBillsType exposed by              
+// the CoClass CoinsOrBillsType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoCoinsOrBillsType = class
     class function Create: ICoinsOrBillsType;
@@ -22981,11 +22978,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDiagnosisRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IDiagnosisRequestType exposée
-// par la CoClasse DiagnosisRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDiagnosisRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IDiagnosisRequestType exposed by              
+// the CoClass DiagnosisRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDiagnosisRequestType = class
     class function Create: IDiagnosisRequestType;
@@ -22993,11 +22990,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoDiagnosisResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IDiagnosisResponseType exposée
-// par la CoClasse DiagnosisResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoDiagnosisResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IDiagnosisResponseType exposed by              
+// the CoClass DiagnosisResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoDiagnosisResponseType = class
     class function Create: IDiagnosisResponseType;
@@ -23005,11 +23002,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPOIStatusType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPOIStatusType exposée
-// par la CoClasse POIStatusType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPOIStatusType provides a Create and CreateRemote method to          
+// create instances of the default interface IPOIStatusType exposed by              
+// the CoClass POIStatusType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPOIStatusType = class
     class function Create: IPOIStatusType;
@@ -23017,11 +23014,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoHostStatusType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IHostStatusType exposée
-// par la CoClasse HostStatusType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoHostStatusType provides a Create and CreateRemote method to          
+// create instances of the default interface IHostStatusType exposed by              
+// the CoClass HostStatusType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoHostStatusType = class
     class function Create: IHostStatusType;
@@ -23029,11 +23026,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEnableServiceRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnableServiceRequestType exposée
-// par la CoClasse EnableServiceRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEnableServiceRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IEnableServiceRequestType exposed by              
+// the CoClass EnableServiceRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEnableServiceRequestType = class
     class function Create: IEnableServiceRequestType;
@@ -23041,11 +23038,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEnableServiceResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnableServiceResponseType exposée
-// par la CoClasse EnableServiceResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEnableServiceResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IEnableServiceResponseType exposed by              
+// the CoClass EnableServiceResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEnableServiceResponseType = class
     class function Create: IEnableServiceResponseType;
@@ -23053,11 +23050,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoEventNotificationType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEventNotificationType exposée
-// par la CoClasse EventNotificationType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoEventNotificationType provides a Create and CreateRemote method to          
+// create instances of the default interface IEventNotificationType exposed by              
+// the CoClass EventNotificationType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoEventNotificationType = class
     class function Create: IEventNotificationType;
@@ -23065,11 +23062,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoGetTotalsRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IGetTotalsRequestType exposée
-// par la CoClasse GetTotalsRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoGetTotalsRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IGetTotalsRequestType exposed by              
+// the CoClass GetTotalsRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoGetTotalsRequestType = class
     class function Create: IGetTotalsRequestType;
@@ -23077,11 +23074,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTotalFilterType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITotalFilterType exposée
-// par la CoClasse TotalFilterType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTotalFilterType provides a Create and CreateRemote method to          
+// create instances of the default interface ITotalFilterType exposed by              
+// the CoClass TotalFilterType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTotalFilterType = class
     class function Create: ITotalFilterType;
@@ -23089,11 +23086,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoGetTotalsResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IGetTotalsResponseType exposée
-// par la CoClasse GetTotalsResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoGetTotalsResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IGetTotalsResponseType exposed by              
+// the CoClass GetTotalsResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoGetTotalsResponseType = class
     class function Create: IGetTotalsResponseType;
@@ -23101,11 +23098,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransactionTotalsType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransactionTotalsType exposée
-// par la CoClasse TransactionTotalsType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransactionTotalsType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransactionTotalsType exposed by              
+// the CoClass TransactionTotalsType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransactionTotalsType = class
     class function Create: ITransactionTotalsType;
@@ -23113,11 +23110,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentTotalsType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentTotalsType exposée
-// par la CoClasse PaymentTotalsType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentTotalsType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentTotalsType exposed by              
+// the CoClass PaymentTotalsType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentTotalsType = class
     class function Create: IPaymentTotalsType;
@@ -23125,11 +23122,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyTotalsType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyTotalsType exposée
-// par la CoClasse LoyaltyTotalsType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyTotalsType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyTotalsType exposed by              
+// the CoClass LoyaltyTotalsType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyTotalsType = class
     class function Create: ILoyaltyTotalsType;
@@ -23137,11 +23134,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoInputType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IInputType exposée
-// par la CoClasse InputType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoInputType provides a Create and CreateRemote method to          
+// create instances of the default interface IInputType exposed by              
+// the CoClass InputType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoInputType = class
     class function Create: IInputType;
@@ -23149,11 +23146,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoInputDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IInputDataType exposée
-// par la CoClasse InputDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoInputDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IInputDataType exposed by              
+// the CoClass InputDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoInputDataType = class
     class function Create: IInputDataType;
@@ -23161,11 +23158,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoInputRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IInputRequestType exposée
-// par la CoClasse InputRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoInputRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IInputRequestType exposed by              
+// the CoClass InputRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoInputRequestType = class
     class function Create: IInputRequestType;
@@ -23173,11 +23170,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoInputResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IInputResponseType exposée
-// par la CoClasse InputResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoInputResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IInputResponseType exposed by              
+// the CoClass InputResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoInputResponseType = class
     class function Create: IInputResponseType;
@@ -23185,11 +23182,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoInputResultType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IInputResultType exposée
-// par la CoClasse InputResultType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoInputResultType provides a Create and CreateRemote method to          
+// create instances of the default interface IInputResultType exposed by              
+// the CoClass InputResultType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoInputResultType = class
     class function Create: IInputResultType;
@@ -23197,11 +23194,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoInputUpdateType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IInputUpdateType exposée
-// par la CoClasse InputUpdateType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoInputUpdateType provides a Create and CreateRemote method to          
+// create instances of the default interface IInputUpdateType exposed by              
+// the CoClass InputUpdateType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoInputUpdateType = class
     class function Create: IInputUpdateType;
@@ -23209,11 +23206,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoginRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoginRequestType exposée
-// par la CoClasse LoginRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoginRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoginRequestType exposed by              
+// the CoClass LoginRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoginRequestType = class
     class function Create: ILoginRequestType;
@@ -23221,11 +23218,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleSoftwareType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleSoftwareType exposée
-// par la CoClasse SaleSoftwareType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleSoftwareType provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleSoftwareType exposed by              
+// the CoClass SaleSoftwareType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleSoftwareType = class
     class function Create: ISaleSoftwareType;
@@ -23233,11 +23230,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoginResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoginResponseType exposée
-// par la CoClasse LoginResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoginResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoginResponseType exposed by              
+// the CoClass LoginResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoginResponseType = class
     class function Create: ILoginResponseType;
@@ -23245,11 +23242,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPOISystemDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPOISystemDataType exposée
-// par la CoClasse POISystemDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPOISystemDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IPOISystemDataType exposed by              
+// the CoClass POISystemDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPOISystemDataType = class
     class function Create: IPOISystemDataType;
@@ -23257,11 +23254,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPOISoftwareType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPOISoftwareType exposée
-// par la CoClasse POISoftwareType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPOISoftwareType provides a Create and CreateRemote method to          
+// create instances of the default interface IPOISoftwareType exposed by              
+// the CoClass POISoftwareType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPOISoftwareType = class
     class function Create: IPOISoftwareType;
@@ -23269,11 +23266,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPOITerminalDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPOITerminalDataType exposée
-// par la CoClasse POITerminalDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPOITerminalDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IPOITerminalDataType exposed by              
+// the CoClass POITerminalDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPOITerminalDataType = class
     class function Create: IPOITerminalDataType;
@@ -23281,11 +23278,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPOIProfileType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPOIProfileType exposée
-// par la CoClasse POIProfileType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPOIProfileType provides a Create and CreateRemote method to          
+// create instances of the default interface IPOIProfileType exposed by              
+// the CoClass POIProfileType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPOIProfileType = class
     class function Create: IPOIProfileType;
@@ -23293,11 +23290,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLogoutRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILogoutRequestType exposée
-// par la CoClasse LogoutRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLogoutRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ILogoutRequestType exposed by              
+// the CoClass LogoutRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLogoutRequestType = class
     class function Create: ILogoutRequestType;
@@ -23305,11 +23302,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLogoutResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILogoutResponseType exposée
-// par la CoClasse LogoutResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLogoutResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ILogoutResponseType exposed by              
+// the CoClass LogoutResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLogoutResponseType = class
     class function Create: ILogoutResponseType;
@@ -23317,11 +23314,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoLoyaltyResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ILoyaltyResponseType exposée
-// par la CoClasse LoyaltyResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoLoyaltyResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ILoyaltyResponseType exposed by              
+// the CoClass LoyaltyResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoLoyaltyResponseType = class
     class function Create: ILoyaltyResponseType;
@@ -23329,11 +23326,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentReceiptType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentReceiptType exposée
-// par la CoClasse PaymentReceiptType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentReceiptType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentReceiptType exposed by              
+// the CoClass PaymentReceiptType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentReceiptType = class
     class function Create: IPaymentReceiptType;
@@ -23341,11 +23338,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoMessageHeaderType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IMessageHeaderType exposée
-// par la CoClasse MessageHeaderType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoMessageHeaderType provides a Create and CreateRemote method to          
+// create instances of the default interface IMessageHeaderType exposed by              
+// the CoClass MessageHeaderType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoMessageHeaderType = class
     class function Create: IMessageHeaderType;
@@ -23353,11 +23350,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPaymentResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPaymentResponseType exposée
-// par la CoClasse PaymentResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPaymentResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IPaymentResponseType exposed by              
+// the CoClass PaymentResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPaymentResponseType = class
     class function Create: IPaymentResponseType;
@@ -23365,11 +23362,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPINRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPINRequestType exposée
-// par la CoClasse PINRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPINRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IPINRequestType exposed by              
+// the CoClass PINRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPINRequestType = class
     class function Create: IPINRequestType;
@@ -23377,11 +23374,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPINResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPINResponseType exposée
-// par la CoClasse PINResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPINResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IPINResponseType exposed by              
+// the CoClass PINResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPINResponseType = class
     class function Create: IPINResponseType;
@@ -23389,11 +23386,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPrintOutputType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPrintOutputType exposée
-// par la CoClasse PrintOutputType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPrintOutputType provides a Create and CreateRemote method to          
+// create instances of the default interface IPrintOutputType exposed by              
+// the CoClass PrintOutputType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPrintOutputType = class
     class function Create: IPrintOutputType;
@@ -23401,11 +23398,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPrintRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPrintRequestType exposée
-// par la CoClasse PrintRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPrintRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IPrintRequestType exposed by              
+// the CoClass PrintRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPrintRequestType = class
     class function Create: IPrintRequestType;
@@ -23413,11 +23410,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoPrintResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IPrintResponseType exposée
-// par la CoClasse PrintResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoPrintResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IPrintResponseType exposed by              
+// the CoClass PrintResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoPrintResponseType = class
     class function Create: IPrintResponseType;
@@ -23425,11 +23422,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoReconciliationRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IReconciliationRequestType exposée
-// par la CoClasse ReconciliationRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoReconciliationRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IReconciliationRequestType exposed by              
+// the CoClass ReconciliationRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoReconciliationRequestType = class
     class function Create: IReconciliationRequestType;
@@ -23437,11 +23434,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoReconciliationResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IReconciliationResponseType exposée
-// par la CoClasse ReconciliationResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoReconciliationResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IReconciliationResponseType exposed by              
+// the CoClass ReconciliationResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoReconciliationResponseType = class
     class function Create: IReconciliationResponseType;
@@ -23449,11 +23446,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoRepeatedMessageResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IRepeatedMessageResponseType exposée
-// par la CoClasse RepeatedMessageResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoRepeatedMessageResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IRepeatedMessageResponseType exposed by              
+// the CoClass RepeatedMessageResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoRepeatedMessageResponseType = class
     class function Create: IRepeatedMessageResponseType;
@@ -23461,11 +23458,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoReversalResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IReversalResponseType exposée
-// par la CoClasse ReversalResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoReversalResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IReversalResponseType exposed by              
+// the CoClass ReversalResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoReversalResponseType = class
     class function Create: IReversalResponseType;
@@ -23473,11 +23470,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStoredValueResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStoredValueResponseType exposée
-// par la CoClasse StoredValueResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStoredValueResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface IStoredValueResponseType exposed by              
+// the CoClass StoredValueResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStoredValueResponseType = class
     class function Create: IStoredValueResponseType;
@@ -23485,11 +23482,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStoredValueResultType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStoredValueResultType exposée
-// par la CoClasse StoredValueResultType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStoredValueResultType provides a Create and CreateRemote method to          
+// create instances of the default interface IStoredValueResultType exposed by              
+// the CoClass StoredValueResultType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStoredValueResultType = class
     class function Create: IStoredValueResultType;
@@ -23497,11 +23494,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStoredValueAccountStatusType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStoredValueAccountStatusType exposée
-// par la CoClasse StoredValueAccountStatusType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStoredValueAccountStatusType provides a Create and CreateRemote method to          
+// create instances of the default interface IStoredValueAccountStatusType exposed by              
+// the CoClass StoredValueAccountStatusType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStoredValueAccountStatusType = class
     class function Create: IStoredValueAccountStatusType;
@@ -23509,11 +23506,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStoredValueAccountIDType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStoredValueAccountIDType exposée
-// par la CoClasse StoredValueAccountIDType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStoredValueAccountIDType provides a Create and CreateRemote method to          
+// create instances of the default interface IStoredValueAccountIDType exposed by              
+// the CoClass StoredValueAccountIDType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStoredValueAccountIDType = class
     class function Create: IStoredValueAccountIDType;
@@ -23521,11 +23518,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSoundContentType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISoundContentType exposée
-// par la CoClasse SoundContentType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSoundContentType provides a Create and CreateRemote method to          
+// create instances of the default interface ISoundContentType exposed by              
+// the CoClass SoundContentType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSoundContentType = class
     class function Create: ISoundContentType;
@@ -23533,11 +23530,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSoundRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISoundRequestType exposée
-// par la CoClasse SoundRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSoundRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ISoundRequestType exposed by              
+// the CoClass SoundRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSoundRequestType = class
     class function Create: ISoundRequestType;
@@ -23545,11 +23542,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSoundResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISoundResponseType exposée
-// par la CoClasse SoundResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSoundResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ISoundResponseType exposed by              
+// the CoClass SoundResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSoundResponseType = class
     class function Create: ISoundResponseType;
@@ -23557,11 +23554,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStoredValueDataType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStoredValueDataType exposée
-// par la CoClasse StoredValueDataType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStoredValueDataType provides a Create and CreateRemote method to          
+// create instances of the default interface IStoredValueDataType exposed by              
+// the CoClass StoredValueDataType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStoredValueDataType = class
     class function Create: IStoredValueDataType;
@@ -23569,11 +23566,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoStoredValueRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IStoredValueRequestType exposée
-// par la CoClasse StoredValueRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoStoredValueRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface IStoredValueRequestType exposed by              
+// the CoClass StoredValueRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoStoredValueRequestType = class
     class function Create: IStoredValueRequestType;
@@ -23581,11 +23578,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransmitRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransmitRequestType exposée
-// par la CoClasse TransmitRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransmitRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransmitRequestType exposed by              
+// the CoClass TransmitRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransmitRequestType = class
     class function Create: ITransmitRequestType;
@@ -23593,11 +23590,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransmitResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransmitResponseType exposée
-// par la CoClasse TransmitResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransmitResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransmitResponseType exposed by              
+// the CoClass TransmitResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransmitResponseType = class
     class function Create: ITransmitResponseType;
@@ -23605,11 +23602,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransactionStatusRequestType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransactionStatusRequestType exposée
-// par la CoClasse TransactionStatusRequestType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransactionStatusRequestType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransactionStatusRequestType exposed by              
+// the CoClass TransactionStatusRequestType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransactionStatusRequestType = class
     class function Create: ITransactionStatusRequestType;
@@ -23617,11 +23614,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoTransactionStatusResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ITransactionStatusResponseType exposée
-// par la CoClasse TransactionStatusResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoTransactionStatusResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface ITransactionStatusResponseType exposed by              
+// the CoClass TransactionStatusResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoTransactionStatusResponseType = class
     class function Create: ITransactionStatusResponseType;
@@ -23629,11 +23626,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleToPOIRequest fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleToPOIRequest exposée
-// par la CoClasse SaleToPOIRequest. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleToPOIRequest provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleToPOIRequest exposed by              
+// the CoClass SaleToPOIRequest. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleToPOIRequest = class
     class function Create: ISaleToPOIRequest;
@@ -23641,11 +23638,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoSaleToPOIResponse fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut ISaleToPOIResponse exposée
-// par la CoClasse SaleToPOIResponse. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoSaleToPOIResponse provides a Create and CreateRemote method to          
+// create instances of the default interface ISaleToPOIResponse exposed by              
+// the CoClass SaleToPOIResponse. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoSaleToPOIResponse = class
     class function Create: ISaleToPOIResponse;
@@ -23653,11 +23650,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoActivity fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoActivity exposée
-// par la CoClasse NexoActivity. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoActivity provides a Create and CreateRemote method to          
+// create instances of the default interface INexoActivity exposed by              
+// the CoClass NexoActivity. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoActivity = class
     class function Create: INexoActivity;
@@ -23665,11 +23662,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDictionaryOfMessages fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoDictionaryOfMessages. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDictionaryOfMessages provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoDictionaryOfMessages. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDictionaryOfMessages = class
     class function Create: IEnumerable;
@@ -23677,11 +23674,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoListOfEndPoints fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoListOfEndPoints. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoListOfEndPoints provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoListOfEndPoints. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoListOfEndPoints = class
     class function Create: IEnumerable;
@@ -23689,11 +23686,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDictionaryOfEndPoints fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoDictionaryOfEndPoints. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDictionaryOfEndPoints provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoDictionaryOfEndPoints. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDictionaryOfEndPoints = class
     class function Create: IEnumerable;
@@ -23701,11 +23698,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoListOfSessions fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoListOfSessions. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoListOfSessions provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoListOfSessions. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoListOfSessions = class
     class function Create: IEnumerable;
@@ -23713,11 +23710,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDictionaryOfSessions fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoDictionaryOfSessions. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDictionaryOfSessions provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoDictionaryOfSessions. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDictionaryOfSessions = class
     class function Create: IEnumerable;
@@ -23725,11 +23722,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoListOfNexoKeys fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoListOfNexoKeys. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoListOfNexoKeys provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoListOfNexoKeys. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoListOfNexoKeys = class
     class function Create: IEnumerable;
@@ -23737,11 +23734,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDictionaryOfNexoKeys fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoDictionaryOfNexoKeys. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDictionaryOfNexoKeys provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoDictionaryOfNexoKeys. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDictionaryOfNexoKeys = class
     class function Create: IEnumerable;
@@ -23749,11 +23746,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoListOfAnyMessages fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoListOfAnyMessages. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoListOfAnyMessages provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoListOfAnyMessages. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoListOfAnyMessages = class
     class function Create: IEnumerable;
@@ -23761,11 +23758,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDictionaryOfAnyMessages fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoDictionaryOfAnyMessages. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDictionaryOfAnyMessages provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoDictionaryOfAnyMessages. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDictionaryOfAnyMessages = class
     class function Create: IEnumerable;
@@ -23773,11 +23770,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoAcceptedCommands fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoAcceptedCommands. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoAcceptedCommands provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoAcceptedCommands. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoAcceptedCommands = class
     class function Create: IEnumerable;
@@ -23785,11 +23782,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoItem fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoItem exposée
-// par la CoClasse NexoItem. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoItem provides a Create and CreateRemote method to          
+// create instances of the default interface INexoItem exposed by              
+// the CoClass NexoItem. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoItem = class
     class function Create: INexoItem;
@@ -23797,11 +23794,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoBalanceInquiry fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoBalanceInquiry exposée
-// par la CoClasse NexoBalanceInquiry. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoBalanceInquiry provides a Create and CreateRemote method to          
+// create instances of the default interface INexoBalanceInquiry exposed by              
+// the CoClass NexoBalanceInquiry. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoBalanceInquiry = class
     class function Create: INexoBalanceInquiry;
@@ -23809,11 +23806,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoBatch fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoBatch exposée
-// par la CoClasse NexoBatch. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoBatch provides a Create and CreateRemote method to          
+// create instances of the default interface INexoBatch exposed by              
+// the CoClass NexoBatch. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoBatch = class
     class function Create: INexoBatch;
@@ -23821,11 +23818,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCardAcquisition fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCardAcquisition exposée
-// par la CoClasse NexoCardAcquisition. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCardAcquisition provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCardAcquisition exposed by              
+// the CoClass NexoCardAcquisition. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCardAcquisition = class
     class function Create: INexoCardAcquisition;
@@ -23833,11 +23830,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCardReaderInit fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCardReaderInit exposée
-// par la CoClasse NexoCardReaderInit. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCardReaderInit provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCardReaderInit exposed by              
+// the CoClass NexoCardReaderInit. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCardReaderInit = class
     class function Create: INexoCardReaderInit;
@@ -23845,11 +23842,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCardReaderAPDU fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCardReaderAPDU exposée
-// par la CoClasse NexoCardReaderAPDU. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCardReaderAPDU provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCardReaderAPDU exposed by              
+// the CoClass NexoCardReaderAPDU. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCardReaderAPDU = class
     class function Create: INexoCardReaderAPDU;
@@ -23857,11 +23854,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCardReaderPowerOFF fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCardReaderPowerOFF exposée
-// par la CoClasse NexoCardReaderPowerOFF. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCardReaderPowerOFF provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCardReaderPowerOFF exposed by              
+// the CoClass NexoCardReaderPowerOFF. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCardReaderPowerOFF = class
     class function Create: INexoCardReaderPowerOFF;
@@ -23869,11 +23866,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDeviceDisplay fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDeviceDisplay exposée
-// par la CoClasse NexoDeviceDisplay. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDeviceDisplay provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDeviceDisplay exposed by              
+// the CoClass NexoDeviceDisplay. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDeviceDisplay = class
     class function Create: INexoDeviceDisplay;
@@ -23881,11 +23878,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDeviceInputUpdate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDeviceInputUpdate exposée
-// par la CoClasse NexoDeviceInputUpdate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDeviceInputUpdate provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDeviceInputUpdate exposed by              
+// the CoClass NexoDeviceInputUpdate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDeviceInputUpdate = class
     class function Create: INexoDeviceInputUpdate;
@@ -23893,11 +23890,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDeviceSound fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDeviceSound exposée
-// par la CoClasse NexoDeviceSound. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDeviceSound provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDeviceSound exposed by              
+// the CoClass NexoDeviceSound. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDeviceSound = class
     class function Create: INexoDeviceSound;
@@ -23905,11 +23902,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoEnableService fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoEnableService exposée
-// par la CoClasse NexoEnableService. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoEnableService provides a Create and CreateRemote method to          
+// create instances of the default interface INexoEnableService exposed by              
+// the CoClass NexoEnableService. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoEnableService = class
     class function Create: INexoEnableService;
@@ -23917,11 +23914,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoGetTotals fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoGetTotals exposée
-// par la CoClasse NexoGetTotals. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoGetTotals provides a Create and CreateRemote method to          
+// create instances of the default interface INexoGetTotals exposed by              
+// the CoClass NexoGetTotals. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoGetTotals = class
     class function Create: INexoGetTotals;
@@ -23929,11 +23926,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoLoyalty fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoLoyalty exposée
-// par la CoClasse NexoLoyalty. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoLoyalty provides a Create and CreateRemote method to          
+// create instances of the default interface INexoLoyalty exposed by              
+// the CoClass NexoLoyalty. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoLoyalty = class
     class function Create: INexoLoyalty;
@@ -23941,11 +23938,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoPayment fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoPayment exposée
-// par la CoClasse NexoPayment. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoPayment provides a Create and CreateRemote method to          
+// create instances of the default interface INexoPayment exposed by              
+// the CoClass NexoPayment. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoPayment = class
     class function Create: INexoPayment;
@@ -23953,11 +23950,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoPIN fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoPIN exposée
-// par la CoClasse NexoPIN. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoPIN provides a Create and CreateRemote method to          
+// create instances of the default interface INexoPIN exposed by              
+// the CoClass NexoPIN. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoPIN = class
     class function Create: INexoPIN;
@@ -23965,11 +23962,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoReconciliation fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoReconciliation exposée
-// par la CoClasse NexoReconciliation. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoReconciliation provides a Create and CreateRemote method to          
+// create instances of the default interface INexoReconciliation exposed by              
+// the CoClass NexoReconciliation. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoReconciliation = class
     class function Create: INexoReconciliation;
@@ -23977,11 +23974,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoStoredValue fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoStoredValue exposée
-// par la CoClasse NexoStoredValue. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoStoredValue provides a Create and CreateRemote method to          
+// create instances of the default interface INexoStoredValue exposed by              
+// the CoClass NexoStoredValue. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoStoredValue = class
     class function Create: INexoStoredValue;
@@ -23989,11 +23986,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoTransmit fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoTransmit exposée
-// par la CoClasse NexoTransmit. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoTransmit provides a Create and CreateRemote method to          
+// create instances of the default interface INexoTransmit exposed by              
+// the CoClass NexoTransmit. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoTransmit = class
     class function Create: INexoTransmit;
@@ -24001,11 +23998,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoAbort fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoAbort exposée
-// par la CoClasse NexoAbort. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoAbort provides a Create and CreateRemote method to          
+// create instances of the default interface INexoAbort exposed by              
+// the CoClass NexoAbort. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoAbort = class
     class function Create: INexoAbort;
@@ -24013,11 +24010,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDiagnosis fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDiagnosis exposée
-// par la CoClasse NexoDiagnosis. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDiagnosis provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDiagnosis exposed by              
+// the CoClass NexoDiagnosis. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDiagnosis = class
     class function Create: INexoDiagnosis;
@@ -24025,11 +24022,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoEvent fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoEvent exposée
-// par la CoClasse NexoEvent. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoEvent provides a Create and CreateRemote method to          
+// create instances of the default interface INexoEvent exposed by              
+// the CoClass NexoEvent. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoEvent = class
     class function Create: INexoEvent;
@@ -24037,11 +24034,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoTransactionStatus fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoTransactionStatus exposée
-// par la CoClasse NexoTransactionStatus. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoTransactionStatus provides a Create and CreateRemote method to          
+// create instances of the default interface INexoTransactionStatus exposed by              
+// the CoClass NexoTransactionStatus. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoTransactionStatus = class
     class function Create: INexoTransactionStatus;
@@ -24049,11 +24046,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoResponseType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoResponseType exposée
-// par la CoClasse NexoResponseType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoResponseType provides a Create and CreateRemote method to          
+// create instances of the default interface INexoResponseType exposed by              
+// the CoClass NexoResponseType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoResponseType = class
     class function Create: INexoResponseType;
@@ -24061,11 +24058,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDeviceInput fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDeviceInput exposée
-// par la CoClasse NexoDeviceInput. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDeviceInput provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDeviceInput exposed by              
+// the CoClass NexoDeviceInput. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDeviceInput = class
     class function Create: INexoDeviceInput;
@@ -24073,11 +24070,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDevicePrint fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDevicePrint exposée
-// par la CoClasse NexoDevicePrint. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDevicePrint provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDevicePrint exposed by              
+// the CoClass NexoDevicePrint. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDevicePrint = class
     class function Create: INexoDevicePrint;
@@ -24085,11 +24082,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoLogin fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoLogin exposée
-// par la CoClasse NexoLogin. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoLogin provides a Create and CreateRemote method to          
+// create instances of the default interface INexoLogin exposed by              
+// the CoClass NexoLogin. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoLogin = class
     class function Create: INexoLogin;
@@ -24097,11 +24094,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoLogout fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoLogout exposée
-// par la CoClasse NexoLogout. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoLogout provides a Create and CreateRemote method to          
+// create instances of the default interface INexoLogout exposed by              
+// the CoClass NexoLogout. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoLogout = class
     class function Create: INexoLogout;
@@ -24109,11 +24106,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoAdmin fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoAdmin exposée
-// par la CoClasse NexoAdmin. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoAdmin provides a Create and CreateRemote method to          
+// create instances of the default interface INexoAdmin exposed by              
+// the CoClass NexoAdmin. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoAdmin = class
     class function Create: INexoAdmin;
@@ -24121,11 +24118,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoObject fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoObject exposée
-// par la CoClasse NexoObject. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoObject provides a Create and CreateRemote method to          
+// create instances of the default interface INexoObject exposed by              
+// the CoClass NexoObject. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoObject = class
     class function Create: INexoObject;
@@ -24133,11 +24130,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoReversal fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoReversal exposée
-// par la CoClasse NexoReversal. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoReversal provides a Create and CreateRemote method to          
+// create instances of the default interface INexoReversal exposed by              
+// the CoClass NexoReversal. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoReversal = class
     class function Create: INexoReversal;
@@ -24145,11 +24142,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoObjectToProcess fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoObjectToProcess exposée
-// par la CoClasse NexoObjectToProcess. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoObjectToProcess provides a Create and CreateRemote method to          
+// create instances of the default interface INexoObjectToProcess exposed by              
+// the CoClass NexoObjectToProcess. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoObjectToProcess = class
     class function Create: INexoObjectToProcess;
@@ -24157,11 +24154,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoTextString fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoTextString exposée
-// par la CoClasse NexoTextString. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoTextString provides a Create and CreateRemote method to          
+// create instances of the default interface INexoTextString exposed by              
+// the CoClass NexoTextString. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoTextString = class
     class function Create: INexoTextString;
@@ -24169,11 +24166,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoBoolean fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoBooleanType exposée
-// par la CoClasse NexoBoolean. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoBoolean provides a Create and CreateRemote method to          
+// create instances of the default interface INexoBooleanType exposed by              
+// the CoClass NexoBoolean. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoBoolean = class
     class function Create: INexoBooleanType;
@@ -24181,11 +24178,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoInteger fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoInteger exposée
-// par la CoClasse NexoInteger. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoInteger provides a Create and CreateRemote method to          
+// create instances of the default interface INexoInteger exposed by              
+// the CoClass NexoInteger. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoInteger = class
     class function Create: INexoInteger;
@@ -24193,11 +24190,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDecimal fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDecimal exposée
-// par la CoClasse NexoDecimal. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDecimal provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDecimal exposed by              
+// the CoClass NexoDecimal. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDecimal = class
     class function Create: INexoDecimal;
@@ -24205,11 +24202,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoSimpleAmount fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDecimal exposée
-// par la CoClasse NexoSimpleAmount. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoSimpleAmount provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDecimal exposed by              
+// the CoClass NexoSimpleAmount. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoSimpleAmount = class
     class function Create: INexoDecimal;
@@ -24217,11 +24214,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoLabel fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoLabel exposée
-// par la CoClasse NexoLabel. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoLabel provides a Create and CreateRemote method to          
+// create instances of the default interface INexoLabel exposed by              
+// the CoClass NexoLabel. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoLabel = class
     class function Create: INexoLabel;
@@ -24229,11 +24226,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoEnumeration fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoEnumeration exposée
-// par la CoClasse NexoEnumeration. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoEnumeration provides a Create and CreateRemote method to          
+// create instances of the default interface INexoEnumeration exposed by              
+// the CoClass NexoEnumeration. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoEnumeration = class
     class function Create: INexoEnumeration;
@@ -24241,11 +24238,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCluster fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCluster exposée
-// par la CoClasse NexoCluster. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCluster provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCluster exposed by              
+// the CoClass NexoCluster. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCluster = class
     class function Create: INexoCluster;
@@ -24253,11 +24250,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoLengthDrivenTextString fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoLengthDrivenTextString exposée
-// par la CoClasse NexoLengthDrivenTextString. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoLengthDrivenTextString provides a Create and CreateRemote method to          
+// create instances of the default interface INexoLengthDrivenTextString exposed by              
+// the CoClass NexoLengthDrivenTextString. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoLengthDrivenTextString = class
     class function Create: INexoLengthDrivenTextString;
@@ -24265,11 +24262,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDigitString fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoDigitString exposée
-// par la CoClasse NexoDigitString. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDigitString provides a Create and CreateRemote method to          
+// create instances of the default interface INexoDigitString exposed by              
+// the CoClass NexoDigitString. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDigitString = class
     class function Create: INexoDigitString;
@@ -24277,11 +24274,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoISOCurrency3A fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoISOData exposée
-// par la CoClasse NexoISOCurrency3A. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoISOCurrency3A provides a Create and CreateRemote method to          
+// create instances of the default interface INexoISOData exposed by              
+// the CoClass NexoISOCurrency3A. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoISOCurrency3A = class
     class function Create: INexoISOData;
@@ -24289,11 +24286,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoISOCountry3A fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoISOData exposée
-// par la CoClasse NexoISOCountry3A. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoISOCountry3A provides a Create and CreateRemote method to          
+// create instances of the default interface INexoISOData exposed by              
+// the CoClass NexoISOCountry3A. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoISOCountry3A = class
     class function Create: INexoISOData;
@@ -24301,11 +24298,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoISOLanguage2A fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoISOData exposée
-// par la CoClasse NexoISOLanguage2A. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoISOLanguage2A provides a Create and CreateRemote method to          
+// create instances of the default interface INexoISOData exposed by              
+// the CoClass NexoISOLanguage2A. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoISOLanguage2A = class
     class function Create: INexoISOData;
@@ -24313,11 +24310,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoISODateTime fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoISODateTime exposée
-// par la CoClasse NexoISODateTime. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoISODateTime provides a Create and CreateRemote method to          
+// create instances of the default interface INexoISODateTime exposed by              
+// the CoClass NexoISODateTime. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoISODateTime = class
     class function Create: INexoISODateTime;
@@ -24325,11 +24322,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoISODate fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoISODate exposée
-// par la CoClasse NexoISODate. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoISODate provides a Create and CreateRemote method to          
+// create instances of the default interface INexoISODate exposed by              
+// the CoClass NexoISODate. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoISODate = class
     class function Create: INexoISODate;
@@ -24337,11 +24334,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoByteSequence fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoNonStringType exposée
-// par la CoClasse NexoByteSequence. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoByteSequence provides a Create and CreateRemote method to          
+// create instances of the default interface INexoNonStringType exposed by              
+// the CoClass NexoByteSequence. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoByteSequence = class
     class function Create: INexoNonStringType;
@@ -24349,11 +24346,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCurrency fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCurrency exposée
-// par la CoClasse NexoCurrency. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCurrency provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCurrency exposed by              
+// the CoClass NexoCurrency. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCurrency = class
     class function Create: INexoCurrency;
@@ -24361,11 +24358,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCurrencyEUR fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCurrency exposée
-// par la CoClasse NexoCurrencyEUR. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCurrencyEUR provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCurrency exposed by              
+// the CoClass NexoCurrencyEUR. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCurrencyEUR = class
     class function Create: INexoCurrency;
@@ -24373,11 +24370,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCurrencyUSD fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCurrency exposée
-// par la CoClasse NexoCurrencyUSD. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCurrencyUSD provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCurrency exposed by              
+// the CoClass NexoCurrencyUSD. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCurrencyUSD = class
     class function Create: INexoCurrency;
@@ -24385,11 +24382,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCurrencyGBP fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCurrency exposée
-// par la CoClasse NexoCurrencyGBP. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCurrencyGBP provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCurrency exposed by              
+// the CoClass NexoCurrencyGBP. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCurrencyGBP = class
     class function Create: INexoCurrency;
@@ -24397,11 +24394,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCurrencyCHF fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoCurrency exposée
-// par la CoClasse NexoCurrencyCHF. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCurrencyCHF provides a Create and CreateRemote method to          
+// create instances of the default interface INexoCurrency exposed by              
+// the CoClass NexoCurrencyCHF. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCurrencyCHF = class
     class function Create: INexoCurrency;
@@ -24409,11 +24406,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoSupportedProtocolVersions fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut IEnumerable exposée
-// par la CoClasse NexoSupportedProtocolVersions. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoSupportedProtocolVersions provides a Create and CreateRemote method to          
+// create instances of the default interface IEnumerable exposed by              
+// the CoClass NexoSupportedProtocolVersions. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoSupportedProtocolVersions = class
     class function Create: IEnumerable;
@@ -24421,11 +24418,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerClientHandle fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerClientHandle exposée
-// par la CoClasse NexoRetailerClientHandle. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerClientHandle provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerClientHandle exposed by              
+// the CoClass NexoRetailerClientHandle. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerClientHandle = class
     class function Create: INexoRetailerClientHandle;
@@ -24433,11 +24430,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerClient fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerClient exposée
-// par la CoClasse NexoRetailerClient. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerClient provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerClient exposed by              
+// the CoClass NexoRetailerClient. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerClient = class
     class function Create: INexoRetailerClient;
@@ -24445,11 +24442,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerClientSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerClientSettings exposée
-// par la CoClasse NexoRetailerClientSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerClientSettings provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerClientSettings exposed by              
+// the CoClass NexoRetailerClientSettings. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerClientSettings = class
     class function Create: INexoRetailerClientSettings;
@@ -24457,11 +24454,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerClientConnectionSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerClientConnectionSettings exposée
-// par la CoClasse NexoRetailerClientConnectionSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerClientConnectionSettings provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerClientConnectionSettings exposed by              
+// the CoClass NexoRetailerClientConnectionSettings. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerClientConnectionSettings = class
     class function Create: INexoRetailerClientConnectionSettings;
@@ -24469,11 +24466,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerClientActivity fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerClientActivity exposée
-// par la CoClasse NexoRetailerClientActivity. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerClientActivity provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerClientActivity exposed by              
+// the CoClass NexoRetailerClientActivity. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerClientActivity = class
     class function Create: INexoRetailerClientActivity;
@@ -24481,11 +24478,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerActivity fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerServerActivity exposée
-// par la CoClasse NexoRetailerServerActivity. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerActivity provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerServerActivity exposed by              
+// the CoClass NexoRetailerServerActivity. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerActivity = class
     class function Create: INexoRetailerServerActivity;
@@ -24493,11 +24490,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerDatabaseSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerServerDatabaseSettings exposée
-// par la CoClasse NexoRetailerServerDatabaseSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerDatabaseSettings provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerServerDatabaseSettings exposed by              
+// the CoClass NexoRetailerServerDatabaseSettings. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerDatabaseSettings = class
     class function Create: INexoRetailerServerDatabaseSettings;
@@ -24505,11 +24502,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerSettings fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut INexoRetailerServerSettings exposée
-// par la CoClasse NexoRetailerServerSettings. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerSettings provides a Create and CreateRemote method to          
+// create instances of the default interface INexoRetailerServerSettings exposed by              
+// the CoClass NexoRetailerServerSettings. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerSettings = class
     class function Create: INexoRetailerServerSettings;
@@ -24517,11 +24514,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoMessage fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoMessage exposée
-// par la CoClasse NexoMessage. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoMessage provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoMessage exposed by              
+// the CoClass NexoMessage. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoMessage = class
     class function Create: _NexoMessage;
@@ -24529,11 +24526,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoPartner fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoPartner exposée
-// par la CoClasse NexoPartner. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoPartner provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoPartner exposed by              
+// the CoClass NexoPartner. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoPartner = class
     class function Create: _NexoPartner;
@@ -24541,11 +24538,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoEndPoint fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoEndPoint exposée
-// par la CoClasse NexoEndPoint. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoEndPoint provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoEndPoint exposed by              
+// the CoClass NexoEndPoint. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoEndPoint = class
     class function Create: _NexoEndPoint;
@@ -24553,11 +24550,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoSession fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoSession exposée
-// par la CoClasse NexoSession. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoSession provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoSession exposed by              
+// the CoClass NexoSession. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoSession = class
     class function Create: _NexoSession;
@@ -24565,11 +24562,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDelegates fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoDelegates exposée
-// par la CoClasse NexoDelegates. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDelegates provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoDelegates exposed by              
+// the CoClass NexoDelegates. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDelegates = class
     class function Create: _NexoDelegates;
@@ -24577,11 +24574,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoKey fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoKey exposée
-// par la CoClasse NexoKey. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoKey provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoKey exposed by              
+// the CoClass NexoKey. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoKey = class
     class function Create: _NexoKey;
@@ -24589,11 +24586,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoObjectExtension fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoObjectExtension exposée
-// par la CoClasse NexoObjectExtension. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoObjectExtension provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoObjectExtension exposed by              
+// the CoClass NexoObjectExtension. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoObjectExtension = class
     class function Create: _NexoObjectExtension;
@@ -24601,11 +24598,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoMessageType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoMessageType exposée
-// par la CoClasse NexoMessageType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoMessageType provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoMessageType exposed by              
+// the CoClass NexoMessageType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoMessageType = class
     class function Create: _NexoMessageType;
@@ -24613,11 +24610,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoMessageClass fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoMessageClass exposée
-// par la CoClasse NexoMessageClass. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoMessageClass provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoMessageClass exposed by              
+// the CoClass NexoMessageClass. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoMessageClass = class
     class function Create: _NexoMessageClass;
@@ -24625,11 +24622,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoMessageCategory fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoMessageCategory exposée
-// par la CoClasse NexoMessageCategory. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoMessageCategory provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoMessageCategory exposed by              
+// the CoClass NexoMessageCategory. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoMessageCategory = class
     class function Create: _NexoMessageCategory;
@@ -24637,11 +24634,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoTerminalEnvironment fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoTerminalEnvironment exposée
-// par la CoClasse NexoTerminalEnvironment. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoTerminalEnvironment provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoTerminalEnvironment exposed by              
+// the CoClass NexoTerminalEnvironment. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoTerminalEnvironment = class
     class function Create: _NexoTerminalEnvironment;
@@ -24649,11 +24646,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoSaleCapabilities fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoSaleCapabilities exposée
-// par la CoClasse NexoSaleCapabilities. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoSaleCapabilities provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoSaleCapabilities exposed by              
+// the CoClass NexoSaleCapabilities. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoSaleCapabilities = class
     class function Create: _NexoSaleCapabilities;
@@ -24661,11 +24658,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoProtocolVersion fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoProtocolVersion exposée
-// par la CoClasse NexoProtocolVersion. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoProtocolVersion provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoProtocolVersion exposed by              
+// the CoClass NexoProtocolVersion. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoProtocolVersion = class
     class function Create: _NexoProtocolVersion;
@@ -24673,11 +24670,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoID fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoID exposée
-// par la CoClasse NexoID. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoID provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoID exposed by              
+// the CoClass NexoID. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoID = class
     class function Create: _NexoID;
@@ -24685,11 +24682,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoServiceID fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoServiceID exposée
-// par la CoClasse NexoServiceID. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoServiceID provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoServiceID exposed by              
+// the CoClass NexoServiceID. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoServiceID = class
     class function Create: _NexoServiceID;
@@ -24697,11 +24694,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDeviceID fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoDeviceID exposée
-// par la CoClasse NexoDeviceID. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDeviceID provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoDeviceID exposed by              
+// the CoClass NexoDeviceID. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDeviceID = class
     class function Create: _NexoDeviceID;
@@ -24709,11 +24706,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoPOIID fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoPOIID exposée
-// par la CoClasse NexoPOIID. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoPOIID provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoPOIID exposed by              
+// the CoClass NexoPOIID. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoPOIID = class
     class function Create: _NexoPOIID;
@@ -24721,11 +24718,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoSaleID fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoSaleID exposée
-// par la CoClasse NexoSaleID. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoSaleID provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoSaleID exposed by              
+// the CoClass NexoSaleID. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoSaleID = class
     class function Create: _NexoSaleID;
@@ -24733,11 +24730,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoOperatorLanguage fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoOperatorLanguage exposée
-// par la CoClasse NexoOperatorLanguage. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoOperatorLanguage provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoOperatorLanguage exposed by              
+// the CoClass NexoOperatorLanguage. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoOperatorLanguage = class
     class function Create: _NexoOperatorLanguage;
@@ -24745,11 +24742,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoResult fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoResult exposée
-// par la CoClasse NexoResult. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoResult provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoResult exposed by              
+// the CoClass NexoResult. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoResult = class
     class function Create: _NexoResult;
@@ -24757,11 +24754,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoErrorCondition fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoErrorCondition exposée
-// par la CoClasse NexoErrorCondition. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoErrorCondition provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoErrorCondition exposed by              
+// the CoClass NexoErrorCondition. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoErrorCondition = class
     class function Create: _NexoErrorCondition;
@@ -24769,11 +24766,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoAdditionalResponse fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoAdditionalResponse exposée
-// par la CoClasse NexoAdditionalResponse. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoAdditionalResponse provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoAdditionalResponse exposed by              
+// the CoClass NexoAdditionalResponse. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoAdditionalResponse = class
     class function Create: _NexoAdditionalResponse;
@@ -24781,11 +24778,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoGlobalStatus fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoGlobalStatus exposée
-// par la CoClasse NexoGlobalStatus. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoGlobalStatus provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoGlobalStatus exposed by              
+// the CoClass NexoGlobalStatus. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoGlobalStatus = class
     class function Create: _NexoGlobalStatus;
@@ -24793,11 +24790,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCertificationCode fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoCertificationCode exposée
-// par la CoClasse NexoCertificationCode. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCertificationCode provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoCertificationCode exposed by              
+// the CoClass NexoCertificationCode. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCertificationCode = class
     class function Create: _NexoCertificationCode;
@@ -24805,11 +24802,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoSoftwareVersion fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoSoftwareVersion exposée
-// par la CoClasse NexoSoftwareVersion. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoSoftwareVersion provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoSoftwareVersion exposed by              
+// the CoClass NexoSoftwareVersion. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoSoftwareVersion = class
     class function Create: _NexoSoftwareVersion;
@@ -24817,11 +24814,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoApplicationName fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoApplicationName exposée
-// par la CoClasse NexoApplicationName. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoApplicationName provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoApplicationName exposed by              
+// the CoClass NexoApplicationName. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoApplicationName = class
     class function Create: _NexoApplicationName;
@@ -24829,11 +24826,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoManufacturerID fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoManufacturerID exposée
-// par la CoClasse NexoManufacturerID. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoManufacturerID provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoManufacturerID exposed by              
+// the CoClass NexoManufacturerID. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoManufacturerID = class
     class function Create: _NexoManufacturerID;
@@ -24841,11 +24838,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoPOISerialNumber fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoPOISerialNumber exposée
-// par la CoClasse NexoPOISerialNumber. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoPOISerialNumber provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoPOISerialNumber exposed by              
+// the CoClass NexoPOISerialNumber. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoPOISerialNumber = class
     class function Create: _NexoPOISerialNumber;
@@ -24853,11 +24850,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoOperatorID fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoOperatorID exposée
-// par la CoClasse NexoOperatorID. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoOperatorID provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoOperatorID exposed by              
+// the CoClass NexoOperatorID. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoOperatorID = class
     class function Create: _NexoOperatorID;
@@ -24865,11 +24862,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoDateTime fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoDateTime exposée
-// par la CoClasse NexoDateTime. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoDateTime provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoDateTime exposed by              
+// the CoClass NexoDateTime. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoDateTime = class
     class function Create: _NexoDateTime;
@@ -24877,11 +24874,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoInputCommand fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoInputCommand exposée
-// par la CoClasse NexoInputCommand. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoInputCommand provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoInputCommand exposed by              
+// the CoClass NexoInputCommand. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoInputCommand = class
     class function Create: _NexoInputCommand;
@@ -24889,11 +24886,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoEventToNotify fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoEventToNotify exposée
-// par la CoClasse NexoEventToNotify. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoEventToNotify provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoEventToNotify exposed by              
+// the CoClass NexoEventToNotify. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoEventToNotify = class
     class function Create: _NexoEventToNotify;
@@ -24901,11 +24898,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoPaymentIntrumentType fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoPaymentIntrumentType exposée
-// par la CoClasse NexoPaymentIntrumentType. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoPaymentIntrumentType provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoPaymentIntrumentType exposed by              
+// the CoClass NexoPaymentIntrumentType. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoPaymentIntrumentType = class
     class function Create: _NexoPaymentIntrumentType;
@@ -24913,11 +24910,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoVersion fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoVersion exposée
-// par la CoClasse NexoVersion. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoVersion provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoVersion exposed by              
+// the CoClass NexoVersion. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoVersion = class
     class function Create: _NexoVersion;
@@ -24925,11 +24922,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoCurrentVersion fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoCurrentVersion exposée
-// par la CoClasse NexoCurrentVersion. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoCurrentVersion provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoCurrentVersion exposed by              
+// the CoClass NexoCurrentVersion. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoCurrentVersion = class
     class function Create: _NexoCurrentVersion;
@@ -24937,11 +24934,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerDatabaseConnection fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoRetailerServerDatabaseConnection exposée
-// par la CoClasse NexoRetailerServerDatabaseConnection. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerDatabaseConnection provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoRetailerServerDatabaseConnection exposed by              
+// the CoClass NexoRetailerServerDatabaseConnection. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerDatabaseConnection = class
     class function Create: _NexoRetailerServerDatabaseConnection;
@@ -24949,11 +24946,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerDatabaseEndPoint fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoRetailerServerDatabaseEndPoint exposée
-// par la CoClasse NexoRetailerServerDatabaseEndPoint. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerDatabaseEndPoint provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoRetailerServerDatabaseEndPoint exposed by              
+// the CoClass NexoRetailerServerDatabaseEndPoint. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerDatabaseEndPoint = class
     class function Create: _NexoRetailerServerDatabaseEndPoint;
@@ -24961,11 +24958,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerDatabaseSale fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoRetailerServerDatabaseSale exposée
-// par la CoClasse NexoRetailerServerDatabaseSale. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerDatabaseSale provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoRetailerServerDatabaseSale exposed by              
+// the CoClass NexoRetailerServerDatabaseSale. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerDatabaseSale = class
     class function Create: _NexoRetailerServerDatabaseSale;
@@ -24973,11 +24970,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerDatabaseMessage fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoRetailerServerDatabaseMessage exposée
-// par la CoClasse NexoRetailerServerDatabaseMessage. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerDatabaseMessage provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoRetailerServerDatabaseMessage exposed by              
+// the CoClass NexoRetailerServerDatabaseMessage. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerDatabaseMessage = class
     class function Create: _NexoRetailerServerDatabaseMessage;
@@ -24985,11 +24982,11 @@ type
   end;
 
 // *********************************************************************//
-// La classe CoNexoRetailerServerDatabase fournit une méthode Create et CreateRemote pour
-// créer des instances de l'interface par défaut _NexoRetailerServerDatabase exposée
-// par la CoClasse NexoRetailerServerDatabase. Les fonctions sont destinées à être utilisées par
-// les clients désirant automatiser les objets CoClasse exposés par
-// le serveur de cette bibliothèque de types.
+// The Class CoNexoRetailerServerDatabase provides a Create and CreateRemote method to          
+// create instances of the default interface _NexoRetailerServerDatabase exposed by              
+// the CoClass NexoRetailerServerDatabase. The functions are intended to be used by             
+// clients wishing to automate the CoClass objects exposed by the         
+// server of this typelibrary.                                            
 // *********************************************************************//
   CoNexoRetailerServerDatabase = class
     class function Create: _NexoRetailerServerDatabase;

@@ -10,6 +10,7 @@ Imports System.IO
 Imports Newtonsoft.Json
 Imports System.Drawing.Printing
 Imports System.Drawing
+Imports System.Text.RegularExpressions
 
 <ComVisible(True)>
 Public Enum Action
@@ -770,7 +771,7 @@ Public Class NEXOSALE
 	'		Return WM_ASYNCHRONOUSTERMINATE
 	'	End Get
 	'End Property
-	'Private Const WM_ASYNCHRONOUSTERMINATE As Integer = Win32.WM_USER + 1000
+	'Private Const WM_ASYNCHRONOUSTERMINATE As Integer = Win32.WM_APP + 1000
 
 	''' <summary>
 	''' Allows bypassing printing setting if the component is included inside an application already allowing printing of the receipts.
@@ -831,6 +832,19 @@ Public Class NEXOSALE
 	End Property
 	Private _lastreceipt As PaymentReceiptType() = Nothing
 
+	''' <summary>
+	''' Masked PAN if available
+	''' </summary>
+	<DispId(54)>
+	Public Property MaskedPAN As String
+		Get
+			Return _maskedpan
+		End Get
+		Friend Set(value As String)
+			_maskedpan = value
+		End Set
+	End Property
+	Private _maskedpan As String = String.Empty
 #End Region
 
 #Region "public methods"
@@ -1033,7 +1047,7 @@ Public Class NEXOSALE
 	''' </summary>
 	''' <returns>True is connected, false otherwise</returns>
 	<DispId(200)>
-	Public Function Connect() As Boolean
+	Public Function Connect(Optional clientSettings As NexoRetailerClientSettings = Nothing) As Boolean
 		If Not Connected Then
 			_islogged = False
 			'Dim poi As POISettings
@@ -1041,23 +1055,26 @@ Public Class NEXOSALE
 			If UseBackup Then _poiinuse = Settings.Backup Else _poiinuse = Settings.Primary
 			'If Connected Then Disconnect()
 			If (Not String.IsNullOrEmpty(_poiinuse.ServerIP)) Then
-				Dim clientSettings As NexoRetailerClientSettings
+				'Dim clientSettings As NexoRetailerClientSettings
+				If IsNothing(clientSettings) Then clientSettings = New NexoRetailerClientSettings
 				If Settings.UseGPRS Then
-					clientSettings = New NexoRetailerClientSettings With {
-						.StreamClientSettings = New CStreamClientSettings With {
-						.IP = Settings.GatewayIP,
-						.Port = Settings.GatewayPort,
-						.ServerName = Settings.ServerName,
-						.AllowedSslErrors = Settings.AllowedSslErrors,
-						.ReceiveTimeout = _poiinuse.GeneralTimer,
-						.ConnectTimeout = _poiinuse.GeneralTimer}}
+					clientSettings.StreamClientSettings = New CStreamClientSettings With
+					{
+					.IP = Settings.GatewayIP,
+					.Port = Settings.GatewayPort,
+					.ServerName = Settings.ServerName,
+					.AllowedSslErrors = Settings.AllowedSslErrors,
+					.ReceiveTimeout = _poiinuse.GeneralTimer,
+					.ConnectTimeout = _poiinuse.GeneralTimer
+					}
 				Else
-					clientSettings = New NexoRetailerClientSettings With {
-						.StreamClientSettings = New CStreamClientSettings With {
-						.IP = POIInUse.ServerIP,
-						.Port = POIInUse.ServerPort,
-						.ReceiveTimeout = _poiinuse.GeneralTimer,
-						.ConnectTimeout = _poiinuse.GeneralTimer}}
+					clientSettings.StreamClientSettings = New CStreamClientSettings With
+					{
+					.IP = POIInUse.ServerIP,
+					.Port = POIInUse.ServerPort,
+					.ReceiveTimeout = _poiinuse.GeneralTimer,
+					.ConnectTimeout = _poiinuse.GeneralTimer
+					}
 				End If
 				Return NexoClient.Connect(clientSettings)
 			End If
@@ -1347,8 +1364,50 @@ Public Class NEXOSALE
 			GetSchemeFromAvailableData = DEFAULT_BRAND
 		End If
 
-		CLog.Add($"Transaction brand: {GetSchemeFromAvailableData}")
+		CLog.TRACE($"Transaction brand: {GetSchemeFromAvailableData}")
 		Return GetSchemeFromAvailableData
+	End Function
+
+	''' <summary>
+	''' Tries to determine the scheme base on a <see cref="NexoPayment"/> object
+	''' Determination is done by:
+	'''  1/ analysing the <see cref="NexoPayment.ReplyPaymentBrand"/> looking for a scheme name
+	'''  2/ analysing all receipts looking for a scheme name
+	''' </summary>
+	''' <param name="nxo">The <see cref="NexoPayment"/> object to analyse</param>
+	''' <returns>The scheme if one found or a default value <see cref="DEFAULT_BRAND"/> if no scheme could be found</returns>
+	Friend Function GetPANFromAvailableData(nxo As NexoPayment) As String
+		Dim sz As String = Nothing
+		GetPANFromAvailableData = String.Empty
+
+		'look inside the receipts
+		If GetPANFromAvailableData.IsNullOrEmpty And 0 <> nxo.ReplyData.PaymentReceiptLength Then
+			'loop on all available receipts
+			For i As Integer = 0 To nxo.ReplyData.PaymentReceiptLength - 1
+				Dim receipt = nxo.ReplyData.PaymentReceiptGetItem(i)
+				If GetPANFromAvailableData.IsNullOrEmpty AndAlso Not IsNothing(receipt) AndAlso Not IsNothing(receipt.OutputContent) AndAlso 0 <> receipt.OutputContent.OutputTextLength Then
+					'loop on all available lines inside the receipt
+					For j As Integer = 0 To receipt.OutputContent.OutputTextLength - 1
+						Dim outputtext = receipt.OutputContent.OutputTextGetItem(j)
+						'try to determine the scheme
+						If Not IsNothing(outputtext) AndAlso Not IsNothing(outputtext.Value) Then
+							Dim m = Regex.Match(outputtext.Value, "[0-9]{4,}([*]{2,}|[#]{2,})[0-9]{4}")
+							If m.Success Then
+								GetPANFromAvailableData = m.Value
+								Exit For
+							End If
+						End If
+					Next
+				Else
+					If Not GetPANFromAvailableData.IsNullOrEmpty Then Exit For
+				End If
+			Next
+		End If
+
+		If Not GetPANFromAvailableData.IsNullOrEmpty Then
+			CLog.TRACE($"Masked PAN: {GetPANFromAvailableData}")
+		End If
+		Return GetPANFromAvailableData
 	End Function
 
 	'''' <summary>

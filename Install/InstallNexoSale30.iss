@@ -21,6 +21,7 @@
 #define MyRegistryKey "SettingsFileName"
 #define MySimulatorRegistryKey "Settings"
 #define MyUserdocs "..\..\.."
+#define MyNexoSaleFolder "nexoSale"
 #define MyPDFToAdd "..\PMS.NEXOSALE*.pdf"
 
 [Setup]
@@ -62,18 +63,18 @@ Source: "{#MyExeDir}\libhpdf.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\PMS.NEXOSALE30.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\fr\PMS.NEXOSALE30.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
 
-Source: "{#MyExeDir}\System.*.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}\Microsoft.*.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "{#MyExeDir}\netstandard.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#MyExeDir}\System.*.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#MyExeDir}\Microsoft.*.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#MyExeDir}\netstandard.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 Source: "{#MyExeDir}\nexoSaleTest.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDir}\fr\nexoSaleTest.*.dll"; DestDir: "{app}\fr"; Flags: ignoreversion
 
-Source: "{#MyUserdocs}\nexosale.settings.json"; DestDir: "{userdocs}\{#MyAppKey}"; Flags: ignoreversion
+Source: "{#MyUserdocs}\{#MyNexoSaleFolder}\nexosale.settings.json"; DestDir: "{userdocs}\{#MyNexoSaleFolder}"; Flags: ignoreversion
 Source: "{#MySimulatorDir}\nexoSimulator30.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MySimulatorDir}\nexoBuilder30.exe"; DestDir: "{app}"; Flags: ignoreversion
 
-;Source: "{#MyDelphiExeDir}nexodsaletest.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyDelphiExeDir}\nexodsaletest.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyDelphiCodeDir}\*.*"; DestDir: "{app}\nexodsaletest"; Flags: recursesubdirs ignoreversion
 
 Source: "{#MySimulatorDir}\nexo.simulator.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist

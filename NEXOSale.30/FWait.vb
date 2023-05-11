@@ -1,9 +1,11 @@
 ﻿Imports System.Windows.Forms
 Imports COMMON
 Imports COMMON.WIN32
+Imports NEXO.Client
 
 Public Class FWait
 
+	Private clientSettings As NexoRetailerClientSettings
 	Private nexoSale As NEXOSALE
 	Private thr As New CThread()
 
@@ -19,9 +21,10 @@ Public Class FWait
 	Private Const WM_CONNECT_ERROR As UInteger = WM_BASE + 52
 	Private Const WM_CONNECT_END As UInteger = WM_BASE + 53
 
-	Public Sub New(p As NEXOSALE)
+	Public Sub New(p As NEXOSALE, settings As NexoRetailerClientSettings)
 		' This call is required by the designer.
 		InitializeComponent()
+		clientSettings = settings
 		nexoSale = p
 	End Sub
 
@@ -56,7 +59,7 @@ Public Class FWait
 		Win32.PostMessage(hwnd, msg, wparam, lparam)
 	End Sub
 
-	Private Sub SendMessage(msg As UInteger, Optional wparam As Integer = 0, Optional lparam As Integer = 0)
+	Private Sub SendMessage(msg As Integer, Optional wparam As Integer = 0, Optional lparam As Integer = 0)
 		Win32.SendMessage(Me.Handle, msg, wparam, lparam)
 	End Sub
 #End Region
@@ -118,7 +121,7 @@ Public Class FWait
 	End Sub
 
 	Function MyThreadFunction(thread As CThread, Optional o As Object = Nothing) As Integer
-		Dim f As Boolean = nexoSale.Connect()
+		Dim f As Boolean = nexoSale.Connect(clientSettings)
 		If f Then
 			Return WM_CONNECT_SUCCESS
 		End If

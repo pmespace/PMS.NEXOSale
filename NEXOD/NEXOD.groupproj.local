@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/05/05 09:53:59.804,C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\NEXOD.groupproj=C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\ProjectGroup1.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="C:\Users\philippe\Documents\Dev\NEXOSale\NEXOD\nexoDSaleTest\nexoDSaleTest.dproj"/>
+	</Default.Personality>
+</BorlandProject>

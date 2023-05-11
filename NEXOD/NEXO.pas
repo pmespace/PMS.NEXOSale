@@ -591,7 +591,10 @@ begin
 										txnMode := TXN_MODE_ONLINE
 									else
 										txnMode := TXN_MODE_OFFLINE;
-									txnCard := myNexo.Payment.ReplyData.PaymentResult.PaymentInstrumentData.CardData.MaskedPAN;
+									if '' <> myNexo.Payment.ReplyData.PaymentResult.PaymentInstrumentData.CardData.MaskedPAN then
+										txnCard := myNexo.Payment.ReplyData.PaymentResult.PaymentInstrumentData.CardData.MaskedPAN
+									else
+										txnCard := myNexo.MaskedPAN;
 									txnReference := CreateID();
 									szLastPurchaseTransactionID := txnReference;
 									lsTrace := lsTrace + ' - authorised amount: ' + formatFloat('#,##0.00', processedAmount) + ' - txn ID: ' + txnReference + ' - authorisation number: ' + txnAuthNumber;
