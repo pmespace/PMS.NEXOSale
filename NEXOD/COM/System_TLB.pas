@@ -12,7 +12,7 @@ unit System_TLB;
 // ************************************************************************ //
 
 // $Rev: 98336 $
-// File generated on 11/05/2023 18:08:18 from Type Library described below.
+// File generated on 12/07/2023 07:56:18 from Type Library described below.
 
 // ************************************************************************  //
 // Type Lib: C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.tlb (2)

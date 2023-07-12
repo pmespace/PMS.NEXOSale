@@ -22,6 +22,7 @@ Partial Class FSettings
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FSettings))
 		Me.panelMain = New System.Windows.Forms.TableLayoutPanel()
 		Me.panelButtons = New System.Windows.Forms.TableLayoutPanel()
@@ -157,10 +158,11 @@ Partial Class FSettings
 		Me.cbUseRefundForCancel = New System.Windows.Forms.CheckBox()
 		Me.Label15 = New System.Windows.Forms.Label()
 		Me.cbxTraceLevel = New System.Windows.Forms.ComboBox()
+		Me.cbNotifAlwaysOK = New System.Windows.Forms.CheckBox()
+		Me.cbDisplayAlwaysReturnsOK = New System.Windows.Forms.CheckBox()
 		Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
 		Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
-		Me.cbDisplayAlwaysReturnsOK = New System.Windows.Forms.CheckBox()
-		Me.cbNotifAlwaysOK = New System.Windows.Forms.CheckBox()
+		Me.timerReset = New System.Windows.Forms.Timer(Me.components)
 		Me.panelMain.SuspendLayout()
 		Me.panelButtons.SuspendLayout()
 		Me.TabControl1.SuspendLayout()
@@ -1098,11 +1100,11 @@ Partial Class FSettings
 		Me.cbxTraceLevel.FormattingEnabled = True
 		Me.cbxTraceLevel.Name = "cbxTraceLevel"
 		'
-		'OpenFileDialog1
+		'cbNotifAlwaysOK
 		'
-		Me.OpenFileDialog1.CheckFileExists = False
-		Me.OpenFileDialog1.CheckPathExists = False
-		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+		resources.ApplyResources(Me.cbNotifAlwaysOK, "cbNotifAlwaysOK")
+		Me.cbNotifAlwaysOK.Name = "cbNotifAlwaysOK"
+		Me.cbNotifAlwaysOK.UseVisualStyleBackColor = True
 		'
 		'cbDisplayAlwaysReturnsOK
 		'
@@ -1110,11 +1112,14 @@ Partial Class FSettings
 		Me.cbDisplayAlwaysReturnsOK.Name = "cbDisplayAlwaysReturnsOK"
 		Me.cbDisplayAlwaysReturnsOK.UseVisualStyleBackColor = True
 		'
-		'cbNotifAlwaysOK
+		'OpenFileDialog1
 		'
-		resources.ApplyResources(Me.cbNotifAlwaysOK, "cbNotifAlwaysOK")
-		Me.cbNotifAlwaysOK.Name = "cbNotifAlwaysOK"
-		Me.cbNotifAlwaysOK.UseVisualStyleBackColor = True
+		Me.OpenFileDialog1.CheckFileExists = False
+		Me.OpenFileDialog1.CheckPathExists = False
+		Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+		'
+		'timerReset
+		'
 		'
 		'FSettings
 		'
@@ -1351,4 +1356,5 @@ Partial Class FSettings
 	Friend WithEvents cbSupportDeviceDisplay As Windows.Forms.CheckBox
 	Friend WithEvents cbNotifAlwaysOK As Windows.Forms.CheckBox
 	Friend WithEvents cbDisplayAlwaysReturnsOK As Windows.Forms.CheckBox
+	Friend WithEvents timerReset As Windows.Forms.Timer
 End Class

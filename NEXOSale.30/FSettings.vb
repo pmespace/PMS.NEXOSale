@@ -21,6 +21,7 @@ Public Class FSettings
 	Public Settings As Settings
 	Public UseBackup As Boolean = False
 	Dim currencies As Currencies = Nothing
+	Private Const ONE_SECOND As Integer = 1000
 
 	Private Property Modified As Boolean
 		Get
@@ -198,7 +199,6 @@ Public Class FSettings
 		End Function
 	End Structure
 
-
 	Private Sub LoadCurrencies()
 		'load available currencies from a json stored inside the same folder
 		Dim json As New CJson(Of Currencies)()
@@ -225,6 +225,7 @@ Public Class FSettings
 
 	Private Sub TestConnection(streamSettings As CStreamClientSettings, ip As Control, port As Control)
 		Cursor = Cursors.WaitCursor
+		timerReset.Stop()
 		Dim streamIO = CStream.Connect(streamSettings)
 		If streamIO Is Nothing Then
 			SetServerColors(ip, port, Color.Crimson)
@@ -232,6 +233,8 @@ Public Class FSettings
 			CStream.Disconnect(streamIO)
 			SetServerColors(ip, port, Color.LightGreen)
 		End If
+		timerReset.Interval = ONE_SECOND * 3
+		timerReset.Start()
 		Cursor = Cursors.Default
 	End Sub
 
@@ -387,6 +390,7 @@ Public Class FSettings
 			efLogFileName.Text = Settings.LogFileName
 			cbUseBackup.Checked = UseBackup
 			cbNoAutoCloseOnError.Checked = Settings.NoAutocloseOnError
+			cbUseDate.Checked = Settings.UseDate
 
 			cbAlwaysLogToPOI.Checked = Settings.AlwaysLogToPOI
 
@@ -672,6 +676,11 @@ Public Class FSettings
 			efReceiptsDirectory.Text = FolderBrowserDialog1.SelectedPath
 		End If
 		SetButtons()
+	End Sub
+
+	Private Sub timerReset_Tick(sender As Object, e As EventArgs) Handles timerReset.Tick
+		SetServerColors(efServerIP, udServerPort, SystemColors.Window)
+		timerReset.Stop()
 	End Sub
 
 End Class

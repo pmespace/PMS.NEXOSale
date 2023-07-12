@@ -12,9 +12,9 @@
 #define MySettingsFileName "pms.nexo30.cegid.settings.json"
 #define MySimulator "Simulator"
 #define MyLibVersion GetVersionNumbersString("..\Bin\PMS.NEXOSALE30.dll")
-#define MyDriverVersion GetDateTimeString('yyyymmddhhnnss', '', '');
+#define MyDriverVersion GetDateTimeString('yyyy-mm-dd', '', '');
 #define MyExeDir "..\bin"
-#define MySimulatorDir "..\..\retailer3x\bin\net47"
+#define MySimulatorDir "..\..\nexo\bin\net47"
 #define MyExeDelphiDir "..\NEXOD\Bin"
 #define MyAppPublisher "PMS"
 #define MyRegistry "Software\PMS\NexoSale\"
@@ -72,7 +72,7 @@ Source: "{#MySimulatorDir}\nexoSimulator30.exe"; DestDir: "{app}"; Flags: ignore
 Source: "{#MySimulatorDir}\nexoBuilder30.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyExeDelphiDir}\PMS.NEXO30.CEGID.dll"; DestDir: "{app}"; Flags: ignoreversion
 
-Source: "{#MyExeDelphiDir}\{#MySettingsFileName}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: onlyifdoesntexist
+;Source: "{#MyExeDelphiDir}\{#MySettingsFileName}"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; Flags: onlyifdoesntexist
 Source: "{#myUserdocs}\nexosale\nexosale.settings.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySettings}"; DestName: "{#MySettingsFileName}"; Flags: onlyifdoesntexist
 Source: "{#MySimulatorDir}\nexo.simulator.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
 Source: "{#MySimulatorDir}\nexo.simulator.response.*.json"; DestDir: "{commonappdata}\{#MyAppKey}\{#MySimulator}"; Flags: onlyifdoesntexist
